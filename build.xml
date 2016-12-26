@@ -1,0 +1,49 @@
+<project name="TestNGTest" default="test" basedir=".">
+	<!-- Define <testng> task -->
+	<property name="testdir" location="test" />
+	<property name="reportdir" location="test-output" />
+	<property name="srcdir" location="src" />
+	<property name="xmldir" location="xml" />
+	<property name="libdir" location="lib" />
+	<property name="full-compile" value="true" />
+	<path id="classpath.base" />
+	<path id="classpath.test">
+		<fileset dir="${libdir}">
+			<include name="**/*.jar" />
+		</fileset>
+		<pathelement location="${testdir}" />
+		<pathelement location="${srcdir}" />
+		<path refid="classpath.base" />
+	</path>
+	<taskdef name="testng" classname="org.testng.TestNGAntTask">
+		<classpath>
+			<fileset dir="${libdir}">
+				<include name="**/*.jar" />
+			</fileset>
+		</classpath>
+	</taskdef>
+
+	<target name="clean">
+		<delete verbose="${full-compile}">
+			<fileset dir="${testdir}" includes="**/*.class" />
+		</delete>
+	</target>
+	<target name="compile" depends="clean">
+		<javac encoding="utf-8" srcdir="${srcdir}" destdir="${testdir}"
+			includeantruntime="on" verbose="${full-compile}">
+			<classpath refid="classpath.test" />
+		</javac>
+	</target>
+	<target name="test" depends="compile">
+		<testng outputdir="${reportdir}" classpathref="classpath.test" listeners="ckt.App.Util.TestngListener">
+			<xmlfileset dir="${xmldir}" includes="*.xml" />
+		</testng>
+		<xslt in="${basedir}/test-output/testng-results.xml" 
+			style="${basedir}/test-output/testng-results.xsl"  
+			out="${basedir}/test-output/index1.html">
+			<!-- you need to specify the directory here again -->
+			<param name="testNgXslt.outputDir" expression="${basedir}/test-output/" />
+			<classpath refid="classpath.test" />
+		</xslt>
+	</target>
+</project>

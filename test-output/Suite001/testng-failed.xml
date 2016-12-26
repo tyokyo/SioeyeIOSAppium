@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="3" name="Failed suite [Suite001]" parallel="classes">
+  <test name="testng_demo1(failed)" parallel="classes">
+    <classes>
+      <class name="ckt.App.TestCase.LoginCase">
+        <methods>
+          <include name="WatchAndSignUp2"/>
+          <include name="WatchAndSignUp1"/>
+          <include name="afterClass"/>
+          <include name="beforeClass"/>
+        </methods>
+      </class> <!-- ckt.App.TestCase.LoginCase -->
+    </classes>
+  </test> <!-- testng_demo1(failed) -->
+</suite> <!-- Failed suite [Suite001] -->
