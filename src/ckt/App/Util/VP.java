@@ -27,11 +27,18 @@ public class VP extends AppiumBase {
 	}
 	public static boolean text_exist(String text){
 		boolean exist = false;
-		try {
-			exist = iosdriver.findElement(By.name(text))==null?false:true;
-		} catch (org.openqa.selenium.NoSuchElementException e) {
-			// TODO: handle exception
+		if (iosdriver.getPageSource().contains(text)) {
+			exist=true;
 		}
 		return exist ;
+	}
+	public static void wait(int time){
+		try {
+			Thread.currentThread();
+			Thread.sleep(time*1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

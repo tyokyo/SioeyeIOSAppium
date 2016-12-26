@@ -9,7 +9,7 @@
 	<classpathentry kind="lib" path="lib/testng-6.8.8.jar"/>
 	<classpathentry kind="lib" path="lib/selenium-server-standalone-2.46.0.jar"/>
 	<classpathentry kind="lib" path="lib/selenium-server-standalone-3.0.0-beta2.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="lib/saxon-8.7.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -59,6 +59,7 @@ public class AppiumBase {
 		capabilities.setCapability(MobileCapabilityType.APP, app);
 		capabilities.setCapability(MobileCapabilityType.NO_RESET,noReset);
 		capabilities.setCapability("sessionOverride",sessionOverride);
+		capabilities.setCapability("native-instruments-lib","true");
 		
 		if ("IOS".equals(platformName.toUpperCase())) {
 			try {

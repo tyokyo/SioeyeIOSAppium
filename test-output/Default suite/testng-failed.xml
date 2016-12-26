@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="ckt.ios.testcase.MeCase">
+      <class name="ckt.ios.testcase.LoinCase">
         <methods>
-          <include name="beforeClass"/>
-          <include name="WatchAndSignUp1"/>
+          <include name="testErrorUseNameOrPassword"/>
           <include name="afterClass"/>
+          <include name="beforeClass"/>
         </methods>
-      </class> <!-- ckt.ios.testcase.MeCase -->
+      </class> <!-- ckt.ios.testcase.LoinCase -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -27,5 +27,20 @@ public class LoginPage extends VP {
 	public void clickQQ_btn(){
 		clickByName("QQ");
 	}
-
+	//登录界面-cancel
+	public static void clickCancel_btn(){
+		clickByXpath("//UIAApplication[1]/UIAWindow[1]/UIAButton[1]");
+	}
+	//登录界面-cancel
+	public static void clickLogOut_btn(){
+		clickByName("退出登录");
+	}
+	//登录
+	public static void clickLoginAccount_btn(){
+		clickByXpath("//UIAApplication[1]/UIAWindow[1]/UIAButton[1]");
+	}
+	//忘记密码
+	public static void clickForgotPassword_btn(){
+		clickByXpath("//UIAApplication[1]/UIAWindow[1]/UIAButton[2]");
+	}
 }

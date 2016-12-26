@@ -35,7 +35,7 @@
 		</javac>
 	</target>
 	<target name="test" depends="compile">
-		<testng outputdir="${reportdir}" classpathref="classpath.test" listeners="ckt.App.Util.TestngListener">
+		<testng outputdir="${reportdir}" classpathref="classpath.test">
 			<xmlfileset dir="${xmldir}" includes="*.xml" />
 		</testng>
 		<xslt in="${basedir}/test-output/testng-results.xml" 
