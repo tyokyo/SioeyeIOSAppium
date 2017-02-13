@@ -21,9 +21,21 @@ public class VP extends AppiumBase {
 	public static MobileElement getElementByXpathExpression(String xpathExpression){
 		return ((MobileElement)iosdriver.findElement(By.xpath(xpathExpression)));
 	}
+	//根据tag-name获取对象
+	public static MobileElement getElementByTag(String name){
+		return ((MobileElement)iosdriver.findElement(By.tagName(name)));
+	}
+	//根据tag-name获取对象
+	public static void clickByByTag(String name){
+		((MobileElement)iosdriver.findElement(By.tagName(name))).click();;
+	}
 	//点击 X-path
 	public static void  clickByXpath(String xpathExpression){
 		((MobileElement)iosdriver.findElement(By.xpath(xpathExpression))).click();
+	}
+	//click calssName
+	public static void clickByClassName(String className){
+		((MobileElement)iosdriver.findElement(By.className(className))).click();;
 	}
 	public static boolean text_exist(String text){
 		boolean exist = false;

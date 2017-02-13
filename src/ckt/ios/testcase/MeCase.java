@@ -4,10 +4,12 @@ import java.net.MalformedURLException;
 
 import io.appium.java_client.MobileElement;
 
+import org.junit.Before;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import ckt.App.Util.VP;
@@ -15,6 +17,10 @@ import ckt.ios.action.LoginAction;
 import ckt.ios.action.MeAction;
 
 public class MeCase extends VP {
+	@BeforeTest
+	public void BeforeTest(){
+		LoginAction.inLoginStatus();
+	}
 	@BeforeClass
 	public void beforeClass() throws MalformedURLException {
 		startAppium();
@@ -28,6 +34,7 @@ public class MeCase extends VP {
 	public  void testLogout(){
 		LoginAction.logOutAccount();
 	}
+	
 	@Test
 	public void WatchAndSignUp2() throws InterruptedException {
 		//iosdriver.findElementByName("我").click();

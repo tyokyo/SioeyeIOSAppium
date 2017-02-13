@@ -1,10 +1,12 @@
 package ckt.ios.action;
 
+import ckt.App.Util.Property;
 import ckt.App.Util.VP;
 import ckt.ios.page.LoginPage;
 import ckt.ios.page.MainPage;
 
 public class LoginAction extends VP {
+	private static String configPath = "properties/account.properties";
 	//是否是处于登录状态
 	public static boolean isLogin(){
 		MainPage.clickMe_btn();
@@ -40,5 +42,14 @@ public class LoginAction extends VP {
 		getElementByClassName("UIASecureTextField").setValue(password);
 		LoginPage.clickLoginAccount_btn();
 		wait(5);
+	}
+	public static void inLoginStatus(){
+		String emial = Property.getValueByKey(configPath, "sioeye_id");
+		String passwd = Property.getValueByKey(configPath, "sioeye_password");
+		
+		boolean islogin = isLogin();
+		if (!islogin) {
+			loginAccount(emial, passwd);
+		}
 	}
 }
