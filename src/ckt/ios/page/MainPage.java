@@ -7,22 +7,27 @@ public class MainPage extends VP{
 	//点击-发现
 	public static void clickDiscover_btn(){
 		clickByName("发现");
+		wait(1);
 		//clickByXpath("//UIAApplication[1]/UIAWindow[1]/UIATabBar[1]/UIAButton[1]");
 	}
 
 	//点击-关注
 	public static void clickLive_btn(){
 		clickByName("关注");
+		wait(1);
 		//clickByXpath("//UIAApplication[1]/UIAWindow[1]/UIATabBar[1]/UIAButton[2]");
 	}
 	//点击-我
 	public static void clickMe_btn(){
-		clickByName("我");
-		//clickByXpath("//UIAApplication[1]/UIAWindow[1]/UIATabBar[1]/UIAButton[3]");
+		//clickByName("我");
+		wait(1);
+		clickByXpath("//UIAApplication[1]/UIAWindow[1]/UIATabBar[1]/UIAButton[3]");
+		wait(1);
 	}
 	//点击-设备
 	public static void clickDevice_btn(){
 		clickByName("设备");
+		wait(1);
 		//clickByXpath("//UIAApplication[1]/UIAWindow[1]/UIATabBar[1]/UIAButton[4]");
 	}
 	//点击-确认按钮

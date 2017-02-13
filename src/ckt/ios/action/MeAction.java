@@ -33,4 +33,32 @@ public class MeAction  extends VP{
 	public static void clickBackBtn(){
 		clickByClassName("UIAButton");
 	}
+	//意见反馈
+	public static void navToUserEdit(){
+		MainPage.clickMe_btn();
+		MePage.clickUserEdit();
+	}
+	public static void navToNickName(){
+		navToUserEdit();
+		MePage.clickNickNameBtn();
+	}
+	public static void navToSex(){
+		navToUserEdit();
+		MePage.clickSexBtn();
+	}
+	public static void navToLocation(){
+		navToUserEdit();
+		MePage.clickLocationBtn();
+	}
+	public static void navToInterest(){
+		navToUserEdit();
+		MePage.clickInterestBtn();
+	}
+	public static void navToSignature(){
+		navToUserEdit();
+		MePage.clickSignatureBtn();
+	}
+	
+	
+	
 }

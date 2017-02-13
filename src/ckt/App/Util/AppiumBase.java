@@ -15,7 +15,7 @@ public class AppiumBase {
 	public static Logger logger = Logger.getLogger(AppiumBase.class);
 	public static IOSDriver<?> iosdriver;
 	public static AndroidDriver<?>  androiddriver;
-	private static String configPath = "properties/config.properties";
+	public static String configPath = "properties/config.properties";
 	private static String devicename ;
 	private static String platformName ;
 	private static String platformVersion;
@@ -59,8 +59,9 @@ public class AppiumBase {
 		capabilities.setCapability(MobileCapabilityType.APP, app);
 		capabilities.setCapability(MobileCapabilityType.NO_RESET,noReset);
 		capabilities.setCapability("sessionOverride",sessionOverride);
+		capabilities.setCapability("unicodeKeyboard","true");
 		capabilities.setCapability("native-instruments-lib","true");
-		
+	
 		if ("IOS".equals(platformName.toUpperCase())) {
 			try {
 				capabilities.setCapability("bundleid", bundleid);//run on real device 
@@ -83,5 +84,8 @@ public class AppiumBase {
 		}else {
 			logger.info("platformName config error.Must be IOS or Android");
 		}
+	}
+	public static void log(String msg){
+		System.out.println(msg);
 	}
 }

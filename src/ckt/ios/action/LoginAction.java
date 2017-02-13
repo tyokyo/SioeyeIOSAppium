@@ -6,7 +6,6 @@ import ckt.ios.page.LoginPage;
 import ckt.ios.page.MainPage;
 
 public class LoginAction extends VP {
-	private static String configPath = "properties/account.properties";
 	//是否是处于登录状态
 	public static boolean isLogin(){
 		MainPage.clickMe_btn();
@@ -34,7 +33,7 @@ public class LoginAction extends VP {
 	public static void loginAccount(String userName,String password){
 		iosdriver.closeApp();
 		iosdriver.launchApp();
-		
+		wait(5);
 		MainPage.clickMe_btn();
 		LoginPage.clickLogin_btn();
 		getElementByClassName("UIATextField").clear();

@@ -1,5 +1,9 @@
 package ckt.ios.page;
 
+import io.appium.java_client.MobileElement;
+
+import org.openqa.selenium.By;
+
 import ckt.App.Util.VP;
 
 public class MePage extends VP{
@@ -26,23 +30,23 @@ public class MePage extends VP{
 	}
 	//点击-分享
 	public static void  clickShareBtn() {
-		clickByXpath("UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[2]");
+		clickByXpath("//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[2]");
 	}
 	//点击-编辑
 	public static void clickUserEdit(){
-		clickByXpath("UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[3]");
+		clickByXpath("//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[3]");
 	}
 	//点击-直播
 	public static void clickLive(){
-		clickByXpath("UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAButton[1]");
+		clickByXpath("//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAButton[1]");
 	}
 	//点击-关注
 	public static void clickFollowingBtn(){
-		clickByXpath("UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAButton[2]");
+		clickByXpath("//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAButton[2]");
 	}
 	//点击-粉丝
 	public static void clickFollowsBtn(){
-		clickByXpath("UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAButton[3]");
+		clickByXpath("//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAButton[3]");
 	}
 
 	//设置
@@ -62,9 +66,27 @@ public class MePage extends VP{
 	public static void clickAboutSioeyebtn(){
 		clickByName("关于Sioeye");
 	}
-
-
-	
-	
+	public static void clickNickNameBtn(){
+		clickByName("昵称");
+	}
+	public static void clickSexBtn(){
+		clickByName("性别");
+	}
+	public static void clickLocationBtn(){
+		clickByName("地区");
+	}
+	public static void clickInterestBtn(){
+		clickByName("爱好");
+	}
+	public static void clickSignatureBtn(){
+		clickByName("个性签名");
+	}
+	public static void clickSaveBtn(){
+		clickByName("保存");
+		wait(3);
+	}
+	public static MobileElement getUIATextView(){
+		return ((MobileElement)iosdriver.findElement(By.className("UIATextView")));
+	}
 
 }
