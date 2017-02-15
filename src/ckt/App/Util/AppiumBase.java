@@ -57,10 +57,10 @@ public class AppiumBase {
 		capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, platformName);
 		capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, platformVersion); 
 		capabilities.setCapability(MobileCapabilityType.APP, app);
-		capabilities.setCapability(MobileCapabilityType.NO_RESET,noReset);
-		capabilities.setCapability("sessionOverride",sessionOverride);
-		capabilities.setCapability("unicodeKeyboard","true");
-		capabilities.setCapability("native-instruments-lib","true");
+		capabilities.setCapability(MobileCapabilityType.NO_RESET,Boolean.parseBoolean(noReset));
+		capabilities.setCapability("sessionOverride",Boolean.parseBoolean(sessionOverride));
+		capabilities.setCapability("unicodeKeyboard",true);
+		capabilities.setCapability("native-instruments-lib",true);
 	
 		if ("IOS".equals(platformName.toUpperCase())) {
 			try {
