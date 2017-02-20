@@ -1,11 +1,14 @@
 package ckt.ios.testcase.me;
 
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.TouchAction;
 
 import java.net.MalformedURLException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.lift.find.PageTitleFinder;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -14,6 +17,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import ckt.App.Util.RegexTool;
 import ckt.App.Util.VP;
 import ckt.ios.action.LoginAction;
 import ckt.ios.action.MeAction;
@@ -62,12 +66,14 @@ public class AboutMeCase extends VP {
 	}
 	@Test
 	public void testSignature61c(){
+		System.out.println(iosdriver.getPageSource());
 		MeAction.navToSignature();
 		String strInput=getRandomString(150);
 		MobileElement textView = MePage.getUIATextView();
 		textView.setValue(strInput);
 		MePage.clickSaveBtn();
 		//验证签名是否修改成功
+		wait(10);
 		resetApp();
 		MeAction.navToSignature();
 		textView = MePage.getUIATextView();
@@ -76,6 +82,23 @@ public class AboutMeCase extends VP {
 		log(activeString.length()+"");
 		log(expectString.length()+"");
 		Assert.assertEquals(activeString, expectString, "char-61");
+		
+	}
+	@Test
+	public void testSignature612c(){		
+		MeAction.navToUserEdit();
+		
+		VP.swipeToUp(iosdriver, 1000, 2);
+		RegexTool.clickElementByPoint("爱好");
+		wait(10);
+		
+		//wait(10);
+		/*WebElement  element = iosdriver.findElementByXPath("//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIATableView[1]/UIATableCell[5]");
+		HashMap<String, String> scrollObject = new HashMap<String, String>();  
+		//scrollObject.put("direction", "Up");
+		scrollObject.put("direction", "Up");
+		iosdriver.execute("mobile: scroll", scrollObject);*/
+		
 	}
 	
 }

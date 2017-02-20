@@ -16,6 +16,7 @@ public class AppiumBase {
 	public static IOSDriver<?> iosdriver;
 	public static AndroidDriver<?>  androiddriver;
 	public static String configPath = "properties/config.properties";
+	public static String accountPath = "properties/account.properties";
 	private static String devicename ;
 	private static String platformName ;
 	private static String platformVersion;

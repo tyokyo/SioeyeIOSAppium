@@ -43,12 +43,14 @@ public class LoginAction extends VP {
 		wait(5);
 	}
 	public static void inLoginStatus(){
-		String emial = Property.getValueByKey(configPath, "sioeye_id");
-		String passwd = Property.getValueByKey(configPath, "sioeye_password");
+		String emial = Property.getValueByKey(accountPath, "sioeye_id");
+		String passwd = Property.getValueByKey(accountPath, "sioeye_password");
 		
 		boolean islogin = isLogin();
 		if (!islogin) {
 			loginAccount(emial, passwd);
+		}else {
+			logger.info("App account is login ");
 		}
 	}
 }

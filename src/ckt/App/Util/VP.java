@@ -1,87 +1,59 @@
 package ckt.App.Util;
 
-import java.util.HashMap;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.ios.IOSDriver;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.RemoteWebElement;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class VP extends AppiumBase {
 	private static final long WAIT_STRING=120;
-	//通过Name 点击
-	public static void clickByName(final String name){
-		Log.logInfo(String.format("click Element By name=%s ",name));
-		WebDriverWait wait = new WebDriverWait(iosdriver, WAIT_STRING);
-		MobileElement element= wait.until(new  ExpectedCondition<MobileElement>() {
-			@Override
-			public MobileElement apply(WebDriver arg0) {
-				// TODO Auto-generated method stub
-				return arg0.findElement(By.name(name));
+
+	public void waitForElementToLoad(int timeOut, final By By) {        
+		(new WebDriverWait(iosdriver, timeOut)).until(new ExpectedCondition<Boolean>() {
+			public Boolean apply(WebDriver driver) {
+				
+				//WebElement element = driver.findElement(By);
+				return true;
 			}
 		});
-		element.click();
+	}
+	//通过Name 点击
+	public static void clickByName(String name){
+		iosdriver.findElement(By.name(name)).click();
 	}
 	//获取页面xml元素
 	public static String  getTreeForXml(){
 		return iosdriver.getPageSource();
 	}
 	//根据calssName name获取对象
-	public static MobileElement getElement(final String className,final String name){
-		Log.logInfo(String.format("Search Element By className=%s name=%s",className,name));
-		WebDriverWait wait = new WebDriverWait(iosdriver, WAIT_STRING);
-		MobileElement element= wait.until(new  ExpectedCondition<MobileElement>() {
-			@Override
-			public MobileElement apply(WebDriver arg0) {
-				// TODO Auto-generated method stub
-				return arg0.findElement(By.className(className).name(name));
-			}
-		});
-		return element;
+	public static MobileElement getElement(String className,String name){
+		return ((MobileElement)iosdriver.findElement(By.className(className).name(name)));
 	}
 
 	//根据calssName获取对象
-	public static MobileElement getElementByClassName(final String className){
+	public static MobileElement getElementByClassName(String className){
 		Log.logInfo(String.format("Search Element By className=%s ",className));
-		WebDriverWait wait = new WebDriverWait(iosdriver, WAIT_STRING);
-		MobileElement element= wait.until(new  ExpectedCondition<MobileElement>() {
-			@Override
-			public MobileElement apply(WebDriver arg0) {
-				// TODO Auto-generated method stub
-				return arg0.findElement(By.className(className));
-			}
-		});
-		return element;
+		return ((MobileElement)iosdriver.findElement(By.className(className)));
 	}
 	//根据X-path获取对象
-	public static MobileElement getElementByXpathExpression(final String xpathExpression){
-		WebDriverWait wait = new WebDriverWait(iosdriver, WAIT_STRING);
-		MobileElement element= wait.until(new  ExpectedCondition<MobileElement>() {
-			@Override
-			public MobileElement apply(WebDriver arg0) {
-				// TODO Auto-generated method stub
-				return arg0.findElement(By.xpath(xpathExpression));
-			}
-		});
-		return element;
+	public static MobileElement getElementByXpathExpression(String xpathExpression){
+		return ((MobileElement)iosdriver.findElement(By.xpath(xpathExpression)));
 	}
 	//根据tag-name获取对象
-	public static MobileElement getElementByTag(final String name){
-		WebDriverWait wait = new WebDriverWait(iosdriver, WAIT_STRING);
-		MobileElement element= wait.until(new  ExpectedCondition<MobileElement>() {
-			@Override
-			public MobileElement apply(WebDriver arg0) {
-				// TODO Auto-generated method stub
-				return arg0.findElement(By.tagName(name));
-			}
-		});
-		return element;
+	public static MobileElement getElementByTag(String name){
+		return ((MobileElement)iosdriver.findElement(By.tagName(name)));
+	}
+	//根据name获取对象
+	public static MobileElement getElementByName(final String name){
+		return ((MobileElement)iosdriver.findElement(By.name(name)));
 	}
 	//根据tag-name获取对象
 	public static void clickByByTag(final String name){
@@ -91,7 +63,7 @@ public class VP extends AppiumBase {
 			@Override
 			public MobileElement apply(WebDriver arg0) {
 				// TODO Auto-generated method stub
-				return arg0.findElement(By.tagName(name));
+				return (MobileElement) arg0.findElement(By.tagName(name));
 			}
 		});
 		element.click();
@@ -104,7 +76,7 @@ public class VP extends AppiumBase {
 			@Override
 			public MobileElement apply(WebDriver arg0) {
 				// TODO Auto-generated method stub
-				return arg0.findElement(By.xpath(xpathExpression));
+				return (MobileElement) arg0.findElement(By.xpath(xpathExpression));
 			}
 		});
 		element.click();
@@ -117,7 +89,7 @@ public class VP extends AppiumBase {
 			@Override
 			public MobileElement apply(WebDriver arg0) {
 				// TODO Auto-generated method stub
-				return arg0.findElement(By.className(className));
+				return (MobileElement) arg0.findElement(By.className(className));
 			}
 		});
 		element.click();
@@ -138,6 +110,22 @@ public class VP extends AppiumBase {
 			e.printStackTrace();
 		}
 	}
+
+	/**
+	 * @author young
+	 * @param by
+	 * @return
+	 */
+	private boolean isElementPresent(By by) {
+		try {
+			iosdriver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+			iosdriver.findElement(by);
+			return true;
+		} catch (NoSuchElementException e) {
+			return false;
+		}
+	}
+
 	/**
 	 * 获得随机字符
 	 */
@@ -154,47 +142,76 @@ public class VP extends AppiumBase {
 	public static void resetApp(){
 		iosdriver.resetApp();
 	}
-	//scroll方向滑动-Right, Left, Up, Down
-	public static void scrollDirection(){
-		JavascriptExecutor js = (JavascriptExecutor) iosdriver;  
-		HashMap<String, String> scrollObject = new HashMap<String, String>();  
-		scrollObject.put("direction", "Up");          
-		js.executeScript("mobile: scroll", scrollObject);  
-	}
-	//scroll对象滑动
-	public static void scroll(){
-		JavascriptExecutor js = (JavascriptExecutor) iosdriver;  
-		MobileElement  element = getElementByClassName("");
-		HashMap<String, String> scrollObject = new HashMap<String, String>();  
-		scrollObject.put("element", ((RemoteWebElement) element).getId());  
-		js.executeScript("mobile: scroll", scrollObject);  
-	}
-	public static void swipe(double startX,double startY,double endX,double endY,double duration){
-		JavascriptExecutor js = (JavascriptExecutor) iosdriver;  
-		MobileElement  element = getElementByClassName("");
-		HashMap<String, Double> swipeObject = new HashMap<String, Double>();  
-		swipeObject.put("startX", startX);  
-		swipeObject.put("startY", startY);  
-		swipeObject.put("endX", endX);  
-		swipeObject.put("endY", endY);  
-		swipeObject.put("duration", duration);  
-		swipeObject.put("element", Double.valueOf(((RemoteWebElement) element).getId()));  
-		js.executeScript("mobile: swipe", swipeObject);  
-	}
-	/*X,Y可为coordinator，也可以是percent，大于1 为coordinator， 小于1 为percent，比如0.5 代表50%
-	duration单位为秒， Android 可以设置0.1-60，iOS设置0.5-60
-	需要滑动特定的对象时需要指定的element，只是在名目上滑动式就可以不指定element
-	第二种： flick 区别swipe是没有duration*/
-	public static void flick(double startX,double startY,double endX,double endY){
-		JavascriptExecutor js = (JavascriptExecutor) iosdriver;  
-		MobileElement  element = getElementByClassName("");
-		HashMap<String, Double> swipeObject = new HashMap<String, Double>();  
-		swipeObject.put("startX", startX);  
-		swipeObject.put("startY", startY);  
-		swipeObject.put("endX", endX);  
-		swipeObject.put("endY", endY);  
-		swipeObject.put("element", Double.valueOf(((RemoteWebElement) element).getId()));  
-		js.executeScript("mobile:flick", swipeObject);  
-	}
+	//during（这里是填写毫秒数，这里的 毫秒数越小 滑动的速度越快~ 一般设定在500~1000，如果你想快速滑动 那就可以设置的更加小）
+	//num（是只滑动的次数，本人在做相册 翻页测试什么的 滑动  或者滑动到列表底部。就直接输入次数就行了）
+	/** 
+	 * 上滑 
+	 *  
+	 * @param iosdriver 
+	 * @param during 
+	 * @param num 
+	 */  
+	public static void swipeToUp(IOSDriver<?> iosdriver,int during, int num) {  
+		int width = iosdriver.manage().window().getSize().width;  
+		int height = iosdriver.manage().window().getSize().height;  
+		for (int i = 0; i < num; i++) {  
+			iosdriver.swipe(width / 2, height * 3 / 4, width / 2, height / 4, during);  
+			Log.logInfo("swipeToUp");
+			wait(3);  
+		}  
+	}  
+
+	/** 
+	 * 下拉 
+	 *  
+	 * @param driver 
+	 * @param during 
+	 * @param num 
+	 */  
+	public static void swipeToDown(IOSDriver<WebElement> driver,int during, int num) {  
+		int width = driver.manage().window().getSize().width;  
+		int height = driver.manage().window().getSize().height;  
+		System.out.println(width);  
+		System.out.println(height);  
+		for (int i = 0; i < num; i++) {  
+			driver.swipe(width / 2, height / 4, width / 2, height * 3 / 4, during);  
+			Log.logInfo("swipeToDown");
+			wait(3);  
+		}  
+	}  
+
+	/** 
+	 * 向左滑动 
+	 *   
+	 * @param driver 
+	 * @param during 
+	 * @param num 
+	 */  
+	public static void swipeToLeft(IOSDriver<WebElement> driver,int during, int num) {  
+		int width = driver.manage().window().getSize().width;  
+		int height = driver.manage().window().getSize().height;  
+		for (int i = 0; i < num; i++) {  
+			driver.swipe(width * 3 / 4, height / 2, width / 4, height / 2, during);  
+			Log.logInfo("swipeToLeft");
+			wait(3);  
+		}  
+	}  
+
+	/** 
+	 * 向右滑动 
+	 *  
+	 * @param driver 
+	 * @param during 
+	 * @param num 
+	 */  
+	public static void swipeToRight(IOSDriver<WebElement> driver,int during, int num) {  
+		int width = driver.manage().window().getSize().width;  
+		int height = driver.manage().window().getSize().height;  
+		for (int i = 0; i < num; i++) {  
+			driver.swipe(width / 4, height / 2, width * 3 / 4, height / 2, during);  
+			Log.logInfo("swipeToRight");
+			wait(3);  
+		}  
+	}  
 
 }

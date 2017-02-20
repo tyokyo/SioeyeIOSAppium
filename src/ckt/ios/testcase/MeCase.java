@@ -6,6 +6,7 @@ import io.appium.java_client.MobileElement;
 
 import org.junit.Before;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -46,6 +47,14 @@ public class MeCase extends VP {
 			MobileElement  mb = ((MobileElement)iosdriver.findElement(By.className("UIATextField")));
 			Assert.assertEquals(true, false);
 			
+			
+			
+			/* WebElement webElement=iosdriver.findElementByIosUIAutomation(".tableViews()[1].cells().withPredicate(\" any staticTexts.name == '" + orgName + "'\")");
+		      tap(iosdriver,webElement);
+		      se2.waitTime(se2.sec);
+		      iosdriver.scrollTo("x55mgp2u_2, x55mgp2u_2@reg186.cn, reg186.cn");*/
+		        
+		        
 			System.out.println(mb.getText());
 			//mb.swipe(SwipeElementDirection.LEFT, 2);
 			
