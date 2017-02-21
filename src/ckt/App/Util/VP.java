@@ -1,5 +1,6 @@
 package ckt.App.Util;
 
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -15,19 +16,73 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class VP extends AppiumBase {
 	private static final long WAIT_STRING=120;
-
 	public void waitForElementToLoad(int timeOut, final By By) {        
 		(new WebDriverWait(iosdriver, timeOut)).until(new ExpectedCondition<Boolean>() {
 			public Boolean apply(WebDriver driver) {
-				
-				//WebElement element = driver.findElement(By);
-				return true;
+				WebElement element = driver.findElement(By);
+				return element.isDisplayed();
 			}
 		});
 	}
+	public static void waitUntilFind(int watiTime, By by){
+		Log.logInfo(String.format("start to wait element %s",by));
+		boolean isExist = false;
+		for (int i = 0; i <watiTime; i++) {
+			if (isExist=true) {
+				break;
+			}else {
+				try {
+					iosdriver.findElement(by);
+					isExist=true;
+				} catch (NoSuchElementException e) {
+					// TODO: handle exception
+					isExist=false;
+				}
+			}
+		}
+		if (isExist=true) {
+			Log.logInfo(String.format("wait element success in %s seconds",watiTime));
+		}else {
+			Log.logInfo(String.format("wait element failure in %s seconds",watiTime));
+		}
+	}
+	public static void waitUntilGone(int watiTime, By by){
+		Log.logInfo(String.format("start to wait element Gone %s",by));
+		boolean isGone = false;
+		for (int i = 0; i <watiTime; i++) {
+			if (isGone=true) {
+				break;
+			}else {
+				try {
+					iosdriver.findElement(by);
+					isGone=false;
+				} catch (NoSuchElementException e) {
+					// TODO: handle exception
+					isGone=true;
+				}
+			}
+		}
+		if (isGone=true) {
+			Log.logInfo(String.format("wait element Gone in %s seconds",watiTime));
+		}else {
+			Log.logInfo(String.format("wait element not Gone in %s seconds",watiTime));
+		}
+	}
+	public boolean isExistElementName(String name){
+		Log.logInfo(String.format("start to search element %s",name));
+		ArrayList<String> elementListString =VP3.searchElementByName(name);
+		if (elementListString.size()>=1) {
+			Log.logInfo(String.format("element with name=%s success",name));
+			return true;
+		}else {
+			Log.logInfo(String.format("element with name=%s failure",name));
+			return false;
+		}
+	}
 	//通过Name 点击
 	public static void clickByName(String name){
-		iosdriver.findElement(By.name(name)).click();
+		VP3.clickElementByPoint(name);
+		//iosdriver.findElement(By.name(name)).click();
 	}
 	//获取页面xml元素
 	public static String  getTreeForXml(){
@@ -70,7 +125,7 @@ public class VP extends AppiumBase {
 	}
 	//点击 X-path
 	public static void  clickByXpath(final String xpathExpression){
-		Log.logInfo(String.format("click Element By xpath=%s ",xpathExpression));
+		Log.logInfo(String.format("click  By.xpath:%s ",xpathExpression));
 		WebDriverWait wait = new WebDriverWait(iosdriver, WAIT_STRING);
 		MobileElement element= wait.until(new  ExpectedCondition<MobileElement>() {
 			@Override

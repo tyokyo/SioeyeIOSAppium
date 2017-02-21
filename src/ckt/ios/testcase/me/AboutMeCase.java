@@ -16,9 +16,8 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
-import ckt.App.Util.RegexTool;
 import ckt.App.Util.VP;
+import ckt.App.Util.VP3;
 import ckt.ios.action.LoginAction;
 import ckt.ios.action.MeAction;
 import ckt.ios.page.MePage;
@@ -89,7 +88,8 @@ public class AboutMeCase extends VP {
 		MeAction.navToUserEdit();
 		
 		VP.swipeToUp(iosdriver, 1000, 2);
-		RegexTool.clickElementByPoint("爱好");
+		waitUntilFind(10, By.xpath("//UIAApplication[1]/UIAWindow[1]/UIAScrollView[2]/UIATableView[1]/UIATableCell[4]"));
+		VP3.clickElementByPoint("爱好");
 		wait(10);
 		
 		//wait(10);

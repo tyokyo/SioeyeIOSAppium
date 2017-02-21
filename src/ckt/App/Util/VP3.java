@@ -6,8 +6,9 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class RegexTool extends VP{
-	public static ArrayList<String> searchByName(String name){
+public class VP3 extends VP{
+	public static ArrayList<String> searchElementByName(String name){
+		Log.logInfo(String.format("start to search By.name=%s",name));
 		ArrayList<String> sList = new ArrayList<String>();
 		Pattern p=Pattern.compile(String.format("<(.*?) name=\"%s\"(.*?) value=\"%s\"(.*?)>",name,name));
 		//Pattern p=Pattern.compile(" (.*?)=(.*?) "); 
@@ -16,8 +17,14 @@ public class RegexTool extends VP{
 		//System.out.println(s);
 		Matcher m=p.matcher(s); 
 		while(m.find()) { 
-			sList.add(m.group(0).toString());
-			Log.logInfo(String.format("Search By.name=%s Result is=%s",name, m.group(0).toString()));
+			String findString=m.group(0).toString();
+			sList.add(findString);
+		}
+		Log.logInfo(String.format("result is=%s", sList.toString()));
+		if (sList.size()>=1) {
+			Log.logInfo(" find element");
+		}else {
+			Log.logInfo(" not find element");
 		}
 		return sList;
 	}
@@ -34,7 +41,7 @@ public class RegexTool extends VP{
 		return findString;
 	}
 	public static void clickElementByPoint(String name){
-		ArrayList<String> sList  = searchByName(name);
+		ArrayList<String> sList  = searchElementByName(name);
 		//default is click the first element name=name
 		if (sList.size()==0) {
 			Log.logInfo("there is no element named="+name);

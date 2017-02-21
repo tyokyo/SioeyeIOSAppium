@@ -12,7 +12,6 @@ import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 
 public class AppiumBase {
-	public static Logger logger = Logger.getLogger(AppiumBase.class);
 	public static IOSDriver<?> iosdriver;
 	public static AndroidDriver<?>  androiddriver;
 	public static String configPath = "properties/config.properties";
@@ -37,14 +36,14 @@ public class AppiumBase {
 		 sessionOverride = Property.getValueByKey(configPath, "sessionOverride");
 		 ipaddress = Property.getValueByKey(configPath, "ipaddress");
 		 port = Property.getValueByKey(configPath, "port");
-		 logger.info("Load the propertyies data for Appium configurations");
+		 Log.logInfo("Load the propertyies data for Appium configurations");
 	}
 	public static void stopAppium(){
 		if (androiddriver!=null) {
 			androiddriver.quit();
 		}
 		if (iosdriver!=null) {
-			logger.info("quit ios driver");
+			Log.logInfo("quit ios driver");
 			iosdriver.quit();
 		}
 	}
@@ -69,7 +68,7 @@ public class AppiumBase {
 				
 				iosdriver = new IOSDriver(new URL(String.format("http://%s:%s/wd/hub",ipaddress,port)), capabilities);
 				iosdriver.manage().timeouts().implicitlyWait(TimeUnitSECONDS,TimeUnit.SECONDS);
-				logger.info("start ios driver");
+				Log.logInfo("start ios driver");
 			} catch (MalformedURLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -83,7 +82,7 @@ public class AppiumBase {
 				e.printStackTrace();
 			}
 		}else {
-			logger.info("platformName config error.Must be IOS or Android");
+			Log.logInfo("platformName config error.Must be IOS or Android");
 		}
 	}
 	public static void log(String msg){
