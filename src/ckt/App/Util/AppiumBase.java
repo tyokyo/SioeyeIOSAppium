@@ -36,14 +36,14 @@ public class AppiumBase {
 		 sessionOverride = Property.getValueByKey(configPath, "sessionOverride");
 		 ipaddress = Property.getValueByKey(configPath, "ipaddress");
 		 port = Property.getValueByKey(configPath, "port");
-		 Log.logInfo("Load the propertyies data for Appium configurations");
+		 Log.info("Load the propertyies data for Appium configurations");
 	}
 	public static void stopAppium(){
 		if (androiddriver!=null) {
 			androiddriver.quit();
 		}
 		if (iosdriver!=null) {
-			Log.logInfo("quit ios driver");
+			Log.info("quit ios driver");
 			iosdriver.quit();
 		}
 	}
@@ -68,7 +68,7 @@ public class AppiumBase {
 				
 				iosdriver = new IOSDriver(new URL(String.format("http://%s:%s/wd/hub",ipaddress,port)), capabilities);
 				iosdriver.manage().timeouts().implicitlyWait(TimeUnitSECONDS,TimeUnit.SECONDS);
-				Log.logInfo("start ios driver");
+				Log.info("start ios driver");
 			} catch (MalformedURLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -82,7 +82,7 @@ public class AppiumBase {
 				e.printStackTrace();
 			}
 		}else {
-			Log.logInfo("platformName config error.Must be IOS or Android");
+			Log.info("platformName config error.Must be IOS or Android");
 		}
 	}
 	public static void log(String msg){

@@ -25,7 +25,7 @@ public class VP extends AppiumBase {
 		});
 	}
 	public static void waitUntilFind(int watiTime, By by){
-		Log.logInfo(String.format("start to wait element %s",by));
+		Log.info(String.format("start to wait element %s",by));
 		boolean isExist = false;
 		for (int i = 0; i <watiTime; i++) {
 			if (isExist=true) {
@@ -41,13 +41,13 @@ public class VP extends AppiumBase {
 			}
 		}
 		if (isExist=true) {
-			Log.logInfo(String.format("wait element success in %s seconds",watiTime));
+			Log.info(String.format("wait element success in %s seconds",watiTime));
 		}else {
-			Log.logInfo(String.format("wait element failure in %s seconds",watiTime));
+			Log.info(String.format("wait element failure in %s seconds",watiTime));
 		}
 	}
 	public static void waitUntilGone(int watiTime, By by){
-		Log.logInfo(String.format("start to wait element Gone %s",by));
+		Log.info(String.format("start to wait element Gone %s",by));
 		boolean isGone = false;
 		for (int i = 0; i <watiTime; i++) {
 			if (isGone=true) {
@@ -63,19 +63,19 @@ public class VP extends AppiumBase {
 			}
 		}
 		if (isGone=true) {
-			Log.logInfo(String.format("wait element Gone in %s seconds",watiTime));
+			Log.info(String.format("wait element Gone in %s seconds",watiTime));
 		}else {
-			Log.logInfo(String.format("wait element not Gone in %s seconds",watiTime));
+			Log.info(String.format("wait element not Gone in %s seconds",watiTime));
 		}
 	}
 	public boolean isExistElementName(String name){
-		Log.logInfo(String.format("start to search element %s",name));
+		Log.info(String.format("start to search element %s",name));
 		ArrayList<String> elementListString =VP3.searchElementByName(name);
 		if (elementListString.size()>=1) {
-			Log.logInfo(String.format("element with name=%s success",name));
+			Log.info(String.format("element with name=%s success",name));
 			return true;
 		}else {
-			Log.logInfo(String.format("element with name=%s failure",name));
+			Log.info(String.format("element with name=%s failure",name));
 			return false;
 		}
 	}
@@ -95,7 +95,7 @@ public class VP extends AppiumBase {
 
 	//根据calssName获取对象
 	public static MobileElement getElementByClassName(String className){
-		Log.logInfo(String.format("Search Element By className=%s ",className));
+		Log.info(String.format("Search Element By className=%s ",className));
 		return ((MobileElement)iosdriver.findElement(By.className(className)));
 	}
 	//根据X-path获取对象
@@ -112,7 +112,7 @@ public class VP extends AppiumBase {
 	}
 	//根据tag-name获取对象
 	public static void clickByByTag(final String name){
-		Log.logInfo(String.format("click Element By name=%s ",name));
+		Log.info(String.format("click Element By name=%s ",name));
 		WebDriverWait wait = new WebDriverWait(iosdriver, WAIT_STRING);
 		MobileElement element= wait.until(new  ExpectedCondition<MobileElement>() {
 			@Override
@@ -125,7 +125,7 @@ public class VP extends AppiumBase {
 	}
 	//点击 X-path
 	public static void  clickByXpath(final String xpathExpression){
-		Log.logInfo(String.format("click  By.xpath:%s ",xpathExpression));
+		Log.info(String.format("click  By.xpath:%s ",xpathExpression));
 		WebDriverWait wait = new WebDriverWait(iosdriver, WAIT_STRING);
 		MobileElement element= wait.until(new  ExpectedCondition<MobileElement>() {
 			@Override
@@ -138,7 +138,7 @@ public class VP extends AppiumBase {
 	}
 	//click calssName
 	public static void clickByClassName(final String className){
-		Log.logInfo(String.format("click Element By className=%s ",className));
+		Log.info(String.format("click Element By className=%s ",className));
 		WebDriverWait wait = new WebDriverWait(iosdriver, WAIT_STRING);
 		MobileElement element= wait.until(new  ExpectedCondition<MobileElement>() {
 			@Override
@@ -211,7 +211,7 @@ public class VP extends AppiumBase {
 		int height = iosdriver.manage().window().getSize().height;  
 		for (int i = 0; i < num; i++) {  
 			iosdriver.swipe(width / 2, height * 3 / 4, width / 2, height / 4, during);  
-			Log.logInfo("swipeToUp");
+			Log.info("swipeToUp");
 			wait(3);  
 		}  
 	}  
@@ -230,7 +230,7 @@ public class VP extends AppiumBase {
 		System.out.println(height);  
 		for (int i = 0; i < num; i++) {  
 			driver.swipe(width / 2, height / 4, width / 2, height * 3 / 4, during);  
-			Log.logInfo("swipeToDown");
+			Log.info("swipeToDown");
 			wait(3);  
 		}  
 	}  
@@ -247,7 +247,7 @@ public class VP extends AppiumBase {
 		int height = driver.manage().window().getSize().height;  
 		for (int i = 0; i < num; i++) {  
 			driver.swipe(width * 3 / 4, height / 2, width / 4, height / 2, during);  
-			Log.logInfo("swipeToLeft");
+			Log.info("swipeToLeft");
 			wait(3);  
 		}  
 	}  
@@ -264,7 +264,7 @@ public class VP extends AppiumBase {
 		int height = driver.manage().window().getSize().height;  
 		for (int i = 0; i < num; i++) {  
 			driver.swipe(width / 4, height / 2, width * 3 / 4, height / 2, during);  
-			Log.logInfo("swipeToRight");
+			Log.info("swipeToRight");
 			wait(3);  
 		}  
 	}  

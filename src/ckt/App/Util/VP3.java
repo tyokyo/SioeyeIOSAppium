@@ -5,10 +5,10 @@ import io.appium.java_client.TouchAction;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
+/*使用正则表达式查找元素*/
 public class VP3 extends VP{
 	public static ArrayList<String> searchElementByName(String name){
-		Log.logInfo(String.format("start to search By.name=%s",name));
+		Log.info(String.format("start to search By.name=%s",name));
 		ArrayList<String> sList = new ArrayList<String>();
 		Pattern p=Pattern.compile(String.format("<(.*?) name=\"%s\"(.*?) value=\"%s\"(.*?)>",name,name));
 		//Pattern p=Pattern.compile(" (.*?)=(.*?) "); 
@@ -20,11 +20,11 @@ public class VP3 extends VP{
 			String findString=m.group(0).toString();
 			sList.add(findString);
 		}
-		Log.logInfo(String.format("result is=%s", sList.toString()));
+		Log.info(String.format("result is=%s", sList.toString()));
 		if (sList.size()>=1) {
-			Log.logInfo(" find element");
+			Log.info(" find element");
 		}else {
-			Log.logInfo(" not find element");
+			Log.info(" not find element");
 		}
 		return sList;
 	}
@@ -37,14 +37,14 @@ public class VP3 extends VP{
 		while(m.find()) { 
 			findString=m.group(1).trim();
 		}
-		Log.logInfo(String.format("%s=%s", attribute,findString));
+		Log.info(String.format("%s=%s", attribute,findString));
 		return findString;
 	}
 	public static void clickElementByPoint(String name){
 		ArrayList<String> sList  = searchElementByName(name);
 		//default is click the first element name=name
 		if (sList.size()==0) {
-			Log.logInfo("there is no element named="+name);
+			Log.info("there is no element named="+name);
 		}else {
 			String elementString = sList.get(0);
 			double x =Double.parseDouble(getCoordinate(elementString, "x"));
@@ -56,7 +56,7 @@ public class VP3 extends VP{
 			//do click operation
 			TouchAction gesture = new TouchAction(iosdriver).press(x_coordinate, y_coordinate) ;
 			 gesture.perform();
-			 Log.logInfo(String.format("click Element By name=%s  With x=%s,y=%s,width=%s,height=%s",name, x,y,width,height));
+			 Log.info(String.format("click Element By name=%s  With x=%s,y=%s,width=%s,height=%s",name, x,y,width,height));
 		}
 	}
 }

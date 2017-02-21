@@ -62,7 +62,7 @@ public class Undefined extends VP {
 		}
 		//通过Name 点击
 		public static void clickByName(final String name){
-			Log.logInfo(String.format("click Element By name=%s ",name));
+			Log.info(String.format("click Element By name=%s ",name));
 			WebDriverWait wait = new WebDriverWait(iosdriver, WAIT_STRING);
 			MobileElement element= wait.until(new  ExpectedCondition<MobileElement>() {
 				@Override
@@ -79,7 +79,7 @@ public class Undefined extends VP {
 		}
 		//根据calssName name获取对象
 		public static MobileElement getElement(final String className,final String name){
-			Log.logInfo(String.format("Search Element By className=%s name=%s",className,name));
+			Log.info(String.format("Search Element By className=%s name=%s",className,name));
 			WebDriverWait wait = new WebDriverWait(iosdriver, WAIT_STRING);
 			MobileElement element= wait.until(new  ExpectedCondition<MobileElement>() {
 				@Override
@@ -93,7 +93,7 @@ public class Undefined extends VP {
 
 		//根据calssName获取对象
 		public static MobileElement getElementByClassName(final String className){
-			Log.logInfo(String.format("Search Element By className=%s ",className));
+			Log.info(String.format("Search Element By className=%s ",className));
 			WebDriverWait wait = new WebDriverWait(iosdriver, WAIT_STRING);
 			MobileElement element= wait.until(new  ExpectedCondition<MobileElement>() {
 				@Override
@@ -142,7 +142,7 @@ public class Undefined extends VP {
 		}
 		//根据tag-name获取对象
 		public static void clickByByTag(final String name){
-			Log.logInfo(String.format("click Element By name=%s ",name));
+			Log.info(String.format("click Element By name=%s ",name));
 			WebDriverWait wait = new WebDriverWait(iosdriver, WAIT_STRING);
 			MobileElement element= wait.until(new  ExpectedCondition<MobileElement>() {
 				@Override
@@ -155,7 +155,7 @@ public class Undefined extends VP {
 		}
 		//点击 X-path
 		public static void  clickByXpath(final String xpathExpression){
-			Log.logInfo(String.format("click Element By xpath=%s ",xpathExpression));
+			Log.info(String.format("click Element By xpath=%s ",xpathExpression));
 			WebDriverWait wait = new WebDriverWait(iosdriver, WAIT_STRING);
 			MobileElement element= wait.until(new  ExpectedCondition<MobileElement>() {
 				@Override
@@ -168,7 +168,7 @@ public class Undefined extends VP {
 		}
 		//click calssName
 		public static void clickByClassName(final String className){
-			Log.logInfo(String.format("click Element By className=%s ",className));
+			Log.info(String.format("click Element By className=%s ",className));
 			WebDriverWait wait = new WebDriverWait(iosdriver, WAIT_STRING);
 			MobileElement element= wait.until(new  ExpectedCondition<MobileElement>() {
 				@Override

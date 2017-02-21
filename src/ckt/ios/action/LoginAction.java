@@ -51,7 +51,7 @@ public class LoginAction extends VP {
 		if (!islogin) {
 			loginAccount(emial, passwd);
 		}else {
-			Log.logInfo("App account is login ");
+			Log.info("App account is login ");
 		}
 	}
 }

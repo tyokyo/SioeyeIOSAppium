@@ -5,12 +5,14 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
+
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
-
-public class VP4 extends VP
+import org.openqa.selenium.By;
+/*使用dom4j解析页面XML数据*/
+public class VP4 extends VP3
 {
 	private static Element getApplicationXmlElement(){
 		String xmlSource=iosdriver.getPageSource();
@@ -55,15 +57,18 @@ public class VP4 extends VP
 		return allElements;
 	}
 	private static String getXpath(Element element){
-		return element.getUniquePath();
+		return element.getUniquePath().replace("AppiumAUT", "");
 	}
 	public static void main(String[] args) throws Exception
 	{
 		try {
 			startAppium();
+			By.className("AppiumAUT");
+			By.name("CKT");
 			/*String appName=getApplicationName();
 			System.out.println(appName);*/
-			
+			By by = By.xpath("//AppiumAUT/AppiumAUT/AppiumAUT");
+			System.out.println(by);
 			List<Element> ems = getPageXmlElements();
 			for (Element element : ems) {
 				System.out.println(element.getUniquePath());
