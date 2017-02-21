@@ -1,5 +1,6 @@
 package ckt.ios.action;
 
+import ckt.App.Util.Log;
 import ckt.App.Util.Property;
 import ckt.App.Util.VP;
 import ckt.ios.page.LoginPage;
@@ -50,7 +51,7 @@ public class LoginAction extends VP {
 		if (!islogin) {
 			loginAccount(emial, passwd);
 		}else {
-			logger.info("App account is login ");
+			Log.logInfo("App account is login ");
 		}
 	}
 }
