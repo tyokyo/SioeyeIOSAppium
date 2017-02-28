@@ -12,6 +12,7 @@ import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.TestListenerAdapter;
 import org.testng.log4testng.Logger;
+import org.uncommons.reportng.Reporters;
 
 public class TestngListener extends TestListenerAdapter {
 	private static Logger logger = Logger.getLogger(TestngListener.class);
@@ -51,11 +52,27 @@ public class TestngListener extends TestListenerAdapter {
 	}
 
 	private void takeScreenShot(ITestResult tr) {
+		int width = AppiumBase.iosdriver.manage().window().getSize().width;  
+		int height = AppiumBase.iosdriver.manage().window().getSize().height;  
+		
+		String className=tr.getTestClass().getName();
+		String methodName=tr.getMethod().getMethodName();
+		String folderString = className+"."+methodName;
+		System.out.println(folderString);
+		folderString=folderString.replaceAll("['.']", "/");
+		System.out.println(folderString);
+		File folder = new File("test-output/screenshot/"+folderString);
+		if (!folder.exists()) {
+			folder.mkdirs();
+		}
+		System.out.println(folder.getAbsolutePath());
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
 		String mDateTime = formatter.format(new Date());
 		File location = new File("test-output/screenshot");
-		String screenName = mDateTime+"_"+tr.getMethod().getMethodName()+".png";
-		String screenShotPath = location.getAbsolutePath()+File.separator+screenName;
+		//String screenName = mDateTime+"_"+tr.getMethod().getMethodName()+".png";
+		String screenName = mDateTime+".png";
+		//String screenShotPath = location.getAbsolutePath()+File.separator+screenName;
+		String screenShotPath = folder.getAbsolutePath()+File.separator+screenName;
 		File screenShot = AppiumBase.iosdriver.getScreenshotAs(OutputType.FILE);
 		try {
 			FileUtils.copyFile(screenShot, new File(screenShotPath));
@@ -64,8 +81,8 @@ public class TestngListener extends TestListenerAdapter {
 			e.printStackTrace();
 		}	
 		Reporter.setCurrentTestResult(tr);
-		Reporter.log(screenShotPath);
 		//Reporter.log("<img src=\"" + screenShotName + "/>");
-		Reporter.log("<img src=\"../screenshot/" + screenName + "\"/>");
+		Reporters.logInfo("<br><img src=../screenshot/" + folderString+"/"+screenName + "  onclick='window.open(\"../screenshot/"+folderString+"/"+screenName+")'"+"  height='"+height+"'  width='"+width+"'/>");
+		//Reporter.log("<img src=\"../screenshot/" +folderString+"/"+ screenName + "\"/>");
 	}
 }

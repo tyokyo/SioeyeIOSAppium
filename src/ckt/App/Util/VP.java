@@ -1,14 +1,20 @@
 package ckt.App.Util;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.ios.IOSDriver;
 
+import org.apache.commons.io.FileUtils;
+import org.dom4j.Element;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -197,6 +203,9 @@ public class VP extends AppiumBase {
 	public static void resetApp(){
 		iosdriver.resetApp();
 	}
+	public static void isAppLaunched(){
+		
+	}
 	//during（这里是填写毫秒数，这里的 毫秒数越小 滑动的速度越快~ 一般设定在500~1000，如果你想快速滑动 那就可以设置的更加小）
 	//num（是只滑动的次数，本人在做相册 翻页测试什么的 滑动  或者滑动到列表底部。就直接输入次数就行了）
 	/** 
@@ -210,9 +219,9 @@ public class VP extends AppiumBase {
 		int width = iosdriver.manage().window().getSize().width;  
 		int height = iosdriver.manage().window().getSize().height;  
 		for (int i = 0; i < num; i++) {  
-			iosdriver.swipe(width / 2, height * 3 / 4, width / 2, height / 4, during);  
+			iosdriver.swipe(width / 2, height * 4/ 6, width / 2, height *3/ 6, during);  
 			Log.info("swipeToUp");
-			wait(3);  
+			wait(1);  
 		}  
 	}  
 
@@ -223,15 +232,13 @@ public class VP extends AppiumBase {
 	 * @param during 
 	 * @param num 
 	 */  
-	public static void swipeToDown(IOSDriver<WebElement> driver,int during, int num) {  
+	public static void swipeToDown(IOSDriver<?> driver,int during, int num) {  
 		int width = driver.manage().window().getSize().width;  
 		int height = driver.manage().window().getSize().height;  
-		System.out.println(width);  
-		System.out.println(height);  
 		for (int i = 0; i < num; i++) {  
-			driver.swipe(width / 2, height / 4, width / 2, height * 3 / 4, during);  
+			driver.swipe(width / 2, height*3 / 6, width / 2, height * 4 / 6, during);  
 			Log.info("swipeToDown");
-			wait(3);  
+			wait(1);  
 		}  
 	}  
 
@@ -242,7 +249,7 @@ public class VP extends AppiumBase {
 	 * @param during 
 	 * @param num 
 	 */  
-	public static void swipeToLeft(IOSDriver<WebElement> driver,int during, int num) {  
+	public static void swipeToLeft(IOSDriver<?> driver,int during, int num) {  
 		int width = driver.manage().window().getSize().width;  
 		int height = driver.manage().window().getSize().height;  
 		for (int i = 0; i < num; i++) {  
@@ -259,7 +266,7 @@ public class VP extends AppiumBase {
 	 * @param during 
 	 * @param num 
 	 */  
-	public static void swipeToRight(IOSDriver<WebElement> driver,int during, int num) {  
+	public static void swipeToRight(IOSDriver<?> driver,int during, int num) {  
 		int width = driver.manage().window().getSize().width;  
 		int height = driver.manage().window().getSize().height;  
 		for (int i = 0; i < num; i++) {  
@@ -268,5 +275,82 @@ public class VP extends AppiumBase {
 			wait(3);  
 		}  
 	}  
-
+	public static void swipeToBegin(IOSDriver<?> iosdriver,int num) {
+		for (int i = 0; i < num; i++) {
+			List<Element> sms1 = VP4.getPageXmlElements();
+			VP.swipeToDown(iosdriver, 2000, 1);
+			List<Element> sms2 = VP4.getPageXmlElements();
+			
+			if (sms1.size()==sms2.size()) {
+				Log.info("swipe To begin");
+				break;
+			}
+		}
+	}
+	public static void swipeToEnd(IOSDriver<?> iosdriver,int num) {
+		for (int i = 0; i < num; i++) {
+			List<Element> sms1 = VP4.getPageXmlElements();
+			VP.swipeToUp(iosdriver, 2000, 1);
+			List<Element> sms2 = VP4.getPageXmlElements();
+			if (sms1.size()==sms2.size()) {
+				Log.info("swipe To ends");
+				break;
+			}
+		}
+	}
+	public static boolean isTextExist(String text){
+		boolean isExist= false;
+		List<Element> mElements = VP4.getPageXmlElements();
+		List<IElement> iElements= VP4.toIElements(mElements);
+		List<IElement> findElements = new ArrayList<IElement>();
+		for (IElement element : iElements) {
+			if (element.getName().equals(text)&&element.getValue().equals(text)) {
+				findElements.add(element);
+			}
+		}
+		Log.info(String.format("find text %s count=%s",text,findElements.size()+""));
+		if (findElements.size()>=1) {
+			isExist=true;
+		}else {
+			isExist=false;
+		}
+		return isExist;
+	}
+	public static  boolean scrollToFind(String text){
+		boolean isFind=false;
+		boolean isEnd = false;
+		swipeToBegin(iosdriver, 50);
+		List<Element> sms_before;
+		List<Element> sms_after ;
+		while(isFind!=true||isEnd!=true){
+			sms_before = VP4.getPageXmlElements();
+			if (isTextExist(text)) {
+				isFind=true;
+				isEnd=true;
+			}else {
+				swipeToUp(iosdriver, 2000, 1);
+				sms_after = VP4.getPageXmlElements();
+				if (sms_before.size()==sms_after.size()) {
+					isEnd=true;
+					Log.info("swipeToUp end but not find element with text="+text);
+				}
+			}
+		}
+		return isFind;
+	}
+	private static <T> T checkNotNull(T value, String message) {
+        if (value == null) {
+            throw new NullPointerException(message);
+        }
+        return value;
+    }
+	public static void takeScreenShot(String path){
+		File screen = iosdriver.getScreenshotAs(OutputType.FILE);
+		File screenFile = new File(path);
+		try {
+		    FileUtils.copyFile(screen, screenFile); 
+		} catch (IOException e) {
+			Log.info("take screen-failed");
+		}
+	}
 }

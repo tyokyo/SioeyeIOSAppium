@@ -1,6 +1,14 @@
 package ckt.App.Util;
 
 public class IElement {
+		@Override
+	public String toString() {
+		return "IElement [className=" + className + ", name=" + name
+				+ ", label=" + label + ", value=" + value + ", enabled="
+				+ enabled + ", visible=" + visible + ", xpath=" + xpath
+				+ ", x=" + x + ", y=" + y + ", width=" + width + ", height="
+				+ height + "]";
+	}
 		private String className;
 		public String getClassName() {
 			return className;
