@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite002" parallel="classes" thread-count="3">
+	<test verbose="2" preserve-order="true" name="testng_demo2">
+		<classes>
+			<class name="ckt.ios.testcase.me.TC2" />
+		</classes>
+	</test>
+</suite>
