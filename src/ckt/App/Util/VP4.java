@@ -102,13 +102,45 @@ public class VP4 extends VP3
 		}
 		return ((MobileElement)iosdriver.findElement(By.name(name)));
 	}
+	public static void waitTextExists(String text,int seconds){
+		long time_start = System.currentTimeMillis();
+		boolean isTerminate=false;
+		while(!isTerminate){
+			if (isTextExist(text)) {
+				isTerminate=true;
+				Log.info(String.format("find text %s",text));
+			}else {
+				long time_end = System.currentTimeMillis();
+				if ((time_end-time_start)>=seconds*1000) {
+					isTerminate=true;
+					Log.info(String.format("can not find text %s in %d seconds",text,seconds));
+				}
+			}
+		}
+	}
+	public static void waitTextGone(String text,int seconds){
+		long time_start = System.currentTimeMillis();
+		boolean isTerminate=false;
+		while(!isTerminate){
+			if (isTextExist(text)) {
+				long time_end = System.currentTimeMillis();
+				if ((time_end-time_start)>=seconds*1000) {
+					isTerminate=true;
+					Log.info(String.format("can not gone text %s in %d seconds",text,seconds));
+				}
+			}else {
+				isTerminate=true;
+				Log.info(String.format("text %s gone",text));
+			}
+		}
+	}
 	public static boolean isTextExist(String text){
 		boolean isExist= false;
 		List<Element> mElements = getPageXmlElements();
 		List<IElement> iElements= toIElements(mElements);
 		List<IElement> findElements = new ArrayList<IElement>();
 		for (IElement element : iElements) {
-			if (element.getName().equals(text)&&element.getValue().equals(text)) {
+			if (element.getName().equals(text)) {
 				findElements.add(element);
 			}
 		}

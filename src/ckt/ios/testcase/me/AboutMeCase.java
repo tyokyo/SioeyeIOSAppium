@@ -5,7 +5,6 @@ import io.appium.java_client.MobileElement;
 import java.net.MalformedURLException;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -84,7 +83,7 @@ public class AboutMeCase extends VP {
 		
 		VP.swipeToUp(iosdriver, 1000, 2);
 		waitUntilFind(10, By.xpath("//UIAApplication[1]/UIAWindow[1]/UIAScrollView[2]/UIATableView[1]/UIATableCell[4]"));
-		VP3.clickElementByPoint("爱好");
+		VP3.clickElementByName("爱好");
 		wait(10);
 		
 		//wait(10);

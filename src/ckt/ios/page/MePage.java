@@ -7,9 +7,9 @@ import io.appium.java_client.MobileElement;
 
 import org.openqa.selenium.By;
 
-import ckt.App.Util.VP;
+import ckt.App.Util.VP4;
 
-public class MePage extends VP{
+public class MePage extends VP4{
 	//Me
 	//点击-直播配置
 	public static void clickLiveConfiguration_btn(){
@@ -55,38 +55,39 @@ public class MePage extends VP{
 	//设置
 	//导播控制
 	public static void clickAccountSecurity_btn(){
-		clickByName("账号与安全");
+		clickElementByName("账号与安全");
 	}
 	//意见反馈
 	public static void clickFeedbackbtn(){
-		clickByName("意见反馈");
+		clickElementByName("意见反馈");
 	}
 	//帮助中心
 	public static void clickHelpbtn(){
-		clickByName("帮助中心");
+		clickElementByName("帮助中心");
 	}
 	//关于Sioeye
 	public static void clickAboutSioeyebtn(){
-		clickByName("关于Sioeye");
+		clickElementByName("关于Sioeye");
 	}
 	public static void clickNickNameBtn(){
-		clickByName("昵称");
+		clickElementByName("昵称");
 	}
 	public static void clickSexBtn(){
-		clickByName("性别");
+		clickElementByName("性别");
 	}
 	public static void clickLocationBtn(){
-		clickByName("地区");
+		clickElementByName("地区");
 	}
 	public static void clickInterestBtn(){
-		clickByName("爱好");
+		clickElementByName("爱好");
 	}
 	public static void clickSignatureBtn(){
-		clickByName("个性签名");
+		clickElementByName("个性签名");
 	}
 	public static void clickSaveBtn(){
-		clickByName("保存");
+		clickElementByName("保存");
 		wait(3);
+		waitTextExists("个性签名", 20);
 	}
 	public static MobileElement getUIATextView(){
 		return ((MobileElement)iosdriver.findElement(By.className("UIATextView")));

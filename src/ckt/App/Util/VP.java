@@ -18,10 +18,11 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class VP extends AppiumBase {
-	private static final long WAIT_STRING=120;
+	private static final long WAIT_STRING=10;
 	public void waitForElementToLoad(int timeOut, final By By) {        
 		(new WebDriverWait(iosdriver, timeOut)).until(new ExpectedCondition<Boolean>() {
 			public Boolean apply(WebDriver driver) {
@@ -51,6 +52,10 @@ public class VP extends AppiumBase {
 		}else {
 			Log.info(String.format("wait element failure in %s seconds",watiTime));
 		}
+	}
+	public static void waitUntilFind(By by,int seconds){
+		 WebDriverWait wait = new WebDriverWait(iosdriver, seconds);
+		 wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(by));
 	}
 	public static void waitUntilGone(int watiTime, By by){
 		Log.info(String.format("start to wait element Gone %s",by));
@@ -87,7 +92,7 @@ public class VP extends AppiumBase {
 	}
 	//通过Name 点击
 	public static void clickByName(String name){
-		VP3.clickElementByPoint(name);
+		VP3.clickElementByName(name);
 		//iosdriver.findElement(By.name(name)).click();
 	}
 	//获取页面xml元素

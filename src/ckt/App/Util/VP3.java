@@ -3,8 +3,11 @@ package ckt.App.Util;
 import io.appium.java_client.TouchAction;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import org.dom4j.Element;
 /*使用正则表达式查找元素*/
 public class VP3 extends VP{
 	public static ArrayList<String> searchElementByName(String name){
@@ -40,8 +43,33 @@ public class VP3 extends VP{
 		Log.info(String.format("%s=%s", attribute,findString));
 		return findString;
 	}
-	public static void clickElementByPoint(String name){
-		ArrayList<String> sList  = searchElementByName(name);
+	public static void clickElementByName(String name){
+		List<Element> mElements = VP4.getPageXmlElements();
+		List<IElement> iElements= VP4.toIElements(mElements);
+		List<IElement> findElements = new ArrayList<IElement>();
+		for (IElement element : iElements) {
+			if (element.getName().equals(name)) {
+				findElements.add(element);
+			}
+		}
+		Log.info(String.format("find name %s count=%s",name,findElements.size()+""));
+		if (findElements.size()>=1) {
+			IElement find = findElements.get(0);
+			double x =find.getX();
+			double y =find.getY();
+			double width = find.getWidth();
+			double height =find.getHeight();
+			int x_coordinate =(int) (x+width/2);
+			int y_coordinate =(int) (y+height/2);
+			//do click operation
+			TouchAction gesture = new TouchAction(iosdriver).press(x_coordinate, y_coordinate) ;
+			 gesture.perform();
+			 Log.info(String.format("click Element By name=%s  With x=%s,y=%s,width=%s,height=%s",name, x,y,width,height));
+		
+		}else {
+			Log.info("there is no element named="+name);
+		}
+		/*ArrayList<String> sList  = searchElementByName(name);
 		//default is click the first element name=name
 		if (sList.size()==0) {
 			Log.info("there is no element named="+name);
@@ -57,6 +85,6 @@ public class VP3 extends VP{
 			TouchAction gesture = new TouchAction(iosdriver).press(x_coordinate, y_coordinate) ;
 			 gesture.perform();
 			 Log.info(String.format("click Element By name=%s  With x=%s,y=%s,width=%s,height=%s",name, x,y,width,height));
-		}
+		}*/
 	}
 }

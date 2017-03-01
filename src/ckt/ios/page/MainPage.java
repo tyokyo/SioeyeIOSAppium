@@ -1,19 +1,19 @@
 package ckt.ios.page;
 
-import ckt.App.Util.VP;
+import ckt.App.Util.VP4;
 
-public class MainPage extends VP{
+public class MainPage extends VP4{
 
 	//点击-发现
 	public static void clickDiscover_btn(){
-		clickByName("发现");
+		clickElementByName("发现");
 		wait(1);
 		//clickByXpath("//UIAApplication[1]/UIAWindow[1]/UIATabBar[1]/UIAButton[1]");
 	}
 
 	//点击-关注
 	public static void clickLive_btn(){
-		clickByName("关注");
+		clickElementByName("关注");
 		wait(1);
 		//clickByXpath("//UIAApplication[1]/UIAWindow[1]/UIATabBar[1]/UIAButton[2]");
 	}
@@ -26,7 +26,7 @@ public class MainPage extends VP{
 	}
 	//点击-设备
 	public static void clickDevice_btn(){
-		clickByName("设备");
+		clickElementByName("设备");
 		wait(1);
 		//clickByXpath("//UIAApplication[1]/UIAWindow[1]/UIATabBar[1]/UIAButton[4]");
 	}
