@@ -1,8 +1,11 @@
 package ckt.App.Util;
 
+import java.awt.Color;
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
@@ -20,6 +23,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Reporter;
+import org.uncommons.reportng.Reporters;
 
 public class VP extends AppiumBase {
 	private static final long WAIT_STRING=10;
@@ -349,13 +354,4 @@ public class VP extends AppiumBase {
         }
         return value;
     }
-	public static void takeScreenShot(String path){
-		File screen = iosdriver.getScreenshotAs(OutputType.FILE);
-		File screenFile = new File(path);
-		try {
-		    FileUtils.copyFile(screen, screenFile); 
-		} catch (IOException e) {
-			Log.info("take screen-failed");
-		}
-	}
 }

@@ -1,5 +1,6 @@
 package ckt.App.Util;
 
+import java.awt.Color;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -20,35 +21,34 @@ public class TestngListener extends TestListenerAdapter {
 	@Override
 	public void onTestFailure(ITestResult tr) {
 		super.onTestFailure(tr);
-		logger.info(tr.getName() + " Failure");
+		Log.info(tr.getName() + " Failure");
 		takeScreenShot(tr);
 	}
 
 	@Override
 	public void onTestSkipped(ITestResult tr) {
 		super.onTestSkipped(tr);
-		logger.info(tr.getName() + " Skipped");
-		takeScreenShot(tr);
+		Log.info(tr.getName() + " Skipped");
 	}
 
 	@Override
 	public void onTestSuccess(ITestResult tr) {
 		super.onTestSuccess(tr);
-		takeScreenShot(tr);
-		logger.info(tr.getName() + " Success");
-		takeScreenShot(tr);
+		Log.info(tr.getName() + " Success");
 	}
 
 	@Override
 	public void onTestStart(ITestResult tr) {
 		super.onTestStart(tr);
-		logger.info(tr.getName() + " Start");
+		String className=tr.getTestClass().getName();
+		String methodName=tr.getMethod().getMethodName();
+		Log.info(" Start to Run:"+className+"#"+methodName);
 	}
 
 	@Override
 	public void onFinish(ITestContext testContext) {
 		super.onFinish(testContext);
-
+		Log.info("End to Run");
 	}
 
 	private void takeScreenShot(ITestResult tr) {
@@ -80,6 +80,12 @@ public class TestngListener extends TestListenerAdapter {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
+		try {
+			Draw.takeDrawRect(screenShotPath, Color.RED);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		Reporter.setCurrentTestResult(tr);
 		//Reporter.log("<img src=\"" + screenShotName + "/>");
 		Reporters.logInfo("<br><img src=../screenshot/" + folderString+"/"+screenName + "  onclick='window.open(\"../screenshot/"+folderString+"/"+screenName+")'"+"  height='"+height+"'  width='"+width+"'/>");

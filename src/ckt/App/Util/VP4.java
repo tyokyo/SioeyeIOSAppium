@@ -3,6 +3,7 @@ package ckt.App.Util;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 
+import java.awt.Color;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
@@ -173,6 +174,7 @@ public class VP4 extends VP3
 			}
 			wait(3);
 			//scrollToFind("qiuxia.jian-qq007");
+			Draw.takeScreenShotWithDraw("qiuxia.jian-qq007");
 		
 		} catch (Exception e) {
 			// TODO: handle exception
