@@ -5,10 +5,14 @@
 	<property name="srcdir" location="src" />
 	<property name="xmldir" location="xml" />
 	<property name="libdir" location="lib" />
+	<property name="libsdir" location="libs" />
 	<property name="full-compile" value="true" />
 	<path id="classpath.base" />
 	<path id="classpath.test">
 		<fileset dir="${libdir}">
+			<include name="**/*.jar" />
+		</fileset>
+		<fileset dir="${libsdir}">
 			<include name="**/*.jar" />
 		</fileset>
 		<pathelement location="${testdir}" />
@@ -18,6 +22,9 @@
 	<taskdef name="testng" classname="org.testng.TestNGAntTask">
 		<classpath>
 			<fileset dir="${libdir}">
+				<include name="**/*.jar" />
+			</fileset>
+			<fileset dir="${libsdir}">
 				<include name="**/*.jar" />
 			</fileset>
 		</classpath>
@@ -35,15 +42,20 @@
 		</javac>
 	</target>
 	<target name="test" depends="compile">
-		<testng outputdir="${reportdir}" classpathref="classpath.test">
+		<testng outputdir="${reportdir}" 
+		    classpathref="classpath.test" 
+		    haltonfailure="true"
+			useDefaultListeners="false"
+			listeners="org.uncommons.reportng.HTMLReporter,org.uncommons.reportng.JUnitXMLReporter">
 			<xmlfileset dir="${xmldir}" includes="*.xml" />
+			<sysproperty key="org.uncommons.reportng.title" value="My Test Report121212"/>
 		</testng>
-		<xslt in="${basedir}/test-output/testng-results.xml" 
-			style="${basedir}/test-output/testng-results.xsl"  
+		<!-- <xslt in="${basedir}/test-output/testng-results.xml" 
 			out="${basedir}/test-output/index1.html">
-			<!-- you need to specify the directory here again -->
+			you need to specify the directory here again
 			<param name="testNgXslt.outputDir" expression="${basedir}/test-output/" />
 			<classpath refid="classpath.test" />
-		</xslt>
+		</xslt> -->
+		<!-- style="${basedir}/test-output/testng-results.xsl"   -->
 	</target>
 </project>
