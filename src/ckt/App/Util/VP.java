@@ -141,7 +141,7 @@ public class VP extends AppiumBase {
 	}
 	//点击 X-path
 	public static void  clickByXpath(final String xpathExpression){
-		Log.info(String.format("click  By.xpath:%s ",xpathExpression));
+		Log.info(String.format("click By.xpath:%s ",xpathExpression));
 		WebDriverWait wait = new WebDriverWait(iosdriver, WAIT_STRING);
 		MobileElement element= wait.until(new  ExpectedCondition<MobileElement>() {
 			@Override
@@ -307,6 +307,11 @@ public class VP extends AppiumBase {
 				break;
 			}
 		}
+	}
+	public static void setText(MobileElement element,String value){
+		element.clear();
+		element.sendKeys(value);
+		log(String.format("setValue-[%s]", value));
 	}
 	public static boolean isTextExist(String text){
 		boolean isExist= false;

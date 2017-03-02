@@ -5,6 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Logger;
 
+import org.uncommons.reportng.Reporters;
+
 /** Simple logger interface. */
 public class Log {
 	private static Logger logger = Logger.getLogger(Log.class.getName());
@@ -16,12 +18,12 @@ public class Log {
 	public static void warn(String message, Object... args) {
 		logger.warning(getPrefix() + String.format(message, args));
 		//System.out.println(getPrefix() + String.format(message, args));
-		//Reporter.log(getPrefix() + String.format(message, args)+"<br>");
+		Reporters.logInfo(getPrefix() + String.format(message, args)+"<br>");
 	}
 	public static void info(String message, Object... args) {
 		logger.info(getPrefix() + String.format(message, args));
 		//System.out.println(getPrefix() + String.format(message, args));
-		//Reporter.log(getPrefix() + String.format(message, args)+"<br>");
+		Reporters.logInfo(getPrefix() + String.format(message, args)+"<br>");
 	}
 
 	private static String getPrefix() {

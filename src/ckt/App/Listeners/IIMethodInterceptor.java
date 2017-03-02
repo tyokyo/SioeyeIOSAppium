@@ -1,0 +1,36 @@
+package ckt.App.Listeners;
+
+import java.util.ArrayList;  
+import java.util.HashSet;  
+import java.util.List;  
+import java.util.Set;  
+
+import org.testng.IMethodInstance;  
+import org.testng.IMethodInterceptor;  
+import org.testng.ITestContext;  
+import org.testng.annotations.Test;  
+
+public class IIMethodInterceptor implements IMethodInterceptor {  
+
+	@Override  
+	public List<IMethodInstance> intercept(List<IMethodInstance> methods,  
+			ITestContext context) {  
+		List<IMethodInstance> result = new ArrayList<IMethodInstance>();  
+
+		for (IMethodInstance m : methods) {  
+			Test test = m.getMethod().getConstructorOrMethod().getMethod()  
+					.getAnnotation(Test.class);  
+			Set<String> groups = new HashSet<String>();  
+			for (String group : test.groups()) {  
+				groups.add(group);  
+			}  
+			System.out.println("groups +"+groups );  
+			if (groups.contains("fast")) {  
+				result.add(0, m);  
+			} else {  
+				result.add(m);  
+			}  
+		}  
+		return result;  
+	}  
+}  
