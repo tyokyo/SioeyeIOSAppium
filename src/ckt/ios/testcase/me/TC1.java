@@ -28,7 +28,7 @@ public class TC1 extends VP {
 	public void testSignature10c(){
 		Assert.fail("");
 	}
-	@Test
+	@Test(description ="test four")
 	public void testSignature612c(){		
 		Draw.takeScreenShot(Color.RED);
 		/*MeAction.navToUserEdit();
