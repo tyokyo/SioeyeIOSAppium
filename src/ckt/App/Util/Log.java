@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Logger;
 
-import org.uncommons.reportng.Reporters;
+import org.testng.Reporter;
 
 /** Simple logger interface. */
 public class Log {
@@ -16,14 +16,16 @@ public class Log {
 		}
 	};
 	public static void warn(String message, Object... args) {
-		logger.warning(getPrefix() + String.format(message, args));
+		//logger.warning(getPrefix() + String.format(message, args));
 		//System.out.println(getPrefix() + String.format(message, args));
-		Reporters.logInfo(getPrefix() + String.format(message, args)+"<br>");
+		//logger.info(getPrefix() + String.format(message, args));
+	    Reporter.log(getPrefix()+String.format(message, args)+"<br>");
 	}
 	public static void info(String message, Object... args) {
-		logger.info(getPrefix() + String.format(message, args));
+		String messages = getPrefix()+String.format(message, args);
+		logger.info(messages);
 		//System.out.println(getPrefix() + String.format(message, args));
-		Reporters.logInfo(getPrefix() + String.format(message, args)+"<br>");
+		Reporter.log(messages+"<br>");
 	}
 
 	private static String getPrefix() {

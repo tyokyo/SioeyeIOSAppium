@@ -12,7 +12,7 @@ public class Reporters {
   private static Logger logger = Logger.getLogger(Reporters.class);
   private static final ThreadLocal<DateFormat> DATE_FORMAT = new ThreadLocal<DateFormat>() {
     @Override protected DateFormat initialValue() {
-      return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+      return new SimpleDateFormat("[yyyy-MM-dd HH:mm:ss]");
     }
   };
   public static void logError(String message, Object... args) {
@@ -27,7 +27,7 @@ public class Reporters {
 
   public static void logDebug(boolean debug, String message, Object... args) {
     logger.info(getPrefix() + String.format(message, args));
-    if (debug) Reporter.log(getPrefix() + String.format(message, args));
+    if (debug) Reporter.log(getPrefix() + String.format(message, args)+"<br>");
   }
 
   private static String getPrefix() {

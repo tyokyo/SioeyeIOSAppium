@@ -1,30 +1,20 @@
 package ckt.App.Util;
 
-import java.awt.Color;
-import java.io.File;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.ios.IOSDriver;
-
-import org.apache.commons.io.FileUtils;
 import org.dom4j.Element;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Reporter;
-import org.uncommons.reportng.Reporters;
 
 public class VP extends AppiumBase {
 	private static final long WAIT_STRING=10;
@@ -97,8 +87,8 @@ public class VP extends AppiumBase {
 	}
 	//通过Name 点击
 	public static void clickByName(String name){
-		VP3.clickElementByName(name);
-		//iosdriver.findElement(By.name(name)).click();
+		//VP3.clickElementByName(name);
+		iosdriver.findElement(By.name(name)).click();
 	}
 	//获取页面xml元素
 	public static String  getTreeForXml(){
@@ -309,7 +299,8 @@ public class VP extends AppiumBase {
 		}
 	}
 	public static void setText(MobileElement element,String value){
-		element.clear();
+		iosdriver.hideKeyboard();
+		element.click();
 		element.sendKeys(value);
 		log(String.format("setValue-[%s]", value));
 	}

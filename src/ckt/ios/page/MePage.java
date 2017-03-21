@@ -1,8 +1,5 @@
 package ckt.ios.page;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import io.appium.java_client.MobileElement;
 
 import org.openqa.selenium.By;
@@ -55,37 +52,37 @@ public class MePage extends VP4{
 	//设置
 	//导播控制
 	public static void clickAccountSecurity_btn(){
-		clickElementByName("账号与安全");
+		clickByName("账号与安全");
 	}
 	//意见反馈
 	public static void clickFeedbackbtn(){
-		clickElementByName("意见反馈");
+		clickByName("意见反馈");
 	}
 	//帮助中心
 	public static void clickHelpbtn(){
-		clickElementByName("帮助中心");
+		clickByName("帮助中心");
 	}
 	//关于Sioeye
 	public static void clickAboutSioeyebtn(){
-		clickElementByName("关于Sioeye");
+		clickByName("关于Sioeye");
 	}
 	public static void clickNickNameBtn(){
-		clickElementByName("昵称");
+		clickByName("昵称");
 	}
 	public static void clickSexBtn(){
-		clickElementByName("性别");
+		clickByName("性别");
 	}
 	public static void clickLocationBtn(){
-		clickElementByName("地区");
+		clickByName("地区");
 	}
 	public static void clickInterestBtn(){
-		clickElementByName("爱好");
+		clickByName("爱好");
 	}
 	public static void clickSignatureBtn(){
-		clickElementByName("个性签名");
+		clickByName("个性签名");
 	}
 	public static void clickSaveBtn(){
-		clickElementByName("保存");
+		clickByName("保存");
 		wait(3);
 		waitTextExists("个性签名", 20);
 	}

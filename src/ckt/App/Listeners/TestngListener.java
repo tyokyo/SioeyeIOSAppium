@@ -14,7 +14,6 @@ import org.testng.Reporter;
 import org.testng.TestListenerAdapter;
 import org.testng.log4testng.Logger;
 import org.uncommons.reportng.Reporters;
-
 import ckt.App.Util.AppiumBase;
 import ckt.App.Util.Draw;
 import ckt.App.Util.Log;

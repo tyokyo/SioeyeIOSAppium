@@ -37,7 +37,6 @@ public class Draw extends VP4{
 		if (!folder.exists()) {
 			folder.mkdirs();
 		}
-		System.out.println(folder.getAbsolutePath());
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMddHHmmss");
 		String mDateTime = formatter.format(new Date());
 		String screenName = mDateTime+".png";
@@ -49,7 +48,7 @@ public class Draw extends VP4{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
-		Log.info(screenShotPath);
+		Log.info(folderString+"/"+screenName);
 		try {
 			takeDrawRect(screenShotPath, color);
 		} catch (IOException e) {
@@ -67,7 +66,6 @@ public class Draw extends VP4{
 		if (!folder.exists()) {
 			folder.mkdirs();
 		}
-		System.out.println(folder.getAbsolutePath());
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMddHHmmss");
 		String mDateTime = formatter.format(new Date());
 		String screenName = mDateTime+".png";
@@ -118,7 +116,6 @@ public class Draw extends VP4{
 		Reporters.logInfo("<br><img src=../screenshot/" + folderString+"/"+screenName + "  onclick='window.open(\"../screenshot/"+folderString+"/"+screenName+")'"+"  height='"+height+"'  width='"+width+"'/>");
 	}
 	public static void takeDrawRect(String filePath,Color color) throws IOException{
-		Log.info("start to draw picture:"+filePath);
 		File _file = new File(filePath); // 读入文件  
 		Image src = ImageIO.read(_file); // 构造Image对象  
 		int width = src.getWidth(null); // 得到源图宽  
@@ -141,7 +138,6 @@ public class Draw extends VP4{
 		out.close();  
 	}
 	public static void takeDrawRectAndText(String filePath,Color color,String drawText) throws IOException{
-		Log.info("start to draw picture:"+filePath);
 		File _file = new File(filePath); // 读入文件  
 		Image src = ImageIO.read(_file); // 构造Image对象  
 		int width = src.getWidth(null); // 得到源图宽  

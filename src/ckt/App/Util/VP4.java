@@ -20,6 +20,8 @@ import org.dom4j.io.SAXReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.interactions.touch.TouchActions;
+
+import ckt.ios.page.MainPage;
 /*使用dom4j解析页面XML数据*/
 public class VP4 extends VP3
 {
@@ -157,12 +159,11 @@ public class VP4 extends VP3
 	{
 		try {
 			startAppium();
-			By.className("AppiumAUT");
-			By.name("CKT");
-			/*String appName=getApplicationName();
-			System.out.println(appName);*/
-			By by = By.xpath("//AppiumAUT/AppiumAUT/AppiumAUT");
-			System.out.println(by);
+			
+			String appName=getApplicationName();
+			System.out.println(appName);
+			
+			MainPage.clickMe_btn();
 			List<Element> ems = getPageXmlElements();
 			for (Element element : ems) {
 				System.out.println(element.getUniquePath());
@@ -173,9 +174,10 @@ public class VP4 extends VP3
 				System.out.println(iElement.toString());
 			}
 			wait(3);
-			//scrollToFind("qiuxia.jian-qq007");
-			Draw.takeScreenShotWithDraw("qiuxia.jian-qq007");
-		
+			scrollToFind("2857");
+			MainPage.clickMe_btn();
+			//Draw.takeScreenShotWithDraw("qiuxia.jian-qq007");
+			wait(10);
 		} catch (Exception e) {
 			// TODO: handle exception
 		}finally{

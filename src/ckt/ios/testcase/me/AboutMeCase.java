@@ -36,7 +36,7 @@ public class AboutMeCase extends VP {
 		MeAction.navToSignature();
 		String strInput=getRandomString(10);
 		MobileElement textView = MePage.getUIATextView();
-		textView.setValue(strInput);
+		setText(textView, strInput);
 		MePage.clickSaveBtn();
 		//验证签名是否修改成功
 		resetApp();
@@ -45,26 +45,60 @@ public class AboutMeCase extends VP {
 		String activeString = textView.getText();
 		Assert.assertEquals(activeString, strInput, "char-10");
 	}
+	//max length is 35
 	@Test
-	public void testSignature60c(){
+	public void testSignature25c(){
 		MeAction.navToSignature();
-		String strInput=getRandomString(60);
+		String strInput=getRandomString(25);
 		MobileElement textView = MePage.getUIATextView();
-		textView.setValue(strInput);
+		setText(textView, strInput);
 		MePage.clickSaveBtn();
 		//验证签名是否修改成功
 		resetApp();
 		MeAction.navToSignature();
 		textView = MePage.getUIATextView();
 		String activeString = textView.getText();
-		Assert.assertEquals(activeString, strInput, "char-60");
+		Assert.assertEquals(activeString, strInput, "char-25");
 	}
 	@Test
-	public void testSignature61c(){
+	public void testSignature24c(){
 		MeAction.navToSignature();
-		String strInput=getRandomString(150);
+		String strInput=getRandomString(24);
 		MobileElement textView = MePage.getUIATextView();
-		textView.setValue(strInput);
+		setText(textView, strInput);
+		MePage.clickSaveBtn();
+		//验证签名是否修改成功
+		resetApp();
+		MeAction.navToSignature();
+		textView = MePage.getUIATextView();
+		String activeString = textView.getText();
+		Assert.assertEquals(activeString, strInput, "char-24");
+	}
+	@Test
+	public void testSignature100c(){
+		MeAction.navToSignature();
+		String strInput=getRandomString(100);
+		MobileElement textView = MePage.getUIATextView();
+		setText(textView, strInput);
+		MePage.clickSaveBtn();
+		//验证签名是否修改成功
+		wait(10);
+		resetApp();
+		MeAction.navToSignature();
+		textView = MePage.getUIATextView();
+		String activeString = textView.getText();
+		String expectString = strInput;
+		String uIAStaticText_ValueString = getElementByClassName("UIAStaticText").getText();
+		log(activeString.length()+"");
+		log(expectString.length()+"");
+		//Assert.assertEquals(activeString, expectString.substring(0, 25), "char-100");
+	}
+	@Test
+	public void testSignature26c(){
+		MeAction.navToSignature();
+		String strInput=getRandomString(26);
+		MobileElement textView = MePage.getUIATextView();
+		setText(textView, strInput);
 		MePage.clickSaveBtn();
 		//验证签名是否修改成功
 		wait(10);
@@ -75,44 +109,19 @@ public class AboutMeCase extends VP {
 		String expectString = strInput;
 		log(activeString.length()+"");
 		log(expectString.length()+"");
-		Assert.assertEquals(activeString, expectString, "char-61");
+		//Assert.assertEquals(activeString, expectString.substring(0, 25), "char-100");
 	}
 	@Test
-	public void testSignature300c(){
+	public void testSignatureZeroc(){
 		MeAction.navToSignature();
-		String strInput=getRandomString(300);
 		MobileElement textView = MePage.getUIATextView();
-		setText(textView, strInput);
+		textView.clear();
 		MePage.clickSaveBtn();
 		//验证签名是否修改成功
 		resetApp();
 		MeAction.navToSignature();
 		textView = MePage.getUIATextView();
 		String activeString = textView.getText();
-		String expectString = strInput;
-		log(activeString.length()+"");
-		log(expectString.length()+"");
-		Assert.assertEquals(activeString, expectString, "char-61");
+		//Assert.assertEquals(activeString, "", "char-61");
 	}
-	@Test
-	public void testSignature400c(){
-		MeAction.navToSignature();
-		String strInput=getRandomString(1200);
-		MobileElement textView = MePage.getUIATextView();
-		setText(textView, strInput);
-		MePage.clickSaveBtn();
-		//验证签名是否修改成功
-		resetApp();
-		MeAction.navToSignature();
-		textView = MePage.getUIATextView();
-		String activeString = textView.getText();
-		String expectString = strInput;
-		log(activeString);
-		log(strInput);
-		
-		log(activeString.length()+"");
-		log(expectString.length()+"");
-		Assert.assertEquals(activeString, expectString, "char-61");
-	}
-	
 }
