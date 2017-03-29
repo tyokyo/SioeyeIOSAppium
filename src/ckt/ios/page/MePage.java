@@ -10,43 +10,46 @@ public class MePage extends VP4{
 	//Me
 	//点击-直播配置
 	public static void clickLiveConfiguration_btn(){
-		clickByXpath("//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIATableView[1]/UIATableCell[1]");
+		iosdriver.findElement(By.className("Table")).findElements(By.className("Cell")).get(0).click();;
 	}
 	//点击-二维码
 	public static void clickQRCode_btn(){
-		clickByXpath("//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIATableView[1]/UIATableCell[2]");
+		iosdriver.findElement(By.className("Table")).findElements(By.className("Cell")).get(1).click();;
 	}
 	//点击-消息
 	public static void clickMessage_btn(){
-		clickByXpath("//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIATableView[1]/UIATableCell[3]");
+		iosdriver.findElement(By.className("Table")).findElements(By.className("Cell")).get(2).click();;
 	}
 	//点击-我的剪辑
 	public static void clickEditor_btn(){
-		clickByXpath("//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIATableView[1]/UIATableCell[4]");
+		iosdriver.findElement(By.className("Table")).findElements(By.className("Cell")).get(3).click();;
 	}
 	//点击-设置
 	public static void clickSetting_btn(){
-		clickByXpath("//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIATableView[1]/UIATableCell[5]");
+		iosdriver.findElement(By.className("Table")).findElements(By.className("Cell")).get(4).click();;
 	}
+
 	//点击-分享
 	public static void  clickShareBtn() {
-		clickByXpath("//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[2]");
+		iosdriver.findElement(By.className("NavigationBar")).findElements(By.className("Button")).get(0).click();;
 	}
 	//点击-编辑
 	public static void clickUserEdit(){
-		clickByXpath("//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[3]");
+		iosdriver.findElement(By.className("NavigationBar")).findElements(By.className("Button")).get(1).click();;
 	}
+
+
 	//点击-直播
 	public static void clickLive(){
-		clickByXpath("//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAButton[1]");
+		clickByName("直播");
 	}
 	//点击-关注
 	public static void clickFollowingBtn(){
-		clickByXpath("//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAButton[2]");
+		clickByName("关注");
 	}
 	//点击-粉丝
 	public static void clickFollowsBtn(){
-		clickByXpath("//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAButton[3]");
+		clickByName("粉丝");
 	}
 
 	//设置
@@ -84,10 +87,15 @@ public class MePage extends VP4{
 	public static void clickSaveBtn(){
 		clickByName("保存");
 		wait(3);
-		waitTextExists("个性签名", 20);
+		waitUntilTextExist("个性签名", 20);
 	}
-	public static MobileElement getUIATextView(){
-		return ((MobileElement)iosdriver.findElement(By.className("UIATextView")));
+	//获取文本框对象
+	public static MobileElement getTextField(){
+		return ((MobileElement)iosdriver.findElement(By.className("TextField")));
+	}
+	//获取文本框对象
+	public static MobileElement getTextView(){
+		return ((MobileElement)iosdriver.findElement(By.className("TextView")));
 	}
 
 }

@@ -7,11 +7,13 @@ import java.util.concurrent.TimeUnit;
 
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.ios.IOSDriver;
+
 import org.dom4j.Element;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.touch.TouchActions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -115,19 +117,6 @@ public class VP extends AppiumBase {
 	//根据name获取对象
 	public static MobileElement getElementByName(final String name){
 		return ((MobileElement)iosdriver.findElement(By.name(name)));
-	}
-	//根据tag-name获取对象
-	public static void clickByByTag(final String name){
-		Log.info(String.format("click Element By name=%s ",name));
-		WebDriverWait wait = new WebDriverWait(iosdriver, WAIT_STRING);
-		MobileElement element= wait.until(new  ExpectedCondition<MobileElement>() {
-			@Override
-			public MobileElement apply(WebDriver arg0) {
-				// TODO Auto-generated method stub
-				return (MobileElement) arg0.findElement(By.tagName(name));
-			}
-		});
-		element.click();
 	}
 	//点击 X-path
 	public static void  clickByXpath(final String xpathExpression){
@@ -299,28 +288,25 @@ public class VP extends AppiumBase {
 		}
 	}
 	public static void setText(MobileElement element,String value){
-		iosdriver.hideKeyboard();
-		element.click();
-		element.sendKeys(value);
+		//iosdriver.hideKeyboard();
+		element.clear();
+		element.setValue(value);
 		log(String.format("setValue-[%s]", value));
 	}
 	public static boolean isTextExist(String text){
-		boolean isExist= false;
-		List<Element> mElements = VP4.getPageXmlElements();
-		List<IElement> iElements= VP4.toIElements(mElements);
-		List<IElement> findElements = new ArrayList<IElement>();
-		for (IElement element : iElements) {
-			if (element.getName().equals(text)&&element.getValue().equals(text)) {
-				findElements.add(element);
-			}
+		boolean isTextFind=false;
+		try {
+			iosdriver.findElement(By.name(text));
+			isTextFind=true;
+		} catch (org.openqa.selenium.NoSuchElementException e) {
+			// TODO: handle exception
+			isTextFind=false;
 		}
-		Log.info(String.format("find text %s count=%s",text,findElements.size()+""));
-		if (findElements.size()>=1) {
-			isExist=true;
-		}else {
-			isExist=false;
-		}
-		return isExist;
+		return isTextFind;
+	}
+	/*长按某一个对象*/
+	public static void longPress(MobileElement element){
+		new TouchActions(iosdriver).longPress(element);
 	}
 	public static  boolean scrollToFind(String text){
 		boolean isFind=false;
@@ -333,12 +319,13 @@ public class VP extends AppiumBase {
 			if (isTextExist(text)) {
 				isFind=true;
 				isEnd=true;
+				Log.info("swipeToUp to  find element with text="+text+ ", result  success");
 			}else {
 				swipeToUp(iosdriver, 2000, 1);
 				sms_after = VP4.getPageXmlElements();
 				if (sms_before.size()==sms_after.size()) {
 					isEnd=true;
-					Log.info("swipeToUp end but not find element with text="+text);
+					Log.info("swipeToUp to  find element with text="+text+ ", result  failed");
 				}
 			}
 		}

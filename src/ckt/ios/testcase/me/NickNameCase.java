@@ -33,14 +33,38 @@ public class NickNameCase extends VP {
 	public void testNickName10c(){
 		MeAction.navToNickName();
 		String strInput=getRandomString(10);
-		MobileElement textView = getElementByClassName("UIAStaticText");
-		setText(textView, strInput);
+		MobileElement textField = MePage.getTextField();
+		setText(textField, strInput);
 		MePage.clickSaveBtn();
 		//验证是否修改成功
 		resetApp();
 		MeAction.navToNickName();
-		textView = MePage.getUIATextView();
-		String activeString = textView.getText();
+		textField = MePage.getTextField();
+		String activeString = textField.getText();
 		Assert.assertEquals(activeString, strInput, "char-10");
 	}
+	@Test
+	public void testNickNameisEnable(){
+		MeAction.navToNickName();
+		MobileElement textField = MePage.getTextField();
+		textField.clear();
+		//保存 isEnable = false
+		boolean isEnable=getElementByName("保存").isEnabled();
+		Assert.assertEquals(isEnable, false, "不能设置为空");
+	}
+	@Test
+	public void testNickNameModifyNotSave(){
+		MeAction.navToNickName();
+		String strInput=getRandomString(10);
+		MobileElement textField = MePage.getTextField();
+		setText(textField, strInput);
+		MePage.clickSaveBtn();
+		//验证是否修改成功
+		resetApp();
+		MeAction.navToNickName();
+		textField = MePage.getTextField();
+		String activeString = textField.getText();
+		Assert.assertEquals(activeString, strInput, "char-10");
+	}
+	
 }

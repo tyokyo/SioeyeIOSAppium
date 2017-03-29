@@ -105,7 +105,7 @@ public class VP4 extends VP3
 		}
 		return ((MobileElement)iosdriver.findElement(By.name(name)));
 	}
-	public static void waitTextExists(String text,int seconds){
+	public static void waitUntilTextExist(String text,int seconds){
 		long time_start = System.currentTimeMillis();
 		boolean isTerminate=false;
 		while(!isTerminate){
@@ -137,7 +137,7 @@ public class VP4 extends VP3
 			}
 		}
 	}
-	public static boolean isTextExist(String text){
+	/*public static boolean isTextExist(String text){
 		boolean isExist= false;
 		List<Element> mElements = getPageXmlElements();
 		List<IElement> iElements= toIElements(mElements);
@@ -154,7 +154,7 @@ public class VP4 extends VP3
 			isExist=false;
 		}
 		return isExist;
-	}
+	}*/
 	public static void main(String[] args) throws Exception
 	{
 		try {

@@ -62,8 +62,8 @@ public class AppiumBase {
 		capabilities.setCapability(MobileCapabilityType.UDID, "057475d55abf5e4f36becfc16cf3691cb661fe9e");
 		capabilities.setCapability(MobileCapabilityType.NO_RESET,Boolean.parseBoolean(noReset));
 		capabilities.setCapability("sessionOverride",Boolean.parseBoolean(sessionOverride));
-		//capabilities.setCapability("unicodeKeyboard",true);  
-		//capabilities.setCapability("resetKeyboard", true);  
+		capabilities.setCapability("unicodeKeyboard",true);  
+		capabilities.setCapability("resetKeyboard", true);  
 		//capabilities.setCapability("webDriverAgentUrl", "http://localhost:8100");  
 		capabilities.setCapability("automationName","XCUITest");
 		//capabilities.setCapability("native-instruments-lib",true);
