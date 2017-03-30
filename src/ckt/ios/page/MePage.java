@@ -111,6 +111,30 @@ public class MePage extends VP4{
 	public static MobileElement getSearchField(){
 		return getElementByClassName("SearchField");
 	}
-	
+	//编辑头像
+	public static void clickAvatar(){
+		iosdriver.findElement(By.className("ScrollView")).findElement(By.className("Image")).click();
+	}
+	//编辑头像-选择拍照
+	public static void avatarByCamera(){
+		iosdriver.findElement(By.className("Button")).findElement(By.name("拍照")).click();
+	}
+	//编辑头像-选择拍照
+	public static void avatarByGallery(){
+		iosdriver.findElement(By.className("Button")).findElement(By.name("从相册中选择")).click();
+	}
+	//编辑头像-选择拍照-使用照片
+	public static void usingPicture(){
+		iosdriver.findElement(By.className("Button")).findElement(By.name("使用照片")).click();
+		waitTextGone("使用照片", 10);
+	}
+	//拍照
+	public static void clickCapture(){
+		clickByName("拍照");
+	}
 
+	//取消拍照
+	public static void clickCaptureCancel(){
+		clickByName("取消");
+	}
 }
