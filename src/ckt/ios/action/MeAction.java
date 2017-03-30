@@ -49,6 +49,9 @@ public class MeAction  extends VP{
 	public static void navToLocation(){
 		navToUserEdit();
 		MePage.clickLocationBtn();
+		if (text_exist("Allow")) {
+			clickByName("Allow");
+		}
 	}
 	public static void navToInterest(){
 		navToUserEdit();

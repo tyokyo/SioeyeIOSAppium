@@ -87,7 +87,7 @@ public class MePage extends VP4{
 	public static void clickSaveBtn(){
 		clickByName("保存");
 		wait(3);
-		waitUntilTextExist("个性签名", 20);
+		waitTextGone("保存", 20);
 	}
 	//获取文本框对象
 	public static MobileElement getTextField(){
@@ -97,5 +97,20 @@ public class MePage extends VP4{
 	public static MobileElement getTextView(){
 		return ((MobileElement)iosdriver.findElement(By.className("TextView")));
 	}
+
+	//性别设置
+	public static void clickSexMale(){
+		clickByName("男");
+	}
+	public static void clickSexFeMale(){
+		clickByName("女");
+	}
+	public static void clickSexSecret(){
+		clickByName("保密");
+	}
+	public static MobileElement getSearchField(){
+		return getElementByClassName("SearchField");
+	}
+	
 
 }

@@ -15,5 +15,5 @@ public class MainAction extends VP{
 	public static void navToCamera(){
 		clickByXpath("UIAApplication[1]/UIAWindow[1]/UIATabBar[1]/UIAButton[4]");
 	}
-
+	
 }

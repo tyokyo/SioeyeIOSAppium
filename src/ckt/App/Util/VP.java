@@ -292,6 +292,7 @@ public class VP extends AppiumBase {
 		element.clear();
 		element.setValue(value);
 		log(String.format("setValue-[%s]", value));
+		clickByName("return");
 	}
 	public static boolean isTextExist(String text){
 		boolean isTextFind=false;

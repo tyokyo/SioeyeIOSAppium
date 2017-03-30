@@ -1,4 +1,4 @@
-package ckt.ios.testcase.me;
+package ckt.ios.testcase.me.edit;
 
 import io.appium.java_client.MobileElement;
 
@@ -17,7 +17,7 @@ import ckt.ios.action.LoginAction;
 import ckt.ios.action.MeAction;
 import ckt.ios.page.MePage;
 
-public class AboutMeCase extends VP {
+public class SignatureCase extends VP {
 	@BeforeClass
 	public void beforeClass() throws MalformedURLException {
 		startAppium();
@@ -77,9 +77,9 @@ public class AboutMeCase extends VP {
 	@Test
 	public void testSignature100c(){
 		MeAction.navToSignature();
-		String strInput=getRandomString(100);
+		String expectString=getRandomString(100);
 		MobileElement textView = MePage.getTextView();
-		setText(textView, strInput);
+		setText(textView, expectString);
 		MePage.clickSaveBtn();
 		//验证签名是否修改成功
 		wait(10);
@@ -87,16 +87,13 @@ public class AboutMeCase extends VP {
 		MeAction.navToSignature();
 		textView = MePage.getTextView();
 		String activeString = textView.getText();
-		String expectString = strInput;
-		String uIAStaticText_ValueString = MePage.getTextView().getText();
 		log(activeString.length()+"");
-		log(expectString.length()+"");
-		//Assert.assertEquals(activeString, expectString.substring(0, 25), "char-100");
+		Assert.assertEquals(activeString, expectString.substring(0, 60), "max-char-60");
 	}
 	@Test
-	public void testSignature26c(){
+	public void testSignature60c(){
 		MeAction.navToSignature();
-		String strInput=getRandomString(26);
+		String strInput=getRandomString(60);
 		MobileElement textView = MePage.getTextView();
 		setText(textView, strInput);
 		MePage.clickSaveBtn();
@@ -107,9 +104,7 @@ public class AboutMeCase extends VP {
 		textView = MePage.getTextView();
 		String activeString = textView.getText();
 		String expectString = strInput;
-		log(activeString.length()+"");
-		log(expectString.length()+"");
-		//Assert.assertEquals(activeString, expectString.substring(0, 25), "char-100");
+		Assert.assertEquals(activeString, expectString, "char-60");
 	}
 	@Test
 	public void testSignatureZeroc(){

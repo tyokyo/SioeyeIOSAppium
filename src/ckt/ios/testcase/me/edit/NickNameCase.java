@@ -1,4 +1,4 @@
-package ckt.ios.testcase.me;
+package ckt.ios.testcase.me.edit;
 
 import io.appium.java_client.MobileElement;
 
@@ -42,6 +42,34 @@ public class NickNameCase extends VP {
 		textField = MePage.getTextField();
 		String activeString = textField.getText();
 		Assert.assertEquals(activeString, strInput, "char-10");
+	}
+	@Test
+	public void testNickName30c(){
+		MeAction.navToNickName();
+		String strInput=getRandomString(30);
+		MobileElement textField = MePage.getTextField();
+		setText(textField, strInput);
+		MePage.clickSaveBtn();
+		//验证是否修改成功
+		resetApp();
+		MeAction.navToNickName();
+		textField = MePage.getTextField();
+		String activeString = textField.getText();
+		Assert.assertEquals(activeString, strInput, "char-30");
+	}
+	@Test
+	public void testNickName100c(){
+		MeAction.navToNickName();
+		String strInput=getRandomString(100);
+		MobileElement textField = MePage.getTextField();
+		setText(textField, strInput);
+		MePage.clickSaveBtn();
+		//验证是否修改成功
+		resetApp();
+		MeAction.navToNickName();
+		textField = MePage.getTextField();
+		String activeString = textField.getText();
+		Assert.assertEquals(activeString, strInput.substring(0,30), "char-30");
 	}
 	@Test
 	public void testNickNameisEnable(){
