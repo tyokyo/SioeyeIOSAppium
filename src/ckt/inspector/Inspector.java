@@ -33,7 +33,7 @@ public class Inspector extends VP3
 
 	}
 	public static List<IElement> toIElements(List<Element> elements){
-		System.out.println("toIElements-"+elements.size());
+		//System.out.println("toIElements-"+elements.size());
 		List<IElement> iElements = new ArrayList<IElement>();
 		for (Element element : elements) {
 			IElement iElement = new IElement();

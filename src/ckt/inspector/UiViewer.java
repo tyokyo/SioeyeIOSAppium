@@ -46,6 +46,7 @@ import javax.swing.table.JTableHeader;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeCellRenderer;
+import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeNode;
 import javax.swing.tree.TreePath;
 
@@ -72,6 +73,7 @@ public class UiViewer  extends JFrame{
 	public static JTree tree;
 	public static Vector vData ;
 	public static Vector vName;;
+	public static DefaultTreeModel dModel;
 	public static void initImagePanel() {
 		imgPanel=new JPanel();             //实例化一个面板
 		imgPanel.setBackground(Color.BLUE);       
@@ -110,23 +112,9 @@ public class UiViewer  extends JFrame{
 				// TODO Auto-generated method stub
 				int x = e.getX();  //得到鼠标x坐标
 				int y = e.getY();  //得到鼠标y坐标
-				String banner = "鼠标当前点击位置的坐标是" + x + "," + y;
-
 				getPointInElement(x, y);
-
-				System.out.println(banner);
 			}
 		});
-		/*imgPanel.addMouseListener(new MouseAdapter(){  //匿名内部类，鼠标事件
-			public void mouseClicked(MouseEvent e){   //鼠标完成点击事件
-				if(e.getButton() == MouseEvent.MOUSE_CLICKED){ //e.getButton就会返回点鼠标的那个键，左键还是右健，3代表右键
-					int x = e.getX();  //得到鼠标x坐标
-					int y = e.getY();  //得到鼠标y坐标
-					String banner = "鼠标当前点击位置的坐标是" + x + "," + y;
-					System.out.println(banner);
-				}
-			}
-		});*/
 	}
 	public static String getRootXpath(DefaultMutableTreeNode node){
 		TreeNode[] treeNodes = node.getPath();
@@ -134,8 +122,7 @@ public class UiViewer  extends JFrame{
 	}
 	public static void expandAll(JTree tree)
 	{
-		DefaultMutableTreeNode root = (DefaultMutableTreeNode) tree.getModel()
-				.getRoot();
+		DefaultMutableTreeNode root = (DefaultMutableTreeNode) tree.getModel().getRoot();
 		expandTreeFromNode(tree, root);
 	}
 
@@ -151,7 +138,6 @@ public class UiViewer  extends JFrame{
 			DefaultMutableTreeNode node = (DefaultMutableTreeNode) enumeration.nextElement();
 			if(!node.isLeaf())
 			{
-				//				System.out.println("found" + node);
 				TreePath path = new TreePath(node.getPath());
 				tree.expandPath(path);
 			}
@@ -189,9 +175,7 @@ public class UiViewer  extends JFrame{
 							cureentcount=cureentcount+1;
 						}
 					}
-
 					//System.out.println(String.format("%d-%d", sameTypecount,cureentcount));
-
 					if (sameTypecount==1) {
 						pathString=pathString+"/XCUIElementType"+fNode.toString();
 					}else {
@@ -219,9 +203,9 @@ public class UiViewer  extends JFrame{
 
 		/*Inspector.getTree();
 		Draw.takeInspectorScreenShot();*/
-
-		tree = new JTree(Inspector.getTree());
-
+		Inspector.getTree();
+		dModel=new DefaultTreeModel(Inspector.rootTree);
+		tree = new JTree(dModel);
 		/*ImageIcon leafIcon = new ImageIcon("images/middle.gif");
 		if (leafIcon != null) {
 		    DefaultTreeCellRenderer renderer = new DefaultTreeCellRenderer();
@@ -241,11 +225,10 @@ public class UiViewer  extends JFrame{
 					DefaultMutableTreeNode node = (DefaultMutableTreeNode) obj;
 					String xpathSelected = getXpath(node);
 
-					System.out.println("--------------------------1-----------------------------");
 					System.out.println(xpathSelected);
 
 					for (IElement iElement : tms) {
-						System.err.println(iElement.getXpath());
+						//System.err.println(iElement.getXpath());
 						if (iElement.getXpath().equals(xpathSelected)) {
 							System.out.println("============find ==============");
 							vData .clear();
@@ -261,37 +244,7 @@ public class UiViewer  extends JFrame{
 							break;
 						}
 					}
-					System.out.println("------------------------2-------------------------------");
 				}
-
-				/*DefaultMutableTreeNode note = (DefaultMutableTreeNode) tree.getLastSelectedPathComponent();
-
-				//     String name = note.toString();//获得这个结点的名称
-				//方法2
-				//   String name=((DefaultMutableTreeNode) tree.getSelectionPath().getLastPathComponent()).toString();
-
-				if (note.isLeaf()) {
-					// 获取选中节点的父节点
-					DefaultMutableTreeNode parent = (DefaultMutableTreeNode) note.getParent();
-					//获取父节点的子节点(首个子节点和最后一个子节点)
-					//DefaultMutableTreeNode FirstChild = (DefaultMutableTreeNode) note.getFirstChild();
-
-					//DefaultMutableTreeNode LastChild = (DefaultMutableTreeNode) note.getLastChild();
-					//System.out.println("选中节点的子节点"+FirstChild.toString());
-
-					if (parent == null) {
-						return;
-					}
-					int selectedIndex = parent.getIndex(note);
-					System.out.println("选中节点的节点索引:"+selectedIndex);
-
-					Image image=new ImageIcon("004.png").getImage();  
-					imgPanel = new BackgroundPanel(image,50,20,50,60); 
-					updateContentPane();
-				}else {
-
-				}*/
-
 			}
 		});
 		treePanel.add(scrollPane);
@@ -321,13 +274,13 @@ public class UiViewer  extends JFrame{
 		// tcr.setHorizontalAlignment(JLabel.CENTER);  
 		tcr.setHorizontalAlignment(SwingConstants.CENTER);// 这句和上句作用一样  
 		table.setDefaultRenderer(Object.class, tcr);  
-		
+
 		JTableHeader tableHeader = table.getTableHeader();  
-		  
-        tableHeader.setReorderingAllowed(false);//表格列不可移动  
-        DefaultTableCellRenderer hr = (DefaultTableCellRenderer) tableHeader.getDefaultRenderer();  
-        hr.setHorizontalAlignment(DefaultTableCellRenderer.CENTER);//列名居中  
-        
+
+		tableHeader.setReorderingAllowed(false);//表格列不可移动  
+		DefaultTableCellRenderer hr = (DefaultTableCellRenderer) tableHeader.getDefaultRenderer();  
+		hr.setHorizontalAlignment(DefaultTableCellRenderer.CENTER);//列名居中  
+
 		table.setFont(new Font("华文楷体", Font.PLAIN, 14));
 		table.setBackground(Color.YELLOW);
 
@@ -364,18 +317,19 @@ public class UiViewer  extends JFrame{
 
 	}
 	public static int  expandTree(IElement element){
-		System.out.println(element.getXpath());
+		System.out.println("do expandTree ");
+		System.out.println("to -"+element.getXpath());
 		int s = 0;
 		Enumeration<?> enumeration = Inspector.rootTree.preorderEnumeration();
 		while(enumeration.hasMoreElements()){ //遍历枚举对象.
 			//先定义一个节点变量.
 			DefaultMutableTreeNode node;
 			node=(DefaultMutableTreeNode) enumeration.nextElement();//将节点名称给node.
-			System.out.println("=======================");
-			System.out.println(node.toString());
+			//System.out.println("==========expandTree=============");
+			//System.out.println(node.toString());
 			String xpath = UiViewer.getXpath(node);
-			System.out.println(xpath);
-			System.out.println("=======================");
+			//System.out.println(xpath);
+			//System.out.println("==========expandTree=============");
 			if (xpath.equals(element.getXpath())) {
 				System.err.println("find element with the same xpath");
 
@@ -387,12 +341,7 @@ public class UiViewer  extends JFrame{
 				//PanelDemo.expandTreeFromNode(PanelDemo.tree, node);
 				break;
 			}
-			/*			//根据级别输出占位符.
-			for(int l=0;l<node.getLevel();l++){
-				System.out.print("---");
-				s = s++;
-			}
-			 */		}
+		}
 		return s ;
 	}
 	public static void updateContentPane() {
@@ -435,7 +384,7 @@ public class UiViewer  extends JFrame{
 				getPointInElement(x, y);
 
 				System.out.println(banner);   //568  320
-				imgPanel.setSize(width, height);
+				//imgPanel.setSize(width, height);
 			}
 		});
 		jContentPane.add(treePanel);
@@ -459,6 +408,12 @@ public class UiViewer  extends JFrame{
 		jContentPane.add(elementPanel);
 		return jContentPane;
 	}
+	public static void updateJtree(){
+		/*tree.removeAll();
+		tree = new JTree(Inspector.getTree());
+		tree.updateUI();*/
+		dModel.reload(Inspector.rootTree);
+	}
 	public UiViewer() {
 		JMenuBar menubar = new JMenuBar();
 		setJMenuBar(menubar);
@@ -471,15 +426,25 @@ public class UiViewer  extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
+				Dialog.start_doing(frame);
+
 				Thread thread = new Thread(new Runnable() {
 
 					@Override
 					public void run() {
 						// TODO Auto-generated method stub
-						if (VP4.iosdriver==null) {
+						String content;
+						try {
+							System.out.println(VP4.iosdriver.getSessionId());
+							content = VP4.iosdriver.getPageSource();
+						} catch (Exception e2) {
+							// TODO: handle exception
 							VP4.startAppium();
+							content = VP4.iosdriver.getPageSource();
 						}
-						String content = VP4.iosdriver.getPageSource();
+						/*if (VP4.iosdriver.getSessionId()==null) {
+							VP4.startAppium();
+						}*/
 						try {
 							Inspector.writeTxtFile(content,new File(xmlPath));
 						} catch (Exception e1) {
@@ -487,6 +452,7 @@ public class UiViewer  extends JFrame{
 							e1.printStackTrace();
 						}
 						imagePath ="inspector/"+Draw.takeInspectorScreenShot();
+						Inspector.getTree();
 
 						List<Element>  ems = VP4.getPageXmlElements();
 						System.out.println(VP4.iosdriver.getPageSource());
@@ -497,19 +463,16 @@ public class UiViewer  extends JFrame{
 						for (IElement iElement : tms) {
 							System.out.println(iElement.toString());
 						}
+						imgPanel.removeAll();
+						Image image=new ImageIcon(imagePath).getImage();  
+						imgPanel = new BackgroundPanel(image,0,0,width,height);   
+						initTreePanel();
+						updateContentPane();
+
+						Dialog.stop_doing();
 					}
 				});
 				thread.start();
-				try {
-					thread.join();
-				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				Image image=new ImageIcon(imagePath).getImage();  
-				imgPanel = new BackgroundPanel(image,0,0,width,height); 
-				updateContentPane();
-
 			}
 		});
 

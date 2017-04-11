@@ -5,6 +5,11 @@ import org.openqa.selenium.By;
 import ckt.App.Util.VP4;
 
 public class MainPage extends VP4{
+	//输入法 returen button
+	public static void clickReturn(){
+		clickByName("return");
+		wait(1);
+	}
 
 	//点击-发现
 	public static void clickDiscover_btn(){

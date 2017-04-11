@@ -34,14 +34,17 @@ public class LoginPage extends VP4 {
 	}
 	//退出登录
 	public static void clickLogOut_btn(){
+		log("click login out button");
 		clickByName("退出登录");
 	}
 	//登录
 	public static void clickLoginAccount_btn(){
+		log("click login in button");
 		clickByXpath("//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeButton[1]");
 	}
 	//忘记密码
 	public static void clickForgotPassword_btn(){
+		log("click forgot password button");
 		clickByXpath("//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeButton[2]");
 	}
 }

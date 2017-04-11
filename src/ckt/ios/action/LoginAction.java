@@ -1,5 +1,7 @@
 package ckt.ios.action;
 
+import org.openqa.selenium.By;
+
 import ckt.App.Util.Log;
 import ckt.App.Util.Property;
 import ckt.App.Util.VP;
@@ -9,6 +11,7 @@ import ckt.ios.page.MainPage;
 public class LoginAction extends VP {
 	//是否是处于登录状态
 	public static boolean isLogin(){
+		waitUntilFind(By.name("Sioeye"), 15);
 		MainPage.clickMe_btn();
 		boolean logintStatus=true;
 		if (text_exist("登录")) {
@@ -40,6 +43,7 @@ public class LoginAction extends VP {
 		getElementByClassName("UIATextField").clear();
 		getElementByClassName("UIATextField").setValue(userName);
 		getElementByClassName("UIASecureTextField").setValue(password);
+		MainPage.clickReturn();
 		LoginPage.clickLoginAccount_btn();
 		wait(5);
 	}

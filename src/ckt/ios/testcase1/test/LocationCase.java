@@ -1,4 +1,4 @@
-package ckt.ios.testcase.me.edit;
+package ckt.ios.testcase1.test;
 import io.appium.java_client.MobileElement;
 
 import java.net.MalformedURLException;
@@ -34,7 +34,7 @@ public class LocationCase extends VP4 {
 		MeAction.navToLocation();
 		MobileElement search = MePage.getSearchField();
 		setText(search, "yibin");
-		clickByName("Search");
+		clickByName("search");
 		waitUntilTextExist("宜宾", 10);;
 		//验证是否修改成功
 		Assert.assertEquals(true, text_exist("宜宾"), "search -yibin");

@@ -24,7 +24,7 @@ public class AvatarCase extends VP4{
 	}
 	@BeforeMethod
 	public void BeforeTest(){
-		resetApp();
+		//resetApp();
 		LoginAction.inLoginStatus();
 	}
 	@Test
