@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hierarchy>
+<node type="XCUIElementTypeApplication" name="Sioeye" label="Sioeye" enabled="true" x="0" y="0" width="320" height="568">
+  <node type="XCUIElementTypeWindow" enabled="true" x="0" y="0" width="320" height="568">
+    <node type="XCUIElementTypeOther" enabled="true" x="0" y="0" width="320" height="568">
+      <node type="XCUIElementTypeNavigationBar" name="Sioeye" enabled="true" x="0" y="20" width="320" height="44">
+        <node type="XCUIElementTypeStaticText" value="Sioeye" name="Sioeye" label="Sioeye" enabled="true" x="135" y="29" width="50" height="27"/>
+        <node type="XCUIElementTypeButton" enabled="true" x="279" y="26" width="52" height="30"/>
+      </node>
+      <node type="XCUIElementTypeOther" enabled="true" x="0" y="0" width="320" height="568">
+        <node type="XCUIElementTypeOther" enabled="true" x="0" y="0" width="320" height="568">
+          <node type="XCUIElementTypeOther" enabled="true" x="0" y="64" width="320" height="504">
+            <node type="XCUIElementTypeOther" enabled="true" x="0" y="64" width="320" height="504">
+              <node type="XCUIElementTypeOther" enabled="true" x="0" y="64" width="320" height="504">
+                <node type="XCUIElementTypeOther" enabled="true" x="0" y="64" width="320" height="455">
+                  <node type="XCUIElementTypeCollectionView" enabled="true" x="0" y="64" width="320" height="455">
+                    <node type="XCUIElementTypeOther" enabled="true" x="0" y="-6" width="320" height="70">
+                      <node type="XCUIElementTypeOther" enabled="true" x="0" y="-6" width="320" height="70">
+                        <node type="XCUIElementTypeImage" enabled="true" x="0" y="-91" width="320" height="155"/>
+                      </node>
+                    </node>
+                    <node type="XCUIElementTypeOther" enabled="true" x="0" y="64" width="320" height="256">
+                      <node type="XCUIElementTypeOther" enabled="true" x="0" y="64" width="320" height="128">
+                        <node type="XCUIElementTypeOther" enabled="true" x="0" y="64" width="320" height="128">
+                          <node type="XCUIElementTypeCollectionView" enabled="true" x="0" y="64" width="320" height="128">
+                            <node type="XCUIElementTypeCell" enabled="true" x="0" y="64" width="320" height="128">
+                              <node type="XCUIElementTypeOther" enabled="true" x="0" y="64" width="320" height="128">
+                                <node type="XCUIElementTypeImage" enabled="true" x="0" y="64" width="320" height="128"/>
+                              </node>
+                            </node>
+                          </node>
+                          <node type="XCUIElementTypePageIndicator" value="第 1 页（共 5 页）" enabled="true" x="124" y="161" width="72" height="42"/>
+                        </node>
+                      </node>
+                      <node type="XCUIElementTypeOther" enabled="true" x="0" y="192" width="320" height="124">
+                        <node type="XCUIElementTypeOther" enabled="true" x="0" y="192" width="320" height="124">
+                          <node type="XCUIElementTypeStaticText" value="推荐关注" name="推荐关注" label="推荐关注" enabled="true" x="7" y="195" width="295" height="18"/>
+                          <node type="XCUIElementTypeButton" enabled="true" x="302" y="198" width="11" height="12"/>
+                          <node type="XCUIElementTypeCollectionView" enabled="true" x="0" y="215" width="320" height="105">
+                            <node type="XCUIElementTypeCell" enabled="true" x="6" y="215" width="68" height="105">
+                              <node type="XCUIElementTypeOther" enabled="true" x="6" y="215" width="68" height="105">
+                                <node type="XCUIElementTypeButton" enabled="true" x="14" y="228" width="52" height="52"/>
+                                <node type="XCUIElementTypeStaticText" value="中京体育" name="中京体育" label="中京体育" enabled="true" x="16" y="292" width="48" height="17"/>
+                              </node>
+                            </node>
+                            <node type="XCUIElementTypeCell" enabled="true" x="94" y="215" width="68" height="105">
+                              <node type="XCUIElementTypeOther" enabled="true" x="94" y="215" width="68" height="105">
+                                <node type="XCUIElementTypeButton" enabled="true" x="102" y="228" width="52" height="52"/>
+                                <node type="XCUIElementTypeStaticText" value="朱首旬" name="朱首旬" label="朱首旬" enabled="true" x="110" y="292" width="36" height="17"/>
+                              </node>
+                            </node>
+                            <node type="XCUIElementTypeCell" enabled="true" x="182" y="215" width="68" height="105">
+                              <node type="XCUIElementTypeOther" enabled="true" x="182" y="215" width="68" height="105">
+                                <node type="XCUIElementTypeButton" enabled="true" x="190" y="228" width="52" height="52"/>
+                                <node type="XCUIElementTypeStaticText" value="狂奔的蜗牛" name="狂奔的蜗牛" label="狂奔的蜗牛" enabled="true" x="186" y="292" width="60" height="17"/>
+                              </node>
+                            </node>
+                            <node type="XCUIElementTypeCell" enabled="true" x="270" y="215" width="68" height="105">
+                              <node type="XCUIElementTypeOther" enabled="true" x="270" y="215" width="68" height="105">
+                                <node type="XCUIElementTypeButton" enabled="true" x="278" y="228" width="52" height="52"/>
+                                <node type="XCUIElementTypeStaticText" value="菠萝菠萝🍍" name="菠萝菠萝🍍" label="菠萝菠萝🍍" enabled="true" x="272" y="292" width="64" height="17"/>
+                              </node>
+                            </node>
+                          </node>
+                        </node>
+                      </node>
+                      <node type="XCUIElementTypeOther" enabled="true" x="0" y="316" width="320" height="4"/>
+                    </node>
+                    <node type="XCUIElementTypeCell" enabled="true" x="0" y="320" width="320" height="252">
+                      <node type="XCUIElementTypeOther" enabled="true" x="0" y="320" width="320" height="252"/>
+                      <node type="XCUIElementTypeOther" enabled="true" x="8" y="320" width="304" height="252">
+                        <node type="XCUIElementTypeImage" enabled="true" x="294" y="320" width="26" height="26"/>
+                        <node type="XCUIElementTypeButton" enabled="true" x="14" y="329" width="38" height="38"/>
+                        <node type="XCUIElementTypeStaticText" value="众智云慧 x CareerWay 人力资源沙龙活动 正在直播>>>>>" name="众智云慧 x CareerWay 人力资源沙龙活动 正在直播>>>>>" label="众智云慧 x CareerWay 人力资源沙龙活动 正在直播>>>>>" enabled="true" x="65" y="330" width="195" height="22"/>
+                        <node type="XCUIElementTypeStaticText" value="  60 分钟" name="  60 分钟" label="  60 分钟" enabled="true" x="259" y="330" width="48" height="22"/>
+                        <node type="XCUIElementTypeStaticText" value="柯诺小维" name="柯诺小维" label="柯诺小维" enabled="true" x="65" y="352" width="195" height="17"/>
+                        <node type="XCUIElementTypeOther" enabled="true" x="8" y="367" width="304" height="26">
+                          <node type="XCUIElementTypeOther" enabled="true" x="21" y="371" width="70" height="18">
+                            <node type="XCUIElementTypeImage" enabled="true" x="21" y="374" width="11" height="12"/>
+                            <node type="XCUIElementTypeStaticText" value="278" name="278" label="278" enabled="true" x="39" y="371" width="52" height="18"/>
+                          </node>
+                          <node type="XCUIElementTypeOther" enabled="true" x="106" y="371" width="70" height="18">
+                            <node type="XCUIElementTypeImage" enabled="true" x="106" y="374" width="11" height="12"/>
+                            <node type="XCUIElementTypeStaticText" value="2421" name="2421" label="2421" enabled="true" x="124" y="371" width="52" height="18"/>
+                          </node>
+                          <node type="XCUIElementTypeOther" enabled="true" x="191" y="371" width="108" height="18">
+                            <node type="XCUIElementTypeImage" enabled="true" x="191" y="374" width="11" height="12"/>
+                            <node type="XCUIElementTypeStaticText" value="中国.成都市" name="中国.成都市" label="中国.成都市" enabled="true" x="209" y="371" width="90" height="18"/>
+                          </node>
+                        </node>
+                        <node type="XCUIElementTypeOther" enabled="true" x="8" y="393" width="36" height="24">
+                          <node type="XCUIElementTypeStaticText" value="直播" name="直播" label="直播" enabled="true" x="14" y="397" width="24" height="17"/>
+                        </node>
+                        <node type="XCUIElementTypeImage" enabled="true" x="8" y="393" width="304" height="171"/>
+                        <node type="XCUIElementTypeImage" enabled="true" x="290" y="427" width="22" height="21"/>
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node type="XCUIElementTypeTabBar" enabled="true" x="0" y="519" width="320" height="49">
+              <node type="XCUIElementTypeButton" value="1" name="发现" label="发现" enabled="true" x="2" y="520" width="76" height="48"/>
+              <node type="XCUIElementTypeButton" name="关注" label="关注" enabled="true" x="82" y="520" width="76" height="48"/>
+              <node type="XCUIElementTypeButton" name="我" label="我" enabled="true" x="162" y="520" width="76" height="48"/>
+              <node type="XCUIElementTypeButton" name="相机" label="相机" enabled="true" x="242" y="520" width="76" height="48"/>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+  </node>
+  <node type="XCUIElementTypeWindow" enabled="true" x="0" y="0" width="320" height="568">
+    <node type="XCUIElementTypeStatusBar" enabled="true" x="0" y="0" width="320" height="20">
+      <node type="XCUIElementTypeOther" enabled="true" x="0" y="0" width="320" height="20"/>
+      <node type="XCUIElementTypeOther" enabled="true" x="0" y="0" width="320" height="20">
+        <node type="XCUIElementTypeOther" name="信号强度：4 格（共 5 格）" label="信号强度：4 格（共 5 格）" enabled="true" x="6" y="0" width="35" height="20"/>
+        <node type="XCUIElementTypeOther" name="中国联通 网络" label="中国联通 网络" enabled="true" x="44" y="0" width="50" height="20"/>
+        <node type="XCUIElementTypeOther" value="SSID" name="3 格无线局域网信号（共 3 格）" label="3 格无线局域网信号（共 3 格）" enabled="true" x="99" y="0" width="13" height="20"/>
+        <node type="XCUIElementTypeOther" name="15:09" label="15:09" enabled="true" x="145" y="0" width="34" height="20"/>
+        <node type="XCUIElementTypeOther" name="电池电量：100%, 使用交流电源" label="电池电量：100%, 使用交流电源" enabled="true" x="282" y="0" width="33" height="20"/>
+      </node>
+    </node>
+  </node>
+</node></hierarchy>
