@@ -29,17 +29,31 @@ public class AvatarCase extends VP4{
 	}
 	@Test
 	public void testChangeAvatarFromCamera(){
+		//编辑界面
 		MeAction.navToUserEdit();
+		//点击编辑头像
 		MePage.clickAvatar();
+		//拍照
 		MePage.avatarByCamera();
 		Draw.takeScreenShot();
-		
+		//拍照
 		MePage.clickCapture();
+		//使用图片
 		MePage.usingPicture();
-		Draw.takeScreenShot();
+		Draw.takeScreenShotWithDraw("change avatar success");
 	}
 	@Test
 	public void testChangeAvatarFromGallery(){
+		//编辑界面
+		MeAction.navToUserEdit();
+		//点击编辑头像
+		MePage.clickAvatar();
+		//从图库选择
+		MePage.avatarByGallery();
+		Draw.takeScreenShot();
 		
+		//选择一图片
+		MePage.avatarGalleryDone();
+		Draw.takeScreenShotWithDraw("change avatar success");
 	}
 }

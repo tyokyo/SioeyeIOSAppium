@@ -1,5 +1,7 @@
 package ckt.ios.page;
 
+import java.util.List;
+
 import io.appium.java_client.MobileElement;
 
 import org.openqa.selenium.By;
@@ -117,22 +119,49 @@ public class MePage extends VP4{
 	}
 	//编辑头像-选择拍照
 	public static void avatarByCamera(){
-		iosdriver.findElement(By.className("Button")).findElement(By.name("拍照")).click();
+		By.className("Button");
+		iosdriver.findElement(By.name("拍照")).click();
 	}
 	//编辑头像-选择拍照
 	public static void avatarByGallery(){
-		iosdriver.findElement(By.className("Button")).findElement(By.name("从相册中选择")).click();
+		By.className("Button");
+		iosdriver.findElement(By.name("从相册中选择")).click();
 	}
 	//编辑头像-选择拍照-使用照片
 	public static void usingPicture(){
-		iosdriver.findElement(By.className("Button")).findElement(By.name("使用照片")).click();
+		By.className("Button");
+		iosdriver.findElement(By.name("使用照片")).click();
 		waitTextGone("使用照片", 10);
 	}
 	//拍照
 	public static void clickCapture(){
 		clickByName("拍照");
 	}
-
+	//编辑头像-图库-选取
+	public static void avatarGalleryDone(){
+		@SuppressWarnings("unchecked")
+		List<MobileElement> cells = (List<MobileElement>) iosdriver.findElements(By.className("Cell"));
+		MobileElement cell = cells.get(cells.size()-1);		
+		cell.click();
+		wait(2);
+		if (text_exist("选取")) {
+			iosdriver.findElements(By.className("Button")).get(1).click();	
+			wait(3);
+			waitUntilGone(30,By.className("ActivityIndicator"));
+		}else {
+			avatarGalleryDone();
+		}
+	}
+	//编辑头像-图库-取消
+	public static void avatarGalleryCancel(){
+		iosdriver.findElement(By.className("Cell")).click();
+		wait(2);
+		iosdriver.findElement(By.className("Cell")).click();
+		wait(2);
+		iosdriver.findElements(By.className("Button")).get(0).click();
+		wait(3);
+		clickCaptureCancel();
+	}
 	//取消拍照
 	public static void clickCaptureCancel(){
 		clickByName("取消");

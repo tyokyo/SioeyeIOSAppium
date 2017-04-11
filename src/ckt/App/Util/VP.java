@@ -331,6 +331,7 @@ public class VP extends AppiumBase {
 			}
 		}
 		return isFind;
+		
 	}
 	private static <T> T checkNotNull(T value, String message) {
         if (value == null) {

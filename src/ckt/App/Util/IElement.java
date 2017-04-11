@@ -1,6 +1,63 @@
 package ckt.App.Util;
 
+import java.awt.Rectangle;
+import java.util.Vector;
+
 public class IElement {
+	public Vector add(Vector vData){
+		Vector vRow1 = new Vector();
+		vRow1.add("name");
+		vRow1.add(getName());
+		vData.add(vRow1);
+		
+		vRow1 = new Vector();
+		vRow1.add("value");
+		vRow1.add(getValue());
+		vData.add(vRow1);
+		
+		vRow1 = new Vector();
+		vRow1.add("label");
+		vRow1.add(getLabel());
+		vData.add(vRow1);
+		
+		vRow1 = new Vector();
+		vRow1.add("visible");
+		vRow1.add(getVisible());
+		vData.add(vRow1);
+		
+		vRow1 = new Vector();
+		vRow1.add("enabled");
+		vRow1.add(getEnabled());
+		vData.add(vRow1);
+		
+		vRow1 = new Vector();
+		vRow1.add("x");
+		vRow1.add(getX());
+		vData.add(vRow1);
+		
+		vRow1 = new Vector();
+		vRow1.add("y");
+		vRow1.add(getY());
+		vData.add(vRow1);
+		
+		vRow1 = new Vector();
+		vRow1.add("width");
+		vRow1.add(getWidth());
+		vData.add(vRow1);
+		
+		vRow1 = new Vector();
+		vRow1.add("height");
+		vRow1.add(getHeight());
+		vData.add(vRow1);
+		
+		vRow1 = new Vector();
+		vRow1.add("xpath");
+		vRow1.add(getXpath());
+		vData.add(vRow1);
+		
+		
+		return vData;
+	}
 		@Override
 	public String toString() {
 		return "IElement [className=" + className + ", name=" + name
@@ -76,6 +133,7 @@ public class IElement {
 		public void setHeight(double height) {
 			this.height = height;
 		}
+		
 		private String name;
 		private String label;
 		private String value;
@@ -86,4 +144,15 @@ public class IElement {
 		private double y;
 		private double width;
 		private double height;
+		private Rectangle rectangle;
+		
+		public double getArea() {
+			return this.width*this.height;
+		}
+		public Rectangle getRectangle() {
+			rectangle=new Rectangle((int)this.x, (int)this.y, (int)this.width, (int)this.height);
+			return rectangle;
+		}
+		
+		
 }

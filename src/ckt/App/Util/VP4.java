@@ -25,7 +25,7 @@ import ckt.ios.page.MainPage;
 /*使用dom4j解析页面XML数据*/
 public class VP4 extends VP3
 {
-	private static Element getApplicationXmlElement(){
+	public static Element getApplicationXmlElement(){
 		String xmlSource=iosdriver.getPageSource();
 		Document document;
 		Element UIAApplication = null;
@@ -159,10 +159,10 @@ public class VP4 extends VP3
 	{
 		try {
 			startAppium();
-			
+
 			String appName=getApplicationName();
 			System.out.println(appName);
-			
+
 			MainPage.clickMe_btn();
 			List<Element> ems = getPageXmlElements();
 			for (Element element : ems) {
@@ -174,7 +174,7 @@ public class VP4 extends VP3
 				System.out.println(iElement.toString());
 			}
 			wait(3);
-			scrollToFind("2857");
+			//scrollToFind("2857");
 			MainPage.clickMe_btn();
 			//Draw.takeScreenShotWithDraw("qiuxia.jian-qq007");
 			wait(10);

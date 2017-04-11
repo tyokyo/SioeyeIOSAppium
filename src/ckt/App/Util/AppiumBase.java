@@ -66,6 +66,12 @@ public class AppiumBase {
 		capabilities.setCapability("resetKeyboard", true);  
 		//capabilities.setCapability("webDriverAgentUrl", "http://localhost:8100");  
 		capabilities.setCapability("automationName","XCUITest");
+		//Accept all iOS alerts automatically if they pop up. Default is false.
+		capabilities.setCapability("autoAcceptAlerts",true);
+		//https://macacajs.github.io/desired-caps
+		//Dismiss all iOS alerts automatically if they pop up. Default is false.
+		capabilities.setCapability("autoDismissAlerts",true);
+		
 		//capabilities.setCapability("native-instruments-lib",true);
 
 		if ("IOS".equals(platformName.toUpperCase())) {

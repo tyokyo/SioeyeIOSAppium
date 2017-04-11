@@ -86,6 +86,31 @@ public class Draw extends VP4{
 		}
 		Reporters.logInfo("<br><img src=../screenshot/" + folderString+"/"+screenName + "  onclick='window.open(\"../screenshot/"+folderString+"/"+screenName+")'"+"  height='"+height+"'  width='"+width+"'/>");
 	}
+	public static String  takeInspectorScreenShot(){
+		int width = AppiumBase.iosdriver.manage().window().getSize().width;  
+		int height = AppiumBase.iosdriver.manage().window().getSize().height;  
+		File folder = new File("inspector");
+		if (!folder.exists()) {
+			folder.mkdirs();
+		}
+		String screenName = String.format("app-inspector%s.png",System.currentTimeMillis());;
+		String screenShotPath = folder.getAbsolutePath()+File.separator+screenName;
+		File screenShot = AppiumBase.iosdriver.getScreenshotAs(OutputType.FILE);
+		try {
+			FileUtils.copyFile(screenShot, new File(screenShotPath));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+		Log.info(screenShotPath);
+		try {
+			takeDrawRect(screenShotPath, Color.BLACK);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return screenName;
+	}
 	public static void takeScreenShotWithDraw(String drawText){
 		int width = AppiumBase.iosdriver.manage().window().getSize().width;  
 		int height = AppiumBase.iosdriver.manage().window().getSize().height;  
