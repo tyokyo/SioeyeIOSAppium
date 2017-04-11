@@ -250,15 +250,15 @@ $(function(){
            type:"pie2d",
            data:[
                  {
-                 name:"通过",
+                 name:"Passed",
                  value:pcount,
                  color:"#44aa44"
            },{
-                 name:"失败",
+                 name:"Failed",
                  value:fcount,
                  color:"#ff4444"
            },{
-                 name:"跳过",
+                 name:"Skipped",
                  value:scount,
                  color:"#FFD700"
            }

@@ -1,41 +1,250 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testng-results skipped="0" failed="0" total="5" passed="5">
   <reporter-output>
+    <line>
+      <![CDATA[[2017-04-11 16:02:23] [AUAB.<clinit>] Load the propertyies data for Appium configurations<br>]]>
+    </line>
+    <line>
+      <![CDATA[[2017-04-11 16:02:23] [AUAB.log] start create session iteration-1<br>]]>
+    </line>
+    <line>
+      <![CDATA[[2017-04-11 16:02:59] [AUAB.log] start create session iteration-1 success<br>]]>
+    </line>
+    <line>
+      <![CDATA[[2017-04-11 16:02:59] [AUAB.startAppium] start ios driver<br>]]>
+    </line>
+    <line>
+      <![CDATA[[2017-04-11 16:03:46] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
+    </line>
+    <line>
+      <![CDATA[[2017-04-11 16:03:51] [LA.inLoginStatus] App account is login <br>]]>
+    </line>
+    <line>
+      <![CDATA[[2017-04-11 16:03:52] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
+    </line>
+    <line>
+      <![CDATA[[2017-04-11 16:04:08] [AUAB.log] setValue-[4EJr0Fj7N1Kb6DT754OHpbwJfR3fRA7j3zReQmo1WImwDggPuVIKHFeG2smaUQ3b7QW1JnCjh5cMa9vcbmAmwk8E58HCblB3xmbg]<br>]]>
+    </line>
+    <line>
+      <![CDATA[[2017-04-11 16:04:22] [AUVP4.waitTextGone] text 保存 gone<br>]]>
+    </line>
+    <line>
+      <![CDATA[[2017-04-11 16:05:10] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
+    </line>
+    <line>
+      <![CDATA[[2017-04-11 16:06:23] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
+    </line>
+    <line>
+      <![CDATA[[2017-04-11 16:06:27] [LA.inLoginStatus] App account is login <br>]]>
+    </line>
+    <line>
+      <![CDATA[[2017-04-11 16:06:28] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
+    </line>
+    <line>
+      <![CDATA[[2017-04-11 16:06:43] [AUAB.log] setValue-[EHrQoIEivE]<br>]]>
+    </line>
+    <line>
+      <![CDATA[[2017-04-11 16:06:56] [AUVP4.waitTextGone] text 保存 gone<br>]]>
+    </line>
+    <line>
+      <![CDATA[[2017-04-11 16:07:40] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
+    </line>
+    <line>
+      <![CDATA[[2017-04-11 16:08:53] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
+    </line>
+    <line>
+      <![CDATA[[2017-04-11 16:08:57] [LA.inLoginStatus] App account is login <br>]]>
+    </line>
+    <line>
+      <![CDATA[[2017-04-11 16:08:58] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
+    </line>
+    <line>
+      <![CDATA[[2017-04-11 16:09:13] [AUAB.log] setValue-[n8xolR6uSC2iyhyhTNPiRiksv4B8Cz]<br>]]>
+    </line>
+    <line>
+      <![CDATA[[2017-04-11 16:09:26] [AUVP4.waitTextGone] text 保存 gone<br>]]>
+    </line>
+    <line>
+      <![CDATA[[2017-04-11 16:10:16] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
+    </line>
+    <line>
+      <![CDATA[[2017-04-11 16:11:30] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
+    </line>
+    <line>
+      <![CDATA[[2017-04-11 16:11:35] [LA.inLoginStatus] App account is login <br>]]>
+    </line>
+    <line>
+      <![CDATA[[2017-04-11 16:11:36] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
+    </line>
+    <line>
+      <![CDATA[[2017-04-11 16:11:51] [AUAB.log] setValue-[HYtdWZjQBt]<br>]]>
+    </line>
+    <line>
+      <![CDATA[[2017-04-11 16:12:03] [AUVP4.waitTextGone] text 保存 gone<br>]]>
+    </line>
+    <line>
+      <![CDATA[[2017-04-11 16:12:43] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
+    </line>
+    <line>
+      <![CDATA[[2017-04-11 16:14:07] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
+    </line>
+    <line>
+      <![CDATA[[2017-04-11 16:14:11] [LA.inLoginStatus] App account is login <br>]]>
+    </line>
+    <line>
+      <![CDATA[[2017-04-11 16:14:12] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
+    </line>
+    <line>
+      <![CDATA[[2017-04-11 16:14:26] [AUAB.stopAppium] quit ios driver<br>]]>
+    </line>
   </reporter-output>
-  <suite name="Suite001" duration-ms="454360" started-at="2016-12-26T09:32:11Z" finished-at="2016-12-26T09:39:46Z">
+  <suite name="Default suite" duration-ms="723008" started-at="2017-04-11T08:02:23Z" finished-at="2017-04-11T08:14:26Z">
     <groups>
     </groups>
-    <test name="Account" duration-ms="454360" started-at="2016-12-26T09:32:11Z" finished-at="2016-12-26T09:39:46Z">
-      <class name="ckt.ios.testcase.LoginCase">
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:ckt.ios.testcase.LoginCase@73035e27]" name="beforeClass" is-config="true" duration-ms="20193" started-at="2016-12-26T17:32:11Z" finished-at="2016-12-26T17:32:31Z">
+    <test name="Default test" duration-ms="723008" started-at="2017-04-11T08:02:23Z" finished-at="2017-04-11T08:14:26Z">
+      <class name="ckt.ios.testcase.me.edit.NickNameCase">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:ckt.ios.testcase.me.edit.NickNameCase@146ba0ac]" name="beforeClass" is-config="true" duration-ms="35404" started-at="2017-04-11T16:02:23Z" finished-at="2017-04-11T16:02:59Z">
           <reporter-output>
+            <line>
+              <![CDATA[[2017-04-11 16:02:23] [AUAB.log] start create session iteration-1<br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-04-11 16:02:59] [AUAB.log] start create session iteration-1 success<br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-04-11 16:02:59] [AUAB.startAppium] start ios driver<br>]]>
+            </line>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="testErrorUseNameOrPassword()[pri:0, instance:ckt.ios.testcase.LoginCase@73035e27]" name="testErrorUseNameOrPassword" duration-ms="60083" started-at="2016-12-26T17:32:31Z" finished-at="2016-12-26T17:33:31Z">
+        <test-method status="PASS" signature="BeforeTest()[pri:0, instance:ckt.ios.testcase.me.edit.NickNameCase@146ba0ac]" name="BeforeTest" is-config="true" duration-ms="52129" started-at="2017-04-11T16:02:59Z" finished-at="2017-04-11T16:03:51Z">
           <reporter-output>
+            <line>
+              <![CDATA[[2017-04-11 16:03:46] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-04-11 16:03:51] [LA.inLoginStatus] App account is login <br>]]>
+            </line>
           </reporter-output>
-        </test-method> <!-- testErrorUseNameOrPassword -->
-        <test-method status="PASS" signature="testLogOutAccount()[pri:0, instance:ckt.ios.testcase.LoginCase@73035e27]" name="testLogOutAccount" duration-ms="115537" started-at="2016-12-26T17:33:31Z" finished-at="2016-12-26T17:35:27Z">
+        </test-method> <!-- BeforeTest -->
+        <test-method status="PASS" signature="testNickName100c()[pri:0, instance:ckt.ios.testcase.me.edit.NickNameCase@146ba0ac]" name="testNickName100c" duration-ms="100134" started-at="2017-04-11T16:03:51Z" finished-at="2017-04-11T16:05:31Z">
           <reporter-output>
+            <line>
+              <![CDATA[[2017-04-11 16:03:52] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-04-11 16:04:08] [AUAB.log] setValue-[4EJr0Fj7N1Kb6DT754OHpbwJfR3fRA7j3zReQmo1WImwDggPuVIKHFeG2smaUQ3b7QW1JnCjh5cMa9vcbmAmwk8E58HCblB3xmbg]<br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-04-11 16:04:22] [AUVP4.waitTextGone] text 保存 gone<br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-04-11 16:05:10] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
+            </line>
           </reporter-output>
-        </test-method> <!-- testLogOutAccount -->
-        <test-method status="PASS" signature="testLoginByEmail()[pri:0, instance:ckt.ios.testcase.LoginCase@73035e27]" name="testLoginByEmail" duration-ms="67464" started-at="2016-12-26T17:35:27Z" finished-at="2016-12-26T17:36:34Z">
+        </test-method> <!-- testNickName100c -->
+        <test-method status="PASS" signature="BeforeTest()[pri:0, instance:ckt.ios.testcase.me.edit.NickNameCase@146ba0ac]" name="BeforeTest" is-config="true" duration-ms="56101" started-at="2017-04-11T16:05:31Z" finished-at="2017-04-11T16:06:27Z">
           <reporter-output>
+            <line>
+              <![CDATA[[2017-04-11 16:06:23] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-04-11 16:06:27] [LA.inLoginStatus] App account is login <br>]]>
+            </line>
           </reporter-output>
-        </test-method> <!-- testLoginByEmail -->
-        <test-method status="PASS" signature="testLoginByPhoneNumber()[pri:0, instance:ckt.ios.testcase.LoginCase@73035e27]" name="testLoginByPhoneNumber" duration-ms="95535" started-at="2016-12-26T17:36:34Z" finished-at="2016-12-26T17:38:10Z">
+        </test-method> <!-- BeforeTest -->
+        <test-method status="PASS" signature="testNickName10c()[pri:0, instance:ckt.ios.testcase.me.edit.NickNameCase@146ba0ac]" name="testNickName10c" duration-ms="94258" started-at="2017-04-11T16:06:27Z" finished-at="2017-04-11T16:08:01Z">
           <reporter-output>
+            <line>
+              <![CDATA[[2017-04-11 16:06:28] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-04-11 16:06:43] [AUAB.log] setValue-[EHrQoIEivE]<br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-04-11 16:06:56] [AUVP4.waitTextGone] text 保存 gone<br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-04-11 16:07:40] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
+            </line>
           </reporter-output>
-        </test-method> <!-- testLoginByPhoneNumber -->
-        <test-method status="PASS" signature="testLoginBySioeyeID()[pri:0, instance:ckt.ios.testcase.LoginCase@73035e27]" name="testLoginBySioeyeID" duration-ms="95144" started-at="2016-12-26T17:38:10Z" finished-at="2016-12-26T17:39:45Z">
+        </test-method> <!-- testNickName10c -->
+        <test-method status="PASS" signature="BeforeTest()[pri:0, instance:ckt.ios.testcase.me.edit.NickNameCase@146ba0ac]" name="BeforeTest" is-config="true" duration-ms="55799" started-at="2017-04-11T16:08:01Z" finished-at="2017-04-11T16:08:57Z">
           <reporter-output>
+            <line>
+              <![CDATA[[2017-04-11 16:08:53] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-04-11 16:08:57] [LA.inLoginStatus] App account is login <br>]]>
+            </line>
           </reporter-output>
-        </test-method> <!-- testLoginBySioeyeID -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:ckt.ios.testcase.LoginCase@73035e27]" name="afterClass" is-config="true" duration-ms="393" started-at="2016-12-26T17:39:45Z" finished-at="2016-12-26T17:39:46Z">
+        </test-method> <!-- BeforeTest -->
+        <test-method status="PASS" signature="testNickName30c()[pri:0, instance:ckt.ios.testcase.me.edit.NickNameCase@146ba0ac]" name="testNickName30c" duration-ms="99485" started-at="2017-04-11T16:08:57Z" finished-at="2017-04-11T16:10:37Z">
           <reporter-output>
+            <line>
+              <![CDATA[[2017-04-11 16:08:58] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-04-11 16:09:13] [AUAB.log] setValue-[n8xolR6uSC2iyhyhTNPiRiksv4B8Cz]<br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-04-11 16:09:26] [AUVP4.waitTextGone] text 保存 gone<br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-04-11 16:10:16] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testNickName30c -->
+        <test-method status="PASS" signature="BeforeTest()[pri:0, instance:ckt.ios.testcase.me.edit.NickNameCase@146ba0ac]" name="BeforeTest" is-config="true" duration-ms="58172" started-at="2017-04-11T16:10:37Z" finished-at="2017-04-11T16:11:35Z">
+          <reporter-output>
+            <line>
+              <![CDATA[[2017-04-11 16:11:30] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-04-11 16:11:35] [LA.inLoginStatus] App account is login <br>]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- BeforeTest -->
+        <test-method status="PASS" signature="testNickNameModifyNotSave()[pri:0, instance:ckt.ios.testcase.me.edit.NickNameCase@146ba0ac]" name="testNickNameModifyNotSave" duration-ms="89094" started-at="2017-04-11T16:11:35Z" finished-at="2017-04-11T16:13:04Z">
+          <reporter-output>
+            <line>
+              <![CDATA[[2017-04-11 16:11:36] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-04-11 16:11:51] [AUAB.log] setValue-[HYtdWZjQBt]<br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-04-11 16:12:03] [AUVP4.waitTextGone] text 保存 gone<br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-04-11 16:12:43] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testNickNameModifyNotSave -->
+        <test-method status="PASS" signature="BeforeTest()[pri:0, instance:ckt.ios.testcase.me.edit.NickNameCase@146ba0ac]" name="BeforeTest" is-config="true" duration-ms="67234" started-at="2017-04-11T16:13:04Z" finished-at="2017-04-11T16:14:11Z">
+          <reporter-output>
+            <line>
+              <![CDATA[[2017-04-11 16:14:07] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-04-11 16:14:11] [LA.inLoginStatus] App account is login <br>]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- BeforeTest -->
+        <test-method status="PASS" signature="testNickNameisEnable()[pri:0, instance:ckt.ios.testcase.me.edit.NickNameCase@146ba0ac]" name="testNickNameisEnable" duration-ms="14875" started-at="2017-04-11T16:14:11Z" finished-at="2017-04-11T16:14:26Z">
+          <reporter-output>
+            <line>
+              <![CDATA[[2017-04-11 16:14:12] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testNickNameisEnable -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:ckt.ios.testcase.me.edit.NickNameCase@146ba0ac]" name="afterClass" is-config="true" duration-ms="306" started-at="2017-04-11T16:14:26Z" finished-at="2017-04-11T16:14:26Z">
+          <reporter-output>
+            <line>
+              <![CDATA[[2017-04-11 16:14:26] [AUAB.stopAppium] quit ios driver<br>]]>
+            </line>
           </reporter-output>
         </test-method> <!-- afterClass -->
-      </class> <!-- ckt.ios.testcase.LoginCase -->
-    </test> <!-- Account -->
-  </suite> <!-- Suite001 -->
+      </class> <!-- ckt.ios.testcase.me.edit.NickNameCase -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

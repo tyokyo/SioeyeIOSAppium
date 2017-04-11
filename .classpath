@@ -2,14 +2,23 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="lib/assertj-core-2.4.1.jar"/>
-	<classpathentry kind="lib" path="lib/java-client-4.1.1-javadoc.jar"/>
-	<classpathentry kind="lib" path="lib/java-client-4.1.1-sources.jar"/>
-	<classpathentry kind="lib" path="lib/java-client-4.1.1.jar" sourcepath="lib/java-client-4.1.1-sources.jar"/>
 	<classpathentry kind="lib" path="lib/jcommander-1.48.jar"/>
-	<classpathentry kind="lib" path="lib/testng-6.8.8.jar"/>
-	<classpathentry kind="lib" path="lib/selenium-server-standalone-2.46.0.jar"/>
-	<classpathentry kind="lib" path="lib/selenium-server-standalone-3.0.0-beta2.jar"/>
 	<classpathentry kind="lib" path="lib/saxon-8.7.jar"/>
+	<classpathentry kind="lib" path="lib/selenium-server-standalone-3.0.1.jar"/>
+	<classpathentry kind="lib" path="lib/java-client-5.0.0-BETA3-javadoc.jar"/>
+	<classpathentry kind="lib" path="lib/java-client-5.0.0-BETA3-sources.jar"/>
+	<classpathentry kind="lib" path="lib/java-client-5.0.0-BETA3.jar" sourcepath="lib/java-client-5.0.0-BETA3-sources.jar"/>
+	<classpathentry kind="lib" path="lib/dom4j-1.6.1.jar" sourcepath="C:/Users/DELL/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1-sources.jar"/>
+	<classpathentry kind="lib" path="lib/jsoup-1.9.2-javadoc.jar"/>
+	<classpathentry kind="lib" path="lib/jsoup-1.9.2-sources.jar"/>
+	<classpathentry kind="lib" path="lib/jsoup-1.9.2.jar"/>
+	<classpathentry kind="lib" path="lib/guice-3.0.jar"/>
+	<classpathentry kind="lib" path="lib/velocity-dep-1.4.jar"/>
+	<classpathentry kind="lib" path="lib/qdox-1.12.1.jar"/>
+	<classpathentry kind="lib" path="lib/testng-6.8.8.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/Logger/lib/swt.jar"/>
+	<classpathentry kind="lib" path="/Logger/lib/org-eclipse-jface-3.6.2.jar"/>
+	<classpathentry kind="lib" path="lib/jdom.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

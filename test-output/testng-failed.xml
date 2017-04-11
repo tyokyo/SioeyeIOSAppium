@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="3" name="Failed suite [Suite001]" parallel="classes">
-  <test name="Account(failed)" parallel="classes">
+<suite name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
     <classes>
-      <class name="ckt.ios.testcase.LoginCase">
+      <class name="ckt.ios.testcase.me.edit.AvatarCase">
         <methods>
-          <include name="testErrorUseNameOrPassword"/>
-          <include name="testLogOutAccount"/>
-          <include name="testLoginBySioeyeID"/>
-          <include name="testLoginByEmail"/>
-          <include name="testLoginByPhoneNumber"/>
+          <include name="BeforeTest"/>
+          <include name="afterClass"/>
+          <include name="beforeClass"/>
+          <include name="testChangeAvatarFromGallery"/>
         </methods>
-      </class> <!-- ckt.ios.testcase.LoginCase -->
+      </class> <!-- ckt.ios.testcase.me.edit.AvatarCase -->
     </classes>
-  </test> <!-- Account(failed) -->
-</suite> <!-- Failed suite [Suite001] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->
