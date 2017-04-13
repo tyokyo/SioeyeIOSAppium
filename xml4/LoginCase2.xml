@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="1492072713478" parallel="classes" thread-count="3">
+	<test verbose="2" preserve-order="true" name="LoginCase2">
+		<classes>
+			<class name="ckt.ios.testcase.account.LoginCase" />
+		</classes>
+	</test>
+</suite>

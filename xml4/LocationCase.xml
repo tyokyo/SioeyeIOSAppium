@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="1492073905359" parallel="classes" thread-count="3"><test verbose="2" preserve-order="true" name="LocationCase"><classes><class name="ckt.ios.testcase1.test.LocationCase" /></classes></test></suite>
