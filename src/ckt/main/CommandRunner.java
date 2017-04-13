@@ -68,7 +68,7 @@ public class CommandRunner {
 		testNG.addListener(new JUnitXMLReporter());
 		testNG.addListener(new TestngListener());
 		testNG.setXmlSuites(suites);
-		testNG.run();
+		//testNG.run();
 		
 	}
 }

@@ -46,6 +46,6 @@ public class ScranRunner {
 			classes[i]=classList.get(i);
 		}
 		testNG.setTestClasses(classes);
-		testNG.run();
+		//testNG.run();
 	}
 }

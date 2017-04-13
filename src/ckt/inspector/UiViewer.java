@@ -439,6 +439,7 @@ public class UiViewer  extends JFrame{
 							content = VP4.iosdriver.getPageSource();
 						} catch (Exception e2) {
 							// TODO: handle exception
+							e2.printStackTrace();
 							VP4.startAppium();
 							content = VP4.iosdriver.getPageSource();
 						}
@@ -455,13 +456,13 @@ public class UiViewer  extends JFrame{
 						Inspector.getTree();
 
 						List<Element>  ems = VP4.getPageXmlElements();
-						System.out.println(VP4.iosdriver.getPageSource());
+						//System.out.println(VP4.iosdriver.getPageSource());
 						for (Element element : ems) {
-							System.out.println(element.getUniquePath());
+							//System.out.println(element.getUniquePath());
 						}
 						List<IElement> tms = VP4.toIElements(ems);
 						for (IElement iElement : tms) {
-							System.out.println(iElement.toString());
+							//System.out.println(iElement.toString());
 						}
 						imgPanel.removeAll();
 						Image image=new ImageIcon(imagePath).getImage();  

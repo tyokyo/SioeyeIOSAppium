@@ -1,19 +1,11 @@
 package ckt.ios.testcase.me.edit;
 
-import io.appium.java_client.MobileElement;
-
 import java.net.MalformedURLException;
-
-import javax.xml.ws.BindingType;
-
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
 import ckt.App.Util.Draw;
-import ckt.App.Util.VP;
 import ckt.App.Util.VP4;
 import ckt.ios.action.LoginAction;
 import ckt.ios.action.MeAction;

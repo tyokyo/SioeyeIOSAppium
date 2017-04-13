@@ -5,6 +5,9 @@ import org.openqa.selenium.By;
 import ckt.App.Util.VP4;
 
 public class MainPage extends VP4{
+	public static void toHome(){
+		
+	}
 	//输入法 returen button
 	public static void clickReturn(){
 		clickByName("return");
@@ -45,7 +48,7 @@ public class MainPage extends VP4{
 	//点击-确认按钮
 	public static void clickAskToSure_btn(){
 		//clickByXpath("//UIAApplication[1]/UIAWindow[1]/UIAAlert[1]/UIACollectionView[1]/UIACollectionCell[2]");
-		clickByName("确定");
+		clickByName("确认");
 	}
 	//点击-确认按钮
 	public static void clickAskToCancel_btn(){

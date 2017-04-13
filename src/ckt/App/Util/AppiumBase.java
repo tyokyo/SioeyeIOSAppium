@@ -48,10 +48,11 @@ public class AppiumBase {
 			Log.info("quit ios driver");
 			iosdriver.quit();
 		}
+		log("stopAppium");
 	}
 	@SuppressWarnings("rawtypes")
 	public static  void startAppium() {
-
+		log("startAppium");
 		int  TimeUnitSECONDS = Integer.parseInt(Property.getValueByKey(configPath, "TimeUnitSECONDS"));
 
 		capabilities = new DesiredCapabilities();
@@ -82,6 +83,7 @@ public class AppiumBase {
 					if (!sessionNotCreateException) {
 						log("start create session iteration-"+i);
 						try {
+							log("start create session");
 							iosdriver = new IOSDriver(new URL(String.format("http://%s:%s/wd/hub",ipaddress,port)), capabilities);
 							iosdriver.manage().timeouts().implicitlyWait(TimeUnitSECONDS,TimeUnit.SECONDS);
 							log("start create session iteration-"+i +" success");

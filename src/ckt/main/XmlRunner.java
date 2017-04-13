@@ -19,8 +19,8 @@ public class XmlRunner {
 		testNG.addListener(new JUnitXMLReporter());
 		testNG.addListener(new TestngListener());
 		List<String> suits = new ArrayList<String>();
-		suits.add("xml/demo.xml");
-		//suits.add("xml/demo2.xml");
+		suits.add("xml/account.xml");
+		//suits.add("xml/me.xml");
 		testNG.setTestSuites(suits);
 		testNG.run();
 	}

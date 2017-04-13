@@ -36,6 +36,7 @@ public class LoginPage extends VP4 {
 	public static void clickLogOut_btn(){
 		log("click login out button");
 		clickByName("退出登录");
+		wait(2);
 	}
 	//登录
 	public static void clickLoginAccount_btn(){

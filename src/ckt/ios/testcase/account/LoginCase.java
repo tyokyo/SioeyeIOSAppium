@@ -2,9 +2,14 @@ package ckt.ios.testcase.account;
 
 import java.net.MalformedURLException;
 
+import org.junit.Before;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import ckt.App.Util.Property;
@@ -14,6 +19,8 @@ import ckt.ios.page.MainPage;
 
 public class LoginCase extends VP {
 	private static String configPath = "properties/account.properties";
+	
+	
 	@BeforeClass
 	public void beforeClass() throws MalformedURLException {
 		startAppium();
