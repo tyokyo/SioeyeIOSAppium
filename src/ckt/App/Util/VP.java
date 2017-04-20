@@ -18,6 +18,8 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import ckt.ios.page.MainPage;
+
 public class VP extends AppiumBase {
 	private static final long WAIT_STRING=10;
 	public void waitForElementToLoad(int timeOut, final By By) {        
@@ -51,8 +53,8 @@ public class VP extends AppiumBase {
 		}
 	}
 	public static void waitUntilFind(By by,int seconds){
-		 WebDriverWait wait = new WebDriverWait(iosdriver, seconds);
-		 wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(by));
+		WebDriverWait wait = new WebDriverWait(iosdriver, seconds);
+		wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(by));
 	}
 	public static void waitUntilGone(int watiTime, By by){
 		Log.info(String.format("start to wait element Gone %s",by));
@@ -90,6 +92,7 @@ public class VP extends AppiumBase {
 	//通过Name 点击
 	public static void clickByName(String name){
 		//VP3.clickElementByName(name);
+		log("click-name:"+name);
 		iosdriver.findElement(By.name(name)).click();
 	}
 	//获取页面xml元素
@@ -151,6 +154,17 @@ public class VP extends AppiumBase {
 		}
 		return exist ;
 	}
+	public static boolean class_exist(String className){
+		boolean exist = false;
+		try {
+			if (iosdriver.findElement(By.className(className)).isDisplayed()) {
+				exist=true;
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return exist ;
+	}
 	public static void wait(int time){
 		try {
 			Thread.currentThread();
@@ -190,9 +204,36 @@ public class VP extends AppiumBase {
 		return sb.toString();
 	}
 	public static void resetApp(){
-		iosdriver.resetApp();
-	}
-	public static void isAppLaunched(){
+		log("start resetApp ");
+		MobileElement btnEmt;
+		boolean tag = false;
+		if (class_exist("TabBar")) {
+			btnEmt= (MobileElement) iosdriver.findElement(By.className("TabBar")).findElements(By.className("Button")).get(0);
+			btnEmt.click();
+			btnEmt.click();
+			log("click TabBar-Button[0]");
+			tag=true;
+		}else {
+			if (text_exist("登录")) {
+				log("find 登录");
+				iosdriver.findElement(By.className("Button")).click();
+			}
+			if (class_exist("NavigationBar")) {
+				btnEmt= (MobileElement) iosdriver.findElement(By.className("NavigationBar")).findElements(By.className("Button")).get(0);
+				btnEmt.click();
+				log("click Back Button");
+			} 
+			if (class_exist("SegmentedControl")) {
+				btnEmt= (MobileElement) iosdriver.findElement(By.className("TypeScrollView"));
+				btnEmt.click();
+				log("click TypeScrollView");
+			}
+		}
+		if (!tag) {
+			resetApp();
+		}else {
+			log("rest App finished");
+		}
 		
 	}
 	//during（这里是填写毫秒数，这里的 毫秒数越小 滑动的速度越快~ 一般设定在500~1000，如果你想快速滑动 那就可以设置的更加小）
@@ -269,7 +310,7 @@ public class VP extends AppiumBase {
 			List<Element> sms1 = VP4.getPageXmlElements();
 			VP.swipeToDown(iosdriver, 2000, 1);
 			List<Element> sms2 = VP4.getPageXmlElements();
-			
+
 			if (sms1.size()==sms2.size()) {
 				Log.info("swipe To begin");
 				break;
@@ -292,7 +333,18 @@ public class VP extends AppiumBase {
 		element.clear();
 		element.setValue(value);
 		log(String.format("setValue-[%s]", value));
-		clickByName("return");
+		wait(5);
+		MainPage.clickReturn();
+	}
+	public static void setText(MobileElement element,String value,boolean isReturn){
+		//iosdriver.hideKeyboard();
+		element.clear();
+		element.setValue(value);
+		log(String.format("setValue-[%s]", value));
+		wait(5);
+		if (isReturn) {
+			MainPage.clickReturn();
+		}
 	}
 	public static boolean isTextExist(String text){
 		boolean isTextFind=false;
@@ -331,12 +383,12 @@ public class VP extends AppiumBase {
 			}
 		}
 		return isFind;
-		
+
 	}
 	private static <T> T checkNotNull(T value, String message) {
-        if (value == null) {
-            throw new NullPointerException(message);
-        }
-        return value;
-    }
+		if (value == null) {
+			throw new NullPointerException(message);
+		}
+		return value;
+	}
 }

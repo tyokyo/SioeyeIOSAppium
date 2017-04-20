@@ -8,6 +8,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 
 import ckt.App.Util.VP;
+import ckt.ios.page.MainPage;
 
 public class InterestAction extends VP {
 	public static List<MobileElement> getInterestElements(){
@@ -36,12 +37,13 @@ public class InterestAction extends VP {
 		List<MobileElement> lists = (List<MobileElement>) iosdriver.findElements(By.className("Button"));
 		int size = lists.size();
 		lists.get(size-1).click();
-		log("click save button");
+		log("click add button");
 	}
 	public static void addInterestByManual(String value){
 		clickAddBtn();
 		setText((MobileElement) iosdriver.findElement(By.className("TextField")),value);
-		clickByName("return");
+		wait(2);
+		MainPage.clickReturn();
 		wait(3);
 	}
 }

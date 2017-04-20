@@ -40,13 +40,16 @@ public class AppiumBase {
 		port = Property.getValueByKey(configPath, "port");
 		Log.info("Load the propertyies data for Appium configurations");
 	}
+	public static int getMaxRunCount(){
+		return Integer.parseInt(Property.getValueByKey(configPath, "retryCount"));
+	}
 	public static void stopAppium(){
 		if (androiddriver!=null) {
-			androiddriver.quit();
+			androiddriver.quit();;
 		}
 		if (iosdriver!=null) {
 			Log.info("quit ios driver");
-			iosdriver.quit();
+			iosdriver.quit();;
 		}
 		log("stopAppium");
 	}
@@ -62,19 +65,22 @@ public class AppiumBase {
 		capabilities.setCapability(MobileCapabilityType.APP, app);
 		capabilities.setCapability(MobileCapabilityType.UDID, "057475d55abf5e4f36becfc16cf3691cb661fe9e");
 		capabilities.setCapability(MobileCapabilityType.NO_RESET,Boolean.parseBoolean(noReset));
-		capabilities.setCapability("sessionOverride",Boolean.parseBoolean(sessionOverride));
+		capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 3600);
+		//capabilities.setCapability("sessionOverride",Boolean.parseBoolean(sessionOverride));
 		capabilities.setCapability("unicodeKeyboard",true);  
 		capabilities.setCapability("resetKeyboard", true);  
 		//capabilities.setCapability("webDriverAgentUrl", "http://localhost:8100");  
 		capabilities.setCapability("automationName","XCUITest");
 		//Accept all iOS alerts automatically if they pop up. Default is false.
 		capabilities.setCapability("autoAcceptAlerts",true);
+		capabilities.setCapability("networkConnectionEnabled",true);
 		//https://macacajs.github.io/desired-caps
 		//Dismiss all iOS alerts automatically if they pop up. Default is false.
 		capabilities.setCapability("autoDismissAlerts",true);
-		
+		capabilities.setCapability("keepKeyChains",true);
+		capabilities.setCapability("screenshotWaitTimeout",5);
+		//capabilities.setCapability("waitForAppScript",10);
 		//capabilities.setCapability("native-instruments-lib",true);
-
 		if ("IOS".equals(platformName.toUpperCase())) {
 			try {
 				capabilities.setCapability("bundleid", bundleid);//run on real device 

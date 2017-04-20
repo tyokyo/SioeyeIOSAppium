@@ -22,11 +22,9 @@ public class LoginAction extends VP {
 	}
 	//注销账号
 	public static void logOutAccount(){
-		iosdriver.closeApp();
-		iosdriver.launchApp();
+		resetApp();
 		if (isLogin()) {
-			iosdriver.closeApp();
-			iosdriver.launchApp();
+			resetApp();
 			MeAction.navToAccountAndSecurity();
 			LoginPage.clickLogOut_btn();
 			MainPage.clickAskToSure_btn();
@@ -35,8 +33,7 @@ public class LoginAction extends VP {
 	}
 	//登录账号
 	public static void loginAccount(String userName,String password){
-		iosdriver.closeApp();
-		iosdriver.launchApp();
+		resetApp();
 		wait(5);
 		MainPage.clickMe_btn();
 		LoginPage.clickLogin_btn();

@@ -17,23 +17,26 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.uncommons.reportng.Reporters;
 
+import ckt.main.TestNgXml;
+
 import com.sun.image.codec.jpeg.JPEGCodec;  
 import com.sun.image.codec.jpeg.JPEGImageEncoder;  
 
 public class Draw extends VP4{
 	private static String getPrefix() {
-	    StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-	    if (stackTrace == null || stackTrace.length < 4) return "BOGUS";
-	    String className = stackTrace[3].getClassName();
-	    String methodName = stackTrace[3].getMethodName();
-	    return String.format("%s.%s", className, methodName);
-	  }
+		StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+		if (stackTrace == null || stackTrace.length < 4) return "BOGUS";
+		String className = stackTrace[3].getClassName();
+		String methodName = stackTrace[3].getMethodName();
+		return String.format("%s.%s", className, methodName);
+	}
 	public static void takeScreenShot(Color color){
 		int width = AppiumBase.iosdriver.manage().window().getSize().width;  
 		int height = AppiumBase.iosdriver.manage().window().getSize().height;  
-	    String folderString = getPrefix();
+		String folderString = getPrefix();
 		folderString=folderString.replaceAll("['.']", "/");
-		File folder = new File("test-output/screenshot/"+folderString);
+		//File folder = new File("test-output/screenshot/"+folderString);
+		File folder = new File(TestNgXml.screenshotFolder+"/"+folderString);
 		if (!folder.exists()) {
 			folder.mkdirs();
 		}
@@ -57,12 +60,13 @@ public class Draw extends VP4{
 		}
 		Reporters.logInfo("<br><img src=../screenshot/" + folderString+"/"+screenName + "  onclick='window.open(\"../screenshot/"+folderString+"/"+screenName+")'"+"  height='"+height+"'  width='"+width+"'/>");
 	}
-	public static void takeScreenShot(){
+	public static String takeScreenShot(){
 		int width = AppiumBase.iosdriver.manage().window().getSize().width;  
 		int height = AppiumBase.iosdriver.manage().window().getSize().height;  
-	    String folderString = getPrefix();
+		String folderString = getPrefix();
 		folderString=folderString.replaceAll("['.']", "/");
-		File folder = new File("test-output/screenshot/"+folderString);
+		//File folder = new File("test-output/screenshot/"+folderString);
+		File folder = new File(TestNgXml.screenshotFolder+"/"+folderString);
 		if (!folder.exists()) {
 			folder.mkdirs();
 		}
@@ -85,6 +89,7 @@ public class Draw extends VP4{
 			e.printStackTrace();
 		}
 		Reporters.logInfo("<br><img src=../screenshot/" + folderString+"/"+screenName + "  onclick='window.open(\"../screenshot/"+folderString+"/"+screenName+")'"+"  height='"+height+"'  width='"+width+"'/>");
+		return screenShotPath;
 	}
 	public static String  takeInspectorScreenShot(){
 		int width = AppiumBase.iosdriver.manage().window().getSize().width;  
@@ -114,9 +119,10 @@ public class Draw extends VP4{
 	public static void takeScreenShotWithDraw(String drawText){
 		int width = AppiumBase.iosdriver.manage().window().getSize().width;  
 		int height = AppiumBase.iosdriver.manage().window().getSize().height;  
-	    String folderString = getPrefix();
+		String folderString = getPrefix();
 		folderString=folderString.replaceAll("['.']", "/");
-		File folder = new File("test-output/screenshot/"+folderString);
+		//File folder = new File("test-output/screenshot/"+folderString);
+		File folder = new File(TestNgXml.screenshotFolder+"/"+folderString);
 		if (!folder.exists()) {
 			folder.mkdirs();
 		}

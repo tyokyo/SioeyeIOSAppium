@@ -1,7 +1,9 @@
 package ckt.main;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +11,13 @@ import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.output.XMLOutputter;
 
-public class TestNgXml {
+import ckt.App.Util.VP4;
+import ckt.inspector.Inspector;
+
+public class TestNgXml extends VP4 {
+	public static String reportFolder="test-output/";
+	public static String htmlFolder="test-output/html";
+	public static String screenshotFolder="test-output/screenshot";
 	public static void allFiles(String root,List<File> files){
 		File f = new File(root);
 		File[] fs = f.listFiles();
@@ -52,15 +60,15 @@ public class TestNgXml {
 		root.setAttribute("name", ""+System.currentTimeMillis());
 		root.setAttribute("parallel", "classes");
 		root.setAttribute("thread-count", "3");
-		
+
 		//根节点添加到文档中；      
 		Document Doc = new Document(root);  
-		
+
 		Element testElement = new Element("test");
 		testElement.setAttribute("verbose", "2");
 		testElement.setAttribute("preserve-order", "true");
 		testElement.setAttribute("name", xmlName);
-		
+
 		Element classsesElement = new Element("classes");
 		Element classElement = new Element("class");
 		classElement.setAttribute("name", className);
@@ -72,11 +80,58 @@ public class TestNgXml {
 		XMLOutputter XMLOut = new XMLOutputter();  
 		// 输出company_list.xml文件；     
 		XMLOut.output(Doc, new FileOutputStream(path));  
+		Thread.currentThread();
+		Thread.sleep(11);
 	}  
+	public static void fileCopyDir(String root,String desctination) throws Exception{
+		File f = new File(root);
+		File[] fs = f.listFiles();
+		for (File file : fs) {
+			if (file.isDirectory()) {
+				String path = file.getAbsolutePath();
+				fileCopyDir(path,desctination);
+			}else {
+				String content = Inspector.readFile(file.getAbsolutePath());
+				Inspector.writeTxtFile(content, new File(desctination));
+			}
+		}
+	}
 	public static void main(String args[]) throws Exception{
 		String root = "src\\ckt\\ios\\testcase";
 		String folder = "xml";
 		getXmlClassList(folder,root);
-		
+		//makeReport();
+	}
+	public static void makeDir(String path){
+		File rootFile = new File(path);
+		if (!rootFile.exists()) {
+			rootFile.mkdirs();
+		}else {
+			if (!rootFile.isDirectory()) {
+				rootFile.mkdirs();
+			}
+		}
+	}
+	public static void startMakeReport() throws Exception{
+		reportFolder= "report/"+System.currentTimeMillis();
+		htmlFolder = reportFolder+"/html";
+		screenshotFolder = reportFolder+"/screenshot";
+		makeDir(reportFolder);
+		makeDir(htmlFolder);
+		makeDir(screenshotFolder);
+		log(reportFolder);
+		log(htmlFolder);
+		log(screenshotFolder);
+	}
+	public static void endMakeReport() throws Exception{
+		System.out.println("report-"+reportFolder);
+		//copy html
+		fileCopyDir("test-output/html",htmlFolder);
+		//fileCopyDir("test-output/screenshot",screenshotFolder);
+		//copy screenshot
+		//deleteFile(new File("test-output/screenshot"));
+		//makeDir("test-output/screenshot");
+		//del screenshot
+
 	}
 }

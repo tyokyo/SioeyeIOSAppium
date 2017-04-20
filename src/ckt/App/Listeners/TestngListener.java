@@ -5,15 +5,18 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Iterator;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.testng.ITestContext;
+import org.testng.ITestNGMethod;
 import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.TestListenerAdapter;
 import org.testng.log4testng.Logger;
 import org.uncommons.reportng.Reporters;
+
 import ckt.App.Util.AppiumBase;
 import ckt.App.Util.Draw;
 import ckt.App.Util.Log;
@@ -49,15 +52,27 @@ public class TestngListener extends TestListenerAdapter {
 	}
 
 	@Override
-	public void onFinish(ITestContext testContext) {
-		super.onFinish(testContext);
+	public void onFinish(ITestContext iTestContext) {
+		//super.onFinish(testContext);
+		Iterator<ITestResult> listOfFailedTests = iTestContext.getFailedTests().getAllResults().iterator();
+		while (listOfFailedTests.hasNext()) {
+			ITestResult failedTest = listOfFailedTests.next();
+			ITestNGMethod method = failedTest.getMethod();
+			if (iTestContext.getFailedTests().getResults(method).size() > 1) {
+				listOfFailedTests.remove();
+			} else {
+				if (iTestContext.getPassedTests().getResults(method).size() > 0) {
+					listOfFailedTests.remove();
+				}
+			}
+		}
 		Log.info("End to Run");
 	}
 
 	private void takeScreenShot(ITestResult tr) {
 		int width = AppiumBase.iosdriver.manage().window().getSize().width;  
 		int height = AppiumBase.iosdriver.manage().window().getSize().height;  
-		
+
 		String className=tr.getTestClass().getName();
 		String methodName=tr.getMethod().getMethodName();
 		String folderString = className+"."+methodName;

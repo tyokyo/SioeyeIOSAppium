@@ -31,7 +31,7 @@ public class SignatureCase extends VP {
 		MeAction.navToSignature();
 		String strInput=getRandomString(10);
 		MobileElement textView = MePage.getTextView();
-		setText(textView, strInput);
+		setText(textView, strInput,false);
 		MePage.clickSaveBtn();
 		//验证签名是否修改成功
 		resetApp();
@@ -46,7 +46,7 @@ public class SignatureCase extends VP {
 		MeAction.navToSignature();
 		String strInput=getRandomString(25);
 		MobileElement textView = MePage.getTextView();
-		setText(textView, strInput);
+		setText(textView, strInput,false);
 		MePage.clickSaveBtn();
 		//验证签名是否修改成功
 		resetApp();
@@ -60,7 +60,7 @@ public class SignatureCase extends VP {
 		MeAction.navToSignature();
 		String strInput=getRandomString(24);
 		MobileElement textView = MePage.getTextView();
-		setText(textView, strInput);
+		setText(textView, strInput,false);
 		MePage.clickSaveBtn();
 		//验证签名是否修改成功
 		resetApp();
@@ -74,7 +74,7 @@ public class SignatureCase extends VP {
 		MeAction.navToSignature();
 		String expectString=getRandomString(100);
 		MobileElement textView = MePage.getTextView();
-		setText(textView, expectString);
+		setText(textView, expectString,false);
 		MePage.clickSaveBtn();
 		//验证签名是否修改成功
 		wait(10);
@@ -90,7 +90,7 @@ public class SignatureCase extends VP {
 		MeAction.navToSignature();
 		String strInput=getRandomString(60);
 		MobileElement textView = MePage.getTextView();
-		setText(textView, strInput);
+		setText(textView, strInput,false);
 		MePage.clickSaveBtn();
 		//验证签名是否修改成功
 		wait(10);
@@ -112,6 +112,6 @@ public class SignatureCase extends VP {
 		MeAction.navToSignature();
 		textView = MePage.getTextView();
 		String activeString = textView.getText();
-		//Assert.assertEquals(activeString, "", "char-61");
+		Assert.assertEquals(activeString, "", "char-61");
 	}
 }

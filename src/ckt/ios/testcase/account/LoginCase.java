@@ -2,24 +2,16 @@ package ckt.ios.testcase.account;
 
 import java.net.MalformedURLException;
 
-import org.junit.Before;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-
 import ckt.App.Util.Property;
 import ckt.App.Util.VP;
 import ckt.ios.action.LoginAction;
 import ckt.ios.page.MainPage;
 
 public class LoginCase extends VP {
-	private static String configPath = "properties/account.properties";
-	
 	
 	@BeforeClass
 	public void beforeClass() throws MalformedURLException {
@@ -39,7 +31,7 @@ public class LoginCase extends VP {
 	@Test
 	public void testErrorUseNameOrPassword(){
 		LoginAction.logOutAccount();
-		String emial = Property.getValueByKey(configPath, "email");
+		String emial = Property.getValueByKey(accountPath, "email");
 		LoginAction.loginAccount(emial, "121212");
 		wait(5);
 		String alertTest = getElementByClassName("UIAStaticText").getText();
@@ -47,12 +39,11 @@ public class LoginCase extends VP {
 	}
 	@Test
 	public void testLoginByEmail(){
-		String emial = Property.getValueByKey(configPath, "email");
-		String passwd = Property.getValueByKey(configPath, "email_password");
+		String emial = Property.getValueByKey(accountPath, "email");
+		String passwd = Property.getValueByKey(accountPath, "email_password");
 		
 		LoginAction.logOutAccount();
-		iosdriver.closeApp();
-		iosdriver.launchApp();
+		resetApp();
 		LoginAction.loginAccount(emial, passwd);
 		boolean discover_page = text_exist("发现");
 		Assert.assertEquals(discover_page, true, "discover page");
@@ -60,24 +51,22 @@ public class LoginCase extends VP {
 	
 	@Test
 	public void testLoginByPhoneNumber(){
-		String emial = Property.getValueByKey(configPath, "phone_number");
-		String passwd = Property.getValueByKey(configPath, "phone_password");
+		String emial = Property.getValueByKey(accountPath, "phone_number");
+		String passwd = Property.getValueByKey(accountPath, "phone_password");
 		
 		LoginAction.logOutAccount();
-		iosdriver.closeApp();
-		iosdriver.launchApp();
+		resetApp();
 		LoginAction.loginAccount(emial, passwd);
 		boolean discover_page = text_exist("发现");
 		Assert.assertEquals(discover_page, true, "discover page");
 	}
 	@Test
 	public void testLoginBySioeyeID(){
-		String emial = Property.getValueByKey(configPath, "sioeye_id");
-		String passwd = Property.getValueByKey(configPath, "sioeye_password");
+		String emial = Property.getValueByKey(accountPath, "sioeye_id");
+		String passwd = Property.getValueByKey(accountPath, "sioeye_password");
 		
 		LoginAction.logOutAccount();
-		iosdriver.closeApp();
-		iosdriver.launchApp();
+		resetApp();
 		LoginAction.loginAccount(emial, passwd);
 		boolean discover_page = text_exist("发现");
 		Assert.assertEquals(discover_page, true, "discover page");
@@ -85,12 +74,11 @@ public class LoginCase extends VP {
     /*测试注销账号*/
 	@Test
 	public void testLogOutAccount(){
-		String emial = Property.getValueByKey(configPath, "phone_number");
-		String passwd = Property.getValueByKey(configPath, "phone_password");
+		String emial = Property.getValueByKey(accountPath, "phone_number");
+		String passwd = Property.getValueByKey(accountPath, "phone_password");
 		
 		LoginAction.logOutAccount();
-		iosdriver.closeApp();
-		iosdriver.launchApp();
+		resetApp();
 		LoginAction.loginAccount(emial, passwd);
 		LoginAction.logOutAccount();
 		boolean discover_page = text_exist("发现");

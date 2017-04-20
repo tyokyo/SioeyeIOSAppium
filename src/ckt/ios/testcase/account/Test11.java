@@ -7,24 +7,21 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import ckt.App.Util.VP4;
+import ckt.ios.page.DiscoverPage;
 
 public class Test11 extends VP4 {
 	@BeforeMethod
 	public void beforeTest(){
-		System.out.println("@BeforeMethod");
+		startAppium();
 	}
-    
+
 	@AfterMethod
 	public void afterTest() {
-		System.out.println("@AfterMethod");
+		stopAppium();
 	}
-	
+
 	@Test
-	public void testError1(){
-		System.out.println("testError1");
-	}
-	@Test
-	public void testError2(){
-		System.out.println("testError2");
+	public void testError10(){
+		//System.out.println(DiscoverPage.getCell().toString());
 	}
 }

@@ -10,8 +10,10 @@ public class MainPage extends VP4{
 	}
 	//输入法 returen button
 	public static void clickReturn(){
-		clickByName("return");
-		wait(1);
+		if (text_exist("return")) {
+			clickByName("return");
+			wait(1);
+		}
 	}
 
 	//点击-发现

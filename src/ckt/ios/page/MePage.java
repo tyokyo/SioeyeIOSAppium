@@ -134,24 +134,47 @@ public class MePage extends VP4{
 		waitTextGone("使用照片", 10);
 	}
 	//拍照
+	public static void reCaptureCancel(){
+		clickByName("重拍");
+		wait(2);
+		clickByName("取消");
+		wait(2);
+	}
+	//拍照
 	public static void clickCapture(){
 		clickByName("拍照");
 	}
 	//编辑头像-图库-选取
-	public static void avatarGalleryDone(){
+	public static void avatarGalleryDoneCancel(){
 		@SuppressWarnings("unchecked")
 		List<MobileElement> cells = (List<MobileElement>) iosdriver.findElements(By.className("Cell"));
 		MobileElement cell = cells.get(cells.size()-1);		
 		cell.click();
 		wait(2);
 		if (text_exist("选取")) {
-			iosdriver.findElements(By.className("Button")).get(1).click();	
-			wait(3);
-			waitUntilGone(30,By.className("ActivityIndicator"));
+			iosdriver.findElements(By.className("Button")).get(0).click();	
+			wait(2);
+			clickByName("取消");
+			wait(2);
 		}else {
-			avatarGalleryDone();
+			avatarGalleryDoneCancel();
 		}
 	}
+	//编辑头像-图库-选取
+		public static void avatarGalleryDone(){
+			@SuppressWarnings("unchecked")
+			List<MobileElement> cells = (List<MobileElement>) iosdriver.findElements(By.className("Cell"));
+			MobileElement cell = cells.get(cells.size()-1);		
+			cell.click();
+			wait(2);
+			if (text_exist("选取")) {
+				iosdriver.findElements(By.className("Button")).get(1).click();	
+				wait(3);
+				waitUntilGone(30,By.className("ActivityIndicator"));
+			}else {
+				avatarGalleryDone();
+			}
+		}
 	//编辑头像-图库-取消
 	public static void avatarGalleryCancel(){
 		iosdriver.findElement(By.className("Cell")).click();
