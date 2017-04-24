@@ -417,10 +417,12 @@ public class UiViewer  extends JFrame{
 	public UiViewer() {
 		JMenuBar menubar = new JMenuBar();
 		setJMenuBar(menubar);
-		JMenu menu = new JMenu("Action");
-		menubar.add(menu);
+		JMenu actionMenu = new JMenu("Action");
+		JMenu searchMenu = new JMenu("Search");
+		menubar.add(actionMenu);
+		menubar.add(searchMenu);
 		JMenuItem exitItem = new JMenuItem("Capture");
-		menu.add(exitItem);
+		actionMenu.add(exitItem);
 		exitItem.addActionListener(new ActionListener() {
 
 			@Override

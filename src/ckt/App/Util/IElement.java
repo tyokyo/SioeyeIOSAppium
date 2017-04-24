@@ -1,7 +1,11 @@
 package ckt.App.Util;
 
+import io.appium.java_client.TouchAction;
+
 import java.awt.Rectangle;
 import java.util.Vector;
+
+import org.openqa.selenium.By;
 
 public class IElement {
 	public Vector add(Vector vData){
@@ -153,6 +157,9 @@ public class IElement {
 			rectangle=new Rectangle((int)this.x, (int)this.y, (int)this.width, (int)this.height);
 			return rectangle;
 		}
-		
-		
+		public  void click(){
+			String xpath = getXpath();
+			VP4.iosdriver.findElement(By.xpath(xpath)).click();
+			 Log.info(String.format("click Element with xpath=%s  className=%s,name=%s",getXpath(),getClassName(),getName()));
+		}
 }

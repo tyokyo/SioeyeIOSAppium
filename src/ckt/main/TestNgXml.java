@@ -83,24 +83,21 @@ public class TestNgXml extends VP4 {
 		Thread.currentThread();
 		Thread.sleep(11);
 	}  
-	public static void fileCopyDir(String root,String desctination) throws Exception{
+	public static void fileFile(String root,String desctination) throws Exception{
 		File f = new File(root);
 		File[] fs = f.listFiles();
 		for (File file : fs) {
-			if (file.isDirectory()) {
-				String path = file.getAbsolutePath();
-				fileCopyDir(path,desctination);
-			}else {
-				String content = Inspector.readFile(file.getAbsolutePath());
-				Inspector.writeTxtFile(content, new File(desctination));
-			}
+			String toPath = desctination+"/"+file.getName();
+			String content = Inspector.readFile(file.getAbsolutePath());
+			Inspector.writeTxtFile(content, new File(toPath));
 		}
 	}
 	public static void main(String args[]) throws Exception{
 		String root = "src\\ckt\\ios\\testcase";
 		String folder = "xml";
-		getXmlClassList(folder,root);
-		//makeReport();
+		//getXmlClassList(folder,root);
+		startMakeReport();
+		endMakeReport();
 	}
 	public static void makeDir(String path){
 		File rootFile = new File(path);
@@ -126,7 +123,7 @@ public class TestNgXml extends VP4 {
 	public static void endMakeReport() throws Exception{
 		System.out.println("report-"+reportFolder);
 		//copy html
-		fileCopyDir("test-output/html",htmlFolder);
+		fileFile("test-output/html",htmlFolder);
 		//fileCopyDir("test-output/screenshot",screenshotFolder);
 		//copy screenshot
 		//deleteFile(new File("test-output/screenshot"));

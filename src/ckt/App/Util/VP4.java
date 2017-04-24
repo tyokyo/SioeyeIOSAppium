@@ -1,25 +1,19 @@
 package ckt.App.Util;
 
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.TouchAction;
 
-import java.awt.Color;
 import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.io.FileUtils;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.interactions.touch.TouchActions;
+import org.openqa.selenium.Rectangle;
 
 import ckt.ios.page.MainPage;
 /*使用dom4j解析页面XML数据*/
@@ -67,6 +61,50 @@ public class VP4 extends VP3
 		readElement(applicationElement, allElements);
 		return allElements;
 	}
+	public static IElement  ElementToIElement(Element element){
+		IElement iElement = new IElement();
+		iElement.setClassName(element.getName());
+		iElement.setXpath(getXpath(element));
+		iElement.setName(element.attributeValue("name"));
+		iElement.setValue(element.attributeValue("value"));
+		iElement.setLabel(element.attributeValue("label"));
+		iElement.setX(Double.parseDouble(element.attributeValue("x")));
+		iElement.setY(Double.parseDouble(element.attributeValue("y")));
+		iElement.setWidth(Double.parseDouble(element.attributeValue("width")));
+		iElement.setHeight(Double.parseDouble(element.attributeValue("height")));
+		iElement.setVisible(element.attributeValue("visible"));
+		iElement.setEnabled(element.attributeValue("enabled"));
+		return iElement;
+	}
+	public static MobileElement  ElementToMobileElement(Element element){
+		MobileElement mobileElement = null;
+		IElement iElement = ElementToIElement(element);
+		mobileElement=getElementByXpath(iElement.getXpath());
+		return mobileElement;
+	}
+	public static MobileElement  IElementToMobileElement(IElement iElement){
+		return getElementByXpath(iElement.getXpath());
+	}
+	public static Element  IElementToElement(IElement iElement){
+		Element sElement = null;
+		List<Element> mElements = getPageXmlElements();
+		for (Element element : mElements) {
+			if (iElement.equals(ElementToIElement(element))) {
+				sElement=element;
+				break;
+			}
+		}
+		return sElement;
+	}
+	public static void  MobileElementToElement(MobileElement mobileElement){
+		Rectangle mErectangle = mobileElement.getRect();
+		String text = mobileElement.getText();
+		
+	}
+	public static void  MobileElementToIElement(MobileElement mobileElement){
+		System.out.println();
+	}
+	
 	public static List<IElement> toIElements(List<Element> elements){
 		List<IElement> iElements = new ArrayList<IElement>();
 		for (Element element : elements) {
@@ -89,12 +127,23 @@ public class VP4 extends VP3
 	private static List<MobileElement> toMobileElements(List<IElement> elements){
 		List<MobileElement> mels = new ArrayList<MobileElement>();
 		for (IElement iElement : elements) {
-			mels.add(getElementByXpathExpression(iElement.getXpath()));
+			mels.add(getElementByXpath(iElement.getXpath()));
 		}
 		return mels;
 	}
 	private static String getXpath(Element element){
 		return element.getUniquePath().replace("AppiumAUT", "");
+	}
+	public static IElement getIElementByXpath(String xpath){
+		IElement returnElement=null;
+		List<Element> ems = getPageXmlElements();
+		List<IElement> tms = toIElements(ems);
+		for (IElement iElement : tms) {
+			if (xpath.equals(iElement.getXpath())) {
+				returnElement= iElement;
+			}
+		}
+		return returnElement;
 	}
 	//根据name获取对象
 	public static MobileElement getElementByName(String name){
@@ -104,6 +153,18 @@ public class VP4 extends VP3
 			System.out.println(mobileElement.getAttribute("name"));
 		}
 		return ((MobileElement)iosdriver.findElement(By.name(name)));
+	}
+	//根据className获取对象
+	public static IElement getXpathByClassName(String className){
+		IElement returnElement=null;
+		List<Element> ems = getPageXmlElements();
+		List<IElement> tms = toIElements(ems);
+		for (IElement iElement : tms) {
+			if (className.equals(iElement.getClassName())) {
+				returnElement= iElement;
+			}
+		}
+		return returnElement;
 	}
 	public static void waitUntilTextExist(String text,int seconds){
 		long time_start = System.currentTimeMillis();
@@ -162,7 +223,7 @@ public class VP4 extends VP3
 
 			String appName=getApplicationName();
 			System.out.println(appName);
-
+			System.out.println(iosdriver.getPageSource());
 			MainPage.clickMe_btn();
 			List<Element> ems = getPageXmlElements();
 			for (Element element : ems) {

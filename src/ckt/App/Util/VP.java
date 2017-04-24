@@ -110,8 +110,8 @@ public class VP extends AppiumBase {
 		return ((MobileElement)iosdriver.findElement(By.className(className)));
 	}
 	//根据X-path获取对象
-	public static MobileElement getElementByXpathExpression(String xpathExpression){
-		return ((MobileElement)iosdriver.findElement(By.xpath(xpathExpression)));
+	public static MobileElement getElementByXpath(String xpath){
+		return ((MobileElement)iosdriver.findElement(By.xpath(xpath)));
 	}
 	//根据tag-name获取对象
 	public static MobileElement getElementByTag(String name){
@@ -153,6 +153,17 @@ public class VP extends AppiumBase {
 			exist=true;
 		}
 		return exist ;
+	}
+	public static boolean xpath_exist(String xpath){
+		boolean isexist=false;
+		List<Element> ems = VP4.getPageXmlElements();
+		List<IElement> tms = VP4.toIElements(ems);
+		for (IElement iElement : tms) {
+			if (xpath.equals(iElement.getXpath())) {
+				isexist=true;
+			}
+		}
+		return isexist;
 	}
 	public static boolean class_exist(String className){
 		boolean exist = false;
@@ -228,13 +239,24 @@ public class VP extends AppiumBase {
 				btnEmt.click();
 				log("click TypeScrollView");
 			}
+			if (class_exist("ScrollView")) {
+				String xpath = VP4.getXpathByClassName("ScrollView").getXpath();
+				String subnavpath = xpath+"/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeNavigationBar";
+				String subbtnpath = xpath+"/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeNavigationBar/XCUIElementTypeButton[1]";
+				if (xpath_exist(subnavpath)) {
+					getElementByXpath(subnavpath).click();
+				}
+				if (xpath_exist(subbtnpath)) {
+					getElementByXpath(subbtnpath).click();
+				}
+			}
 		}
 		if (!tag) {
 			resetApp();
 		}else {
 			log("rest App finished");
 		}
-		
+
 	}
 	//during（这里是填写毫秒数，这里的 毫秒数越小 滑动的速度越快~ 一般设定在500~1000，如果你想快速滑动 那就可以设置的更加小）
 	//num（是只滑动的次数，本人在做相册 翻页测试什么的 滑动  或者滑动到列表底部。就直接输入次数就行了）
@@ -254,7 +276,6 @@ public class VP extends AppiumBase {
 			wait(1);  
 		}  
 	}  
-
 	/** 
 	 * 下拉 
 	 *  
