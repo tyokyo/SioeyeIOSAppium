@@ -28,6 +28,7 @@ public class AppiumBase {
 	private static String ipaddress ;
 	private static DesiredCapabilities capabilities;
 	private static String port ;
+	private static int newCommandTimeout;
 	static{
 		devicename = Property.getValueByKey(configPath, "deviceName");
 		platformName = Property.getValueByKey(configPath, "platformName");
@@ -38,6 +39,7 @@ public class AppiumBase {
 		sessionOverride = Property.getValueByKey(configPath, "sessionOverride");
 		ipaddress = Property.getValueByKey(configPath, "ipaddress");
 		port = Property.getValueByKey(configPath, "port");
+		newCommandTimeout=Integer.parseInt(Property.getValueByKey(configPath, "newCommandTimeout"));
 		Log.info("Load the propertyies data for Appium configurations");
 	}
 	public static int getMaxRunCount(){
@@ -65,7 +67,7 @@ public class AppiumBase {
 		capabilities.setCapability(MobileCapabilityType.APP, app);
 		capabilities.setCapability(MobileCapabilityType.UDID, "057475d55abf5e4f36becfc16cf3691cb661fe9e");
 		capabilities.setCapability(MobileCapabilityType.NO_RESET,Boolean.parseBoolean(noReset));
-		capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 3600);
+		capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, newCommandTimeout);
 		//capabilities.setCapability("sessionOverride",Boolean.parseBoolean(sessionOverride));
 		capabilities.setCapability("unicodeKeyboard",true);  
 		capabilities.setCapability("resetKeyboard", true);  

@@ -96,13 +96,40 @@ public class VP4 extends VP3
 		}
 		return sElement;
 	}
-	public static void  MobileElementToElement(MobileElement mobileElement){
-		Rectangle mErectangle = mobileElement.getRect();
-		String text = mobileElement.getText();
-		
+	public static String getElementRect(Element element){
+		String rectStr = "";
+		String x = element.attributeValue("x");
+		String y = element.attributeValue("y");
+		String width = element.attributeValue("width");
+		String height = element.attributeValue("height");
+		rectStr = String.format("{x=%s, width=%s, y=%s, height=%s}", x,width,y,height);
+		return rectStr;
 	}
-	public static void  MobileElementToIElement(MobileElement mobileElement){
-		System.out.println();
+	public static Element  MobileElementToElement(MobileElement mobileElement){
+		Element xmlElement = null;
+		MIElement iElement = new MIElement(mobileElement);
+		String type = iElement.getType();
+		String tosearchRect = iElement.getRect().toString();
+		String name = iElement.getName()+"";
+		List<Element> ems = VP4.getPageXmlElements();
+		for (Element element : ems) {
+			String rect = getElementRect(element);
+			String ttype = element.attributeValue("type");
+			String nname= element.attributeValue("name")+"";
+			//System.out.println(rect+"-"+ttype+"-"+nname);
+			if (ttype.equals(type)&&name.equals(nname)) {
+				if (rect.equals(tosearchRect)) {
+					log("find xml element");
+					xmlElement=element;
+					break;
+				}
+			}
+		}	
+		return xmlElement;
+	}
+	public static IElement  MobileElementToIElement(MobileElement mobileElement){
+		Element element = MobileElementToElement(mobileElement);
+		return ElementToIElement(element);
 	}
 	
 	public static List<IElement> toIElements(List<Element> elements){
@@ -160,9 +187,16 @@ public class VP4 extends VP3
 		List<Element> ems = getPageXmlElements();
 		List<IElement> tms = toIElements(ems);
 		for (IElement iElement : tms) {
-			if (className.equals(iElement.getClassName())) {
+			String classname = iElement.getClassName();
+			if (className.equals(classname)) {
 				returnElement= iElement;
+				break;
 			}
+		}
+		if (returnElement==null) {
+			log("can not find IElement by className="+className);
+		}else {
+			log("find IElement by className="+className);
 		}
 		return returnElement;
 	}

@@ -101,6 +101,7 @@ public class VP extends AppiumBase {
 	}
 	//根据calssName name获取对象
 	public static MobileElement getElement(String className,String name){
+		log(String.format("getElement with className=%s name=%s",className,name));
 		return ((MobileElement)iosdriver.findElement(By.className(className).name(name)));
 	}
 
@@ -111,6 +112,13 @@ public class VP extends AppiumBase {
 	}
 	//根据X-path获取对象
 	public static MobileElement getElementByXpath(String xpath){
+		log("getElementByXpath-"+xpath);
+		return ((MobileElement)iosdriver.findElement(By.xpath(xpath)));
+	}
+	//根据X-path获取对象
+	public static MobileElement getElementBySubXpath(MobileElement parent,String subXpath){
+		Element element =VP4.MobileElementToElement(parent);
+		String xpath = VP4.ElementToIElement(element).getXpath()+subXpath;
 		return ((MobileElement)iosdriver.findElement(By.xpath(xpath)));
 	}
 	//根据tag-name获取对象
@@ -169,8 +177,19 @@ public class VP extends AppiumBase {
 		boolean exist = false;
 		try {
 			if (iosdriver.findElement(By.className(className)).isDisplayed()) {
+				log("exist class ="+className);
 				exist=true;
 			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return exist ;
+	}
+	public static boolean classExist(String className){
+		boolean exist = false;
+		try {
+			iosdriver.findElement(By.className(className));
+			exist=true;
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -240,14 +259,11 @@ public class VP extends AppiumBase {
 				log("click TypeScrollView");
 			}
 			if (class_exist("ScrollView")) {
-				String xpath = VP4.getXpathByClassName("ScrollView").getXpath();
-				String subnavpath = xpath+"/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeNavigationBar";
-				String subbtnpath = xpath+"/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeNavigationBar/XCUIElementTypeButton[1]";
-				if (xpath_exist(subnavpath)) {
-					getElementByXpath(subnavpath).click();
-				}
-				if (xpath_exist(subbtnpath)) {
-					getElementByXpath(subbtnpath).click();
+				if (classExist("NavigationBar")) {
+					clickByClassName("NavigationBar");
+					getElementBySubXpath(getElementByClassName("NavigationBar"), "/XCUIElementTypeButton[1]").click();;
+				}else {
+					clickByClassName("ScrollView");
 				}
 			}
 		}
@@ -270,9 +286,9 @@ public class VP extends AppiumBase {
 	public static void swipeToUp(IOSDriver<?> iosdriver,int during, int num) {  
 		int width = iosdriver.manage().window().getSize().width;  
 		int height = iosdriver.manage().window().getSize().height;  
-		for (int i = 0; i < num; i++) {  
+		for (int i = 1; i <= num; i++) {  
 			iosdriver.swipe(width / 2, height * 4/ 6, width / 2, height *3/ 6, during);  
-			Log.info("swipeToUp");
+			Log.info("swipeToUp-"+i);
 			wait(1);  
 		}  
 	}  
@@ -286,9 +302,9 @@ public class VP extends AppiumBase {
 	public static void swipeToDown(IOSDriver<?> driver,int during, int num) {  
 		int width = driver.manage().window().getSize().width;  
 		int height = driver.manage().window().getSize().height;  
-		for (int i = 0; i < num; i++) {  
+		for (int i = 1; i <= num; i++) {  
 			driver.swipe(width / 2, height*3 / 6, width / 2, height * 4 / 6, during);  
-			Log.info("swipeToDown");
+			Log.info("swipeToDown-"+i);
 			wait(1);  
 		}  
 	}  
@@ -303,9 +319,9 @@ public class VP extends AppiumBase {
 	public static void swipeToLeft(IOSDriver<?> driver,int during, int num) {  
 		int width = driver.manage().window().getSize().width;  
 		int height = driver.manage().window().getSize().height;  
-		for (int i = 0; i < num; i++) {  
+		for (int i = 1; i <= num; i++) {  
 			driver.swipe(width * 3 / 4, height / 2, width / 4, height / 2, during);  
-			Log.info("swipeToLeft");
+			Log.info("swipeToLeft-"+i);
 			wait(3);  
 		}  
 	}  
@@ -320,9 +336,9 @@ public class VP extends AppiumBase {
 	public static void swipeToRight(IOSDriver<?> driver,int during, int num) {  
 		int width = driver.manage().window().getSize().width;  
 		int height = driver.manage().window().getSize().height;  
-		for (int i = 0; i < num; i++) {  
+		for (int i = 1; i <= num; i++) {  
 			driver.swipe(width / 4, height / 2, width * 3 / 4, height / 2, during);  
-			Log.info("swipeToRight");
+			Log.info("swipeToRight-"+i);
 			wait(3);  
 		}  
 	}  

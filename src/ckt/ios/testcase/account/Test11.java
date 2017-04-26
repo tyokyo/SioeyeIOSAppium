@@ -1,7 +1,10 @@
 package ckt.ios.testcase.account;
 
+import java.util.List;
+
 import io.appium.java_client.MobileElement;
 
+import org.dom4j.Element;
 import org.openqa.selenium.By;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
@@ -28,12 +31,20 @@ public class Test11 extends VP4 {
 	public void testError10(){
 		//DiscoverPage.watchBack();
 		MobileElement mobileElement  = (MobileElement) iosdriver.findElement(By.name("我"));
-		System.out.println(mobileElement.getAttribute("rect"));
+		Element element = MobileElementToElement(mobileElement);
+		System.out.println(element.getParent().elements("XCUIElementTypeButton").size());
+		
+		MobileElement mobileElement1  = (MobileElement) iosdriver.findElement(By.xpath("//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeCell[2]/XCUIElementTypeOther/XCUIElementTypeButton"));
+		MobileElementToElement(mobileElement1);
+		
+		
+		/*System.out.println(mobileElement.getAttribute("rect"));
+
 		MIElement iElement = new MIElement(mobileElement);
 		System.out.println(iElement.getRect());
 		System.out.println(iElement.getEnabled());
 		System.out.println(iElement.getName());
-		System.out.println(iElement.getType());
+		System.out.println(iElement.getType());*/
 		
 	}
 }

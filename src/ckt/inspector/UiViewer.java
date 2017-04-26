@@ -441,7 +441,7 @@ public class UiViewer  extends JFrame{
 							content = VP4.iosdriver.getPageSource();
 						} catch (Exception e2) {
 							// TODO: handle exception
-							e2.printStackTrace();
+							VP4.log("appium session has died,need to re-create appium instance");
 							VP4.startAppium();
 							content = VP4.iosdriver.getPageSource();
 						}

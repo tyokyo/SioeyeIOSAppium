@@ -1,14 +1,30 @@
 package ckt.ios.page;
 
+import io.appium.java_client.MobileElement;
+
 import java.util.List;
 
 import org.dom4j.Element;
+import org.openqa.selenium.By;
 
+import ckt.App.Util.Draw;
 import ckt.App.Util.IElement;
 import ckt.App.Util.VP4;
 
 public class DiscoverPage extends VP4 {
-	
+	//click 主播
+	public static void clickAnchor(){
+		clickByName("主播");
+		wait(3);
+	}
+	//click 
+	public static void clickRoom(){
+		clickByName("聊天室");
+	}
+	public static IElement  getCharRoom(){
+		MobileElement sElement = (MobileElement) iosdriver.findElements(By.className("ScrollView")).get(1);
+		return MobileElementToIElement(sElement);
+	}
 	public static IElement  getCell(){
 		int h = iosdriver.manage().window().getSize().height;
 		int w = iosdriver.manage().window().getSize().width;
@@ -37,14 +53,43 @@ public class DiscoverPage extends VP4 {
 		IElement watchElement = getIElementByXpath(xpath);
 		if (watchElement!=null) {
 			log("find element with cellpath");
-			return watchElement.getName();
+			String name = watchElement.getName();
+			log(" get watch count ="+name);
+			return name;
+		}else {
+			log(" get watch count failed");
+			return null;
+		}
+	}
+	public static String getHomeWatchCount(String cellpath){
+		String watchSubXpath = "/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeStaticText[2]";
+		String xpath = cellpath+watchSubXpath;
+		IElement watchElement = getIElementByXpath(xpath);
+		if (watchElement!=null) {
+			log("find element with cellpath");
+			String name = watchElement.getName();
+			log(" get watch count ="+name);
+			return name;
+		}else {
+			log(" get watch count failed");
+			return null;
+		}
+	}
+	
+	public static String getZanCount(String cellpath){
+		String zanSubXpath = "/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]/XCUIElementTypeStaticText";
+		String xpath = cellpath+zanSubXpath;
+		IElement zanElement = getIElementByXpath(xpath);
+		if (zanElement!=null) {
+			log("find element with cellpath");
+			return zanElement.getName();
 		}else {
 			log(" not find element with cellpath");
 			return null;
 		}
 	}
-	public static String geZanCount(String cellpath){
-		String zanSubXpath = "/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]/XCUIElementTypeStaticText";
+	public static String getHomeZanCount(String cellpath){
+		String zanSubXpath = "/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeStaticText[3]";
 		String xpath = cellpath+zanSubXpath;
 		IElement zanElement = getIElementByXpath(xpath);
 		if (zanElement!=null) {
@@ -57,16 +102,21 @@ public class DiscoverPage extends VP4 {
 	}
 	public static void watchBack(){
 		if (class_exist("ScrollView")) {
-			log("find calssName=ScrollView ");
-			String xpath = VP4.getXpathByClassName("ScrollView").getXpath();
-			String subnavpath = xpath+"/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeNavigationBar";
-			String subbtnpath = xpath+"/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeNavigationBar/XCUIElementTypeButton[1]";
-			if (xpath_exist(subnavpath)) {
-				getElementByXpath(subbtnpath).click();
-				watchBack();
+			log("find calssName=XCUIElementTypeScrollView ");
+			if (classExist("NavigationBar")) {
+				clickByClassName("NavigationBar");
+				getElementBySubXpath(getElementByClassName("NavigationBar"), "/XCUIElementTypeButton[1]").click();;
+			}else {
+				clickByClassName("ScrollView");
 			}
+			watchBack();
 		}else {
-			log("can not find calssName=ScrollView ");
+			log("watchBack-success ");
+			Draw.takeScreenShot();
 		}
+	}
+	public static void clickZan(){
+		clickByXpath("//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther[4]/XCUIElementTypeScrollView/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeButton[2]");
+		log("click zan ");
 	}
 }
