@@ -101,19 +101,11 @@ public class DiscoverPage extends VP4 {
 		}
 	}
 	public static void watchBack(){
-		if (class_exist("ScrollView")) {
-			log("find calssName=XCUIElementTypeScrollView ");
-			if (classExist("NavigationBar")) {
-				clickByClassName("NavigationBar");
-				getElementBySubXpath(getElementByClassName("NavigationBar"), "/XCUIElementTypeButton[1]").click();;
-			}else {
-				clickByClassName("ScrollView");
-			}
-			watchBack();
-		}else {
-			log("watchBack-success ");
-			Draw.takeScreenShot();
-		}
+		//getIElementByXpath(xpath)
+		wait(7);
+		clickByXpath("//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther[2]");
+		getElementBySubXpath(getElementByClassName("NavigationBar"), "/XCUIElementTypeButton[1]").click();
+		wait(7);
 	}
 	public static void clickZan(){
 		clickByXpath("//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther[4]/XCUIElementTypeScrollView/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeButton[2]");

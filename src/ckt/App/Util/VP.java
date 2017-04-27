@@ -185,11 +185,12 @@ public class VP extends AppiumBase {
 		}
 		return exist ;
 	}
-	public static boolean classExist(String className){
+	public static boolean classExist(String className,boolean isDisplay){
 		boolean exist = false;
 		try {
-			iosdriver.findElement(By.className(className));
-			exist=true;
+			if (iosdriver.findElement(By.className(className)).isDisplayed()==isDisplay) {
+				exist=true;
+			}
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -258,13 +259,9 @@ public class VP extends AppiumBase {
 				btnEmt.click();
 				log("click TypeScrollView");
 			}
-			if (class_exist("ScrollView")) {
-				if (classExist("NavigationBar")) {
-					clickByClassName("NavigationBar");
-					getElementBySubXpath(getElementByClassName("NavigationBar"), "/XCUIElementTypeButton[1]").click();;
-				}else {
-					clickByClassName("ScrollView");
-				}
+			if (class_exist("NavigationBar")) {
+				clickByClassName("NavigationBar");
+				getElementBySubXpath(getElementByClassName("NavigationBar"), "/XCUIElementTypeButton[1]").click();;
 			}
 		}
 		if (!tag) {

@@ -184,12 +184,13 @@ public class VP4 extends VP3
 		return ((MobileElement)iosdriver.findElement(By.name(name)));
 	}
 	//根据className获取对象
-	public static IElement getXpathByClassName(String className){
+	public static IElement getIElementByClassName(String className){
 		IElement returnElement=null;
 		List<Element> ems = getPageXmlElements();
 		List<IElement> tms = toIElements(ems);
 		for (IElement iElement : tms) {
 			String classname = iElement.getClassName();
+			System.out.println(classname);
 			if (className.equals(classname)) {
 				returnElement= iElement;
 				break;
