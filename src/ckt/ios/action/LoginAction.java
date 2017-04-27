@@ -14,7 +14,7 @@ public class LoginAction extends VP {
 		waitUntilFind(By.name("Sioeye"), 15);
 		MainPage.clickMe_btn();
 		boolean logintStatus=true;
-		if (text_exist("登录")) {
+		if (text_exist("Log in")) {
 			logintStatus=false;
 			LoginPage.clickCancel_btn();
 		}

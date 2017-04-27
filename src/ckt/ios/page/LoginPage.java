@@ -5,23 +5,23 @@ import ckt.App.Util.VP4;
 public class LoginPage extends VP4 {
 	//点击- 注册
 	public static void clickSignIn_btn(){
-		clickByName("注册");
+		clickByName("Sign up");
 	}
 	//点击-  注销
 	public static void clickSignOut_btn(){
-		clickByName("注销");
+		clickByName("Log out");
 	}
 	//点击-  登录
 	public static void clickLogin_btn(){
-		clickByName("登录");
+		clickByName("Log in");
 	}
 	//点击-  微信
 	public static void clickWeiXin_btn(){
-		clickByName("微信");
+		clickByName("Weichat");
 	}
 	//点击-  微博
 	public void clickWeiBo_btn(){
-		clickByName("微博");
+		clickByName("Weibo");
 	}
 	//点击-  登录
 	public void clickQQ_btn(){
@@ -35,7 +35,7 @@ public class LoginPage extends VP4 {
 	//退出登录
 	public static void clickLogOut_btn(){
 		log("click login out button");
-		clickByName("退出登录");
+		clickByName("Log out");
 		wait(2);
 	}
 	//登录
@@ -45,6 +45,7 @@ public class LoginPage extends VP4 {
 	}
 	//忘记密码
 	public static void clickForgotPassword_btn(){
+		//Change your password
 		log("click forgot password button");
 		clickByXpath("//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeButton[2]");
 	}

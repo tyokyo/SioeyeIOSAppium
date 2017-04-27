@@ -1,6 +1,7 @@
 package ckt.App.Util;
 
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.ios.IOSDriver;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -13,6 +14,7 @@ import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.Rectangle;
 
 import ckt.ios.page.MainPage;
@@ -250,6 +252,46 @@ public class VP4 extends VP3
 		}
 		return isExist;
 	}*/
+	public static void swipeTo(MobileElement element,String direction) {  
+		int wd_width = iosdriver.manage().window().getSize().width;  
+		int wd_height = iosdriver.manage().window().getSize().height;  
+		Point point = element.getCenter();
+		int startX=point.x;
+		int startY=point.y;
+		int endX=0;
+		int endY=0;
+		switch (direction) {
+		case "DOWN":
+			endX=point.x;
+			endY=point.y+wd_height/8;
+			iosdriver.swipe(startX,startY,endX,endY,1000);
+			Log.info(String.format("swipToUp startX=%d startY=%d endX=%d endY=%d",startX,startY,endX,endY));
+			break;
+		case "RIGHT":
+			endX=point.x+wd_width/5;
+			endY=point.y;
+			iosdriver.swipe(startX,startY,endX,endY,1000);
+			Log.info(String.format("swipToUp startX=%d startY=%d endX=%d endY=%d",startX,startY,endX,endY));
+			break;
+		case "UP":
+			endX=point.x;
+			endY=point.y-wd_height/8;
+			iosdriver.swipe(startX,startY,endX,endY,1000);
+			Log.info(String.format("swipToUp startX=%d startY=%d endX=%d endY=%d",startX,startY,endX,endY));
+			break;
+		case "LEFT":
+			endX=point.x-wd_width/4;
+			endY=point.y;
+			iosdriver.swipe(startX,startY,endX,endY,500);
+			Log.info(String.format("swipToUp startX=%d startY=%d endX=%d endY=%d",startX,startY,endX,endY));
+			break;
+		default:
+			break;
+		}
+	}  
+	//swipeToDown(IOSDriver<?>, int, int)
+	//swipeToLeft(IOSDriver<?>, int, int)
+	//swipeToRight(IOSDriver<?>, int, int)
 	public static void main(String[] args) throws Exception
 	{
 		try {

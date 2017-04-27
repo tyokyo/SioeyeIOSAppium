@@ -30,7 +30,7 @@ public class Test11 extends VP4 {
 	@Test
 	public void testError10(){
 		//DiscoverPage.watchBack();
-		MobileElement mobileElement  = (MobileElement) iosdriver.findElement(By.name("我"));
+		MobileElement mobileElement  = (MobileElement) iosdriver.findElement(By.name("Me"));
 		Element element = MobileElementToElement(mobileElement);
 		System.out.println(element.getParent().elements("XCUIElementTypeButton").size());
 		
@@ -46,5 +46,13 @@ public class Test11 extends VP4 {
 		System.out.println(iElement.getName());
 		System.out.println(iElement.getType());*/
 		
+	}
+	@Test
+	public void testError(){
+		MobileElement element=getElementByXpath("//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeCollectionView");
+		for (int i = 0; i < 3; i++) {
+			swipeTo(element, "LEFT");
+			wait(5);
+		}
 	}
 }

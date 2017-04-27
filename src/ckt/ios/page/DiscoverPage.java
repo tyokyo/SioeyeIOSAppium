@@ -14,12 +14,12 @@ import ckt.App.Util.VP4;
 public class DiscoverPage extends VP4 {
 	//click 主播
 	public static void clickAnchor(){
-		clickByName("主播");
+		clickByName("anchor");
 		wait(3);
 	}
 	//click 
 	public static void clickRoom(){
-		clickByName("聊天室");
+		clickByName("chat room");
 	}
 	public static IElement  getCharRoom(){
 		MobileElement sElement = (MobileElement) iosdriver.findElements(By.className("ScrollView")).get(1);

@@ -45,7 +45,7 @@ public class LoginCase extends VP {
 		LoginAction.logOutAccount();
 		resetApp();
 		LoginAction.loginAccount(emial, passwd);
-		boolean discover_page = text_exist("发现");
+		boolean discover_page = text_exist("Discover");
 		Assert.assertEquals(discover_page, true, "discover page");
 	}
 	
@@ -57,7 +57,7 @@ public class LoginCase extends VP {
 		LoginAction.logOutAccount();
 		resetApp();
 		LoginAction.loginAccount(emial, passwd);
-		boolean discover_page = text_exist("发现");
+		boolean discover_page = text_exist("Discover");
 		Assert.assertEquals(discover_page, true, "discover page");
 	}
 	@Test
@@ -68,7 +68,7 @@ public class LoginCase extends VP {
 		LoginAction.logOutAccount();
 		resetApp();
 		LoginAction.loginAccount(emial, passwd);
-		boolean discover_page = text_exist("发现");
+		boolean discover_page = text_exist("Discover");
 		Assert.assertEquals(discover_page, true, "discover page");
 	}
     /*测试注销账号*/
@@ -81,11 +81,11 @@ public class LoginCase extends VP {
 		resetApp();
 		LoginAction.loginAccount(emial, passwd);
 		LoginAction.logOutAccount();
-		boolean discover_page = text_exist("发现");
+		boolean discover_page = text_exist("Discover");
 		Assert.assertEquals(discover_page, true, "discover page");
 		MainPage.clickMe_btn();
 		
-		boolean account_page = text_exist("登录");
+		boolean account_page = text_exist("Log in");
 		Assert.assertEquals(account_page, true, "account_page");
 		
 	}

@@ -244,8 +244,8 @@ public class VP extends AppiumBase {
 			log("click TabBar-Button[0]");
 			tag=true;
 		}else {
-			if (text_exist("登录")) {
-				log("find 登录");
+			if (text_exist("Log in")) {
+				log("find Log in");
 				iosdriver.findElement(By.className("Button")).click();
 			}
 			if (class_exist("NavigationBar")) {

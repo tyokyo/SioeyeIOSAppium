@@ -50,12 +50,14 @@ public class MainPage extends VP4{
 	//点击-确认按钮
 	public static void clickAskToSure_btn(){
 		//clickByXpath("//UIAApplication[1]/UIAWindow[1]/UIAAlert[1]/UIACollectionView[1]/UIACollectionCell[2]");
-		clickByName("确认");
+		if (text_exist("OK")) {
+			clickByName("OK");	
+		}
 	}
 	//点击-确认按钮
 	public static void clickAskToCancel_btn(){
 		//clickByXpath("//UIAApplication[1]/UIAWindow[1]/UIAAlert[1]/UIACollectionView[1]/UIACollectionCell[1]");
-		clickByName("取消");
+		clickByName("Cancel");
 	}
 	//点击-返回按钮
 	public static void clickBack_btn(){
