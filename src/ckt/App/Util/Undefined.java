@@ -77,20 +77,6 @@ public class Undefined extends VP {
 		public static String  getTreeForXml(){
 			return iosdriver.getPageSource();
 		}
-		//根据calssName name获取对象
-		public static MobileElement getElement(final String className,final String name){
-			Log.info(String.format("Search Element By className=%s name=%s",className,name));
-			WebDriverWait wait = new WebDriverWait(iosdriver, WAIT_STRING);
-			MobileElement element= wait.until(new  ExpectedCondition<MobileElement>() {
-				@Override
-				public MobileElement apply(WebDriver arg0) {
-					// TODO Auto-generated method stub
-					return (MobileElement) arg0.findElement(By.className(className).name(name));
-				}
-			});
-			return element;
-		}
-
 		//根据calssName获取对象
 		public static MobileElement getElementByClassName(final String className){
 			Log.info(String.format("Search Element By className=%s ",className));

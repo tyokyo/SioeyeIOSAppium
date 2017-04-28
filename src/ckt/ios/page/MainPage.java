@@ -6,7 +6,7 @@ import ckt.App.Util.VP4;
 
 public class MainPage extends VP4{
 	public static void toHome(){
-		
+
 	}
 	//输入法 returen button
 	public static void clickReturn(){
@@ -15,7 +15,13 @@ public class MainPage extends VP4{
 			wait(1);
 		}
 	}
-
+	//输入法 send button
+	public static void clickSend(){
+		if (text_exist("Send")) {
+			clickByName("Send");
+			wait(1);
+		}
+	}
 	//点击-发现
 	public static void clickDiscover_btn(){
 		//clickByName("发现");

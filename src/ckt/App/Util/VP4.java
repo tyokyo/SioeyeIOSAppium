@@ -160,7 +160,7 @@ public class VP4 extends VP3
 		}
 		return mels;
 	}
-	private static String getXpath(Element element){
+	public static String getXpath(Element element){
 		return element.getUniquePath().replace("AppiumAUT", "");
 	}
 	public static IElement getIElementByXpath(String xpath){
@@ -176,11 +176,6 @@ public class VP4 extends VP3
 	}
 	//根据name获取对象
 	public static MobileElement getElementByName(String name){
-		List<Element> mElements = getPageXmlElements();
-		List<MobileElement> ems = toMobileElements(toIElements(mElements));
-		for (MobileElement mobileElement : ems) {
-			System.out.println(mobileElement.getAttribute("name"));
-		}
 		return ((MobileElement)iosdriver.findElement(By.name(name)));
 	}
 	//根据className获取对象

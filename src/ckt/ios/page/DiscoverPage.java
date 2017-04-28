@@ -6,12 +6,15 @@ import java.util.List;
 
 import org.dom4j.Element;
 import org.openqa.selenium.By;
-
-import ckt.App.Util.Draw;
 import ckt.App.Util.IElement;
 import ckt.App.Util.VP4;
 
 public class DiscoverPage extends VP4 {
+	//New message at the bottom
+	public static void clickVieNewMessage(){
+		clickByName("New message at the bottom");
+		wait(3);
+	}
 	//click 主播
 	public static void clickAnchor(){
 		clickByName("anchor");

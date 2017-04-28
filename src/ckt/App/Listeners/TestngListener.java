@@ -84,7 +84,7 @@ public class TestngListener extends TestListenerAdapter {
 			folder.mkdirs();
 		}
 		System.out.println(folder.getAbsolutePath());
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMddHHmmss");
 		String mDateTime = formatter.format(new Date());
 		File location = new File("test-output/screenshot");
 		//String screenName = mDateTime+"_"+tr.getMethod().getMethodName()+".png";

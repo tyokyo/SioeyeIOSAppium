@@ -89,6 +89,10 @@ public class VP extends AppiumBase {
 			return false;
 		}
 	}
+	public static void clickXmlElement(Element element){
+		String xpath =VP4.getXpath(element);
+		clickByXpath(xpath);
+	}
 	//通过Name 点击
 	public static void clickByName(String name){
 		//VP3.clickElementByName(name);
@@ -100,9 +104,19 @@ public class VP extends AppiumBase {
 		return iosdriver.getPageSource();
 	}
 	//根据calssName name获取对象
-	public static MobileElement getElement(String className,String name){
+	public static Element getElement(String className,String name){
 		log(String.format("getElement with className=%s name=%s",className,name));
-		return ((MobileElement)iosdriver.findElement(By.className(className).name(name)));
+		Element xmlelement=null;
+		List<Element> mElements = VP4.getPageXmlElements();
+		for (Element element : mElements) {
+			String clsName = element.getName();
+			String ename = element.attributeValue("name");
+			if (className.equals(clsName)&&name.equals(ename)) {
+				xmlelement=element;
+				break;
+			}
+		}
+		return xmlelement;
 	}
 
 	//根据calssName获取对象
@@ -258,10 +272,6 @@ public class VP extends AppiumBase {
 				btnEmt= (MobileElement) iosdriver.findElement(By.className("TypeScrollView"));
 				btnEmt.click();
 				log("click TypeScrollView");
-			}
-			if (class_exist("NavigationBar")) {
-				clickByClassName("NavigationBar");
-				getElementBySubXpath(getElementByClassName("NavigationBar"), "/XCUIElementTypeButton[1]").click();;
 			}
 		}
 		if (!tag) {

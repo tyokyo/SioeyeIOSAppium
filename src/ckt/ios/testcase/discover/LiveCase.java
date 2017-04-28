@@ -98,4 +98,19 @@ public class LiveCase extends VP4 {
 		DiscoverPage.watchBack();
 		Assert.assertEquals(afterWatch, beforeWatch+1,"room  video zan  count + 1 ");
 	}
+	@Test
+	public void testComments(){
+		IElement cellEem = DiscoverPage.getCell();
+		String bwatch=DiscoverPage.getZanCount(cellEem.getXpath());
+		log(bwatch);
+		cellEem.click();
+		waitUntilGone(30,By.className("ActivityIndicator"));
+		DiscoverAction.waitForConnect();
+		String cmt =  getRandomString(8);
+		setText(getElementByClassName("TextField"),cmt);
+		MainPage.clickSend();
+		DiscoverPage.clickVieNewMessage();
+		Assert.assertEquals(text_exist(cmt), true,"New message at the bottom");
+		DiscoverPage.watchBack();
+	}
 }

@@ -35,7 +35,7 @@ public class LoginCase extends VP {
 		LoginAction.loginAccount(emial, "121212");
 		wait(5);
 		String alertTest = getElementByClassName("UIAStaticText").getText();
-		Assert.assertEquals(alertTest, "用户名或密码错误", "错误的密码-登录失败");
+		Assert.assertEquals(alertTest, "Username or password error.", "错误的密码-登录失败");
 	}
 	@Test
 	public void testLoginByEmail(){
