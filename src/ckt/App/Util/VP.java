@@ -53,29 +53,22 @@ public class VP extends AppiumBase {
 		}
 	}
 	public static void waitUntilFind(By by,int seconds){
+		log(String.format("waitUntilFind %d",seconds ));
 		WebDriverWait wait = new WebDriverWait(iosdriver, seconds);
 		wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(by));
 	}
 	public static void waitUntilGone(int watiTime, By by){
 		Log.info(String.format("start to wait element Gone %s",by));
-		boolean isGone = false;
-		for (int i = 0; i <watiTime; i++) {
-			if (isGone=true) {
+		for (int i = 1; i <=watiTime; i++) {
+			try {
+				iosdriver.findElement(by);
+				Log.info(String.format("find element in %d seconds", i*2));
+			} catch (NoSuchElementException e) {
+				// TODO: handle exception
+				Log.info("waitUntilGone  - not find by");
 				break;
-			}else {
-				try {
-					iosdriver.findElement(by);
-					isGone=false;
-				} catch (NoSuchElementException e) {
-					// TODO: handle exception
-					isGone=true;
-				}
 			}
-		}
-		if (isGone=true) {
-			Log.info(String.format("wait element Gone in %s seconds",watiTime));
-		}else {
-			Log.info(String.format("wait element not Gone in %s seconds",watiTime));
+			wait(2);
 		}
 	}
 	public boolean isExistElementName(String name){
@@ -124,6 +117,10 @@ public class VP extends AppiumBase {
 		Log.info(String.format("Search Element By className=%s ",className));
 		return ((MobileElement)iosdriver.findElement(By.className(className)));
 	}
+	public static MobileElement getElementByClassNameAndName(String className,String name){
+		Log.info(String.format("Search Element By className=%s name=%s ",className,name));
+		return ((MobileElement)iosdriver.findElement(By.className(className).name(name)));
+	}
 	//根据X-path获取对象
 	public static MobileElement getElementByXpath(String xpath){
 		log("getElementByXpath-"+xpath);
@@ -143,6 +140,13 @@ public class VP extends AppiumBase {
 	public static MobileElement getElementByName(final String name){
 		return ((MobileElement)iosdriver.findElement(By.name(name)));
 	}
+	//根据className 获取Element列表
+	public static List<MobileElement> getElementsByClassName(final String className){
+		log(String.format("getElements by className =%s",className));
+		List<MobileElement> classEms = (List<MobileElement>) iosdriver.findElements(By.className(className));
+		log(String.format("find %d elements", classEms.size()));
+		return classEms;
+	}
 	//点击 X-path
 	public static void  clickByXpath(final String xpathExpression){
 		Log.info(String.format("click By.xpath:%s ",xpathExpression));
@@ -152,6 +156,19 @@ public class VP extends AppiumBase {
 			public MobileElement apply(WebDriver arg0) {
 				// TODO Auto-generated method stub
 				return (MobileElement) arg0.findElement(By.xpath(xpathExpression));
+			}
+		});
+		element.click();
+	}
+	//click by className and name
+	public static void clickByClassNameAndName(final String className,final String name){
+		Log.info(String.format("click Element By className=%s name=%s",className,name));
+		WebDriverWait wait = new WebDriverWait(iosdriver, WAIT_STRING);
+		MobileElement element= wait.until(new  ExpectedCondition<MobileElement>() {
+			@Override
+			public MobileElement apply(WebDriver arg0) {
+				// TODO Auto-generated method stub
+				return (MobileElement) arg0.findElement(By.className(className).name(name));
 			}
 		});
 		element.click();
@@ -169,10 +186,17 @@ public class VP extends AppiumBase {
 		});
 		element.click();
 	}
+	public static void clickByClassNameIndex(final String className,int index){
+		log(String.format("click className=%s with index=%d", className,index));
+		iosdriver.findElements(By.className(className)).get(index).click();;
+	}
 	public static boolean text_exist(String text){
 		boolean exist = false;
 		if (iosdriver.getPageSource().contains(text)) {
 			exist=true;
+			log(String.format("%s contains", text));
+		}else {
+			log(String.format("%s not contains", text));
 		}
 		return exist ;
 	}
@@ -190,12 +214,14 @@ public class VP extends AppiumBase {
 	public static boolean class_exist(String className){
 		boolean exist = false;
 		try {
-			if (iosdriver.findElement(By.className(className)).isDisplayed()) {
+			boolean isDisplay = iosdriver.findElement(By.className(className)).isDisplayed();
+			if (isDisplay) {
 				log("exist class ="+className);
 				exist=true;
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
+			log(String.format("className-%s not exits", className));
 		}
 		return exist ;
 	}
@@ -205,6 +231,16 @@ public class VP extends AppiumBase {
 			if (iosdriver.findElement(By.className(className)).isDisplayed()==isDisplay) {
 				exist=true;
 			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return exist ;
+	}
+	public static boolean classExist(String className){
+		boolean exist = false;
+		try {
+			iosdriver.findElement(By.className(className));
+			exist=true;
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -268,11 +304,21 @@ public class VP extends AppiumBase {
 				btnEmt.click();
 				log("click Back Button");
 			} 
-			if (class_exist("SegmentedControl")) {
+			if (text_exist("anchor")) {
+				log("click video");
+				clickByXpath("//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther[2]");
+				log("click video back button");
+				getElementBySubXpath(getElementByClassName("NavigationBar"), "/XCUIElementTypeButton[1]").click();
+				wait(7);
+			}
+			if (text_exist("Return to Sioeye")) {
+				clickByName("Return to Sioeye");
+			}
+			/*if (class_exist("SegmentedControl")) {
 				btnEmt= (MobileElement) iosdriver.findElement(By.className("TypeScrollView"));
 				btnEmt.click();
 				log("click TypeScrollView");
-			}
+			}*/
 		}
 		if (!tag) {
 			resetApp();

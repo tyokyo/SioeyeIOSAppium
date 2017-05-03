@@ -4,7 +4,10 @@ import java.util.List;
 
 import io.appium.java_client.MobileElement;
 
+import org.apache.commons.io.filefilter.FalseFileFilter;
+import org.omg.CORBA.PUBLIC_MEMBER;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 import ckt.App.Util.VP4;
 
@@ -67,6 +70,26 @@ public class MePage extends VP4{
 	public static void clickHelpbtn(){
 		clickByName("Help");
 	}
+	//帮助中心->TOS
+	public static void clickTosbtn(){
+		clickByName("Terms of Service");
+	}
+	//帮助中心->Privacy policy
+	public static void clickPrivacyPolicybtn(){
+		clickByName("Privacy policy");
+	}
+	//帮助中心->EULA
+	public static void clickEulabtn(){
+		clickByName("End User License Agreement（EULA）");
+	}
+	public static void returnToSioeye(){
+		clickByName("Return to Sioeye");
+	}
+	//帮助中心-HELP
+	public static void clickHelpHelpbtn(){
+		//clickByName("Help");
+		clickByXpath("//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[4]/XCUIElementTypeStaticText");
+	}
 	//关于Sioeye
 	public static void clickAboutSioeyebtn(){
 		clickByName("About Sioeye");
@@ -94,11 +117,11 @@ public class MePage extends VP4{
 	}
 	//获取文本框对象
 	public static MobileElement getTextField(){
-		return ((MobileElement)iosdriver.findElement(By.className("TextField")));
+		return getElementByClassName("TextField");
 	}
 	//获取文本框对象
 	public static MobileElement getTextView(){
-		return ((MobileElement)iosdriver.findElement(By.className("TextView")));
+		return getElementByClassName("TextView");
 	}
 
 	//性别设置
@@ -121,19 +144,17 @@ public class MePage extends VP4{
 	//编辑头像-选择拍照
 	public static void avatarByCamera(){
 		By.className("Button");
-		iosdriver.findElement(By.name("Camera")).click();
+		clickByName("Camera");
 		MainPage.clickAskToSure_btn();
 	}
 	//编辑头像-选择拍照
 	public static void avatarByGallery(){
-		By.className("Button");
-		iosdriver.findElement(By.name("Albums")).click();
+		clickByClassNameAndName("Button", "Albums");
 		MainPage.clickAskToSure_btn();
 	}
 	//编辑头像-选择拍照-使用照片
 	public static void usingPicture(){
-		By.className("Button");
-		iosdriver.findElement(By.name("Use Photo")).click();
+		clickByClassNameAndName("Button", "Use Photo");
 		waitTextGone("Use Photo", 10);
 	}
 	//拍照
@@ -149,13 +170,15 @@ public class MePage extends VP4{
 	}
 	//编辑头像-图库-选取
 	public static void avatarGalleryDoneCancel(){
-		@SuppressWarnings("unchecked")
-		List<MobileElement> cells = (List<MobileElement>) iosdriver.findElements(By.className("Cell"));
-		MobileElement cell = cells.get(cells.size()-1);		
-		cell.click();
-		wait(2);
+		if (class_exist("Cell")) {
+			List<MobileElement> cells =getElementsByClassName("Cell");
+			MobileElement cell = cells.get(0);		
+			cell.click();
+			wait(2);
+		}
 		if (text_exist("Choose")) {
-			iosdriver.findElements(By.className("Button")).get(0).click();	
+			//Cancel 不选择
+			clickByClassNameIndex("Button", 0);
 			wait(2);
 			clickByName("Cancel");
 			wait(2);
@@ -164,32 +187,143 @@ public class MePage extends VP4{
 		}
 	}
 	//编辑头像-图库-选取
-		public static void avatarGalleryDone(){
-			@SuppressWarnings("unchecked")
-			List<MobileElement> cells = (List<MobileElement>) iosdriver.findElements(By.className("Cell"));
-			MobileElement cell = cells.get(cells.size()-1);		
+	public static void avatarGalleryDone(){
+		log("avatarGalleryDone");
+		waitUntilFind(30, By.className("Cell"));
+		//Cell isDisplayed -= false
+		if (classExist("Cell")) {
+			List<MobileElement> cells = getElementsByClassName("Cell");
+			//选择第一个Cell
+			MobileElement cell = cells.get(0);		
 			cell.click();
 			wait(2);
-			if (text_exist("Choose")) {
-				iosdriver.findElements(By.className("Button")).get(1).click();	
-				wait(3);
-				waitUntilGone(30,By.className("ActivityIndicator"));
-			}else {
-				avatarGalleryDone();
-			}
+			avatarGalleryDone();
 		}
+		if (text_exist("Choose")) {
+			//click choose
+			clickByName("Choose");
+			wait(3);
+			waitUntilGone(30,By.className("ActivityIndicator"));
+		}
+		if (text_exist("Save")) {
+			//click choose
+			MePage.clickSaveBtn();
+			wait(3);
+			waitUntilGone(30,By.className("ActivityIndicator"));
+		}
+	}
 	//编辑头像-图库-取消
 	public static void avatarGalleryCancel(){
-		iosdriver.findElement(By.className("Cell")).click();
+		clickByClassName("Cell");
 		wait(2);
-		iosdriver.findElement(By.className("Cell")).click();
+		clickByClassName("Cell");
 		wait(2);
-		iosdriver.findElements(By.className("Button")).get(0).click();
+		clickByClassNameIndex("Button", 0);
 		wait(3);
 		clickCaptureCancel();
 	}
 	//取消拍照
 	public static void clickCaptureCancel(){
 		clickByName("Cancel");
+	}
+	/*live configuration*/
+	public static void clickDefaultVideoTitle(){
+		log("click Default video title");
+		clickByClassNameIndex("Cell", 0);
+	}
+
+	public static void clickWhoCanViewMyBroadcast(){
+		log("clickWhoCanViewMyBroadcast");
+		clickByClassNameIndex("Cell", 1);
+	}
+	public static void clickCoverPlot(){
+		log("clickCoverPlot");
+		clickByName("Cover plot");
+		//iosdriver.findElements(By.className("Cell")).get(3).click();
+	}
+	public static void clickCoperActived(){
+		if (text_exist("inactivated")) {
+			clickByName("Activated");
+		}
+	}
+	public static void clickCoperInActived(){
+		if (text_exist("Activated")) {
+			clickByName("inactivated");
+		}
+	}
+	public static String getCoperStatus(){
+		String status ="None";
+		try {
+			getElementByClassNameAndName("Button", "inactivated");
+			status="inactivated";
+		} catch (Exception e) {
+			// TODO: handle exception
+			log("Exception-inactivated not find...");
+		}
+
+		try {
+			getElementByClassNameAndName("Button", "Activated");
+			status="Activated";
+		} catch (Exception e) {
+			// TODO: handle exception
+			log("Exception-Activated not find...");
+		}
+		log("status is "+status);
+		return status;
+	}
+	public static void getDefaultTitleLengthLeft(){
+		MobileElement len = getElementByXpath("//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeStaticText");
+		System.out.println(len.getText());
+	}
+	public static String getBroadcastTitleHasConfig(){
+		log("getBroadcastTitleHasConfig");
+		return iosdriver.findElements(By.className("Cell")).get(0).findElements(By.className("StaticText")).get(1).getAttribute("name");
+	}
+	public static String getWhoCanViewHasConfig(){
+		log("getWhoCanViewHasConfig");
+		return iosdriver.findElements(By.className("Cell")).get(1).findElements(By.className("StaticText")).get(1).getAttribute("name");
+	}
+	public static void clickVisibility_Public(){
+		log("visibility-public");
+		iosdriver.findElements(By.className("Cell")).get(0).click();
+	}
+	public static void clickVisibility_Private(){
+		log("visibility-private");
+		iosdriver.findElements(By.className("Cell")).get(1).click();
+	}
+	public static void clickVisibility_SomeOne(){
+		log("visibility-some one");
+		iosdriver.findElements(By.className("Cell")).get(2).click();
+	}
+	//Confirm button
+	public static void clickConfirm(){
+		clickByName("Confirm");
+	}
+	//添加可见的好友
+	public static void visibilitySomeOneChoose(int chooseCount){
+		for (int i = 1; i <=chooseCount; i++) {
+			iosdriver.findElement(By.className("Table")).findElements(By.className("Cell")).get(0).click();
+			wait(2);
+		}
+	}
+	//删除已经添加的好友
+	public static void visibilitySomeOneDelAll(){
+		if (class_exist("CollectionView")) {
+			List<WebElement> allCells = iosdriver.findElement(By.className("CollectionView")).findElements(By.className("Cell"));
+			int size = allCells.size();
+			for (int i = 0; i < size; i++) {
+				allCells.get(0).click();
+				log("del "+i+" some one");
+				wait(2);
+			}
+		}
+	}
+	//已经选择的个数
+	public static int visibilitySomeOneCount(){
+		List<WebElement> allCells = null;
+		if (class_exist("CollectionView")) {
+			allCells = iosdriver.findElement(By.className("CollectionView")).findElements(By.className("Cell"));
+		}
+		return allCells==null?0:allCells.size();
 	}
 }

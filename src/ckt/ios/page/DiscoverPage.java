@@ -12,8 +12,10 @@ import ckt.App.Util.VP4;
 public class DiscoverPage extends VP4 {
 	//New message at the bottom
 	public static void clickVieNewMessage(){
-		clickByName("New message at the bottom");
-		wait(3);
+		if (text_exist("New message at the bottom")) {
+			clickByName("New message at the bottom");
+			wait(3);
+		}
 	}
 	//click 主播
 	public static void clickAnchor(){
@@ -105,8 +107,13 @@ public class DiscoverPage extends VP4 {
 	}
 	public static void watchBack(){
 		//getIElementByXpath(xpath)
-		wait(7);
-		clickByXpath("//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther[2]");
+		wait(3);
+		if (class_exist("ActivityIndicator")) {
+			clickByClassName("ActivityIndicator");
+		}else {
+			clickByXpath("//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther[2]");			
+		}
+		wait(2);
 		getElementBySubXpath(getElementByClassName("NavigationBar"), "/XCUIElementTypeButton[1]").click();
 		wait(7);
 	}

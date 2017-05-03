@@ -38,6 +38,7 @@ public class LiveCase extends VP4 {
 		IElement cellEem = DiscoverPage.getCell();
 		int beforeWatch = Integer.parseInt(DiscoverPage.getWatchCount(cellEem.getXpath()));
 		cellEem.click();
+		wait(6);
 		waitUntilGone(30,By.className("ActivityIndicator"));
 
 		DiscoverPage.watchBack();
@@ -50,6 +51,7 @@ public class LiveCase extends VP4 {
 		IElement cellEem = DiscoverPage.getCell();
 		int beforeWatch = Integer.parseInt(DiscoverPage.getZanCount(cellEem.getXpath()));
 		cellEem.click();
+		wait(6);
 		waitUntilGone(30,By.className("ActivityIndicator"));
 		DiscoverAction.waitForConnect();
 		DiscoverPage.clickZan();

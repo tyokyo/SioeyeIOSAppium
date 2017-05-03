@@ -67,6 +67,10 @@ public class MainPage extends VP4{
 	}
 	//点击-返回按钮
 	public static void clickBack_btn(){
-		iosdriver.findElement(By.className("NavigationBar")).findElement(By.name("返回")).click();
+		try {
+			iosdriver.findElement(By.className("NavigationBar")).findElement(By.name("Back")).click();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 	}
 }

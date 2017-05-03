@@ -20,6 +20,7 @@ import org.uncommons.reportng.Reporters;
 import ckt.App.Util.AppiumBase;
 import ckt.App.Util.Draw;
 import ckt.App.Util.Log;
+import ckt.main.TestNgXml;
 
 public class TestngListener extends TestListenerAdapter {
 	private static Logger logger = Logger.getLogger(TestngListener.class);
@@ -79,14 +80,13 @@ public class TestngListener extends TestListenerAdapter {
 		System.out.println(folderString);
 		folderString=folderString.replaceAll("['.']", "/");
 		System.out.println(folderString);
-		File folder = new File("test-output/screenshot/"+folderString);
+		File folder = new File(TestNgXml.screenshotFolder+"/"+folderString);
 		if (!folder.exists()) {
 			folder.mkdirs();
 		}
 		System.out.println(folder.getAbsolutePath());
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMddHHmmss");
 		String mDateTime = formatter.format(new Date());
-		File location = new File("test-output/screenshot");
 		//String screenName = mDateTime+"_"+tr.getMethod().getMethodName()+".png";
 		String screenName = mDateTime+".png";
 		//String screenShotPath = location.getAbsolutePath()+File.separator+screenName;
