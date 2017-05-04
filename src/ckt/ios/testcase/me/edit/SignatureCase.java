@@ -23,7 +23,7 @@ public class SignatureCase extends VP {
 	}
 	@BeforeMethod
 	public void BeforeTest(){
-		resetApp();
+		resetApp(0);
 		LoginAction.inLoginStatus();
 	}
 	@Test
@@ -34,7 +34,7 @@ public class SignatureCase extends VP {
 		setText(textView, strInput,false);
 		MePage.clickSaveBtn();
 		//验证签名是否修改成功
-		resetApp();
+		resetApp(0);
 		MeAction.navToSignature();
 		textView = MePage.getTextView();
 		String activeString = textView.getText();
@@ -49,7 +49,7 @@ public class SignatureCase extends VP {
 		setText(textView, strInput,false);
 		MePage.clickSaveBtn();
 		//验证签名是否修改成功
-		resetApp();
+		resetApp(0);
 		MeAction.navToSignature();
 		textView = MePage.getTextView();
 		String activeString = textView.getText();
@@ -63,7 +63,7 @@ public class SignatureCase extends VP {
 		setText(textView, strInput,false);
 		MePage.clickSaveBtn();
 		//验证签名是否修改成功
-		resetApp();
+		resetApp(0);
 		MeAction.navToSignature();
 		textView = MePage.getTextView();
 		String activeString = textView.getText();
@@ -78,7 +78,7 @@ public class SignatureCase extends VP {
 		MePage.clickSaveBtn();
 		//验证签名是否修改成功
 		wait(10);
-		resetApp();
+		resetApp(0);
 		MeAction.navToSignature();
 		textView = MePage.getTextView();
 		String activeString = textView.getText();
@@ -94,7 +94,7 @@ public class SignatureCase extends VP {
 		MePage.clickSaveBtn();
 		//验证签名是否修改成功
 		wait(10);
-		resetApp();
+		resetApp(0);
 		MeAction.navToSignature();
 		textView = MePage.getTextView();
 		String activeString = textView.getText();
@@ -108,7 +108,7 @@ public class SignatureCase extends VP {
 		textView.clear();
 		MePage.clickSaveBtn();
 		//验证签名是否修改成功
-		resetApp();
+		resetApp(0);
 		MeAction.navToSignature();
 		textView = MePage.getTextView();
 		String activeString = textView.getText();

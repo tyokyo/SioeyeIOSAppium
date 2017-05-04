@@ -284,7 +284,7 @@ public class VP extends AppiumBase {
 		}
 		return sb.toString();
 	}
-	public static void resetApp(){
+	public static void resetApp(int count){
 		log("start resetApp ");
 		MobileElement btnEmt;
 		boolean tag = false;
@@ -320,8 +320,12 @@ public class VP extends AppiumBase {
 				log("click TypeScrollView");
 			}*/
 		}
+		if (count>=10) {
+			iosdriver.resetApp();
+		}
+		count=count+1;
 		if (!tag) {
-			resetApp();
+			resetApp(count);
 		}else {
 			log("rest App finished");
 		}

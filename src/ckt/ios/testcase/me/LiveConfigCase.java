@@ -27,7 +27,7 @@ public class LiveConfigCase extends VP4{
 	}
 	@BeforeMethod
 	public void BeforeTest(){
-		resetApp();
+		resetApp(0);
 		LoginAction.inLoginStatus();
 	}
 	@Test

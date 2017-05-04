@@ -29,7 +29,7 @@ public class InterestCase extends VP4{
 	}
 	@BeforeMethod
 	public void BeforeTest(){
-		resetApp();
+		resetApp(0);
 		LoginAction.inLoginStatus();
 	}
 	@Test
@@ -38,7 +38,7 @@ public class InterestCase extends VP4{
 		InterestAction.delAllMyInterest();
 		MePage.clickSaveBtn();
 		
-		resetApp();
+		resetApp(0);
 		MeAction.navToInterest();
 		List<MobileElement> interests = InterestAction.getMyInterestElements();
 		Assert.assertEquals(0, interests.size(), "del All MyInterest");
@@ -51,7 +51,7 @@ public class InterestCase extends VP4{
 		InterestAction.addInterestByManual(value);
 		MePage.clickSaveBtn();
 		
-		resetApp();
+		resetApp(0);
 		MeAction.navToInterest();
 		List<MobileElement> interests = InterestAction.getMyInterestElements();
 		if (interests.size()==1&&interests.get(0).getText().equals(value)) {
@@ -72,7 +72,7 @@ public class InterestCase extends VP4{
 		}
 		MePage.clickSaveBtn();
 		
-		resetApp();
+		resetApp(0);
 		
 		MeAction.navToInterest();
 		//verify interest added

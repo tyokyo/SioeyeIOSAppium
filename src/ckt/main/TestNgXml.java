@@ -95,9 +95,9 @@ public class TestNgXml extends VP4 {
 	public static void main(String args[]) throws Exception{
 		String root = "src\\ckt\\ios\\testcase";
 		String folder = "xml";
-		//getXmlClassList(folder,root);
-		startMakeReport();
-		endMakeReport();
+		getXmlClassList(folder,root);
+		//startMakeReport();
+		//endMakeReport();
 	}
 	public static void makeDir(String path){
 		File rootFile = new File(path);

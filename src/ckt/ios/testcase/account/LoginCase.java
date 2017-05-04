@@ -43,7 +43,7 @@ public class LoginCase extends VP {
 		String passwd = Property.getValueByKey(accountPath, "email_password");
 		
 		LoginAction.logOutAccount();
-		resetApp();
+		resetApp(0);
 		LoginAction.loginAccount(emial, passwd);
 		boolean discover_page = text_exist("Discover");
 		Assert.assertEquals(discover_page, true, "discover page");
@@ -55,7 +55,7 @@ public class LoginCase extends VP {
 		String passwd = Property.getValueByKey(accountPath, "phone_password");
 		
 		LoginAction.logOutAccount();
-		resetApp();
+		resetApp(0);
 		LoginAction.loginAccount(emial, passwd);
 		boolean discover_page = text_exist("Discover");
 		Assert.assertEquals(discover_page, true, "discover page");
@@ -66,7 +66,7 @@ public class LoginCase extends VP {
 		String passwd = Property.getValueByKey(accountPath, "sioeye_password");
 		
 		LoginAction.logOutAccount();
-		resetApp();
+		resetApp(0);
 		LoginAction.loginAccount(emial, passwd);
 		boolean discover_page = text_exist("Discover");
 		Assert.assertEquals(discover_page, true, "discover page");
@@ -78,7 +78,7 @@ public class LoginCase extends VP {
 		String passwd = Property.getValueByKey(accountPath, "phone_password");
 		
 		LoginAction.logOutAccount();
-		resetApp();
+		resetApp(0);
 		LoginAction.loginAccount(emial, passwd);
 		LoginAction.logOutAccount();
 		boolean discover_page = text_exist("Discover");

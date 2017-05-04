@@ -26,7 +26,7 @@ public class NickNameCase extends VP {
 	}
 	@BeforeMethod
 	public void BeforeTest(){
-		resetApp();
+		resetApp(0);
 		LoginAction.inLoginStatus();
 	}
 	@Test
@@ -37,7 +37,7 @@ public class NickNameCase extends VP {
 		setText(textField, strInput);
 		MePage.clickSaveBtn();
 		//验证是否修改成功
-		resetApp();
+		resetApp(0);
 		MeAction.navToNickName();
 		textField = MePage.getTextField();
 		String activeString = textField.getText();
@@ -51,7 +51,7 @@ public class NickNameCase extends VP {
 		setText(textField, strInput);
 		MePage.clickSaveBtn();
 		//验证是否修改成功
-		resetApp();
+		resetApp(0);
 		MeAction.navToNickName();
 		textField = MePage.getTextField();
 		String activeString = textField.getText();
@@ -65,7 +65,7 @@ public class NickNameCase extends VP {
 		setText(textField, strInput);
 		MePage.clickSaveBtn();
 		//验证是否修改成功
-		resetApp();
+		resetApp(0);
 		MeAction.navToNickName();
 		textField = MePage.getTextField();
 		String activeString = textField.getText();
@@ -88,7 +88,7 @@ public class NickNameCase extends VP {
 		setText(textField, strInput);
 		MePage.clickSaveBtn();
 		//验证是否修改成功
-		resetApp();
+		resetApp(0);
 		MeAction.navToNickName();
 		textField = MePage.getTextField();
 		String activeString = textField.getText();
