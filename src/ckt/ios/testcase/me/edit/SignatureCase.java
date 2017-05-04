@@ -111,7 +111,7 @@ public class SignatureCase extends VP {
 		resetApp(0);
 		MeAction.navToSignature();
 		textView = MePage.getTextView();
-		String activeString = textView.getText();
+		String activeString = textView.getText()==null?"":"na-null";
 		Assert.assertEquals(activeString, "", "char-61");
 	}
 }

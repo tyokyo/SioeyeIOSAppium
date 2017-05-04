@@ -1,17 +1,13 @@
 package ckt.ios.action;
 
-import org.dom4j.Element;
-
 import ckt.App.Util.VP;
-import ckt.App.Util.VP4;
 import ckt.ios.page.MainPage;
 import ckt.ios.page.MePage;
 
 public class MeAction  extends VP{
 	//输入法->搜索按钮
 	public static void clickKeyBoardSearch(){
-		Element element =VP4.getElement("Button", "Search");
-		clickXmlElement(element);
+		clickByClassNameAndName("Button", "Search");
 	}
 	//设置-账号和安全
 	public static void navToAccountAndSecurity(){

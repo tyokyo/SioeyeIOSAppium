@@ -5,11 +5,19 @@ import io.appium.java_client.MobileElement;
 import java.util.List;
 
 import org.dom4j.Element;
-import org.openqa.selenium.By;
 import ckt.App.Util.IElement;
 import ckt.App.Util.VP4;
 
 public class DiscoverPage extends VP4 {
+	//处理观看数和点赞数K的情况
+	public static int kToInt(String number){
+		if (number.contains("K")) {
+			String string = number.replace("K", "");
+			return (int)Double.parseDouble(string)*1000;
+		}else {
+			return Integer.parseInt(number);
+		}
+	}
 	//New message at the bottom
 	public static void clickVieNewMessage(){
 		if (text_exist("New message at the bottom")) {
@@ -27,7 +35,9 @@ public class DiscoverPage extends VP4 {
 		clickByName("chat room");
 	}
 	public static IElement  getCharRoom(){
-		MobileElement sElement = (MobileElement) iosdriver.findElements(By.className("ScrollView")).get(1);
+		List<MobileElement> ems = getElementsByClassName("ScrollView");
+		int size = ems.size();
+		MobileElement sElement = (MobileElement)ems.get(size-1);
 		return MobileElementToIElement(sElement);
 	}
 	public static IElement  getCell(){
@@ -53,12 +63,20 @@ public class DiscoverPage extends VP4 {
 		return findeElement;
 	}
 	public static String getWatchCount(String cellpath){
-		String watchSubXpath = "/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeStaticText";
-		String xpath = cellpath+watchSubXpath;
-		IElement watchElement = getIElementByXpath(xpath);
-		if (watchElement!=null) {
+		String watchSubXpath2 = "/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeStaticText";
+		String watchSubXpath3 = "/XCUIElementTypeOther[3]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeStaticText";
+		String xpath2 = cellpath+watchSubXpath2;
+		String xpath3 = cellpath+watchSubXpath3;
+		IElement watchElement2 = getIElementByXpath(xpath2);
+		IElement watchElement3 = getIElementByXpath(xpath3);
+		if (watchElement2!=null) {
 			log("find element with cellpath");
-			String name = watchElement.getName();
+			String name = watchElement2.getName();
+			log(" get watch count ="+name);
+			return name;
+		}else if (watchElement3!=null) {
+			log("find element with cellpath");
+			String name = watchElement3.getName();
 			log(" get watch count ="+name);
 			return name;
 		}else {
@@ -67,12 +85,20 @@ public class DiscoverPage extends VP4 {
 		}
 	}
 	public static String getHomeWatchCount(String cellpath){
-		String watchSubXpath = "/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeStaticText[2]";
-		String xpath = cellpath+watchSubXpath;
-		IElement watchElement = getIElementByXpath(xpath);
-		if (watchElement!=null) {
+		String watchSubXpath2 = "/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeStaticText[2]";
+		String watchSubXpath3 = "/XCUIElementTypeOther[3]/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeStaticText[2]";
+		String xpath2 = cellpath+watchSubXpath2;
+		String xpath3 = cellpath+watchSubXpath3;
+		IElement watchElemen2 = getIElementByXpath(xpath2);
+		IElement watchElemen3 = getIElementByXpath(xpath3);
+		if (watchElemen2!=null) {
 			log("find element with cellpath");
-			String name = watchElement.getName();
+			String name = watchElemen2.getName();
+			log(" get watch count ="+name);
+			return name;
+		}else if (watchElemen3!=null) {
+			log("find element with cellpath");
+			String name = watchElemen3.getName();
 			log(" get watch count ="+name);
 			return name;
 		}else {
@@ -82,24 +108,35 @@ public class DiscoverPage extends VP4 {
 	}
 	
 	public static String getZanCount(String cellpath){
-		String zanSubXpath = "/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]/XCUIElementTypeStaticText";
-		String xpath = cellpath+zanSubXpath;
-		IElement zanElement = getIElementByXpath(xpath);
-		if (zanElement!=null) {
+		String zanSubXpath2 = "/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]/XCUIElementTypeStaticText";
+		String zanSubXpath3 = "/XCUIElementTypeOther[3]/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]/XCUIElementTypeStaticText";
+		String xpath2 = cellpath+zanSubXpath2;
+		String xpath3 = cellpath+zanSubXpath3;
+		IElement zanElement2 = getIElementByXpath(xpath2);
+		IElement zanElement3 = getIElementByXpath(xpath3);
+		if (zanElement2!=null) {
 			log("find element with cellpath");
-			return zanElement.getName();
+			return zanElement2.getName();
+		}else if (zanElement3!=null) {
+			return zanElement3.getName();
 		}else {
 			log(" not find element with cellpath");
 			return null;
 		}
 	}
 	public static String getHomeZanCount(String cellpath){
-		String zanSubXpath = "/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeStaticText[3]";
-		String xpath = cellpath+zanSubXpath;
-		IElement zanElement = getIElementByXpath(xpath);
-		if (zanElement!=null) {
+		String zanSubXpath2 = "/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeStaticText[3]";
+		String zanSubXpath3 = "/XCUIElementTypeOther[3]/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeStaticText[3]";
+		String xpath2 = cellpath+zanSubXpath2;
+		String xpath3 = cellpath+zanSubXpath3;
+		IElement zanElement2 = getIElementByXpath(xpath2);
+		IElement zanElement3 = getIElementByXpath(xpath3);
+		if (zanElement2!=null) {
 			log("find element with cellpath");
-			return zanElement.getName();
+			return zanElement2.getName();
+		}else if (zanElement3!=null) {
+			log("find element with cellpath");
+			return zanElement2.getName();
 		}else {
 			log(" not find element with cellpath");
 			return null;
@@ -118,7 +155,10 @@ public class DiscoverPage extends VP4 {
 		wait(7);
 	}
 	public static void clickZan(){
-		clickByXpath("//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther[4]/XCUIElementTypeScrollView/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeButton[2]");
 		log("click zan ");
+		List<MobileElement> btns = getElementsByClassName("Button");
+		int size = btns.size();
+		btns.get(size-1).click();
+		//clickByXpath("//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther[4]/XCUIElementTypeScrollView/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeButton[2]");
 	}
 }

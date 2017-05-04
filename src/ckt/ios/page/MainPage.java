@@ -22,7 +22,7 @@ public class MainPage extends VP4{
 			wait(1);
 		}
 	}
-	//点击-发现
+	//点击-发现(Discover)
 	public static void clickDiscover_btn(){
 		//clickByName("发现");
 		clickByXpath("//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[1]");
@@ -30,14 +30,14 @@ public class MainPage extends VP4{
 		//clickByXpath("//UIAApplication[1]/UIAWindow[1]/UIATabBar[1]/UIAButton[1]");
 	}
 
-	//点击-关注
+	//点击-关注(Watch)
 	public static void clickLive_btn(){
 		//clickByName("关注");
 		clickByXpath("//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[2]");
 		wait(1);
 		//clickByXpath("//UIAApplication[1]/UIAWindow[1]/UIATabBar[1]/UIAButton[2]");
 	}
-	//点击-我
+	//点击-我(Me)
 	public static void clickMe_btn(){
 		//clickByName("我");
 		wait(1);
@@ -46,7 +46,7 @@ public class MainPage extends VP4{
 		//clickByXpath("//UIAApplication[1]/UIAWindow[1]/UIATabBar[1]/UIAButton[3]");
 		wait(1);
 	}
-	//点击-设备
+	//点击-设备(Remote)
 	public static void clickDevice_btn(){
 		//clickByName("相机");
 		clickByXpath("//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[4]");

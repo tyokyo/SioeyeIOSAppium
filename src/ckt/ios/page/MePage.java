@@ -4,8 +4,6 @@ import java.util.List;
 
 import io.appium.java_client.MobileElement;
 
-import org.apache.commons.io.filefilter.FalseFileFilter;
-import org.omg.CORBA.PUBLIC_MEMBER;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -132,7 +130,7 @@ public class MePage extends VP4{
 		clickByName("Female");
 	}
 	public static void clickSexSecret(){
-		clickByName("Privacy");
+		clickByName("Privary");
 	}
 	public static MobileElement getSearchField(){
 		return getElementByClassName("SearchField");

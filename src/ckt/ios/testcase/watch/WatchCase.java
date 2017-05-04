@@ -1,14 +1,11 @@
-package ckt.ios.testcase.discover;
-
+package ckt.ios.testcase.watch;
 import java.net.MalformedURLException;
-
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
 import ckt.App.Util.IElement;
 import ckt.App.Util.VP4;
 import ckt.ios.action.DiscoverAction;
@@ -16,7 +13,7 @@ import ckt.ios.action.LoginAction;
 import ckt.ios.page.DiscoverPage;
 import ckt.ios.page.MainPage;
 
-public class LiveCase extends VP4 {
+public class WatchCase extends VP4 {
 	@BeforeClass
 	public void beforeClass() throws MalformedURLException {
 		startAppium();
@@ -35,6 +32,8 @@ public class LiveCase extends VP4 {
 	/*主页，观看视频-视频观看数+1*/
 	@Test
 	public void testWatchVideo(){
+		MainPage.clickLive_btn();
+		
 		IElement cellEem = DiscoverPage.getCell();
 		String beforeString=DiscoverPage.getWatchCount(cellEem.getXpath());
 		log(beforeString);
@@ -80,6 +79,8 @@ public class LiveCase extends VP4 {
 	/*主页，观看视频-主播-视频观看数+1*/
 	@Test
 	public void testHomeWatchVideo(){
+		MainPage.clickLive_btn();
+		
 		IElement cellEem = DiscoverPage.getCell();
 		String beforeString=DiscoverPage.getWatchCount(cellEem.getXpath());
 		log(beforeString);
@@ -144,3 +145,4 @@ public class LiveCase extends VP4 {
 		DiscoverPage.watchBack();
 	}
 }
+

@@ -1,4 +1,5 @@
 package ckt.inspector;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -24,7 +25,11 @@ import java.util.Vector;
 
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -32,6 +37,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JSeparator;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -51,6 +57,7 @@ import javax.swing.tree.TreeNode;
 import javax.swing.tree.TreePath;
 
 import org.dom4j.Element;
+import org.openqa.selenium.By;
 
 import ckt.App.Util.Draw;
 import ckt.App.Util.IElement;
@@ -74,6 +81,69 @@ public class UiViewer  extends JFrame{
 	public static Vector vData ;
 	public static Vector vName;;
 	public static DefaultTreeModel dModel;
+	public static JDialog createDialog(){
+		JDialog configDialog = new JDialog(frame, "调试 ", true);
+		JPanel select_mk_panel = new JPanel();
+		Dimension dimension = new Dimension(500, 100);
+		Dimension lbDimension = new Dimension(40, 20);
+		Dimension cmdDimension = new Dimension(320, 20);
+		
+		select_mk_panel.setLayout(new BoxLayout(select_mk_panel, BoxLayout.PAGE_AXIS));
+		select_mk_panel.add(new JSeparator(SwingConstants.HORIZONTAL), BorderLayout.CENTER);
+		
+		JPanel rowPanel = new JPanel(new FlowLayout(FlowLayout.LEADING));
+
+
+		rowPanel = new JPanel(new FlowLayout(FlowLayout.LEADING));
+		JLabel ArgType= new JLabel("关键字");
+		ArgType.setPreferredSize(lbDimension);
+		JComboBox typejComboBox = new JComboBox();
+		typejComboBox.addItem("Name");
+		typejComboBox.addItem("ClassName");
+		typejComboBox.addItem("Xpath");
+
+		rowPanel.add(ArgType);
+		rowPanel.add(typejComboBox);
+		select_mk_panel.add(rowPanel);
+		select_mk_panel.add(new JSeparator(SwingConstants.HORIZONTAL), BorderLayout.CENTER);
+		
+		rowPanel = new JPanel(new FlowLayout(FlowLayout.LEADING));
+		JLabel cmdLabel= new JLabel("值");
+		JTextField cmd = new JTextField();
+		JButton clickBtn = new JButton("CLICK");
+		clickBtn.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println(VP4.iosdriver.getPageSource());
+				
+				// TODO Auto-generated method stub
+				if (typejComboBox.getSelectedItem().toString().equals("Name")) {
+					VP4.iosdriver.findElement(By.name(cmd.getText())).click();
+				}
+				if (typejComboBox.getSelectedItem().toString().equals("ClassName")) {
+					VP4.iosdriver.findElement(By.className(cmd.getText())).click();
+				}
+				if (typejComboBox.getSelectedItem().toString().equals("Xpath")) {
+					VP4.iosdriver.findElement(By.xpath(cmd.getText())).click();
+				}
+			}
+		});
+		//clickBtn.setPreferredSize(lbDimension);
+		cmdLabel.setPreferredSize(lbDimension);
+		cmd.setPreferredSize(cmdDimension);
+		rowPanel.add(cmdLabel);
+		rowPanel.add(cmd);
+		rowPanel.add(clickBtn);
+		select_mk_panel.add(rowPanel);
+		select_mk_panel.add(new JSeparator(SwingConstants.HORIZONTAL), BorderLayout.CENTER);
+		
+		configDialog.setSize(dimension);
+		configDialog.setLocationRelativeTo(frame);
+		configDialog.getContentPane().add(select_mk_panel,BorderLayout.SOUTH);
+		configDialog.setVisible(true);
+		return configDialog;
+	}
 	public static void initImagePanel() {
 		imgPanel=new JPanel();             //实例化一个面板
 		imgPanel.setBackground(Color.BLUE);       
@@ -421,6 +491,18 @@ public class UiViewer  extends JFrame{
 		JMenu searchMenu = new JMenu("Search");
 		menubar.add(actionMenu);
 		menubar.add(searchMenu);
+		
+		JMenuItem debugItem = new JMenuItem("Debug");
+		searchMenu.add(debugItem);
+		debugItem.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				createDialog();
+			}
+		});
+		
 		JMenuItem exitItem = new JMenuItem("Capture");
 		actionMenu.add(exitItem);
 		exitItem.addActionListener(new ActionListener() {

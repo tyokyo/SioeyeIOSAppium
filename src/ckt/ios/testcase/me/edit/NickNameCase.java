@@ -77,7 +77,7 @@ public class NickNameCase extends VP {
 		MobileElement textField = MePage.getTextField();
 		textField.clear();
 		//保存 isEnable = false
-		boolean isEnable=getElementByName("保存").isEnabled();
+		boolean isEnable=getElementByName("Save").isEnabled();
 		Assert.assertEquals(isEnable, false, "不能设置为空");
 	}
 	@Test
