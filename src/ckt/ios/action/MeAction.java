@@ -1,5 +1,7 @@
 package ckt.ios.action;
 
+import org.openqa.selenium.By;
+
 import ckt.App.Util.VP;
 import ckt.ios.page.MainPage;
 import ckt.ios.page.MePage;
@@ -7,7 +9,9 @@ import ckt.ios.page.MePage;
 public class MeAction  extends VP{
 	//输入法->搜索按钮
 	public static void clickKeyBoardSearch(){
-		clickByClassNameAndName("Button", "Search");
+		log("click keyboard search button");
+		iosdriver.findElement(By.className("Keyboard")).findElement(By.className("Button").name("Search")).click();
+		//clickByClassNameAndName("Button", "Search");
 	}
 	//设置-账号和安全
 	public static void navToAccountAndSecurity(){
@@ -111,5 +115,29 @@ public class MeAction  extends VP{
 		navToLiveConfiguration();
 		MePage.clickCoverPlot();
 	}
-	
+	//QR code
+	public static void navToQrCode(){
+		MainPage.clickMe_btn();
+		MePage.clickQRCode_btn();
+	}
+	//通知
+	public static void navToNotification(){
+		MainPage.clickMe_btn();
+		MePage.clickNotification_btn();
+	}
+	//Camera
+	public static void navToCamera(){
+		MainPage.clickMe_btn();
+		MePage.clickCamera_btn();
+	}
+	//Settings
+	public static void navToSettings(){
+		MainPage.clickMe_btn();
+		MePage.clickSetting_btn();
+	}
+	//分享
+	public static void navToShare(){
+		MainPage.clickMe_btn();
+		MePage.clickShareBtn();
+	}
 }

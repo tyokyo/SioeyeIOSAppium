@@ -67,15 +67,15 @@ public class VP4 extends VP3
 		IElement iElement = new IElement();
 		iElement.setClassName(element.getName());
 		iElement.setXpath(getXpath(element));
-		iElement.setName(element.attributeValue("name"));
-		iElement.setValue(element.attributeValue("value"));
-		iElement.setLabel(element.attributeValue("label"));
+		iElement.setName(""+element.attributeValue("name"));
+		iElement.setValue(""+element.attributeValue("value"));
+		iElement.setLabel(""+element.attributeValue("label"));
 		iElement.setX(Double.parseDouble(element.attributeValue("x")));
 		iElement.setY(Double.parseDouble(element.attributeValue("y")));
 		iElement.setWidth(Double.parseDouble(element.attributeValue("width")));
 		iElement.setHeight(Double.parseDouble(element.attributeValue("height")));
-		iElement.setVisible(element.attributeValue("visible"));
-		iElement.setEnabled(element.attributeValue("enabled"));
+		iElement.setVisible(""+element.attributeValue("visible"));
+		iElement.setEnabled(""+element.attributeValue("enabled"));
 		return iElement;
 	}
 	public static MobileElement  ElementToMobileElement(Element element){

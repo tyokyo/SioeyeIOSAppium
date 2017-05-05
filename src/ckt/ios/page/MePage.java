@@ -11,20 +11,20 @@ import ckt.App.Util.VP4;
 
 public class MePage extends VP4{
 	//Me
-	//点击-直播配置
+	//点击-直播配置 - liceConfiguration
 	public static void clickLiveConfiguration_btn(){
 		iosdriver.findElement(By.className("Table")).findElements(By.className("Cell")).get(0).click();;
 	}
-	//点击-二维码
+	//点击-二维码 -QR code
 	public static void clickQRCode_btn(){
 		iosdriver.findElement(By.className("Table")).findElements(By.className("Cell")).get(1).click();;
 	}
-	//点击-消息
-	public static void clickMessage_btn(){
+	//点击-消息-Notification
+	public static void clickNotification_btn(){
 		iosdriver.findElement(By.className("Table")).findElements(By.className("Cell")).get(2).click();;
 	}
-	//点击-我的剪辑
-	public static void clickEditor_btn(){
+	//点击-Camera
+	public static void clickCamera_btn(){
 		iosdriver.findElement(By.className("Table")).findElements(By.className("Cell")).get(3).click();;
 	}
 	//点击-设置
@@ -121,7 +121,10 @@ public class MePage extends VP4{
 	public static MobileElement getTextView(){
 		return getElementByClassName("TextView");
 	}
-
+	//获取文本框对象
+	public static MobileElement getStaticText(){
+		return getElementByClassName("StaticText");
+	}
 	//性别设置
 	public static void clickSexMale(){
 		clickByName("Male");
@@ -168,18 +171,21 @@ public class MePage extends VP4{
 	}
 	//编辑头像-图库-选取
 	public static void avatarGalleryDoneCancel(){
-		if (class_exist("Cell")) {
+		if (classExist("Cell")) {
 			List<MobileElement> cells =getElementsByClassName("Cell");
-			MobileElement cell = cells.get(0);		
+			int size = cells.size();
+			MobileElement cell = cells.get(size-1);		
 			cell.click();
 			wait(2);
 		}
+		if (text_exist("OK")) {
+			clickByName("OK");
+		}
 		if (text_exist("Choose")) {
 			//Cancel 不选择
-			clickByClassNameIndex("Button", 0);
-			wait(2);
 			clickByName("Cancel");
 			wait(2);
+			clickByTextContains("Cancel");
 		}else {
 			avatarGalleryDoneCancel();
 		}
@@ -192,10 +198,14 @@ public class MePage extends VP4{
 		if (classExist("Cell")) {
 			List<MobileElement> cells = getElementsByClassName("Cell");
 			//选择第一个Cell
-			MobileElement cell = cells.get(0);		
+			int size = cells.size();
+			MobileElement cell = cells.get(size-1);		
 			cell.click();
 			wait(2);
 			avatarGalleryDone();
+		}
+		if (text_exist("OK")) {
+			clickByName("OK");
 		}
 		if (text_exist("Choose")) {
 			//click choose

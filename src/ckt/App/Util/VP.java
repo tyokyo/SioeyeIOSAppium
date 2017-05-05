@@ -190,6 +190,31 @@ public class VP extends AppiumBase {
 		log(String.format("click className=%s with index=%d", className,index));
 		iosdriver.findElements(By.className(className)).get(index).click();;
 	}
+	public static boolean text_contains(String text){
+		boolean isFind = false;
+		List<Element> ems = VP4.getPageXmlElements();
+		for (Element element : ems) {
+			IElement iElement = VP4.ElementToIElement(element);
+			if (iElement.getName().contains(text)) {
+				isFind=true;
+				break;
+			}
+		}
+		log(String.format("search  result for string contains %s is %s", text,isFind));
+		return isFind;
+	}
+	public static void clickByTextContains(String text){
+		log("clickByTextContains - "+text);
+		List<Element> ems = VP4.getPageXmlElements();
+		for (Element element : ems) {
+			IElement iElement = VP4.ElementToIElement(element);
+			//System.out.println(iElement.getName());
+			if (iElement.getName().contains(text)) {
+				iElement.click();
+				break;
+			}
+		}
+	}
 	public static boolean text_exist(String text){
 		boolean exist = false;
 		if (iosdriver.getPageSource().contains(text)) {
@@ -241,8 +266,10 @@ public class VP extends AppiumBase {
 		try {
 			iosdriver.findElement(By.className(className));
 			exist=true;
+			log("find className-"+className);
 		} catch (Exception e) {
 			// TODO: handle exception
+			log("not find className-"+className);
 		}
 		return exist ;
 	}
@@ -285,9 +312,14 @@ public class VP extends AppiumBase {
 		return sb.toString();
 	}
 	public static void resetApp(int count){
-		log("start resetApp ");
+		log("start resetApp -"+count);
 		MobileElement btnEmt;
 		boolean tag = false;
+		
+		clickByTextContains("OK");
+		if (text_exist("Cancel")) {
+			clickByName("Cancel");
+		}
 		if (class_exist("TabBar")) {
 			btnEmt= (MobileElement) iosdriver.findElement(By.className("TabBar")).findElements(By.className("Button")).get(0);
 			btnEmt.click();
