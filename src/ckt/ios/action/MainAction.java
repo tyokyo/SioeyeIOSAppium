@@ -1,19 +1,55 @@
 package ckt.ios.action;
 
+import org.openqa.selenium.By;
+
 import ckt.App.Util.VP;
+import ckt.ios.page.MainPage;
 
 public class MainAction extends VP{
 	public static void navToDiscover(){
-		clickByXpath("UIAApplication[1]/UIAWindow[1]/UIATabBar[1]/UIAButton[1]");
-	}
-	public static void navToFollowing(){
-		clickByXpath("UIAApplication[1]/UIAWindow[1]/UIATabBar[1]/UIAButton[2]");
+		MainPage.clickDiscover_btn();
 	}
 	public static void navToMe(){
-		clickByXpath("UIAApplication[1]/UIAWindow[1]/UIATabBar[1]/UIAButton[3]");
+		MainPage.clickMe_btn();
 	}
-	public static void navToCamera(){
-		clickByXpath("UIAApplication[1]/UIAWindow[1]/UIATabBar[1]/UIAButton[4]");
+	//输入法->搜索按钮
+	public static void clickKeyBoardSearch(){
+		try {
+			log("click keyboard search button");
+			iosdriver.findElement(By.className("Keyboard")).findElement(By.className("Button").name("Search")).click();
+			//clickByClassNameAndName("Button", "Search");
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 	}
-	
+	//输入法->搜索按钮
+	public static void clickKeyBoardReturn(){
+		try {
+			log("click keyboard search return");
+			iosdriver.findElement(By.className("Keyboard")).findElement(By.className("Button").name("return")).click();
+			//clickByClassNameAndName("Button", "Search");
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+	//输入法->搜索按钮
+	public static void clickKeyBoardDone(){
+		try {
+			log("click keyboard search return");
+			iosdriver.findElement(By.className("Keyboard")).findElement(By.className("Button").name("Done")).click();
+			//clickByClassNameAndName("Button", "Search");
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+	//输入法->搜索按钮
+	public static void clickKeyBoardSend(){
+		try {
+			log("click keyboard search return");
+			iosdriver.findElement(By.className("Keyboard")).findElement(By.className("Button").name("Send")).click();
+			//clickByClassNameAndName("Button", "Search");
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
 }

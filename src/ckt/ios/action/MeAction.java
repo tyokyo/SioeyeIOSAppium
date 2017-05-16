@@ -1,18 +1,11 @@
 package ckt.ios.action;
 
-import org.openqa.selenium.By;
-
+import io.appium.java_client.MobileElement;
 import ckt.App.Util.VP;
 import ckt.ios.page.MainPage;
 import ckt.ios.page.MePage;
 
 public class MeAction  extends VP{
-	//输入法->搜索按钮
-	public static void clickKeyBoardSearch(){
-		log("click keyboard search button");
-		iosdriver.findElement(By.className("Keyboard")).findElement(By.className("Button").name("Search")).click();
-		//clickByClassNameAndName("Button", "Search");
-	}
 	//设置-账号和安全
 	public static void navToAccountAndSecurity(){
 		MainPage.clickMe_btn();
@@ -60,7 +53,7 @@ public class MeAction  extends VP{
 	}
 	//click back
 	public static void clickBackBtn(){
-		clickByClassName("UIAButton");
+		clickByClassName("Button");
 	}
 	//意见反馈
 	public static void navToUserEdit(){
@@ -139,5 +132,13 @@ public class MeAction  extends VP{
 	public static void navToShare(){
 		MainPage.clickMe_btn();
 		MePage.clickShareBtn();
+	}
+	//获取nickname
+	public static String getNickName(){
+		MeAction.navToNickName();
+		MobileElement textField = MePage.getTextField();
+		String name = textField.getText();
+		resetApp(1);
+		return name;
 	}
 }

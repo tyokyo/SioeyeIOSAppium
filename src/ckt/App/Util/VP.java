@@ -18,10 +18,11 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import ckt.ios.action.MainAction;
 import ckt.ios.page.MainPage;
 
 public class VP extends AppiumBase {
-	private static final long WAIT_STRING=10;
+	private static final long WAIT_STRING=15;
 	public void waitForElementToLoad(int timeOut, final By By) {        
 		(new WebDriverWait(iosdriver, timeOut)).until(new ExpectedCondition<Boolean>() {
 			public Boolean apply(WebDriver driver) {
@@ -32,30 +33,63 @@ public class VP extends AppiumBase {
 	}
 	public static void waitUntilFind(int watiTime, By by){
 		Log.info(String.format("start to wait element %s",by));
-		boolean isExist = false;
 		for (int i = 0; i <watiTime; i++) {
-			if (isExist=true) {
+			try {
+				iosdriver.findElement(by);
+				Log.info(String.format("wait element success in %s seconds",watiTime));
 				break;
-			}else {
-				try {
-					iosdriver.findElement(by);
-					isExist=true;
-				} catch (NoSuchElementException e) {
-					// TODO: handle exception
-					isExist=false;
-				}
+			} catch (NoSuchElementException e) {
+				// TODO: handle exception
+				log("try to find ");
+				wait(1);
 			}
-		}
-		if (isExist=true) {
-			Log.info(String.format("wait element success in %s seconds",watiTime));
-		}else {
-			Log.info(String.format("wait element failure in %s seconds",watiTime));
 		}
 	}
 	public static void waitUntilFind(By by,int seconds){
 		log(String.format("waitUntilFind %d",seconds ));
-		WebDriverWait wait = new WebDriverWait(iosdriver, seconds);
-		wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(by));
+		try {
+			WebDriverWait wait = new WebDriverWait(iosdriver, seconds);
+			wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(by));
+			log("waitUntilFind = success");
+		} catch (Exception e) {
+			// TODO: handle exception
+			log("waitUntilFind = Not find ");
+		}
+	}
+	public static void waitUntilByFind(By by,int seconds){
+		log(String.format("waitUntilFind in  %d seconds",seconds ));
+		try {
+			WebDriverWait wait = new WebDriverWait(iosdriver, seconds);
+			wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(by));
+			log("waitUntilFind = success");
+		} catch (Exception e) {
+			// TODO: handle exception
+			log("waitUntilFind = Not find ");
+		}
+	}
+	public static void waitUntilByNotFind(By by,int seconds){
+		log(String.format("waitUntilByNotFind in %d secods",seconds));
+		long start = System.currentTimeMillis();
+		boolean timeout=false;
+		while(!timeout){
+			try {
+				WebDriverWait wait = new WebDriverWait(iosdriver, 5);
+				wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(by));
+				log("sorry, by is find in ,please wait ");
+			} catch (Exception e) {
+				// TODO: handle exception
+				log("Congratulations,by has gone ,now exit ");
+				timeout=true;
+			}
+			long end = System.currentTimeMillis();
+			if ((end-start)>=seconds*1000) {
+				log(String.format("sorry ,Time out, wait until by gone in %d seconds",seconds));
+				timeout=true;
+			}
+			if (timeout==true) {
+				log("wait-"+(System.currentTimeMillis()-start)/1000+" seconds");
+			}
+		}
 	}
 	public static void waitUntilGone(int watiTime, By by){
 		Log.info(String.format("start to wait element Gone %s",by));
@@ -147,6 +181,14 @@ public class VP extends AppiumBase {
 		log(String.format("find %d elements", classEms.size()));
 		return classEms;
 	}
+	//根据className 获取Element列表
+		public static List<MobileElement> getElementsByClassName(String parentClassName,String childClassName){
+			log(String.format("getElements by  parent className =%s  child className=%s",parentClassName,childClassName));
+			MobileElement pElement = getElementByClassName(parentClassName);
+			List<MobileElement> classEms = pElement.findElements(By.className(childClassName));
+			log(String.format("find %d elements", classEms.size()));
+			return classEms;
+		}
 	//点击 X-path
 	public static void  clickByXpath(final String xpathExpression){
 		Log.info(String.format("click By.xpath:%s ",xpathExpression));
@@ -215,6 +257,16 @@ public class VP extends AppiumBase {
 			}
 		}
 	}
+	public static boolean existBy(By by){
+		boolean byExist = false;
+		try {
+			iosdriver.findElement(by);
+			byExist = true;
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return byExist;
+	}
 	public static boolean text_exist(String text){
 		boolean exist = false;
 		if (iosdriver.getPageSource().contains(text)) {
@@ -233,6 +285,11 @@ public class VP extends AppiumBase {
 			if (xpath.equals(iElement.getXpath())) {
 				isexist=true;
 			}
+		}
+		if (isexist) {
+			log("xpath has finded:"+xpath);
+		}else {
+			log("not find xpath:"+xpath);
 		}
 		return isexist;
 	}
@@ -301,7 +358,7 @@ public class VP extends AppiumBase {
 	/**
 	 * 获得随机字符
 	 */
-	public String getRandomString(int length) {
+	public static String getRandomString(int length) {
 		String str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 		Random random = new Random();
 		StringBuffer sb = new StringBuffer();
@@ -315,8 +372,11 @@ public class VP extends AppiumBase {
 		log("start resetApp -"+count);
 		MobileElement btnEmt;
 		boolean tag = false;
-		
+
 		clickByTextContains("OK");
+		if (text_exist("Close")) {
+			clickByName("Close");
+		}
 		if (text_exist("Cancel")) {
 			clickByName("Cancel");
 		}
@@ -342,6 +402,10 @@ public class VP extends AppiumBase {
 				log("click video back button");
 				getElementBySubXpath(getElementByClassName("NavigationBar"), "/XCUIElementTypeButton[1]").click();
 				wait(7);
+			}
+			if (text_exist("Log in")) {
+				//第一个button
+				clickByClassName("Button");
 			}
 			if (text_exist("Return to Sioeye")) {
 				clickByName("Return to Sioeye");
@@ -377,6 +441,7 @@ public class VP extends AppiumBase {
 		int height = iosdriver.manage().window().getSize().height;  
 		for (int i = 1; i <= num; i++) {  
 			iosdriver.swipe(width / 2, height * 4/ 6, width / 2, height *3/ 6, during);  
+			//iosdriver.swipe(width / 2, height * 3/ 4, width / 2, height *1/ 4, during);  
 			Log.info("swipeToUp-"+i);
 			wait(1);  
 		}  
@@ -460,7 +525,16 @@ public class VP extends AppiumBase {
 		element.setValue(value);
 		log(String.format("setValue-[%s]", value));
 		wait(5);
-		MainPage.clickReturn();
+		MainAction.clickKeyBoardReturn();
+	}
+	public static void setText(String className,String value){
+		//iosdriver.hideKeyboard();
+		MobileElement element = getElementByClassName(className);
+		element.clear();
+		element.setValue(value);
+		log(String.format("setValue-[%s]", value));
+		wait(5);
+		MainAction.clickKeyBoardReturn();
 	}
 	public static void setText(MobileElement element,String value,boolean isReturn){
 		//iosdriver.hideKeyboard();
@@ -489,22 +563,25 @@ public class VP extends AppiumBase {
 	}
 	public static  boolean scrollToFind(String text){
 		boolean isFind=false;
-		boolean isEnd = false;
 		swipeToBegin(iosdriver, 50);
 		List<Element> sms_before;
 		List<Element> sms_after ;
-		while(isFind!=true||isEnd!=true){
+		boolean exit=false;
+		while(!exit){
 			sms_before = VP4.getPageXmlElements();
 			if (isTextExist(text)) {
 				isFind=true;
-				isEnd=true;
+				exit=true;
 				Log.info("swipeToUp to  find element with text="+text+ ", result  success");
+				break;
 			}else {
 				swipeToUp(iosdriver, 2000, 1);
+				wait(3);
 				sms_after = VP4.getPageXmlElements();
 				if (sms_before.size()==sms_after.size()) {
-					isEnd=true;
 					Log.info("swipeToUp to  find element with text="+text+ ", result  failed");
+					exit=true;
+					break;
 				}
 			}
 		}

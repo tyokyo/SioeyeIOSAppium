@@ -81,6 +81,7 @@ public class MePage extends VP4{
 		clickByName("End User License Agreement（EULA）");
 	}
 	public static void returnToSioeye(){
+		waitUntilFind(By.name("Return to Sioeye"), 10);
 		clickByName("Return to Sioeye");
 	}
 	//帮助中心-HELP
@@ -123,7 +124,9 @@ public class MePage extends VP4{
 	}
 	//获取文本框对象
 	public static MobileElement getStaticText(){
-		return getElementByClassName("StaticText");
+		//getElementByClassName("StaticText");
+		return  getElementsByClassName("StaticText").get(1);
+				
 	}
 	//性别设置
 	public static void clickSexMale(){
@@ -262,7 +265,7 @@ public class MePage extends VP4{
 	public static String getCoperStatus(){
 		String status ="None";
 		try {
-			getElementByClassNameAndName("Button", "inactivated");
+			getElementByClassNameAndName("Button", "Inactivated");
 			status="inactivated";
 		} catch (Exception e) {
 			// TODO: handle exception

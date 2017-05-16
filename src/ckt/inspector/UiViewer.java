@@ -101,6 +101,7 @@ public class UiViewer  extends JFrame{
 		typejComboBox.addItem("Name");
 		typejComboBox.addItem("ClassName");
 		typejComboBox.addItem("Xpath");
+		typejComboBox.addItem("Swipe");
 
 		rowPanel.add(ArgType);
 		rowPanel.add(typejComboBox);
@@ -126,6 +127,16 @@ public class UiViewer  extends JFrame{
 				}
 				if (typejComboBox.getSelectedItem().toString().equals("Xpath")) {
 					VP4.iosdriver.findElement(By.xpath(cmd.getText())).click();
+				}
+				if (typejComboBox.getSelectedItem().toString().equals("Swipe")) {
+					String[] spstr = cmd.getText().split(",");
+					int startx = Integer.parseInt(spstr[0]);
+					int starty = Integer.parseInt(spstr[1]);
+					int endx = Integer.parseInt(spstr[2]);
+					int endy = Integer.parseInt(spstr[3]);
+					int duration = Integer.parseInt(spstr[4]);
+					System.out.println(startx+"-"+starty+"-"+endx+"-"+endy+"-"+duration+"");
+					VP4.iosdriver.swipe(startx, starty, endx, endy, duration);
 				}
 			}
 		});

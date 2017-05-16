@@ -1,12 +1,28 @@
 package ckt.ios.page;
 
+import io.appium.java_client.MobileElement;
 import org.openqa.selenium.By;
-
 import ckt.App.Util.VP4;
 
 public class MainPage extends VP4{
 	public static void toHome(){
 
+	}
+	public static boolean isInScreen(MobileElement element){
+		boolean isScreen = false;
+		int h = iosdriver.manage().window().getSize().height;
+		int w = iosdriver.manage().window().getSize().width;
+		int x = element.getRect().x;
+		int y = element.getRect().y;
+		int endX=x+element.getRect().width;
+		int endY=y+element.getRect().height;
+		if (x<=w&&y<=h) {
+			if (endX<=w&&endY<=h) {
+				isScreen=true;
+				log("find element in screen");
+			}
+		}
+		return isScreen;
 	}
 	//输入法 returen button
 	public static void clickReturn(){
@@ -67,10 +83,13 @@ public class MainPage extends VP4{
 	}
 	//点击-返回按钮
 	public static void clickBack_btn(){
+		log("click back button");
 		try {
 			iosdriver.findElement(By.className("NavigationBar")).findElement(By.name("Back")).click();
 		} catch (Exception e) {
 			// TODO: handle exception
+			log("not find value with back-click firest button");
+			getElementByClassName("NavigationBar").findElements(By.className("Button")).get(0).click();
 		}
 	}
 }

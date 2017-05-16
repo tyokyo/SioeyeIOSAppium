@@ -12,6 +12,7 @@ import org.testng.annotations.Test;
 import ckt.App.Util.Draw;
 import ckt.App.Util.VP4;
 import ckt.ios.action.LoginAction;
+import ckt.ios.action.MainAction;
 import ckt.ios.action.MeAction;
 import ckt.ios.page.MePage;
 
@@ -34,7 +35,7 @@ public class LocationCase extends VP4 {
 		MeAction.navToLocation();
 		MobileElement search = MePage.getSearchField();
 		setText(search, "yibin");
-		MeAction.clickKeyBoardSearch();
+		MainAction.clickKeyBoardSearch();
 		waitUntilTextExist("宜宾", 10);;
 		//验证是否修改成功
 		Assert.assertEquals(true, text_exist("宜宾"), "search -yibin");

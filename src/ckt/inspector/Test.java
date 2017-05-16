@@ -1,42 +1,30 @@
 package ckt.inspector;
 
-import org.openqa.selenium.By;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-import ckt.App.Util.VP4;
-
-public class Test extends VP4 {
+public class Test{
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		startAppium();
-		Thread  thread = new Thread(new Runnable() {
-			
-			@Override
-			public void run() {
-				// TODO Auto-generated method stub
-				for (int i = 0; i < 10000; i++) {
-					iosdriver.getPageSource();
-					System.out.println("thread-getPageSource");
-					Thread.currentThread();
-					try {
-						Thread.sleep(2000);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				}
-			}
-		});
-		thread.start();
-		
-		
-		for (int i = 0; i < 1000; i++) {
-			waitUntilTextExist("发现", 10);
-			clickByName("相机");
-			clickByName("发现");
-			wait(20);
-		}
-		stopAppium();
+		/*IElement cellEem  = VideoPage.chooseFirstLiveStream();
+		MobileElement mElement =IElementToMobileElement(cellEem);
+		swipeTo(mElement, "LEFT");*/
+
+
+		String str="For my /XCUIElementTypeCollectionView/ money, /XCUIElementTypeCollectionView/ the important thing ";
+		String regEx="XCUIElementTypeCollectionView"; 
+		//e表示需要匹配的数据，使用Pattern建立匹配模式  
+		Pattern p = Pattern.compile(regEx);  
+		//使用Matcher进行各种查找替换操作  
+		Matcher m = p.matcher(str);  
+		int i = 0;  
+		while(m.find()){  
+			i++;  
+		}  
+
+		System.out.println(i);  
+
 	}
 
 }

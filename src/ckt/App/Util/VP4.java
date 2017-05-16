@@ -65,7 +65,7 @@ public class VP4 extends VP3
 	}
 	public static IElement  ElementToIElement(Element element){
 		IElement iElement = new IElement();
-		iElement.setClassName(element.getName());
+		iElement.setClassName(element.getName()+"");
 		iElement.setXpath(getXpath(element));
 		iElement.setName(""+element.attributeValue("name"));
 		iElement.setValue(""+element.attributeValue("value"));
@@ -261,13 +261,14 @@ public class VP4 extends VP3
 			endX=point.x;
 			endY=point.y+wd_height/8;
 			iosdriver.swipe(startX,startY,endX,endY,1000);
-			Log.info(String.format("swipToUp startX=%d startY=%d endX=%d endY=%d",startX,startY,endX,endY));
+			Log.info(String.format("swipToDown startX=%d startY=%d endX=%d endY=%d",startX,startY,endX,endY));
 			break;
 		case "RIGHT":
-			endX=point.x+wd_width/5;
+			endX=wd_width-20;
+			startX=startX/2;
 			endY=point.y;
-			iosdriver.swipe(startX,startY,endX,endY,1000);
-			Log.info(String.format("swipToUp startX=%d startY=%d endX=%d endY=%d",startX,startY,endX,endY));
+			iosdriver.swipe(startX,startY,endX,endY,10);
+			Log.info(String.format("swipToRight startX=%d startY=%d endX=%d endY=%d",startX,startY,endX,endY));
 			break;
 		case "UP":
 			endX=point.x;
@@ -276,10 +277,11 @@ public class VP4 extends VP3
 			Log.info(String.format("swipToUp startX=%d startY=%d endX=%d endY=%d",startX,startY,endX,endY));
 			break;
 		case "LEFT":
-			endX=point.x-wd_width/4;
+			startX=wd_width-20;
+			endX=startX/4;;
 			endY=point.y;
-			iosdriver.swipe(startX,startY,endX,endY,500);
-			Log.info(String.format("swipToUp startX=%d startY=%d endX=%d endY=%d",startX,startY,endX,endY));
+			iosdriver.swipe(startX,startY,endX,endY,10);
+			Log.info(String.format("swipToLeft startX=%d startY=%d endX=%d endY=%d",startX,startY,endX,endY));
 			break;
 		default:
 			break;

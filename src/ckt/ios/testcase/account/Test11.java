@@ -4,8 +4,10 @@ import java.util.List;
 
 import io.appium.java_client.MobileElement;
 
+import org.assertj.core.condition.Not;
 import org.dom4j.Element;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
@@ -35,28 +37,34 @@ public class Test11 extends VP4 {
 		MobileElement mobileElement  = (MobileElement) iosdriver.findElement(By.name("Me"));
 		Element element = MobileElementToElement(mobileElement);
 		System.out.println(element.getParent().elements("XCUIElementTypeButton").size());
-		
-		MobileElement mobileElement1  = (MobileElement) iosdriver.findElement(By.xpath("//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeCell[2]/XCUIElementTypeOther/XCUIElementTypeButton"));
-		MobileElementToElement(mobileElement1);
-		
-		
-		/*System.out.println(mobileElement.getAttribute("rect"));
+
+		/*MobileElement mobileElement1  = (MobileElement) iosdriver.findElement(By.xpath("//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeCell[2]/XCUIElementTypeOther/XCUIElementTypeButton"));
+		MobileElementToElement(mobileElement1);*/
+
+		searchElementByName("Me");
+
+		System.out.println(mobileElement.getAttribute("rect"));
 
 		MIElement iElement = new MIElement(mobileElement);
 		System.out.println(iElement.getRect());
 		System.out.println(iElement.getEnabled());
 		System.out.println(iElement.getName());
-		System.out.println(iElement.getType());*/
+		System.out.println(iElement.getType());
+		
+		MobileElementToIElement(mobileElement).click();;
 		
 	}
 	@Test
 	public void testError(){
-		/*MobileElement element=getElementByXpath("//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeCollectionView");
+		MobileElement element=getElementByXpath("//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeCollectionView");
 		for (int i = 0; i < 3; i++) {
 			swipeTo(element, "LEFT");
 			wait(5);
-		}*/
-		iosdriver.findElement(By.className("Button").name("Remote")).click();
-		wait(30);
+		}
+	}
+	@Test
+	public void testAAA(){
+		waitUntilByFind(By.name("test 26"), 10);
+		//waitUntilByNotFind(By.name("test 26"), 100);
 	}
 }
