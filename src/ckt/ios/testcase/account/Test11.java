@@ -18,6 +18,8 @@ import org.testng.annotations.Test;
 
 import ckt.App.Util.MIElement;
 import ckt.App.Util.VP4;
+import ckt.ios.action.MainAction;
+import ckt.ios.action.MeAction;
 import ckt.ios.page.DiscoverPage;
 
 public class Test11 extends VP4 {
@@ -64,7 +66,14 @@ public class Test11 extends VP4 {
 	}
 	@Test
 	public void testAAA(){
-		waitUntilByFind(By.name("test 26"), 10);
+		waitUntilByFind(By.name("Who to follow"), 10);
+		
+		MainAction.navToDiscover();
+		
+		Element other = getElement("Who to follow").getParent();
+		String otherXpath = ElementToIElement(other).getXpath();
+		String collectionXpath= otherXpath+"/XCUIElementTypeCollectionView";
+		
 		//waitUntilByNotFind(By.name("test 26"), 100);
 	}
 }

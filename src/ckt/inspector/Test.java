@@ -24,7 +24,10 @@ public class Test{
 		}  
 
 		System.out.println(i);  
-
+		
+		String s = "Follower 20 Video 30";
+		System.out.println(s.split("Video")[0]);
+		System.out.println(s.split("Video")[1]);
 	}
 
 }

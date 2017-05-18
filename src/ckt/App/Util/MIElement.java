@@ -27,69 +27,69 @@ public class MIElement {
 	}
 	private MobileElement mobileElement;
 	private String getAtt(String name){
-		return mobileElement.getAttribute(name);
+		return mobileElement.getAttribute(name)+"";
 	}
 	public MobileElement getMobileElement() {
 		return mobileElement;
 	}
 	public String getAccessibilityContainer() {
-		return getAtt("accessibilityContainer");
+		return getAtt("accessibilityContainer")+"";
 	}
 	public String getAccessible() {
-		return getAtt("accessible");
+		return getAtt("accessible")+"";
 	}
 	public String getEnabled() {
-		return getAtt("enabled");
+		return getAtt("enabled")+"";
 	}
 	public String getFrame() {
-		return getAtt("frame");
+		return getAtt("frame")+"";
 	}
 	public String getLabel() {
-		return getAtt("label");
+		return getAtt("label")+"";
 	}
 	public String getName() {
-		return getAtt("name");
+		return getAtt("name")+"";
 	}
 	public String getRect() {
-		return getAtt("rect");
+		return getAtt("rect")+"";
 	}
 	public String getType() {
-		return getAtt("type");
+		return getAtt("type")+"";
 	}
 	public String getValue() {
-		return getAtt("value");
+		return getAtt("value")+"";
 	}
 	public String getVisible() {
-		return getAtt("visible");
+		return getAtt("visible")+"";
 	}
 	public String getWdAccessibilityContainer() {
-		return getAtt("wdAccessibilityContainer");
+		return getAtt("wdAccessibilityContainer")+"";
 	}
 	public String getWdAccessible() {
-		return getAtt("wdAccessible");
+		return getAtt("wdAccessible")+"";
 	}
 	public String getWdEnabled() {
-		return getAtt("wdEnabled");
+		return getAtt("wdEnabled")+"";
 	}
 	public String getWdFrame() {
-		return getAtt("wdFrame");
+		return getAtt("wdFrame")+"";
 	}
 	public String getWdLabel() {
-		return getAtt("wdLabel");
+		return getAtt("wdLabel")+"";
 	}
 	public String getWdName() {
-		return getAtt("wdName");
+		return getAtt("wdName")+"";
 	}
 	public String getWdRect() {
-		return getAtt("wdRect");
+		return getAtt("wdRect")+"";
 	}
 	public String getWdType() {
-		return getAtt("wdType");
+		return getAtt("wdType")+"";
 	}
 	public String getWdValue() {
-		return getAtt("wdValue");
+		return getAtt("wdValue")+"";
 	}
 	public String getWdVisible() {
-		return getAtt("wdVisible");
+		return getAtt("wdVisible")+"";
 	}
 }

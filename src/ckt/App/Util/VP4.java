@@ -133,7 +133,7 @@ public class VP4 extends VP3
 		Element element = MobileElementToElement(mobileElement);
 		return ElementToIElement(element);
 	}
-	
+
 	public static List<IElement> toIElements(List<Element> elements){
 		List<IElement> iElements = new ArrayList<IElement>();
 		for (Element element : elements) {
@@ -163,6 +163,35 @@ public class VP4 extends VP3
 	public static String getXpath(Element element){
 		return element.getUniquePath().replace("AppiumAUT", "");
 	}
+	//根据calssName name获取对象
+	public static Element getElement(String className,String name){
+		log(String.format("getElement with className=%s name=%s",className,name));
+		Element xmlelement=null;
+		List<Element> mElements = VP4.getPageXmlElements();
+		for (Element element : mElements) {
+			String clsName = element.getName();
+			String ename = element.attributeValue("name");
+			if (className.equals(clsName)&&name.equals(ename)) {
+				xmlelement=element;
+				break;
+			}
+		}
+		return xmlelement;
+	}
+	//根据calssName name获取对象
+	public static Element getElement(String name){
+		log(String.format("getElement with  name=%s",name));
+		Element xmlelement=null;
+		List<Element> mElements = VP4.getPageXmlElements();
+		for (Element element : mElements) {
+			String ename = element.attributeValue("name");
+			if (name.equals(ename)) {
+				xmlelement=element;
+				break;
+			}
+		}
+		return xmlelement;
+	}
 	public static IElement getIElementByXpath(String xpath){
 		IElement returnElement=null;
 		List<Element> ems = getPageXmlElements();
@@ -174,6 +203,18 @@ public class VP4 extends VP3
 		}
 		return returnElement;
 	}
+	public static IElement getIElementByName(String name){
+		IElement returnElement=null;
+		List<Element> ems = getPageXmlElements();
+		List<IElement> tms = toIElements(ems);
+		for (IElement iElement : tms) {
+			if (name.equals(iElement.getName())) {
+				returnElement= iElement;
+			}
+		}
+		return returnElement;
+	}
+
 	//根据name获取对象
 	public static MobileElement getElementByName(String name){
 		return ((MobileElement)iosdriver.findElement(By.name(name)));

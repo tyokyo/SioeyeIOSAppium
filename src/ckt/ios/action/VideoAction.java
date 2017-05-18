@@ -136,5 +136,6 @@ public class VideoAction extends VP4{
 		MainPage.clickMe_btn();
 		VideoPage.clickLive_btn();
 		wait(4);
+		waitUntilByNotFind(By.name("Loading"), 40);
 	}
 }

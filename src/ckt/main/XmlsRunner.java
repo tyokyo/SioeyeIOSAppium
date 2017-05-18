@@ -26,6 +26,68 @@ public class XmlsRunner {
 		//添加测试套件-读取XML文件夹下所有的.xml文件（testng 配置文件）
 		File xmlDir=new File("xml");
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		File[] xmlFiles=xmlDir.listFiles();
 		for (File file: xmlFiles) {
 			if (file.getName().toLowerCase().endsWith(".xml")){

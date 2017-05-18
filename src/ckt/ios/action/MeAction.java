@@ -1,11 +1,88 @@
 package ckt.ios.action;
 
+import java.util.List;
+
+import org.dom4j.Element;
+import org.openqa.selenium.By;
+
 import io.appium.java_client.MobileElement;
-import ckt.App.Util.VP;
+import ckt.App.Util.IElement;
+import ckt.App.Util.VP4;
+import ckt.ios.page.DiscoverPage;
 import ckt.ios.page.MainPage;
 import ckt.ios.page.MePage;
+import ckt.ios.page.VideoPage;
 
-public class MeAction  extends VP{
+public class MeAction  extends VP4{
+	//直播数
+	public static String getAnchorVideoCount(){
+		VideoAction.navToVideo();
+		IElement cellEem  = VideoPage.chooseFirstLiveStream();
+		//观看视频
+		cellEem.click();
+		DiscoverPage.clickAnchor();
+		Element element =getElementContains("XCUIElementTypeStaticText", "Videos");
+		String videoStr = element.attributeValue("name").replace("Videos", "").trim();
+		System.out.println(videoStr);
+		return videoStr;
+	}
+	//粉丝数
+	public static int getAnchorFollowerCount(){
+		VideoAction.navToVideo();
+		IElement cellEem  = VideoPage.chooseFirstLiveStream();
+		//观看视频
+		cellEem.click();
+		DiscoverPage.clickAnchor();
+		Element element =getElementContains("XCUIElementTypeStaticText", "Followers");
+		String followerString = element.attributeValue("name").replace("Followers", "").trim();
+		System.out.println(followerString);
+		return  Integer.parseInt(followerString);
+	}
+	//粉丝数
+	public static int getPersonalFollowerCount(){
+		VideoAction.navToVideo();
+		IElement cellEem  = VideoPage.chooseFirstLiveStream();
+		//观看视频
+		cellEem.click();
+		DiscoverPage.clickAnchor();
+		getElementByClassName("ScrollView", "Button").click();
+		waitUntilByFind(By.name("Video"), 5);
+		Element velement =getElement("XCUIElementTypeStaticText", "Follower");
+		List<Element> ems  = velement.getParent().elements("XCUIElementTypeStaticText");
+		String followerString = ems.get(0).attributeValue("name");
+		System.out.println(followerString);
+		return  Integer.parseInt(followerString);
+	}
+	//直播数
+	public static int getPersonalVideoCount(){
+		VideoAction.navToVideo();
+		IElement cellEem  = VideoPage.chooseFirstLiveStream();
+		//观看视频
+		cellEem.click();
+		DiscoverPage.clickAnchor();
+		getElementByClassName("ScrollView", "Button").click();
+		waitUntilByFind(By.name("Video"), 5);
+		Element velement =getElement("XCUIElementTypeStaticText", "Video");
+		List<Element> ems  = velement.getParent().elements("XCUIElementTypeStaticText");
+		String videoString = ems.get(0).attributeValue("name");
+		System.out.println(videoString);
+		return  Integer.parseInt(videoString);
+	}
+	//关注数
+	public static int getPersonalFollowingCount(){
+		VideoAction.navToVideo();
+		IElement cellEem  = VideoPage.chooseFirstLiveStream();
+		//观看视频
+		cellEem.click();
+		DiscoverPage.clickAnchor();
+		getElementByClassName("ScrollView", "Button").click();
+		waitUntilByFind(By.name("Video"), 5);
+		Element velement =getElement("XCUIElementTypeStaticText", "Following");
+		List<Element> ems  = velement.getParent().elements("XCUIElementTypeStaticText");
+		String followingString = ems.get(0).attributeValue("name");
+		System.out.println(followingString);
+		return  Integer.parseInt(followingString);
+	}
 	//设置-账号和安全
 	public static void navToAccountAndSecurity(){
 		MainPage.clickMe_btn();

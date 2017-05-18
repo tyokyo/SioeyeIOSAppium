@@ -73,7 +73,7 @@ public class VP extends AppiumBase {
 		boolean timeout=false;
 		while(!timeout){
 			try {
-				WebDriverWait wait = new WebDriverWait(iosdriver, 5);
+				WebDriverWait wait = new WebDriverWait(iosdriver, 1);
 				wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(by));
 				log("sorry, by is find in ,please wait ");
 			} catch (Exception e) {
@@ -131,21 +131,20 @@ public class VP extends AppiumBase {
 		return iosdriver.getPageSource();
 	}
 	//根据calssName name获取对象
-	public static Element getElement(String className,String name){
+	public static Element getElementContains(String className,String name){
 		log(String.format("getElement with className=%s name=%s",className,name));
 		Element xmlelement=null;
 		List<Element> mElements = VP4.getPageXmlElements();
 		for (Element element : mElements) {
 			String clsName = element.getName();
 			String ename = element.attributeValue("name");
-			if (className.equals(clsName)&&name.equals(ename)) {
+			if (className.equals(clsName)&&ename.contains(name)) {
 				xmlelement=element;
 				break;
 			}
 		}
 		return xmlelement;
 	}
-
 	//根据calssName获取对象
 	public static MobileElement getElementByClassName(String className){
 		Log.info(String.format("Search Element By className=%s ",className));
@@ -182,13 +181,27 @@ public class VP extends AppiumBase {
 		return classEms;
 	}
 	//根据className 获取Element列表
-		public static List<MobileElement> getElementsByClassName(String parentClassName,String childClassName){
-			log(String.format("getElements by  parent className =%s  child className=%s",parentClassName,childClassName));
+	public static List<MobileElement> getElementsByClassName(String parentClassName,String childClassName){
+		log(String.format("getElements by  parent className =%s  child className=%s",parentClassName,childClassName));
+		MobileElement pElement = getElementByClassName(parentClassName);
+		List<MobileElement> classEms = pElement.findElements(By.className(childClassName));
+		log(String.format("find %d elements", classEms.size()));
+		return classEms;
+	}
+	//根据className 获取Element列表
+	public static MobileElement getElementByClassName(String parentClassName,String childClassName){
+		MobileElement element = null;
+		try {
+			log(String.format("start to getElement by  parent className =%s  child className=%s",parentClassName,childClassName));
 			MobileElement pElement = getElementByClassName(parentClassName);
-			List<MobileElement> classEms = pElement.findElements(By.className(childClassName));
-			log(String.format("find %d elements", classEms.size()));
-			return classEms;
+			element = pElement.findElement(By.className(childClassName));
+			log("find  element success");
+		} catch (Exception e) {
+			// TODO: handle exception
+			log(String.format("Failed to getElement by  parent className =%s  child className=%s",parentClassName,childClassName));
 		}
+		return element;
+	}
 	//点击 X-path
 	public static void  clickByXpath(final String xpathExpression){
 		Log.info(String.format("click By.xpath:%s ",xpathExpression));

@@ -266,6 +266,7 @@ public class DiscoverPage extends VP4 {
 	public static void clickReLoad_btn(){
 		//clickByClassNameAndName("Button", "ReloadButton");
 		clickByXpath("//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeNavigationBar/XCUIElementTypeButton");
+		waitUntilByFind(By.name("Search"), 5);
 	}
 	//who to follow 关闭按钮
 	public static void clickKillWhoToFollow(){
@@ -281,7 +282,9 @@ public class DiscoverPage extends VP4 {
 		for (int i = 1; i <= 2; i++) {  
 			iosdriver.swipe(width / 2, height*1 / 6, width / 2, height * 5 / 6, 1000);  
 			Log.info("swipeToDown-"+i);
-			wait(1);  
+			wait(3);  
+			waitUntilByFind(By.name("Who to follow"),30);
+			//waitUntilByNotFind(By.xpath("//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeImage"), 40);
 		}  
 	}
 	public static void clickCancel(){
@@ -293,7 +296,11 @@ public class DiscoverPage extends VP4 {
 	}
 	//推荐列表
 	public static List<MobileElement> getRecommandList(){
-		MobileElement recommandElement = getElementByXpath("//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeCollectionView");
+		Element other = getElement("Who to follow").getParent();
+		String otherXpath = ElementToIElement(other).getXpath();
+		String collectionXpath= otherXpath+"/XCUIElementTypeCollectionView";
+		MobileElement recommandElement = getElementByXpath(collectionXpath);
+		//MobileElement recommandElement = getElementByXpath("//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeCollectionView");
 		List<MobileElement> cells = recommandElement.findElements(By.className("Cell"));
 		log("find recommand list size = "+cells.size());
 		return cells;
@@ -301,13 +308,21 @@ public class DiscoverPage extends VP4 {
 	//推荐人的name
 	public static String getRecommandName(MobileElement cell){
 		String name = cell.findElement(By.className("StaticText")).getText();
-		log(name);
+		log(""+name);
 		return name;
 	}
 	//输入框-删除文字按钮
 	public static void deleteInput(){
 		log("click delete ");
 		getElementByClassName("SearchField").findElement(By.className("Button")).click();
+	}
+	//滑动推荐列表
+	public static void swipRecommandList(){
+		MobileElement element=getElementByXpath("//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeCollectionView");
+		for (int i = 0; i < 2; i++) {
+			swipeTo(element, "LEFT");
+			wait(5);
+		}
 	}
 	
 }

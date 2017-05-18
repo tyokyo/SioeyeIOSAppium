@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.openqa.selenium.By;
+
 import io.appium.java_client.MobileElement;
 import ckt.App.Util.IElement;
 import ckt.App.Util.VP4;
@@ -46,11 +48,12 @@ public class DiscoverAction extends VP4 {
 			MobileElement firestCell = cells.get(0);
 			firestCell.click();
 		}
-		
+
 	}
 	public static void clickCommentInput_btn(){
 		clickByClassName("TextField");
 	}
+	//搜索好友
 	public static void searchFollower(String value){
 		MobileElement element = getElementByClassName("SearchField");
 		element.clear();
@@ -60,6 +63,7 @@ public class DiscoverAction extends VP4 {
 		wait(5);
 		MainAction.clickKeyBoardSearch();
 	}
+	//搜索视频
 	public static void searchVideo(String value){
 		MobileElement element = getElementByClassName("SearchField");
 		element.clear();
@@ -80,5 +84,35 @@ public class DiscoverAction extends VP4 {
 		MobileElement element=getElementByXpath("//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeCollectionView");
 		swipeTo(element, "LEFT");
 		wait(5);
+	}
+	//获取当前推荐的好友列表Cell
+	public static List<MobileElement> getRecommandListInSearchPage(){
+		return getElementsByClassName("Table", "Cell");
+	}
+	// Cell-name
+	public static String getRecommandCellName(MobileElement cell){
+		String name =  cell.findElements(By.className("StaticText")).get(0).getText()+"";
+		log("cell name="+name);
+		return name;
+	}
+	//Cell=id
+	public static String getRecommandCellId(MobileElement cell){
+		String id =  cell.findElements(By.className("StaticText")).get(1).getText()+"";
+		log("cell name="+id);
+		return id;
+	}
+	//Cell=Follower 
+	public static String getRecommandCellFollower(MobileElement cell){
+		String  all=cell.findElements(By.className("StaticText")).get(2).getText()+"";
+		String follower = all.split("Video")[0].replace("Follower", "").trim();
+		log("cell-follower="+follower);
+		return follower;
+	}	
+	//Cell=Video
+	public static String getRecommandCellVideo(MobileElement cell){
+		String  all=cell.findElements(By.className("StaticText")).get(2).getText()+"";
+		String video =all.split("Video")[1].trim();
+		log("cell video="+video);
+		return video;
 	}
 }
