@@ -3,14 +3,14 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="ckt.ios.testcase.me.edit.AvatarCase">
+      <class name="ckt.ios.testcase.discover.RecommendCase">
         <methods>
+          <include name="testAddDelFriendsRed"/>
+          <include name="beforeClass"/>
           <include name="BeforeTest"/>
           <include name="afterClass"/>
-          <include name="beforeClass"/>
-          <include name="testChangeAvatarFromGallery"/>
         </methods>
-      </class> <!-- ckt.ios.testcase.me.edit.AvatarCase -->
+      </class> <!-- ckt.ios.testcase.discover.RecommendCase -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -1,250 +1,302 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="5" passed="5">
+<testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
     <line>
-      <![CDATA[[2017-04-11 16:02:23] [AUAB.<clinit>] Load the propertyies data for Appium configurations<br>]]>
+      <![CDATA[[2017-05-17 16:49:38] [AUAB.<clinit>] Load the propertyies data for Appium configurations<br>]]>
     </line>
     <line>
-      <![CDATA[[2017-04-11 16:02:23] [AUAB.log] start create session iteration-1<br>]]>
+      <![CDATA[[2017-05-17 16:49:38] [AUAB.log] startAppium<br>]]>
     </line>
     <line>
-      <![CDATA[[2017-04-11 16:02:59] [AUAB.log] start create session iteration-1 success<br>]]>
+      <![CDATA[[2017-05-17 16:49:38] [AUAB.log] start create session iteration-1<br>]]>
     </line>
     <line>
-      <![CDATA[[2017-04-11 16:02:59] [AUAB.startAppium] start ios driver<br>]]>
+      <![CDATA[[2017-05-17 16:49:38] [AUAB.log] start create session<br>]]>
     </line>
     <line>
-      <![CDATA[[2017-04-11 16:03:46] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
+      <![CDATA[[2017-05-17 16:50:12] [AUAB.log] start create session iteration-1 success<br>]]>
     </line>
     <line>
-      <![CDATA[[2017-04-11 16:03:51] [LA.inLoginStatus] App account is login <br>]]>
+      <![CDATA[[2017-05-17 16:50:12] [AUAB.startAppium] start ios driver<br>]]>
     </line>
     <line>
-      <![CDATA[[2017-04-11 16:03:52] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
+      <![CDATA[[2017-05-17 16:50:12] [AUAB.log] start resetApp -0<br>]]>
     </line>
     <line>
-      <![CDATA[[2017-04-11 16:04:08] [AUAB.log] setValue-[4EJr0Fj7N1Kb6DT754OHpbwJfR3fRA7j3zReQmo1WImwDggPuVIKHFeG2smaUQ3b7QW1JnCjh5cMa9vcbmAmwk8E58HCblB3xmbg]<br>]]>
+      <![CDATA[[2017-05-17 16:50:12] [AUAB.log] clickByTextContains - OK<br>]]>
     </line>
     <line>
-      <![CDATA[[2017-04-11 16:04:22] [AUVP4.waitTextGone] text 保存 gone<br>]]>
+      <![CDATA[[2017-05-17 16:50:12] [AUAB.log] Close not contains<br>]]>
     </line>
     <line>
-      <![CDATA[[2017-04-11 16:05:10] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
+      <![CDATA[[2017-05-17 16:50:12] [AUAB.log] Cancel not contains<br>]]>
     </line>
     <line>
-      <![CDATA[[2017-04-11 16:06:23] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
+      <![CDATA[[2017-05-17 16:50:16] [AUAB.log] exist class =TabBar<br>]]>
     </line>
     <line>
-      <![CDATA[[2017-04-11 16:06:27] [LA.inLoginStatus] App account is login <br>]]>
+      <![CDATA[[2017-05-17 16:50:22] [AUAB.log] click TabBar-Button[0]<br>]]>
     </line>
     <line>
-      <![CDATA[[2017-04-11 16:06:28] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
+      <![CDATA[[2017-05-17 16:50:22] [AUAB.log] rest App finished<br>]]>
     </line>
     <line>
-      <![CDATA[[2017-04-11 16:06:43] [AUAB.log] setValue-[EHrQoIEivE]<br>]]>
+      <![CDATA[[2017-05-17 16:50:22] [AUAB.log] waitUntilFind 15<br>]]>
     </line>
     <line>
-      <![CDATA[[2017-04-11 16:06:56] [AUVP4.waitTextGone] text 保存 gone<br>]]>
+      <![CDATA[[2017-05-17 16:50:24] [AUAB.log] waitUntilFind = success<br>]]>
     </line>
     <line>
-      <![CDATA[[2017-04-11 16:07:40] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
+      <![CDATA[[2017-05-17 16:50:25] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
     </line>
     <line>
-      <![CDATA[[2017-04-11 16:08:53] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
+      <![CDATA[[2017-05-17 16:50:29] [AUAB.log] Log in not contains<br>]]>
     </line>
     <line>
-      <![CDATA[[2017-04-11 16:08:57] [LA.inLoginStatus] App account is login <br>]]>
+      <![CDATA[[2017-05-17 16:50:29] [LA.inLoginStatus] App account is login <br>]]>
     </line>
     <line>
-      <![CDATA[[2017-04-11 16:08:58] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
+      <![CDATA[[2017-05-17 16:50:29] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[1] <br>]]>
     </line>
     <line>
-      <![CDATA[[2017-04-11 16:09:13] [AUAB.log] setValue-[n8xolR6uSC2iyhyhTNPiRiksv4B8Cz]<br>]]>
+      <![CDATA[[2017-05-17 16:50:38] [AUAB.log] Who to follow contains<br>]]>
     </line>
     <line>
-      <![CDATA[[2017-04-11 16:09:26] [AUVP4.waitTextGone] text 保存 gone<br>]]>
+      <![CDATA[[2017-05-17 16:50:38] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeButton <br>]]>
     </line>
     <line>
-      <![CDATA[[2017-04-11 16:10:16] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
+      <![CDATA[[2017-05-17 16:50:50] [DP.fresh] swipeToDown-1<br>]]>
     </line>
     <line>
-      <![CDATA[[2017-04-11 16:11:30] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
+      <![CDATA[[2017-05-17 16:50:53] [AUAB.log] waitUntilFind in  30 seconds<br>]]>
     </line>
     <line>
-      <![CDATA[[2017-04-11 16:11:35] [LA.inLoginStatus] App account is login <br>]]>
+      <![CDATA[[2017-05-17 16:50:55] [AUAB.log] waitUntilFind = success<br>]]>
     </line>
     <line>
-      <![CDATA[[2017-04-11 16:11:36] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
+      <![CDATA[[2017-05-17 16:50:59] [DP.fresh] swipeToDown-2<br>]]>
     </line>
     <line>
-      <![CDATA[[2017-04-11 16:11:51] [AUAB.log] setValue-[HYtdWZjQBt]<br>]]>
+      <![CDATA[[2017-05-17 16:51:02] [AUAB.log] waitUntilFind in  30 seconds<br>]]>
     </line>
     <line>
-      <![CDATA[[2017-04-11 16:12:03] [AUVP4.waitTextGone] text 保存 gone<br>]]>
+      <![CDATA[[2017-05-17 16:51:03] [AUAB.log] waitUntilFind = success<br>]]>
     </line>
     <line>
-      <![CDATA[[2017-04-11 16:12:43] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
+      <![CDATA[[2017-05-17 16:51:03] [AUAB.log] getElement with  name=Who to follow<br>]]>
     </line>
     <line>
-      <![CDATA[[2017-04-11 16:14:07] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
+      <![CDATA[[2017-05-17 16:51:04] [AUAB.log] getElementByXpath-//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeCollectionView<br>]]>
     </line>
     <line>
-      <![CDATA[[2017-04-11 16:14:11] [LA.inLoginStatus] App account is login <br>]]>
+      <![CDATA[[2017-05-17 16:51:07] [AUAB.log] find recommand list size = 4<br>]]>
     </line>
     <line>
-      <![CDATA[[2017-04-11 16:14:12] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
+      <![CDATA[[2017-05-17 16:51:09] [AUAB.log] zzzz<br>]]>
     </line>
     <line>
-      <![CDATA[[2017-04-11 16:14:26] [AUAB.stopAppium] quit ios driver<br>]]>
+      <![CDATA[[2017-05-17 16:51:11] [AUAB.log] bryant<br>]]>
+    </line>
+    <line>
+      <![CDATA[[2017-05-17 16:51:13] [AUAB.log] 高兴吧0000<br>]]>
+    </line>
+    <line>
+      <![CDATA[[2017-05-17 16:51:15] [AUAB.log] Jafjfjdjudhehdux<br>]]>
+    </line>
+    <line>
+      <![CDATA[[2017-05-17 16:51:15] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeNavigationBar/XCUIElementTypeButton <br>]]>
+    </line>
+    <line>
+      <![CDATA[[2017-05-17 16:51:18] [AUAB.log] waitUntilFind in  5 seconds<br>]]>
+    </line>
+    <line>
+      <![CDATA[[2017-05-17 16:51:20] [AUAB.log] waitUntilFind = success<br>]]>
+    </line>
+    <line>
+      <![CDATA[[2017-05-17 16:51:20] [AUAB.log] getElements by  parent className =Table  child className=Cell<br>]]>
+    </line>
+    <line>
+      <![CDATA[[2017-05-17 16:51:20] [AUVP.getElementByClassName] Search Element By className=Table <br>]]>
+    </line>
+    <line>
+      <![CDATA[[2017-05-17 16:51:31] [AUAB.log] find 20 elements<br>]]>
+    </line>
+    <line>
+      <![CDATA[[2017-05-17 16:51:36] [AUAB.log] cell name=zzzz<br>]]>
+    </line>
+    <line>
+      <![CDATA[[2017-05-17 16:51:40] [AUAB.log] cell name=bryant<br>]]>
+    </line>
+    <line>
+      <![CDATA[[2017-05-17 16:51:45] [AUAB.log] cell name=高兴吧0000<br>]]>
+    </line>
+    <line>
+      <![CDATA[[2017-05-17 16:51:49] [AUAB.log] cell name=Jafjfjdjudhehdux<br>]]>
+    </line>
+    <line>
+      <![CDATA[[2017-05-17 16:51:49] [AUAB.stopAppium] quit ios driver<br>]]>
+    </line>
+    <line>
+      <![CDATA[[2017-05-17 16:51:49] [AUAB.log] stopAppium<br>]]>
     </line>
   </reporter-output>
-  <suite name="Default suite" duration-ms="723008" started-at="2017-04-11T08:02:23Z" finished-at="2017-04-11T08:14:26Z">
+  <suite name="Default suite" duration-ms="131109" started-at="2017-05-17T08:49:38Z" finished-at="2017-05-17T08:51:49Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="723008" started-at="2017-04-11T08:02:23Z" finished-at="2017-04-11T08:14:26Z">
-      <class name="ckt.ios.testcase.me.edit.NickNameCase">
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:ckt.ios.testcase.me.edit.NickNameCase@146ba0ac]" name="beforeClass" is-config="true" duration-ms="35404" started-at="2017-04-11T16:02:23Z" finished-at="2017-04-11T16:02:59Z">
+    <test name="Default test" duration-ms="131109" started-at="2017-05-17T08:49:38Z" finished-at="2017-05-17T08:51:49Z">
+      <class name="ckt.ios.testcase.discover.RecommendCase">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:ckt.ios.testcase.discover.RecommendCase@f777e8]" name="beforeClass" is-config="true" duration-ms="33430" started-at="2017-05-17T16:49:38Z" finished-at="2017-05-17T16:50:12Z">
           <reporter-output>
             <line>
-              <![CDATA[[2017-04-11 16:02:23] [AUAB.log] start create session iteration-1<br>]]>
+              <![CDATA[[2017-05-17 16:49:38] [AUAB.log] startAppium<br>]]>
             </line>
             <line>
-              <![CDATA[[2017-04-11 16:02:59] [AUAB.log] start create session iteration-1 success<br>]]>
+              <![CDATA[[2017-05-17 16:49:38] [AUAB.log] start create session iteration-1<br>]]>
             </line>
             <line>
-              <![CDATA[[2017-04-11 16:02:59] [AUAB.startAppium] start ios driver<br>]]>
+              <![CDATA[[2017-05-17 16:49:38] [AUAB.log] start create session<br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-05-17 16:50:12] [AUAB.log] start create session iteration-1 success<br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-05-17 16:50:12] [AUAB.startAppium] start ios driver<br>]]>
             </line>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="BeforeTest()[pri:0, instance:ckt.ios.testcase.me.edit.NickNameCase@146ba0ac]" name="BeforeTest" is-config="true" duration-ms="52129" started-at="2017-04-11T16:02:59Z" finished-at="2017-04-11T16:03:51Z">
+        <test-method status="PASS" signature="BeforeTest()[pri:0, instance:ckt.ios.testcase.discover.RecommendCase@f777e8]" name="BeforeTest" is-config="true" duration-ms="17678" started-at="2017-05-17T16:50:12Z" finished-at="2017-05-17T16:50:29Z">
           <reporter-output>
             <line>
-              <![CDATA[[2017-04-11 16:03:46] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
+              <![CDATA[[2017-05-17 16:50:12] [AUAB.log] start resetApp -0<br>]]>
             </line>
             <line>
-              <![CDATA[[2017-04-11 16:03:51] [LA.inLoginStatus] App account is login <br>]]>
+              <![CDATA[[2017-05-17 16:50:12] [AUAB.log] clickByTextContains - OK<br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-05-17 16:50:12] [AUAB.log] Close not contains<br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-05-17 16:50:12] [AUAB.log] Cancel not contains<br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-05-17 16:50:16] [AUAB.log] exist class =TabBar<br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-05-17 16:50:22] [AUAB.log] click TabBar-Button[0]<br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-05-17 16:50:22] [AUAB.log] rest App finished<br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-05-17 16:50:22] [AUAB.log] waitUntilFind 15<br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-05-17 16:50:24] [AUAB.log] waitUntilFind = success<br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-05-17 16:50:25] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-05-17 16:50:29] [AUAB.log] Log in not contains<br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-05-17 16:50:29] [LA.inLoginStatus] App account is login <br>]]>
             </line>
           </reporter-output>
         </test-method> <!-- BeforeTest -->
-        <test-method status="PASS" signature="testNickName100c()[pri:0, instance:ckt.ios.testcase.me.edit.NickNameCase@146ba0ac]" name="testNickName100c" duration-ms="100134" started-at="2017-04-11T16:03:51Z" finished-at="2017-04-11T16:05:31Z">
+        <test-method status="PASS" signature="testRefreshRecommendList()[pri:0, instance:ckt.ios.testcase.discover.RecommendCase@f777e8]" name="testRefreshRecommendList" duration-ms="79684" started-at="2017-05-17T16:50:29Z" finished-at="2017-05-17T16:51:49Z">
           <reporter-output>
             <line>
-              <![CDATA[[2017-04-11 16:03:52] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
+              <![CDATA[[2017-05-17 16:50:29] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[1] <br>]]>
             </line>
             <line>
-              <![CDATA[[2017-04-11 16:04:08] [AUAB.log] setValue-[4EJr0Fj7N1Kb6DT754OHpbwJfR3fRA7j3zReQmo1WImwDggPuVIKHFeG2smaUQ3b7QW1JnCjh5cMa9vcbmAmwk8E58HCblB3xmbg]<br>]]>
+              <![CDATA[[2017-05-17 16:50:38] [AUAB.log] Who to follow contains<br>]]>
             </line>
             <line>
-              <![CDATA[[2017-04-11 16:04:22] [AUVP4.waitTextGone] text 保存 gone<br>]]>
+              <![CDATA[[2017-05-17 16:50:38] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeButton <br>]]>
             </line>
             <line>
-              <![CDATA[[2017-04-11 16:05:10] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
+              <![CDATA[[2017-05-17 16:50:50] [DP.fresh] swipeToDown-1<br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-05-17 16:50:53] [AUAB.log] waitUntilFind in  30 seconds<br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-05-17 16:50:55] [AUAB.log] waitUntilFind = success<br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-05-17 16:50:59] [DP.fresh] swipeToDown-2<br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-05-17 16:51:02] [AUAB.log] waitUntilFind in  30 seconds<br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-05-17 16:51:03] [AUAB.log] waitUntilFind = success<br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-05-17 16:51:03] [AUAB.log] getElement with  name=Who to follow<br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-05-17 16:51:04] [AUAB.log] getElementByXpath-//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeCollectionView<br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-05-17 16:51:07] [AUAB.log] find recommand list size = 4<br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-05-17 16:51:09] [AUAB.log] zzzz<br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-05-17 16:51:11] [AUAB.log] bryant<br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-05-17 16:51:13] [AUAB.log] 高兴吧0000<br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-05-17 16:51:15] [AUAB.log] Jafjfjdjudhehdux<br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-05-17 16:51:15] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeNavigationBar/XCUIElementTypeButton <br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-05-17 16:51:18] [AUAB.log] waitUntilFind in  5 seconds<br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-05-17 16:51:20] [AUAB.log] waitUntilFind = success<br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-05-17 16:51:20] [AUAB.log] getElements by  parent className =Table  child className=Cell<br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-05-17 16:51:20] [AUVP.getElementByClassName] Search Element By className=Table <br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-05-17 16:51:31] [AUAB.log] find 20 elements<br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-05-17 16:51:36] [AUAB.log] cell name=zzzz<br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-05-17 16:51:40] [AUAB.log] cell name=bryant<br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-05-17 16:51:45] [AUAB.log] cell name=高兴吧0000<br>]]>
+            </line>
+            <line>
+              <![CDATA[[2017-05-17 16:51:49] [AUAB.log] cell name=Jafjfjdjudhehdux<br>]]>
             </line>
           </reporter-output>
-        </test-method> <!-- testNickName100c -->
-        <test-method status="PASS" signature="BeforeTest()[pri:0, instance:ckt.ios.testcase.me.edit.NickNameCase@146ba0ac]" name="BeforeTest" is-config="true" duration-ms="56101" started-at="2017-04-11T16:05:31Z" finished-at="2017-04-11T16:06:27Z">
+        </test-method> <!-- testRefreshRecommendList -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:ckt.ios.testcase.discover.RecommendCase@f777e8]" name="afterClass" is-config="true" duration-ms="309" started-at="2017-05-17T16:51:49Z" finished-at="2017-05-17T16:51:49Z">
           <reporter-output>
             <line>
-              <![CDATA[[2017-04-11 16:06:23] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
+              <![CDATA[[2017-05-17 16:51:49] [AUAB.stopAppium] quit ios driver<br>]]>
             </line>
             <line>
-              <![CDATA[[2017-04-11 16:06:27] [LA.inLoginStatus] App account is login <br>]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- BeforeTest -->
-        <test-method status="PASS" signature="testNickName10c()[pri:0, instance:ckt.ios.testcase.me.edit.NickNameCase@146ba0ac]" name="testNickName10c" duration-ms="94258" started-at="2017-04-11T16:06:27Z" finished-at="2017-04-11T16:08:01Z">
-          <reporter-output>
-            <line>
-              <![CDATA[[2017-04-11 16:06:28] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
-            </line>
-            <line>
-              <![CDATA[[2017-04-11 16:06:43] [AUAB.log] setValue-[EHrQoIEivE]<br>]]>
-            </line>
-            <line>
-              <![CDATA[[2017-04-11 16:06:56] [AUVP4.waitTextGone] text 保存 gone<br>]]>
-            </line>
-            <line>
-              <![CDATA[[2017-04-11 16:07:40] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- testNickName10c -->
-        <test-method status="PASS" signature="BeforeTest()[pri:0, instance:ckt.ios.testcase.me.edit.NickNameCase@146ba0ac]" name="BeforeTest" is-config="true" duration-ms="55799" started-at="2017-04-11T16:08:01Z" finished-at="2017-04-11T16:08:57Z">
-          <reporter-output>
-            <line>
-              <![CDATA[[2017-04-11 16:08:53] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
-            </line>
-            <line>
-              <![CDATA[[2017-04-11 16:08:57] [LA.inLoginStatus] App account is login <br>]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- BeforeTest -->
-        <test-method status="PASS" signature="testNickName30c()[pri:0, instance:ckt.ios.testcase.me.edit.NickNameCase@146ba0ac]" name="testNickName30c" duration-ms="99485" started-at="2017-04-11T16:08:57Z" finished-at="2017-04-11T16:10:37Z">
-          <reporter-output>
-            <line>
-              <![CDATA[[2017-04-11 16:08:58] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
-            </line>
-            <line>
-              <![CDATA[[2017-04-11 16:09:13] [AUAB.log] setValue-[n8xolR6uSC2iyhyhTNPiRiksv4B8Cz]<br>]]>
-            </line>
-            <line>
-              <![CDATA[[2017-04-11 16:09:26] [AUVP4.waitTextGone] text 保存 gone<br>]]>
-            </line>
-            <line>
-              <![CDATA[[2017-04-11 16:10:16] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- testNickName30c -->
-        <test-method status="PASS" signature="BeforeTest()[pri:0, instance:ckt.ios.testcase.me.edit.NickNameCase@146ba0ac]" name="BeforeTest" is-config="true" duration-ms="58172" started-at="2017-04-11T16:10:37Z" finished-at="2017-04-11T16:11:35Z">
-          <reporter-output>
-            <line>
-              <![CDATA[[2017-04-11 16:11:30] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
-            </line>
-            <line>
-              <![CDATA[[2017-04-11 16:11:35] [LA.inLoginStatus] App account is login <br>]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- BeforeTest -->
-        <test-method status="PASS" signature="testNickNameModifyNotSave()[pri:0, instance:ckt.ios.testcase.me.edit.NickNameCase@146ba0ac]" name="testNickNameModifyNotSave" duration-ms="89094" started-at="2017-04-11T16:11:35Z" finished-at="2017-04-11T16:13:04Z">
-          <reporter-output>
-            <line>
-              <![CDATA[[2017-04-11 16:11:36] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
-            </line>
-            <line>
-              <![CDATA[[2017-04-11 16:11:51] [AUAB.log] setValue-[HYtdWZjQBt]<br>]]>
-            </line>
-            <line>
-              <![CDATA[[2017-04-11 16:12:03] [AUVP4.waitTextGone] text 保存 gone<br>]]>
-            </line>
-            <line>
-              <![CDATA[[2017-04-11 16:12:43] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- testNickNameModifyNotSave -->
-        <test-method status="PASS" signature="BeforeTest()[pri:0, instance:ckt.ios.testcase.me.edit.NickNameCase@146ba0ac]" name="BeforeTest" is-config="true" duration-ms="67234" started-at="2017-04-11T16:13:04Z" finished-at="2017-04-11T16:14:11Z">
-          <reporter-output>
-            <line>
-              <![CDATA[[2017-04-11 16:14:07] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
-            </line>
-            <line>
-              <![CDATA[[2017-04-11 16:14:11] [LA.inLoginStatus] App account is login <br>]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- BeforeTest -->
-        <test-method status="PASS" signature="testNickNameisEnable()[pri:0, instance:ckt.ios.testcase.me.edit.NickNameCase@146ba0ac]" name="testNickNameisEnable" duration-ms="14875" started-at="2017-04-11T16:14:11Z" finished-at="2017-04-11T16:14:26Z">
-          <reporter-output>
-            <line>
-              <![CDATA[[2017-04-11 16:14:12] [AUVP.clickByXpath] click By.xpath://XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTabBar[1]/XCUIElementTypeButton[3] <br>]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- testNickNameisEnable -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:ckt.ios.testcase.me.edit.NickNameCase@146ba0ac]" name="afterClass" is-config="true" duration-ms="306" started-at="2017-04-11T16:14:26Z" finished-at="2017-04-11T16:14:26Z">
-          <reporter-output>
-            <line>
-              <![CDATA[[2017-04-11 16:14:26] [AUAB.stopAppium] quit ios driver<br>]]>
+              <![CDATA[[2017-05-17 16:51:49] [AUAB.log] stopAppium<br>]]>
             </line>
           </reporter-output>
         </test-method> <!-- afterClass -->
-      </class> <!-- ckt.ios.testcase.me.edit.NickNameCase -->
+      </class> <!-- ckt.ios.testcase.discover.RecommendCase -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

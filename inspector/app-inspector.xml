@@ -27,36 +27,36 @@
                               </XCUIElementTypeOther>
                             </XCUIElementTypeCell>
                           </XCUIElementTypeCollectionView>
-                          <XCUIElementTypePageIndicator type="XCUIElementTypePageIndicator" value="第 1 页（共 4 页）" enabled="true" x="132" y="161" width="56" height="42"/>
+                          <XCUIElementTypePageIndicator type="XCUIElementTypePageIndicator" value="page 1 of 2" enabled="true" x="148" y="161" width="24" height="42"/>
                         </XCUIElementTypeOther>
                       </XCUIElementTypeOther>
                       <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" x="0" y="192" width="320" height="124">
                         <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" x="0" y="192" width="320" height="124">
-                          <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="推荐关注" name="推荐关注" label="推荐关注" enabled="true" x="7" y="195" width="295" height="18"/>
+                          <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Who to follow" name="Who to follow" label="Who to follow" enabled="true" x="7" y="195" width="295" height="18"/>
                           <XCUIElementTypeButton type="XCUIElementTypeButton" enabled="true" x="302" y="198" width="11" height="12"/>
                           <XCUIElementTypeCollectionView type="XCUIElementTypeCollectionView" enabled="true" x="0" y="215" width="320" height="105">
                             <XCUIElementTypeCell type="XCUIElementTypeCell" enabled="true" x="6" y="215" width="68" height="105">
                               <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" x="6" y="215" width="68" height="105">
                                 <XCUIElementTypeButton type="XCUIElementTypeButton" enabled="true" x="14" y="228" width="52" height="52"/>
-                                <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="mike123" name="mike123" label="mike123" enabled="true" x="15" y="292" width="50" height="17"/>
+                                <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Sunny_sioeye2.0 第er" name="Sunny_sioeye2.0 第er" label="Sunny_sioeye2.0 第er" enabled="true" x="6" y="292" width="68" height="17"/>
                               </XCUIElementTypeOther>
                             </XCUIElementTypeCell>
                             <XCUIElementTypeCell type="XCUIElementTypeCell" enabled="true" x="94" y="215" width="68" height="105">
                               <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" x="94" y="215" width="68" height="105">
                                 <XCUIElementTypeButton type="XCUIElementTypeButton" enabled="true" x="102" y="228" width="52" height="52"/>
-                                <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="fly high" name="fly high" label="fly high" enabled="true" x="106" y="292" width="44" height="17"/>
+                                <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="啊漆" name="啊漆" label="啊漆" enabled="true" x="116" y="292" width="24" height="17"/>
                               </XCUIElementTypeOther>
                             </XCUIElementTypeCell>
                             <XCUIElementTypeCell type="XCUIElementTypeCell" enabled="true" x="182" y="215" width="68" height="105">
                               <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" x="182" y="215" width="68" height="105">
                                 <XCUIElementTypeButton type="XCUIElementTypeButton" enabled="true" x="190" y="228" width="52" height="52"/>
-                                <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="战斗机" name="战斗机" label="战斗机" enabled="true" x="198" y="292" width="36" height="17"/>
+                                <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="测试机Test" name="测试机Test" label="测试机Test" enabled="true" x="186" y="292" width="60" height="17"/>
                               </XCUIElementTypeOther>
                             </XCUIElementTypeCell>
                             <XCUIElementTypeCell type="XCUIElementTypeCell" enabled="true" x="270" y="215" width="68" height="105">
                               <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" x="270" y="215" width="68" height="105">
                                 <XCUIElementTypeButton type="XCUIElementTypeButton" enabled="true" x="278" y="228" width="52" height="52"/>
-                                <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="SioeyeMedia" name="SioeyeMedia" label="SioeyeMedia" enabled="true" x="270" y="292" width="68" height="17"/>
+                                <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="秘籍哦林" name="秘籍哦林" label="秘籍哦林" enabled="true" x="280" y="292" width="48" height="17"/>
                               </XCUIElementTypeOther>
                             </XCUIElementTypeCell>
                           </XCUIElementTypeCollectionView>
@@ -69,27 +69,27 @@
                       <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" x="8" y="320" width="304" height="252">
                         <XCUIElementTypeImage type="XCUIElementTypeImage" enabled="true" x="294" y="320" width="26" height="26"/>
                         <XCUIElementTypeButton type="XCUIElementTypeButton" enabled="true" x="14" y="329" width="38" height="38"/>
-                        <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Welcom to our live!" name="Welcom to our live!" label="Welcom to our live!" enabled="true" x="65" y="330" width="143" height="22"/>
-                        <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="  4 周" name="  4 周" label="  4 周" enabled="true" x="208" y="330" width="29" height="22"/>
-                        <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Zero" name="Zero" label="Zero" enabled="true" x="65" y="352" width="143" height="17"/>
+                        <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="大龙在Sioeye的直播!gh" name="大龙在Sioeye的直播!gh" label="大龙在Sioeye的直播!gh" enabled="true" x="65" y="330" width="168" height="22"/>
+                        <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="  7d" name="  7d" label="  7d" enabled="true" x="232" y="330" width="21" height="22"/>
+                        <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="mike123" name="mike123" label="mike123" enabled="true" x="65" y="352" width="168" height="17"/>
                         <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" x="8" y="367" width="304" height="26">
                           <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" x="21" y="371" width="70" height="18">
                             <XCUIElementTypeImage type="XCUIElementTypeImage" enabled="true" x="21" y="374" width="11" height="12"/>
-                            <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="7" name="7" label="7" enabled="true" x="39" y="371" width="52" height="18"/>
+                            <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="24" name="24" label="24" enabled="true" x="39" y="371" width="52" height="18"/>
                           </XCUIElementTypeOther>
                           <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" x="106" y="371" width="70" height="18">
                             <XCUIElementTypeImage type="XCUIElementTypeImage" enabled="true" x="106" y="374" width="11" height="12"/>
-                            <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="205" name="205" label="205" enabled="true" x="124" y="371" width="52" height="18"/>
+                            <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="2" name="2" label="2" enabled="true" x="124" y="371" width="52" height="18"/>
                           </XCUIElementTypeOther>
                           <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" x="191" y="371" width="108" height="18">
                             <XCUIElementTypeImage type="XCUIElementTypeImage" enabled="true" x="191" y="374" width="11" height="12"/>
-                            <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="中国.深圳市" name="中国.深圳市" label="中国.深圳市" enabled="true" x="209" y="371" width="90" height="18"/>
+                            <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="中国.成都市" name="中国.成都市" label="中国.成都市" enabled="true" x="209" y="371" width="90" height="18"/>
                           </XCUIElementTypeOther>
                         </XCUIElementTypeOther>
                         <XCUIElementTypeImage type="XCUIElementTypeImage" enabled="true" x="8" y="393" width="304" height="171"/>
                         <XCUIElementTypeImage type="XCUIElementTypeImage" enabled="true" x="290" y="427" width="22" height="21"/>
                         <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" x="278" y="550" width="34" height="14">
-                          <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="00:03" name="00:03" label="00:03" enabled="true" x="282" y="550" width="26" height="14"/>
+                          <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="00:02" name="00:02" label="00:02" enabled="true" x="282" y="550" width="26" height="14"/>
                         </XCUIElementTypeOther>
                       </XCUIElementTypeOther>
                     </XCUIElementTypeCell>
@@ -98,10 +98,11 @@
               </XCUIElementTypeOther>
             </XCUIElementTypeOther>
             <XCUIElementTypeTabBar type="XCUIElementTypeTabBar" enabled="true" x="0" y="519" width="320" height="49">
-              <XCUIElementTypeButton type="XCUIElementTypeButton" value="1" name="发现" label="发现" enabled="true" x="2" y="520" width="76" height="48"/>
-              <XCUIElementTypeButton type="XCUIElementTypeButton" name="关注" label="关注" enabled="true" x="82" y="520" width="76" height="48"/>
-              <XCUIElementTypeButton type="XCUIElementTypeButton" name="我" label="我" enabled="true" x="162" y="520" width="76" height="48"/>
-              <XCUIElementTypeButton type="XCUIElementTypeButton" name="相机" label="相机" enabled="true" x="242" y="520" width="76" height="48"/>
+              <XCUIElementTypeButton type="XCUIElementTypeButton" value="1" name="Discover" label="Discover" enabled="true" x="2" y="520" width="76" height="48"/>
+              <XCUIElementTypeButton type="XCUIElementTypeButton" name="Watch" label="Watch" enabled="true" x="82" y="520" width="76" height="48"/>
+              <XCUIElementTypeButton type="XCUIElementTypeButton" name="Me" label="Me" enabled="true" x="162" y="520" width="76" height="48"/>
+              <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" x="208" y="524" width="10" height="10"/>
+              <XCUIElementTypeButton type="XCUIElementTypeButton" name="Remote" label="Remote" enabled="true" x="242" y="520" width="76" height="48"/>
             </XCUIElementTypeTabBar>
           </XCUIElementTypeOther>
         </XCUIElementTypeOther>
@@ -112,10 +113,11 @@
     <XCUIElementTypeStatusBar type="XCUIElementTypeStatusBar" enabled="true" x="0" y="0" width="320" height="20">
       <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" x="0" y="0" width="320" height="20"/>
       <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" x="0" y="0" width="320" height="20">
-        <XCUIElementTypeOther type="XCUIElementTypeOther" name="No Service" label="No Service" enabled="true" x="6" y="0" width="62" height="20"/>
-        <XCUIElementTypeOther type="XCUIElementTypeOther" value="SSID" name="3 格无线局域网信号（共 3 格）" label="3 格无线局域网信号（共 3 格）" enabled="true" x="73" y="0" width="13" height="20"/>
-        <XCUIElementTypeOther type="XCUIElementTypeOther" name="14:36" label="14:36" enabled="true" x="145" y="0" width="34" height="20"/>
-        <XCUIElementTypeOther type="XCUIElementTypeOther" name="电池电量：100%, 使用交流电源" label="电池电量：100%, 使用交流电源" enabled="true" x="282" y="0" width="33" height="20"/>
+        <XCUIElementTypeOther type="XCUIElementTypeOther" name="No SIM" label="No SIM" enabled="true" x="6" y="0" width="41" height="20"/>
+        <XCUIElementTypeOther type="XCUIElementTypeOther" value="SSID" name="3 of 3 WLAN bars" label="3 of 3 WLAN bars" enabled="true" x="52" y="0" width="13" height="20"/>
+        <XCUIElementTypeOther type="XCUIElementTypeOther" name="13:18" label="13:18" enabled="true" x="146" y="0" width="32" height="20"/>
+        <XCUIElementTypeOther type="XCUIElementTypeOther" name="Bluetooth on" label="Bluetooth on" enabled="true" x="268" y="0" width="8" height="20"/>
+        <XCUIElementTypeOther type="XCUIElementTypeOther" name="100% battery power, Charging" label="100% battery power, Charging" enabled="true" x="282" y="0" width="33" height="20"/>
       </XCUIElementTypeOther>
     </XCUIElementTypeStatusBar>
   </XCUIElementTypeWindow>

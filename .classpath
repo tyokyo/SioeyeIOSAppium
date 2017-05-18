@@ -15,10 +15,10 @@
 	<classpathentry kind="lib" path="lib/guice-3.0.jar"/>
 	<classpathentry kind="lib" path="lib/velocity-dep-1.4.jar"/>
 	<classpathentry kind="lib" path="lib/qdox-1.12.1.jar"/>
-	<classpathentry kind="lib" path="lib/testng-6.8.8.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/testng-6.8.8.jar" sourcepath="C:/Users/DELL/.m2/repository/org/testng/testng/6.8.8/testng-6.8.8-sources.jar"/>
 	<classpathentry kind="lib" path="/Logger/lib/swt.jar"/>
 	<classpathentry kind="lib" path="/Logger/lib/org-eclipse-jface-3.6.2.jar"/>
 	<classpathentry kind="lib" path="lib/jdom.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
