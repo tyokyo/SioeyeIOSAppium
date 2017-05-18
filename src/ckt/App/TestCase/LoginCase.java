@@ -6,7 +6,6 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import ckt.App.Util.AppiumBase;
 import ckt.App.Util.VP;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
