@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="1495101523393" parallel="classes" thread-count="3"><test verbose="2" preserve-order="true" name="SignatureCase"><classes><class name="ckt.ios.testcase.me.edit.SignatureCase" /></classes></test></suite>

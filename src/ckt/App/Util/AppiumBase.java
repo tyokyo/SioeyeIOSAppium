@@ -19,6 +19,7 @@ public class AppiumBase {
 	public static AndroidDriver<?>  androiddriver;
 	public static String configPath = "properties/config.properties";
 	public static String accountPath = "properties/account.properties";
+	private static String udid;;
 	private static String devicename ;
 	private static String platformName ;
 	private static String platformVersion;
@@ -41,6 +42,8 @@ public class AppiumBase {
 		ipaddress = Property.getValueByKey(configPath, "ipaddress");
 		port = Property.getValueByKey(configPath, "port");
 		newCommandTimeout=Integer.parseInt(Property.getValueByKey(configPath, "newCommandTimeout"));
+		udid=Property.getValueByKey(configPath, "udid");
+		Log.info("udid", udid);
 		Log.info("Load the propertyies data for Appium configurations");
 	}
 	public static int getMaxRunCount(){
@@ -66,7 +69,11 @@ public class AppiumBase {
 		capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, platformName);
 		capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, platformVersion); 
 		capabilities.setCapability(MobileCapabilityType.APP, app);
-		capabilities.setCapability(MobileCapabilityType.UDID, "057475d55abf5e4f36becfc16cf3691cb661fe9e");
+		if (udid==null) {
+			//use simulator 
+		}else {
+			capabilities.setCapability(MobileCapabilityType.UDID, udid);
+		}
 		capabilities.setCapability(MobileCapabilityType.NO_RESET,Boolean.parseBoolean(noReset));
 		capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, newCommandTimeout);
 		//capabilities.setCapability("sessionOverride",Boolean.parseBoolean(sessionOverride));
@@ -82,6 +89,7 @@ public class AppiumBase {
 		capabilities.setCapability("autoDismissAlerts",true);
 		capabilities.setCapability("keepKeyChains",true);
 		capabilities.setCapability("screenshotWaitTimeout",5);
+		capabilities.setCapability("clearSystemFiles",true);
 		//capabilities.setCapability("waitForAppScript",10);
 		//capabilities.setCapability("native-instruments-lib",true);
 		if ("IOS".equals(platformName.toUpperCase())) {

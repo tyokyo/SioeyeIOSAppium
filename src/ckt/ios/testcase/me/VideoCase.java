@@ -257,6 +257,9 @@ public class VideoCase extends VP4{
 	public void testShareVideo(){
 		VideoAction.navToVideo();
 		if (VideoAction.cellsDisplayed()) {
+			//设置video public
+			VideoAction.setVideoPublic();
+			
 			//获取直播视频
 			IElement cellEem  = VideoPage.chooseFirstLiveStream();
 			//滑动

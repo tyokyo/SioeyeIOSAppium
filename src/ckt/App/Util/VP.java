@@ -385,58 +385,63 @@ public class VP extends AppiumBase {
 		log("start resetApp -"+count);
 		MobileElement btnEmt;
 		boolean tag = false;
-
-		clickByTextContains("OK");
-		if (text_exist("Close")) {
-			clickByName("Close");
-		}
-		if (text_exist("Cancel")) {
-			clickByName("Cancel");
-		}
-		if (class_exist("TabBar")) {
-			btnEmt= (MobileElement) iosdriver.findElement(By.className("TabBar")).findElements(By.className("Button")).get(0);
-			btnEmt.click();
-			btnEmt.click();
-			log("click TabBar-Button[0]");
-			tag=true;
-		}else {
-			if (text_exist("Log in")) {
-				log("find Log in");
-				iosdriver.findElement(By.className("Button")).click();
+		try {
+			clickByTextContains("OK");
+			if (text_exist("Close")) {
+				clickByName("Close");
 			}
-			if (class_exist("NavigationBar")) {
-				btnEmt= (MobileElement) iosdriver.findElement(By.className("NavigationBar")).findElements(By.className("Button")).get(0);
+			if (text_exist("Cancel")) {
+				clickByName("Cancel");
+			}
+			if (class_exist("TabBar")) {
+				btnEmt= (MobileElement) iosdriver.findElement(By.className("TabBar")).findElements(By.className("Button")).get(0);
 				btnEmt.click();
-				log("click Back Button");
-			} 
-			if (text_exist("anchor")) {
-				log("click video");
-				clickByXpath("//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther[2]");
-				log("click video back button");
-				getElementBySubXpath(getElementByClassName("NavigationBar"), "/XCUIElementTypeButton[1]").click();
-				wait(7);
-			}
-			if (text_exist("Log in")) {
-				//第一个button
-				clickByClassName("Button");
-			}
-			if (text_exist("Return to Sioeye")) {
-				clickByName("Return to Sioeye");
-			}
-			/*if (class_exist("SegmentedControl")) {
-				btnEmt= (MobileElement) iosdriver.findElement(By.className("TypeScrollView"));
 				btnEmt.click();
-				log("click TypeScrollView");
-			}*/
-		}
-		if (count>=10) {
+				log("click TabBar-Button[0]");
+				tag=true;
+			}else {
+				if (text_exist("Log in")) {
+					log("find Log in");
+					iosdriver.findElement(By.className("Button")).click();
+				}
+				if (class_exist("NavigationBar")) {
+					btnEmt= (MobileElement) iosdriver.findElement(By.className("NavigationBar")).findElements(By.className("Button")).get(0);
+					btnEmt.click();
+					log("click Back Button");
+				} 
+				if (text_exist("anchor")) {
+					log("click video");
+					clickByXpath("//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther[2]");
+					log("click video back button");
+					getElementBySubXpath(getElementByClassName("NavigationBar"), "/XCUIElementTypeButton[1]").click();
+					wait(7);
+				}
+				if (text_exist("Log in")) {
+					//第一个button
+					clickByClassName("Button");
+				}
+				if (text_exist("Return to Sioeye")) {
+					clickByName("Return to Sioeye");
+				}
+				/*if (class_exist("SegmentedControl")) {
+					btnEmt= (MobileElement) iosdriver.findElement(By.className("TypeScrollView"));
+					btnEmt.click();
+					log("click TypeScrollView");
+				}*/
+			}
+			if (count>=10) {
+				iosdriver.resetApp();
+			}
+			count=count+1;
+			if (!tag) {
+				resetApp(count);
+			}else {
+				log("rest App finished");
+			}
+		} catch (Exception e) {
 			iosdriver.resetApp();
-		}
-		count=count+1;
-		if (!tag) {
-			resetApp(count);
-		}else {
-			log("rest App finished");
+			e.printStackTrace();
+			// TODO: handle exception
 		}
 
 	}

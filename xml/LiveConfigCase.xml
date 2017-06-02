@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="1495101523429" parallel="classes" thread-count="3"><test verbose="2" preserve-order="true" name="LiveConfigCase"><classes><class name="ckt.ios.testcase.me.LiveConfigCase" /></classes></test></suite>
