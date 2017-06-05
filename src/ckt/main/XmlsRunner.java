@@ -31,7 +31,7 @@ public class XmlsRunner {
 				suits.add(file.getAbsolutePath());
 			}
 		}
-		
+		testNG.setParallel(ESCAPE_PROPERTY);
 		testNG.setTestSuites(suits);
 		testNG.run();
 		
