@@ -11,7 +11,6 @@ public class TestngRetry implements IRetryAnalyzer {
 	public  static  int retryCount = 1;
 	private static int maxRetryCount;
 	static {
-
 		//外围文件配置最大运行次数
 		maxRetryCount = AppiumBase.getMaxRunCount();
 		logger.info("maxRunCount="+ (maxRetryCount));
