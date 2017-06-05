@@ -39,5 +39,6 @@ public class LocationCase extends VP4 {
 		//验证是否修改成功
 		Assert.assertEquals(true, text_exist("宜宾"), "search -yibin");
 		Draw.takeScreenShotWithDraw("宜宾");
+		
 	}
 }
