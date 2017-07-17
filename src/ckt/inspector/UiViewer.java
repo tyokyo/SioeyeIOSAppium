@@ -97,7 +97,7 @@ public class UiViewer  extends JFrame{
 		rowPanel = new JPanel(new FlowLayout(FlowLayout.LEADING));
 		JLabel ArgType= new JLabel("关键字");
 		ArgType.setPreferredSize(lbDimension);
-		JComboBox typejComboBox = new JComboBox();
+		final JComboBox typejComboBox = new JComboBox();
 		typejComboBox.addItem("Name");
 		typejComboBox.addItem("ClassName");
 		typejComboBox.addItem("Xpath");
@@ -110,7 +110,7 @@ public class UiViewer  extends JFrame{
 		
 		rowPanel = new JPanel(new FlowLayout(FlowLayout.LEADING));
 		JLabel cmdLabel= new JLabel("值");
-		JTextField cmd = new JTextField();
+		final JTextField cmd = new JTextField();
 		JButton clickBtn = new JButton("CLICK");
 		clickBtn.addActionListener(new ActionListener() {
 			

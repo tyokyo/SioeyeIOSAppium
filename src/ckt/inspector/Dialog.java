@@ -34,7 +34,7 @@ public class Dialog {
 	public static void stop_doing(){
 		progressDialog.dispose();
 	}
-	public static void start_doing(JFrame frame){
+	public static void start_doing(final JFrame frame){
 		new Thread(new Runnable() {
 
 			@Override

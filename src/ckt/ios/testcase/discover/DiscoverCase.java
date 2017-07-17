@@ -3,8 +3,10 @@ package ckt.ios.testcase.discover;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
 import ckt.App.Util.Property;
@@ -27,17 +29,18 @@ import java.util.List;
 验证推荐列表
  * */
 public class DiscoverCase extends VP4 {
-	@BeforeClass
-	public void beforeClass() throws MalformedURLException {
+	@BeforeSuite
+	public void BeforeSuite() throws MalformedURLException {
 		startAppium();
 	}
-	@AfterClass
-	public void afterClass() {
+    
+	@AfterSuite
+	public void AfterSuite() {
 		stopAppium();
 	}
 	@BeforeMethod
 	public void BeforeTest(){
-		resetApp(0);
+		iosdriver.launchApp();
 		LoginAction.inLoginStatus();
 	}
 	/**

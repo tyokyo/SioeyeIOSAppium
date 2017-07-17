@@ -381,6 +381,11 @@ public class VP extends AppiumBase {
 		}
 		return sb.toString();
 	}
+	public static void resetApp(){
+		iosdriver.closeApp();
+		iosdriver.launchApp();
+		wait(4);
+	}
 	public static void resetApp(int count){
 		log("start resetApp -"+count);
 		MobileElement btnEmt;

@@ -6,8 +6,10 @@ import java.net.MalformedURLException;
 
 import org.openqa.selenium.By;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 import ckt.App.Util.VP4;
 import ckt.ios.action.LoginAction;
@@ -17,12 +19,13 @@ import ckt.ios.page.MePage;
 
 //设置
 public class SettingCase  extends VP4{
-	@BeforeClass
-	public void beforeClass() throws MalformedURLException {
+	@BeforeSuite
+	public void BeforeSuite() throws MalformedURLException {
 		startAppium();
 	}
-	@AfterClass
-	public void afterClass() {
+    
+	@AfterSuite
+	public void AfterSuite() {
 		stopAppium();
 	}
 	@BeforeMethod

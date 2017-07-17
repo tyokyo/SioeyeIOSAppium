@@ -5,8 +5,10 @@ import java.net.MalformedURLException;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
 import ckt.App.Util.IElement;
@@ -19,12 +21,13 @@ import ckt.ios.page.MainPage;
 import ckt.ios.page.VideoPage;
 /*直播*/
 public class VideoCase extends VP4{
-	@BeforeClass
-	public void beforeClass() throws MalformedURLException {
+	@BeforeSuite
+	public void BeforeSuite() throws MalformedURLException {
 		startAppium();
 	}
-	@AfterClass
-	public void afterClass() {
+    
+	@AfterSuite
+	public void AfterSuite() {
 		stopAppium();
 	}
 	@BeforeMethod

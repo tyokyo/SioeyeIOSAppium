@@ -4,8 +4,10 @@ import io.appium.java_client.MobileElement;
 import java.net.MalformedURLException;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 import ckt.App.Util.VP;
 import ckt.ios.action.LoginAction;
@@ -13,12 +15,13 @@ import ckt.ios.action.MeAction;
 import ckt.ios.page.MePage;
 
 public class SignatureCase extends VP {
-	@BeforeClass
-	public void beforeClass() throws MalformedURLException {
+	@BeforeSuite
+	public void BeforeSuite() throws MalformedURLException {
 		startAppium();
 	}
-	@AfterClass
-	public void afterClass() {
+    
+	@AfterSuite
+	public void AfterSuite() {
 		stopAppium();
 	}
 	@BeforeMethod

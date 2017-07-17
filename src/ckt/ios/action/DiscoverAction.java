@@ -12,7 +12,7 @@ import ckt.App.Util.VP4;
 
 public class DiscoverAction extends VP4 {
 	public static void waitForConnect(){
-		waitUntilTextExist("what is your opinion", 60);
+		waitUntilTextExist("Add a comment", 60);
 	}
 	//主页-观看第一个视频
 	public static void watchVideo(){

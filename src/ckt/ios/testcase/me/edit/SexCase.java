@@ -2,8 +2,10 @@ package ckt.ios.testcase.me.edit;
 
 import java.net.MalformedURLException;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 import ckt.App.Util.Draw;
 import ckt.App.Util.VP4;
@@ -12,12 +14,13 @@ import ckt.ios.action.MeAction;
 import ckt.ios.page.MePage;
 
 public class SexCase extends VP4 {
-	@BeforeClass
-	public void beforeClass() throws MalformedURLException {
+	@BeforeSuite
+	public void BeforeSuite() throws MalformedURLException {
 		startAppium();
 	}
-	@AfterClass
-	public void afterClass() {
+    
+	@AfterSuite
+	public void AfterSuite() {
 		stopAppium();
 	}
 	@BeforeMethod

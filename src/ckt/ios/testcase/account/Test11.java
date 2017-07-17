@@ -1,35 +1,25 @@
 package ckt.ios.testcase.account;
 
-import java.util.List;
-
+import java.net.MalformedURLException;
 import io.appium.java_client.MobileElement;
-
-import org.assertj.core.condition.Not;
 import org.dom4j.Element;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
 import ckt.App.Util.MIElement;
 import ckt.App.Util.VP4;
 import ckt.ios.action.MainAction;
-import ckt.ios.action.MeAction;
-import ckt.ios.page.DiscoverPage;
 
 public class Test11 extends VP4 {
-	@BeforeMethod
-	public void beforeTest(){
+	@BeforeSuite
+	public void BeforeSuite() throws MalformedURLException {
 		startAppium();
 	}
-
-	@AfterMethod
-	public void afterTest() {
+    
+	@AfterSuite
+	public void AfterSuite() {
 		stopAppium();
 	}
 
@@ -53,7 +43,7 @@ public class Test11 extends VP4 {
 		System.out.println(iElement.getName());
 		System.out.println(iElement.getType());
 		
-		MobileElementToIElement(mobileElement).click();;
+		MobileElementToIElement(mobileElement).click();
 		
 	}
 	@Test
@@ -75,5 +65,10 @@ public class Test11 extends VP4 {
 		String collectionXpath= otherXpath+"/XCUIElementTypeCollectionView";
 		
 		//waitUntilByNotFind(By.name("test 26"), 100);
+	}
+	@Test
+	public void testAA(){
+		iosdriver.launchApp();
+		iosdriver.closeApp();
 	}
 }
