@@ -215,7 +215,7 @@ public class MeAction  extends VP4{
 		MeAction.navToNickName();
 		MobileElement textField = MePage.getTextField();
 		String name = textField.getText();
-		resetApp(1);
+		resetApp();
 		return name;
 	}
 }

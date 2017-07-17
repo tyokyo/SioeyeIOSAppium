@@ -28,7 +28,7 @@ public class ShareCase  extends VP4{
 	}
 	@BeforeMethod
 	public void BeforeTest(){
-		resetApp(0);
+		resetApp();
 		LoginAction.inLoginStatus();
 	}
 	@Test

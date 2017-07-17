@@ -30,7 +30,7 @@ public class LiveCase extends VP4 {
 	}
 	@BeforeMethod
 	public void BeforeTest(){
-		resetApp(0);
+		resetApp();
 		LoginAction.inLoginStatus();
 		MainPage.clickDiscover_btn();
 	}

@@ -32,7 +32,7 @@ public class VideoCase extends VP4{
 	}
 	@BeforeMethod
 	public void BeforeTest(){
-		resetApp(0);
+		resetApp();
 		LoginAction.inLoginStatus();
 	}
 	//播放视频-主页观看数+1

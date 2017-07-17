@@ -77,9 +77,9 @@ public class DiscoverCase extends VP4 {
 	public void testSwipe() {
 		MainAction.navToDiscover();
 		for (int i = 0; i < 5; i++) {
-			MainPage.clickDevice_btn();
+			MainPage.clickRemote_btn();
 			MainPage.clickDiscover_btn();
-			MainPage.clickLive_btn();
+			MainPage.clickWatch_btn();
 			MainPage.clickMe_btn();
 		}
 	}
@@ -196,7 +196,7 @@ public class DiscoverCase extends VP4 {
 	public void testClickADBack() {
 		MainAction.navToDiscover();
 		DiscoverPage.clickAdvertisement();
-		resetApp(0);
+		resetApp();
 	}
 
 	@Test
@@ -271,7 +271,7 @@ public class DiscoverCase extends VP4 {
 			select.click();
 			String name = DiscoverPage.getRecommandName(select);
 			DiscoverPage.clickRecommandFollow();
-			resetApp(0);
+			resetApp();
 			DiscoverPage.fresh();
 			waitUntilByNotFind(By.name(name), 30);
 			//check 
@@ -358,7 +358,7 @@ public class DiscoverCase extends VP4 {
 		boolean actual = text_exist(sioeye_id);
 		Assert.assertEquals(actual, true,"search result contains -"+sioeye_id);
 		DiscoverPage.clickCancel();
-		resetApp(0);
+		resetApp();
 		LoginAction.logOutAccount();
 	}
 	@Test

@@ -3,9 +3,8 @@ package ckt.ios.testcase.account;
 import java.net.MalformedURLException;
 
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
@@ -20,7 +19,10 @@ public class LoginCase extends VP {
 	public void BeforeSuite() throws MalformedURLException {
 		startAppium();
 	}
-    
+	@BeforeMethod
+	public void BeforeTest(){
+		resetApp();
+	}
 	@AfterSuite
 	public void AfterSuite() {
 		stopAppium();
@@ -46,7 +48,7 @@ public class LoginCase extends VP {
 		String passwd = Property.getValueByKey(accountPath, "email_password");
 		
 		LoginAction.logOutAccount();
-		resetApp(0);
+		resetApp();
 		LoginAction.loginAccount(emial, passwd);
 		boolean discover_page = text_exist("Discover");
 		Assert.assertEquals(discover_page, true, "discover page");
@@ -58,7 +60,7 @@ public class LoginCase extends VP {
 		String passwd = Property.getValueByKey(accountPath, "phone_password");
 		
 		LoginAction.logOutAccount();
-		resetApp(0);
+		resetApp();
 		LoginAction.loginAccount(emial, passwd);
 		boolean discover_page = text_exist("Discover");
 		Assert.assertEquals(discover_page, true, "discover page");
@@ -69,7 +71,7 @@ public class LoginCase extends VP {
 		String passwd = Property.getValueByKey(accountPath, "sioeye_password");
 		
 		LoginAction.logOutAccount();
-		resetApp(0);
+		resetApp();
 		LoginAction.loginAccount(emial, passwd);
 		boolean discover_page = text_exist("Discover");
 		Assert.assertEquals(discover_page, true, "discover page");
@@ -81,7 +83,7 @@ public class LoginCase extends VP {
 		String passwd = Property.getValueByKey(accountPath, "phone_password");
 		
 		LoginAction.logOutAccount();
-		resetApp(0);
+		resetApp();
 		LoginAction.loginAccount(emial, passwd);
 		LoginAction.logOutAccount();
 		boolean discover_page = text_exist("Discover");

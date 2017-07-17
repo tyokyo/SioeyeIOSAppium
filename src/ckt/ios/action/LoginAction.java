@@ -22,9 +22,9 @@ public class LoginAction extends VP {
 	}
 	//注销账号
 	public static void logOutAccount(){
-		resetApp(0);
+		resetApp();
 		if (isLogin()) {
-			resetApp(0);
+			resetApp();
 			MeAction.navToAccountAndSecurity();
 			LoginPage.clickLogOut_btn();
 			MainPage.clickAskToSure_btn();
@@ -33,7 +33,7 @@ public class LoginAction extends VP {
 	}
 	//登录账号
 	public static void loginAccount(String userName,String password){
-		resetApp(0);
+		resetApp();
 		wait(5);
 		MainPage.clickMe_btn();
 		LoginPage.clickLogin_btn();

@@ -37,7 +37,7 @@ public class RecommendCase extends VP4 {
 	}
 	@BeforeMethod
 	public void BeforeTest(){
-		resetApp(0);
+		resetApp();
 		LoginAction.inLoginStatus();
 	}
 
@@ -55,7 +55,7 @@ public class RecommendCase extends VP4 {
 			String name = DiscoverPage.getRecommandName(select);
 			select.click();
 			DiscoverPage.clickRecommandFollow();
-			resetApp(0);
+			resetApp();
 			DiscoverPage.fresh();
 			waitUntilByNotFind(By.name(name), 30);
 			//check 
@@ -78,7 +78,7 @@ public class RecommendCase extends VP4 {
 			String name = DiscoverPage.getRecommandName(select);
 			select.click();
 			DiscoverPage.clickRecommandFollow();
-			resetApp(0);
+			resetApp();
 			//Followers + 1 
 			int after_add_follow = MeAction.getPersonalFollowingCount();
 			iosdriver.resetApp();
@@ -103,7 +103,7 @@ public class RecommendCase extends VP4 {
 			select.click();
 			String name = DiscoverPage.getRecommandName(select);
 			DiscoverPage.clickRecommandFollow();
-			resetApp(0);
+			resetApp();
 			//Followers + 1 
 			int after_add_follow = MeAction.getPersonalFollowingCount();
 			iosdriver.resetApp();

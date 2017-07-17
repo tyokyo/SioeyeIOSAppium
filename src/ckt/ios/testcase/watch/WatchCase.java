@@ -25,14 +25,14 @@ public class WatchCase extends VP4 {
 	}	
 	@BeforeMethod
 	public void BeforeTest(){
-		resetApp(0);
+		resetApp();
 		LoginAction.inLoginStatus();
 		MainPage.clickDiscover_btn();
 	}
 	/*主页，观看视频-视频观看数+1*/
 	@Test
 	public void testWatchVideo(){
-		MainPage.clickLive_btn();
+		MainPage.clickWatch_btn();
 		
 		IElement cellEem = DiscoverPage.getCell();
 		String beforeString=DiscoverPage.getWatchCount(cellEem.getXpath());
@@ -79,7 +79,7 @@ public class WatchCase extends VP4 {
 	/*主页，观看视频-主播-视频观看数+1*/
 	@Test
 	public void testHomeWatchVideo(){
-		MainPage.clickLive_btn();
+		MainPage.clickWatch_btn();
 		
 		IElement cellEem = DiscoverPage.getCell();
 		String beforeString=DiscoverPage.getWatchCount(cellEem.getXpath());

@@ -15,26 +15,30 @@ public class MePage extends VP4{
 	public static void clickLiveConfiguration_btn(){
 		iosdriver.findElement(By.className("Table")).findElements(By.className("Cell")).get(0).click();;
 	}
+	//点击-直播配置 - liceConfiguration
+	public static void clickVIPRights_btn(){
+		iosdriver.findElement(By.className("Table")).findElements(By.className("Cell")).get(1).click();;
+	}
 	//点击-二维码 -QR code
 	public static void clickQRCode_btn(){
-		iosdriver.findElement(By.className("Table")).findElements(By.className("Cell")).get(1).click();;
+		iosdriver.findElement(By.className("Table")).findElements(By.className("Cell")).get(2).click();;
 	}
 	//点击-消息-Notification
 	public static void clickNotification_btn(){
-		iosdriver.findElement(By.className("Table")).findElements(By.className("Cell")).get(2).click();;
+		iosdriver.findElement(By.className("Table")).findElements(By.className("Cell")).get(3).click();;
 	}
 	//点击-Camera
 	public static void clickCamera_btn(){
-		iosdriver.findElement(By.className("Table")).findElements(By.className("Cell")).get(3).click();;
+		iosdriver.findElement(By.className("Table")).findElements(By.className("Cell")).get(4).click();;
 	}
 	//点击-设置
 	public static void clickSetting_btn(){
-		iosdriver.findElement(By.className("Table")).findElements(By.className("Cell")).get(4).click();;
+		iosdriver.findElement(By.className("Table")).findElements(By.className("Cell")).get(5).click();;
 	}
 
 	//点击-分享
 	public static void  clickShareBtn() {
-		iosdriver.findElement(By.className("NavigationBar")).findElements(By.className("Button")).get(0).click();;
+		iosdriver.findElement(By.className("NavigationBar")).findElements(By.className("Button")).get(0).click();
 	}
 	//点击-编辑
 	public static void clickUserEdit(){
@@ -126,7 +130,7 @@ public class MePage extends VP4{
 	public static MobileElement getStaticText(){
 		//getElementByClassName("StaticText");
 		return  getElementsByClassName("StaticText").get(1);
-				
+
 	}
 	//性别设置
 	public static void clickSexMale(){

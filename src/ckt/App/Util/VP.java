@@ -386,7 +386,7 @@ public class VP extends AppiumBase {
 		iosdriver.launchApp();
 		wait(4);
 	}
-	public static void resetApp(int count){
+	public static void resetApp1(int count){
 		log("start resetApp -"+count);
 		MobileElement btnEmt;
 		boolean tag = false;
@@ -439,7 +439,7 @@ public class VP extends AppiumBase {
 			}
 			count=count+1;
 			if (!tag) {
-				resetApp(count);
+				resetApp();
 			}else {
 				log("rest App finished");
 			}

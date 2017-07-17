@@ -25,7 +25,7 @@ public class SexCase extends VP4 {
 	}
 	@BeforeMethod
 	public void BeforeTest(){
-		resetApp(0);
+		resetApp();
 		LoginAction.inLoginStatus();
 	}
 	@Test
@@ -33,7 +33,7 @@ public class SexCase extends VP4 {
 		MeAction.navToSex();
 		MePage.clickSexMale();
 		//验证是否修改成功
-		resetApp(0);
+		resetApp();
 		MeAction.navToSex();
 		Draw.takeScreenShotWithDraw("Male");
 	}
@@ -42,7 +42,7 @@ public class SexCase extends VP4 {
 		MeAction.navToSex();
 		MePage.clickSexFeMale();
 		//验证是否修改成功
-		resetApp(0);
+		resetApp();
 		MeAction.navToSex();
 		Draw.takeScreenShotWithDraw("FeMale");
 	}
@@ -51,7 +51,7 @@ public class SexCase extends VP4 {
 		MeAction.navToSex();
 		MePage.clickSexSecret();
 		//验证是否修改成功
-		resetApp(0);
+		resetApp();
 		MeAction.navToSex();
 		Draw.takeScreenShotWithDraw("secrect");
 	}

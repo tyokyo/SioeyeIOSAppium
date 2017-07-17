@@ -36,7 +36,7 @@ public class FollowingCase extends VP4{
 	}
 	@BeforeMethod
 	public void BeforeTest(){
-		resetApp(0);
+		resetApp();
 		LoginAction.inLoginStatus();
 	}
 	//取消关注
