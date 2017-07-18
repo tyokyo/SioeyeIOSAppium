@@ -239,6 +239,25 @@ public class VP4 extends VP3
 		}
 		return returnElement;
 	}
+	//根据className获取对象
+	public static List<IElement> getIElementsByClassName(String className){
+		List<IElement> returnElement=new ArrayList<IElement>();
+		List<Element> ems = getPageXmlElements();
+		List<IElement> tms = toIElements(ems);
+		for (IElement iElement : tms) {
+			String classname = iElement.getClassName();
+			System.out.println(classname);
+			if (className.equals(classname)) {
+				returnElement.add(iElement);
+			}
+		}
+		if (returnElement.size()==0) {
+			log("can not find IElement by className="+className);
+		}else {
+			log("find IElement by className="+className);
+		}
+		return returnElement;
+	}
 	public static void waitUntilTextExist(String text,int seconds){
 		long time_start = System.currentTimeMillis();
 		boolean isTerminate=false;

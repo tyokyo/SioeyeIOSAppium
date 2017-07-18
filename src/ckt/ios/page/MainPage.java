@@ -96,5 +96,6 @@ public class MainPage extends VP4{
 			log("not find value with back-click firest button");
 			getElementByClassName("NavigationBar").findElements(By.className("Button")).get(0).click();
 		}
+		wait(3);
 	}
 }

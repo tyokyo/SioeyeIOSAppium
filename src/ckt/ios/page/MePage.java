@@ -91,7 +91,7 @@ public class MePage extends VP4{
 	//帮助中心-HELP
 	public static void clickHelpHelpbtn(){
 		//clickByName("Help");
-		clickByXpath("//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[4]/XCUIElementTypeStaticText");
+		clickByXpath("//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[5]/XCUIElementTypeStaticText");
 	}
 	//关于Sioeye
 	public static void clickAboutSioeyebtn(){
@@ -178,54 +178,71 @@ public class MePage extends VP4{
 	}
 	//编辑头像-图库-选取
 	public static void avatarGalleryDoneCancel(){
-		if (classExist("Cell")) {
-			List<MobileElement> cells =getElementsByClassName("Cell");
-			int size = cells.size();
-			MobileElement cell = cells.get(size-1);		
-			cell.click();
-			wait(2);
+		for (int i = 0; i < 8; i++) {
+			if (classExist("Cell")) {
+				List<MobileElement> cells =getElementsByClassName("Cell");
+				int size = cells.size();
+				if (size>=2) {
+					MobileElement cell = cells.get(1);		
+					cell.click();
+					wait(2);
+				}else {
+					log("there is no picture to be seelcted");
+					break;
+				}
+			}
+			if (text_exist("OK")) {
+				clickByName("OK");
+			}
+			if (text_exist("Choose")) {
+				//Cancel 不选择
+				clickByName("Cancel");
+				wait(2);
+				clickByTextContains("Cancel");
+				break;
+			}
 		}
-		if (text_exist("OK")) {
-			clickByName("OK");
-		}
-		if (text_exist("Choose")) {
-			//Cancel 不选择
-			clickByName("Cancel");
-			wait(2);
-			clickByTextContains("Cancel");
-		}else {
-			avatarGalleryDoneCancel();
-		}
+		
 	}
 	//编辑头像-图库-选取
 	public static void avatarGalleryDone(){
 		log("avatarGalleryDone");
 		waitUntilFind(30, By.className("Cell"));
+		for (int i = 0; i < 10; i++) {
+			if (classExist("Cell")) {
+				List<MobileElement> cells = getElementsByClassName("Cell");
+				//选择第一个Cell
+				int size = cells.size();
+				log("Cell Size is  "+size);
+				if (size>=2) {
+					MobileElement cell = cells.get(1);		
+					cell.click();
+					wait(2);
+					//avatarGalleryDone();
+				}else {
+					log("there is no picture to be seelcted");
+					break;
+				}
+			}
+			if (text_exist("OK")) {
+				clickByName("OK");
+			}
+			if (text_exist("Choose")) {
+				//click choose
+				clickByName("Choose");
+				wait(3);
+				waitUntilGone(30,By.className("ActivityIndicator"));
+				break;
+			}
+			if (text_exist("Save")) {
+				//click choose
+				MePage.clickSaveBtn();
+				wait(3);
+				waitUntilGone(30,By.className("ActivityIndicator"));
+				break;
+			}
+		}
 		//Cell isDisplayed -= false
-		if (classExist("Cell")) {
-			List<MobileElement> cells = getElementsByClassName("Cell");
-			//选择第一个Cell
-			int size = cells.size();
-			MobileElement cell = cells.get(size-1);		
-			cell.click();
-			wait(2);
-			avatarGalleryDone();
-		}
-		if (text_exist("OK")) {
-			clickByName("OK");
-		}
-		if (text_exist("Choose")) {
-			//click choose
-			clickByName("Choose");
-			wait(3);
-			waitUntilGone(30,By.className("ActivityIndicator"));
-		}
-		if (text_exist("Save")) {
-			//click choose
-			MePage.clickSaveBtn();
-			wait(3);
-			waitUntilGone(30,By.className("ActivityIndicator"));
-		}
 	}
 	//编辑头像-图库-取消
 	public static void avatarGalleryCancel(){

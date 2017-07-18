@@ -32,7 +32,7 @@ public class DiscoverPage extends VP4 {
 	}
 	//click 主播
 	public static void clickAnchor(){
-		clickByName("anchor");
+		clickByName("About");
 		wait(3);
 	}
 	//click 主播-关注
@@ -52,7 +52,7 @@ public class DiscoverPage extends VP4 {
 		log(" click recommand follow xpath");
 		clickByXpath("//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeButton[2]");
 	}
-	
+
 	//关注  未关注状态
 	public static String getAnchorStatus(){
 		String status = "";
@@ -230,30 +230,47 @@ public class DiscoverPage extends VP4 {
 	}
 	//观看视频之后的返回动作
 	public static void watchBack(){
-		wait(3);
+		/*wait(3);
 		//有进度条-未加载完成时候
 		if (class_exist("ActivityIndicator")) {
 			//点击进度条-弹出返回按钮
 			clickByClassName("ActivityIndicator");
 		}else {
 			//点击视频播放框-弹出返回按钮
-			wait(2);
-			String videoXpath="//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther[2]";
-			String videoXpsth="//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther[2]";
-			if (xpath_exist(videoXpath)) {
-				log("click video rectange-1");
-				clickByXpath(videoXpath);
-				wait(2);
-			}else if (xpath_exist(videoXpsth)) {
-				log("click video rectange-2");
-				clickByXpath(videoXpsth);
-				wait(2);
-			}
+			
 			//clickByXpath("//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther[2]");			
 		}
-		wait(2);
-		clickByXpath("//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeButton[1]");
+		//iosdriver.findElement(By.xpath("//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeButton")).click();
 		//getElementBySubXpath(getElementByClassName("NavigationBar"), "/XCUIElementTypeButton[1]").click();
+*/		
+	
+		/*int h = (int)getIElementByClassName("XCUIElementTypeStatusBar").getHeight();
+		clickPoint(1, 20, 20+h, 0);
+		wait(2);
+		clickPoint(1, 20, 20+h, 0);
+		wait(2);*/
+		
+		wait(2);
+		String discoverPopularPlayWindow ="//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther";
+		String meVideosPlayWindow=discoverPopularPlayWindow;
+		String discoverNewPlayWindow=discoverPopularPlayWindow;
+		String watchPlayWindow=discoverPopularPlayWindow;
+		String meFollowingPlayWindow="//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther";
+		String meFollowerPlayWindow=meFollowingPlayWindow;
+		String liveStoppedXpath="xpath	//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[3]";
+		
+		if (xpath_exist(discoverPopularPlayWindow)) {
+			log("click video window");
+			clickByXpath(discoverPopularPlayWindow);
+			String backXpath=String.format("%s//XCUIElementTypeOther[1]/XCUIElementTypeButton[1]", discoverPopularPlayWindow);
+			clickByXpath(backXpath);
+		}
+		if (xpath_exist(meFollowingPlayWindow)) {
+			log("click video window");
+			clickByXpath(discoverPopularPlayWindow);
+			String backXpath=String.format("%s//XCUIElementTypeOther[1]/XCUIElementTypeButton[1]", meFollowingPlayWindow);
+			clickByXpath(backXpath);
+		}
 		wait(4);
 	}
 	public static void clickZan(){
@@ -325,5 +342,5 @@ public class DiscoverPage extends VP4 {
 			wait(5);
 		}
 	}
-	
+
 }

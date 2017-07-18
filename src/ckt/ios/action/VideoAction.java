@@ -74,7 +74,18 @@ public class VideoAction extends VP4{
 		VideoPage.swipToLeftMore(cellEem);
 		VideoPage.clickModifyVideoTitle();
 		String titleInput= getRandomString(8);
-		setText(getElementByClassName("TextField"),titleInput);
+		waitUntilByFind(By.className("Alert"), 10);
+		List<IElement> listEms =getIElementsByClassName("XCUIElementTypeTextField");
+		IElement textElement=null;
+		for (IElement iElement : listEms) {
+			System.out.println(iElement.getXpath());
+			if (iElement.getXpath().contains("Alert")) {
+				textElement=iElement;
+				break;
+			}
+		}
+		MobileElement mElement =IElementToMobileElement(textElement);
+		setText(mElement,titleInput);
 		clickOk();
 		wait(5);
 		waitUntilFind(10, By.name(titleInput));
@@ -84,10 +95,20 @@ public class VideoAction extends VP4{
 		VideoPage.swipToLeftMore(cellEem);
 		VideoPage.clickModifyVideoTitle();
 		String titleInput= getRandomString(8);
-		setText(getElementByClassName("TextField"),titleInput);
+		waitUntilByFind(By.className("Alert"), 10);
+		List<IElement> listEms =getIElementsByClassName("XCUIElementTypeTextField");
+		IElement textElement=null;
+		for (IElement iElement : listEms) {
+			System.out.println(iElement.getXpath());
+			if (iElement.getXpath().contains("Alert")) {
+				textElement=iElement;
+				break;
+			}
+		}
+		MobileElement mElement =IElementToMobileElement(textElement);
+		setText(mElement,titleInput);
 		clickCancel();
 		wait(5);
-		waitUntilFind(10, By.name(titleInput));
 		return titleInput;
 	}
 	public static void clickOk(){
@@ -103,6 +124,7 @@ public class VideoAction extends VP4{
 			wait(2);
 		}
 	}
+	//直播间获取观看数
 	public static int getAnchorWatchCount(){
 		//主播
 		DiscoverPage.clickAnchor();
@@ -112,6 +134,7 @@ public class VideoAction extends VP4{
 		int afterWatch = DiscoverPage.kToInt(afterString);
 		return afterWatch;
 	}
+	//直播间获取点赞数
 	public static int getAnchorLikeCount(){
 		//主播
 		DiscoverPage.clickAnchor();
@@ -122,6 +145,7 @@ public class VideoAction extends VP4{
 		DiscoverPage.clickRoom();
 		return afterWatch;
 	}
+	//直播间获取评论数
 	public static int getAnchorCommentCount(){
 		//主播
 		DiscoverPage.clickAnchor();

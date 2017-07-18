@@ -46,7 +46,7 @@ public class VP extends AppiumBase {
 		}
 	}
 	public static void waitUntilFind(By by,int seconds){
-		log(String.format("waitUntilFind %d",seconds ));
+		log(String.format("waitUntilFind-%s in  %d seconds",by.toString(),seconds ));
 		try {
 			WebDriverWait wait = new WebDriverWait(iosdriver, seconds);
 			wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(by));
@@ -57,7 +57,7 @@ public class VP extends AppiumBase {
 		}
 	}
 	public static void waitUntilByFind(By by,int seconds){
-		log(String.format("waitUntilFind in  %d seconds",seconds ));
+		log(String.format("waitUntilFind-%s in  %d seconds",by.toString(),seconds ));
 		try {
 			WebDriverWait wait = new WebDriverWait(iosdriver, seconds);
 			wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(by));
@@ -68,7 +68,7 @@ public class VP extends AppiumBase {
 		}
 	}
 	public static void waitUntilByNotFind(By by,int seconds){
-		log(String.format("waitUntilByNotFind in %d secods",seconds));
+		log(String.format("waitUntilByNotFind- %s in  %d seconds",by.toString(),seconds ));
 		long start = System.currentTimeMillis();
 		boolean timeout=false;
 		while(!timeout){
@@ -92,7 +92,7 @@ public class VP extends AppiumBase {
 		}
 	}
 	public static void waitUntilGone(int watiTime, By by){
-		Log.info(String.format("start to wait element Gone %s",by));
+		log(String.format("waitUntilGone- %s in  %d seconds",by.toString(),watiTime));
 		for (int i = 1; i <=watiTime; i++) {
 			try {
 				iosdriver.findElement(by);
@@ -343,10 +343,21 @@ public class VP extends AppiumBase {
 		}
 		return exist ;
 	}
+	/** 
+	 *  
+	 * @param finger     点击次数 1
+ 	 * @param duration 点击时间 0
+	 * @param x 坐标
+	 * @param y 坐标
+	 * @deprecated  clickPoint(1,10,20,0)
+	 */  
+	public static void clickPoint(int finger,int x,int y,int duration){
+		System.out.println(String.format("click x=%d,y=%d", x,y));
+		iosdriver.tap(finger, x, y, duration);
+	}
 	public static void wait(int time){
 		try {
-			Thread.currentThread();
-			Thread.sleep(time*1000);
+			TimeUnit.SECONDS.sleep(time);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -382,6 +393,7 @@ public class VP extends AppiumBase {
 		return sb.toString();
 	}
 	public static void resetApp(){
+		log("Restart App");
 		iosdriver.closeApp();
 		iosdriver.launchApp();
 		wait(4);

@@ -27,7 +27,8 @@ public class FollowerPage extends VP4{
 		return can;
 	}
 	public static String getFollowName(MobileElement cell){
-		String name = cell.findElement(By.className("StaticText")).getText();
+		//String name = cell.findElement(By.className("StaticText")).getText();
+		String name = cell.findElement(By.className("TextField")).getText();
 		log("add follow - "+name);
 		return name;
 	}
@@ -68,7 +69,10 @@ public class FollowerPage extends VP4{
 			List<MobileElement> enableCells = getAllEnableCells();
 			for (MobileElement mobileElement : enableCells) {
 				if (canFollow(mobileElement)==status) {
-					log("find element with "+mobileElement.findElement(By.className("StaticText")).getText());
+					String video = mobileElement.findElement(By.className("StaticText")).getText();
+					String title = mobileElement.findElement(By.className("TextField")).getText();
+					log("find element with title - "+title);
+					log("find element with video - "+video);
 					exit=true;
 					element= mobileElement;
 					break;
@@ -100,13 +104,14 @@ public class FollowerPage extends VP4{
 			List<MobileElement> enableCells = getAllEnableCells();
 			for (MobileElement mobileElement : enableCells) {
 				if (canFollow(mobileElement)==status) {
-					List<MobileElement> statisTexts = mobileElement.findElements(By.className("StaticText"));
-					String video = statisTexts.get(1).getText();
+					String video = mobileElement.findElement(By.className("StaticText")).getText();
+					String title = mobileElement.findElement(By.className("TextField")).getText();
+					//获取字符串，类似Follower 2  Video 14
 					if (!video.contains("Video 0")) {
 						exit=true;
 						element= mobileElement;
-						log("find element with  text-"+statisTexts.get(0).getText());
-						log("find element with wieo-"+video);
+						log("find element with  title-"+title);
+						log("find element with video-"+video);
 						break;
 					}
 				}

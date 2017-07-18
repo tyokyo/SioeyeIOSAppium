@@ -20,7 +20,7 @@ import ckt.ios.page.DiscoverPage;
 import ckt.ios.page.MainPage;
 import ckt.ios.page.VideoPage;
 /*直播*/
-public class VideoCase extends VP4{
+public class VideosCase extends VP4{
 	@BeforeSuite
 	public void BeforeSuite() throws MalformedURLException {
 		startAppium();
@@ -96,6 +96,7 @@ public class VideoCase extends VP4{
 		//验证评论数+1
 		Assert.assertEquals(commentAfter, commentBefore+1,"comment count +1");
 	}
+	//评论(内容，评论数+1)-直播间评论数+1
 	@Test
 	public void testCommentsView(){
 		VideoAction.navToVideo();
@@ -113,7 +114,7 @@ public class VideoCase extends VP4{
 		MainPage.clickSend();
 		DiscoverPage.clickVieNewMessage();
 		
-		//获取评论数
+		//进入直播间获取评论数
 		int commentAfter =VideoAction.getAnchorCommentCount();
 		DiscoverPage.watchBack();
 		
@@ -142,7 +143,7 @@ public class VideoCase extends VP4{
 		//验证观看数目+1
 		Assert.assertEquals(zanAfter, zanBefore+1,"like video +1");
 	}
-	//点赞-观看页面点赞数+1
+	//点赞-直播间观看数目+1
 	@Test
 	public void testZanView(){
 		VideoAction.navToVideo();

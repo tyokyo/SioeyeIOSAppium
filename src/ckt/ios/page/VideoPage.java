@@ -57,7 +57,7 @@ public class VideoPage  extends VP4{
 		clickByName("More");
 	}
 	public static void clickLive_btn(){
-		//clickByName("Video");
+		//clickByName("Videos");
 		clickByXpath("//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeButton[1]");
 	}
 	public static void clickSettingCoverPlot(){
@@ -75,6 +75,7 @@ public class VideoPage  extends VP4{
 		IElement cellEem = DiscoverPage.getFirstCell();
 		return cellEem;
 	}
+	//获取直播标题
 	public static String  getLiveTitle(IElement cellEem){
 		String cellpath=cellEem.getXpath();
 		String titlepath = cellpath+"/XCUIElementTypeStaticText[1]";
@@ -82,22 +83,24 @@ public class VideoPage  extends VP4{
 		log("title - "+title);
 		return title;
 	}
+	//获取直播观看数目
 	public static int  getLiveWatchCount(IElement cellEem){
 		String cellpath=cellEem.getXpath();
-		String watchpath = cellpath+"/XCUIElementTypeStaticText[4]";
+		String watchpath = cellpath+"/XCUIElementTypeStaticText[3]";
 		String watch = getElementByXpath(watchpath).getText();
 		log("watch-"+watch);
 		return Integer.parseInt(watch);
 	}
+	//获取直播点赞数目
 	public static int  getLiveLikeCount(IElement cellEem){
 		String cellpath=cellEem.getXpath();
-		String likepath = cellpath+"/XCUIElementTypeStaticText[5]";
+		String likepath = cellpath+"/XCUIElementTypeStaticText[4]";
 		String like = getElementByXpath(likepath).getText();
 		return Integer.parseInt(like);
 	}
 	public static int  getLiveCommentCount(IElement cellEem){
 		String cellpath=cellEem.getXpath();
-		String commentpath = cellpath+"/XCUIElementTypeStaticText[6]";
+		String commentpath = cellpath+"/XCUIElementTypeStaticText[5]";
 		String comment = getElementByXpath(commentpath).getText(); 
 		return Integer.parseInt(comment);
 	}

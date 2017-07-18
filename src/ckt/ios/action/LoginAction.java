@@ -11,7 +11,7 @@ import ckt.ios.page.MainPage;
 public class LoginAction extends VP {
 	//是否是处于登录状态
 	public static boolean isLogin(){
-		waitUntilFind(By.name("Sioeye"), 15);
+		waitUntilFind(By.name("Me"), 15);
 		MainPage.clickMe_btn();
 		boolean logintStatus=true;
 		if (text_exist("Log in")) {
