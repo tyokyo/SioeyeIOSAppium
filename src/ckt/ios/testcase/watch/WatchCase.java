@@ -1,15 +1,18 @@
 package ckt.ios.testcase.watch;
 import java.net.MalformedURLException;
+
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
 import ckt.App.Util.IElement;
 import ckt.App.Util.VP4;
 import ckt.ios.action.DiscoverAction;
 import ckt.ios.action.LoginAction;
+import ckt.ios.action.VideoAction;
 import ckt.ios.page.DiscoverPage;
 import ckt.ios.page.MainPage;
 
@@ -84,23 +87,18 @@ public class WatchCase extends VP4 {
 		IElement cellEem = DiscoverPage.getCell();
 		String beforeString=DiscoverPage.getWatchCount(cellEem.getXpath());
 		log(beforeString);
-		int beforeWatch = DiscoverPage.kToInt(beforeString);
+		int expectWatch = DiscoverPage.kToInt(beforeString);
 		
 		cellEem.click();
 		waitUntilGone(30,By.className("ActivityIndicator"));
 		//主播
-		DiscoverPage.clickAnchor();
-		
-		String roomXpath = DiscoverPage.getCharRoom().getXpath();
-		
-		String afterString=DiscoverPage.getHomeWatchCount(roomXpath);
-		log(afterString);
-		int afterWatch = DiscoverPage.kToInt(afterString);
+		int activeWatch=VideoAction.getAnchorWatchCount();
+		log("activeWatch-"+activeWatch);
 
 		DiscoverPage.watchBack();
 		
-		if (beforeWatch<1000) {
-			Assert.assertEquals(afterWatch, beforeWatch+1,"Anchor watch video count + 1 ");
+		if (activeWatch<1000) {
+			Assert.assertEquals(activeWatch, expectWatch+1,"Anchor watch video count + 1 ");
 		}
 	}
 	/*主页，观看视频-点赞-主播-点赞数+1*/
@@ -109,26 +107,24 @@ public class WatchCase extends VP4 {
 		IElement cellEem = DiscoverPage.getCell();
 		
 		String beforeString=DiscoverPage.getZanCount(cellEem.getXpath());
-		log(beforeString);
-		int beforeZan = DiscoverPage.kToInt(beforeString);
+		int expectZan = DiscoverPage.kToInt(beforeString);
+		log("expectZan-"+expectZan);
 		
 		cellEem.click();
 		waitUntilGone(30,By.className("ActivityIndicator"));
 		DiscoverAction.waitForConnect();
 		DiscoverPage.clickZan();
 		//主播
-		DiscoverPage.clickAnchor();
-		String roomXpath = DiscoverPage.getCharRoom().getXpath();
-		
-		String afterString=DiscoverPage.getHomeZanCount(roomXpath);
-		log(afterString);
-		int afterZan = DiscoverPage.kToInt(beforeString);
+		int activeZan=VideoAction.getAnchorLikeCount();
+		log("activeZan-"+activeZan);
+
 		
 		DiscoverPage.watchBack();
-		if (beforeZan<1000) {
-			Assert.assertEquals(afterZan, beforeZan+1,"room  video zan  count + 1 ");
+		if (expectZan<1000) {
+			Assert.assertEquals(activeZan, expectZan+1,"room  video zan  count + 1 ");
 		}
 	}
+	/*测试评论内容*/
 	@Test
 	public void testComments(){
 		IElement cellEem = DiscoverPage.getCell();

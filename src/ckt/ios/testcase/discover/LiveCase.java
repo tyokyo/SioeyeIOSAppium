@@ -15,6 +15,7 @@ import ckt.App.Util.IElement;
 import ckt.App.Util.VP4;
 import ckt.ios.action.DiscoverAction;
 import ckt.ios.action.LoginAction;
+import ckt.ios.action.VideoAction;
 import ckt.ios.page.DiscoverPage;
 import ckt.ios.page.MainPage;
 
@@ -23,7 +24,7 @@ public class LiveCase extends VP4 {
 	public void BeforeSuite() throws MalformedURLException {
 		startAppium();
 	}
-    
+
 	@AfterSuite
 	public void AfterSuite() {
 		stopAppium();
@@ -41,13 +42,13 @@ public class LiveCase extends VP4 {
 		String beforeString=DiscoverPage.getWatchCount(cellEem.getXpath());
 		log(beforeString);
 		int beforeWatch = DiscoverPage.kToInt(beforeString);
-		
+
 		cellEem.click();
 		wait(6);
 		waitUntilGone(30,By.className("ActivityIndicator"));
 
-		DiscoverPage.watchBack();
-		
+		DiscoverPage.watchBackDsicover();
+
 		String afterString=DiscoverPage.getWatchCount(cellEem.getXpath());
 		log(beforeString);
 		int afterWatch = DiscoverPage.kToInt(afterString);
@@ -59,22 +60,22 @@ public class LiveCase extends VP4 {
 	@Test
 	public void testClickZan(){
 		IElement cellEem = DiscoverPage.getCell();
-		
+
 		String beforeString=DiscoverPage.getZanCount(cellEem.getXpath());
 		log(beforeString);
 		int beforeWatch = DiscoverPage.kToInt(beforeString);
-		
+
 		cellEem.click();
 		wait(6);
 		waitUntilGone(30,By.className("ActivityIndicator"));
 		DiscoverAction.waitForConnect();
 		DiscoverPage.clickZan();
 
-		DiscoverPage.watchBack();
+		DiscoverPage.watchBackDsicover();
 		String afterString=DiscoverPage.getZanCount(cellEem.getXpath());
 		log(afterString);
 		int afterWatch = DiscoverPage.kToInt(afterString);
-		
+
 		if (beforeWatch<1000) {
 			Assert.assertEquals(afterWatch, beforeWatch+1,"zan video");
 		}
@@ -84,50 +85,38 @@ public class LiveCase extends VP4 {
 	public void testHomeWatchVideo(){
 		IElement cellEem = DiscoverPage.getCell();
 		String beforeString=DiscoverPage.getWatchCount(cellEem.getXpath());
-		log(beforeString);
-		int beforeWatch = DiscoverPage.kToInt(beforeString);
+		int expectWatch = DiscoverPage.kToInt(beforeString);
+		log("expect-watch is-"+expectWatch);
 		
 		cellEem.click();
 		waitUntilGone(30,By.className("ActivityIndicator"));
-		//主播
-		DiscoverPage.clickAnchor();
-		
-		String roomXpath = DiscoverPage.getCharRoom().getXpath();
-		
-		String afterString=DiscoverPage.getHomeWatchCount(roomXpath);
-		log(afterString);
-		int afterWatch = DiscoverPage.kToInt(afterString);
+		//主播页面显示的观看数
+		int activeWatch=VideoAction.getAnchorWatchCount();
+		log("active-watch is-"+activeWatch);
+		DiscoverPage.watchBackDsicover();
 
-		DiscoverPage.watchBack();
-		
-		if (beforeWatch<1000) {
-			Assert.assertEquals(afterWatch, beforeWatch+1,"Anchor watch video count + 1 ");
+		if (activeWatch<1000) {
+			Assert.assertEquals(activeWatch, expectWatch+1,"Anchor watch video count + 1 ");
 		}
 	}
 	/*主页，观看视频-点赞-主播-点赞数+1*/
 	@Test
 	public void testHomeClickZan(){
 		IElement cellEem = DiscoverPage.getCell();
-		
+		//主页显示的点赞数
 		String beforeString=DiscoverPage.getZanCount(cellEem.getXpath());
-		log(beforeString);
-		int beforeZan = DiscoverPage.kToInt(beforeString);
-		
+		int expectZan = DiscoverPage.kToInt(beforeString);
+		log("expect-zan is-"+expectZan);
 		cellEem.click();
 		waitUntilGone(30,By.className("ActivityIndicator"));
 		DiscoverAction.waitForConnect();
 		DiscoverPage.clickZan();
-		//主播
-		DiscoverPage.clickAnchor();
-		String roomXpath = DiscoverPage.getCharRoom().getXpath();
-		
-		String afterString=DiscoverPage.getHomeZanCount(roomXpath);
-		log(afterString);
-		int afterZan = DiscoverPage.kToInt(beforeString);
-		
-		DiscoverPage.watchBack();
-		if (beforeZan<1000) {
-			Assert.assertEquals(afterZan, beforeZan+1,"room  video zan  count + 1 ");
+		//主播页面显示的点赞数
+		int activeZan=VideoAction.getAnchorLikeCount();
+		log("active-zan is-"+activeZan);
+		DiscoverPage.watchBackDsicover();
+		if (activeZan<1000) {
+			Assert.assertEquals(activeZan, expectZan+1,"room  video zan  count + 1 ");
 		}
 	}
 	@Test
@@ -143,6 +132,6 @@ public class LiveCase extends VP4 {
 		MainPage.clickSend();
 		DiscoverPage.clickVieNewMessage();
 		Assert.assertEquals(text_exist(cmt), true,"New message at the bottom");
-		DiscoverPage.watchBack();
+		DiscoverPage.watchBackDsicover();
 	}
 }

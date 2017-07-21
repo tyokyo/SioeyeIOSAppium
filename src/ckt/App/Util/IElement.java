@@ -64,6 +64,11 @@ public class IElement {
 	}
 		@Override
 	public String toString() {
+			System.out.println("IElement [className=" + className + ", name=" + name
+				+ ", label=" + label + ", value=" + value + ", enabled="
+				+ enabled + ", visible=" + visible + ", xpath=" + xpath
+				+ ", x=" + x + ", y=" + y + ", width=" + width + ", height="
+				+ height + "]");
 		return "IElement [className=" + className + ", name=" + name
 				+ ", label=" + label + ", value=" + value + ", enabled="
 				+ enabled + ", visible=" + visible + ", xpath=" + xpath

@@ -20,7 +20,16 @@ public class FollowerAction extends VP4{
 		List<MobileElement> cells = collectionViewElement.findElements(By.className("Cell"));
 		if (cells.size()>=1) {
 			log("find video");
-			videoElement = cells.get(0);
+			//获取不是预定直播间的直播间,如果属于预定直播间，视频将不能播放
+			for (MobileElement mobileElement : cells) {
+				try {
+					mobileElement.findElement(By.name("LiveConfigLiveRoomRoom"));
+				} catch (Exception e) {
+					// TODO: handle exception
+					videoElement=mobileElement;
+					break;
+				}
+			}
 		}
 		return videoElement;
 	}

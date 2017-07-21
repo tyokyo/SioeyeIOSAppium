@@ -25,7 +25,7 @@ import ckt.ios.page.DiscoverPage;
 /**
  * Created by user on 2016/11/05   .
  */
-public class RecommendCase extends VP4 {
+public class PopularCase extends VP4 {
 	@BeforeSuite
 	public void BeforeSuite() throws MalformedURLException {
 		startAppium();

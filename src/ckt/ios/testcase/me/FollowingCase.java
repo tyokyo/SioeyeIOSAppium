@@ -84,7 +84,7 @@ public class FollowingCase extends VP4{
 				DiscoverPage.clickVieNewMessage();
 				Assert.assertEquals(text_exist(cmt), true,"New message at the bottom");
 				//返回
-				DiscoverPage.watchBack();
+				DiscoverPage.watchBackFollowering();
 			}
 		}
 	}
@@ -109,7 +109,7 @@ public class FollowingCase extends VP4{
 				//点赞
 				DiscoverPage.clickZan();
 				//返回
-				DiscoverPage.watchBack();
+				DiscoverPage.watchBackFollowering();
 			}
 		}
 	}

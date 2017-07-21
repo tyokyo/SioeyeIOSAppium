@@ -236,6 +236,7 @@ public class DiscoverCase extends VP4 {
 		if (rmdList.size()>=1) {
 			MobileElement cell = rmdList.get(0);
 			String name = DiscoverPage.getRecommandName(cell);
+			log("name is - "+name);
 			cell.click();
 			waitUntilByFind(By.name(name), 10);
 			boolean logIn = text_exist(name);
@@ -272,6 +273,7 @@ public class DiscoverCase extends VP4 {
 			String name = DiscoverPage.getRecommandName(select);
 			DiscoverPage.clickRecommandFollow();
 			resetApp();
+			//刷新列表
 			DiscoverPage.fresh();
 			waitUntilByNotFind(By.name(name), 30);
 			//check 
@@ -397,7 +399,7 @@ public class DiscoverCase extends VP4 {
 		DiscoverPage.deleteInput();
 		element = getElementByClassName("SearchField");
 
-		Assert.assertEquals(element.getText()+"","null","delete success");
+		Assert.assertEquals(element.getText()+"","Search","delete success");
 		DiscoverPage.clickCancel();
 	}
 

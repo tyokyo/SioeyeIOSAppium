@@ -128,33 +128,31 @@ public class VideoAction extends VP4{
 	public static int getAnchorWatchCount(){
 		//主播
 		DiscoverPage.clickAnchor();
-		String roomXpath = DiscoverPage.getCharRoom().getXpath();
-		String afterString=DiscoverPage.getHomeWatchCount(roomXpath);
-		log("watch count -  "+afterString);
-		int afterWatch = DiscoverPage.kToInt(afterString);
+		String watchCount = getElementByClassName("ScrollView").findElements(By.className("StaticText")).get(1).getText();
+		log("Watch count -  "+watchCount);
+		int afterWatch = DiscoverPage.kToInt(watchCount);
+		DiscoverPage.clickRoom();
 		return afterWatch;
 	}
 	//直播间获取点赞数
 	public static int getAnchorLikeCount(){
 		//主播
 		DiscoverPage.clickAnchor();
-		String roomXpath = DiscoverPage.getCharRoom().getXpath();
-		String afterString=DiscoverPage.getHomeZanCount(roomXpath);
-		log("like count -  "+afterString);
-		int afterWatch = DiscoverPage.kToInt(afterString);
+		String zanCount = getElementByClassName("ScrollView").findElements(By.className("StaticText")).get(2).getText();
+		log("Zan count -  "+zanCount);
+		int zanNumber = DiscoverPage.kToInt(zanCount);
 		DiscoverPage.clickRoom();
-		return afterWatch;
+		return zanNumber;
 	}
 	//直播间获取评论数
 	public static int getAnchorCommentCount(){
 		//主播
 		DiscoverPage.clickAnchor();
-		String roomXpath = DiscoverPage.getCharRoom().getXpath();
-		String afterString=DiscoverPage.getHomeCommentCount(roomXpath);
-		log("comment count -  "+afterString);
-		int afterWatch = DiscoverPage.kToInt(afterString);
+		String commentCount = getElementByClassName("ScrollView").findElements(By.className("StaticText")).get(3).getText();
+		log("Zan count -  "+commentCount);
+		int commentNumber = DiscoverPage.kToInt(commentCount);
 		DiscoverPage.clickRoom();
-		return afterWatch;
+		return commentNumber;
 	}
 	public static void navToVideo(){
 		MainPage.clickMe_btn();

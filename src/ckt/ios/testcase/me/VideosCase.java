@@ -46,7 +46,7 @@ public class VideosCase extends VP4{
 
 		waitUntilGone(30,By.className("ActivityIndicator"));
 		//返回
-		DiscoverPage.watchBack();
+		DiscoverPage.watchBackVideos();
 		//刷新
 		VideoPage.slipeToRefresh();
 		int watchAfter = VideoPage.getLiveWatchCount(cellEem);
@@ -65,7 +65,7 @@ public class VideosCase extends VP4{
 		waitUntilGone(30,By.className("ActivityIndicator"));
 		//获取观看数
 		int watchAfter =VideoAction.getAnchorWatchCount();
-		DiscoverPage.watchBack();
+		DiscoverPage.watchBackVideos();
 		//观看数+1
 		Assert.assertEquals(watchAfter, watchBefore+1,"watch video +1");
 	}
@@ -88,7 +88,7 @@ public class VideosCase extends VP4{
 		DiscoverPage.clickVieNewMessage();
 		
 		//返回
-		DiscoverPage.watchBack();
+		DiscoverPage.watchBackVideos();
 		//刷新
 		VideoPage.slipeToRefresh();
 		//获取评论数
@@ -116,7 +116,7 @@ public class VideosCase extends VP4{
 		
 		//进入直播间获取评论数
 		int commentAfter =VideoAction.getAnchorCommentCount();
-		DiscoverPage.watchBack();
+		DiscoverPage.watchBackVideos();
 		
 		//验证评论数+1
 		Assert.assertEquals(commentAfter, commentBefore+1,"comment count +1");
@@ -135,7 +135,7 @@ public class VideosCase extends VP4{
 		//点赞
 		DiscoverPage.clickZan();
 		//返回
-		DiscoverPage.watchBack();
+		DiscoverPage.watchBackVideos();
 		//刷新
 		VideoPage.slipeToRefresh();
 		//获取点赞数
@@ -158,7 +158,7 @@ public class VideosCase extends VP4{
 		DiscoverPage.clickZan();
 		//获取点赞数
 		int watchAfter =VideoAction.getAnchorLikeCount();
-		DiscoverPage.watchBack();
+		DiscoverPage.watchBackVideos();
 		//观看数+1
 		Assert.assertEquals(watchAfter, watchBefore+1,"like count +1");
 	}

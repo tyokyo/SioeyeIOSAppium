@@ -37,7 +37,7 @@ public class QrCase extends VP4{
 		MeAction.navToQrCode();
 		Draw.takeScreenShot();
 		String qr = MePage.getStaticText().getText();
-		Assert.assertEquals(qr, "Scan QR code to synchronize the sioeye account.","qr message");
+		Assert.assertEquals(qr, "Scan with camera to synchronize with your Sioeye account","qr message");
 	}
 	
 }

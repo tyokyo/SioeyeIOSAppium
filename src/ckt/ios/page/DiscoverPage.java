@@ -9,9 +9,12 @@ import java.util.regex.Pattern;
 import org.dom4j.Element;
 import org.openqa.selenium.By;
 
+import com.sun.javafx.scene.traversal.Direction;
+
 import ckt.App.Util.IElement;
 import ckt.App.Util.Log;
 import ckt.App.Util.VP4;
+import ckt.ios.action.MainAction;
 
 public class DiscoverPage extends VP4 {
 	//处理观看数和点赞数K的情况
@@ -33,6 +36,8 @@ public class DiscoverPage extends VP4 {
 	//click 主播
 	public static void clickAnchor(){
 		clickByName("About");
+		MobileElement element = getElementByClassName("ScrollView");
+		swipeToEnd(element);
 		wait(3);
 	}
 	//click 主播-关注
@@ -50,7 +55,12 @@ public class DiscoverPage extends VP4 {
 	//推荐-关注
 	public static void clickRecommandFollow(){
 		log(" click recommand follow xpath");
-		clickByXpath("//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeButton[2]");
+		String xpath = "//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeButton";
+		clickByXpath(xpath);
+		waitUntilByNotFind(By.xpath(xpath), 5);
+		MainAction.navToDiscover();
+		wait(5);
+		DiscoverPage.fresh();
 	}
 
 	//关注  未关注状态
@@ -71,22 +81,34 @@ public class DiscoverPage extends VP4 {
 		clickByName("chat room");
 	}
 	public static IElement  getCharRoom(){
-		List<MobileElement> ems = getElementsByClassName("ScrollView");
+		/*List<MobileElement> ems = getElementsByClassName("ScrollView");
 		int size = ems.size();
-		MobileElement sElement = (MobileElement)ems.get(size-1);
-		return MobileElementToIElement(sElement);
+		MobileElement sElement = (MobileElement)ems.get(size-1);*/
+		IElement element =getIElementByName("XCUIElementTypeScrollView");
+		return element;
 	}
-	public static IElement  getCell(){
-		int h = iosdriver.manage().window().getSize().height;
+	//Discover-New
+	public static IElement  getNewCell(){
+		IElement findeElement = null;
+		List<IElement> elements = getIElementsByClassName("XCUIElementTypeCollectionView");
+		IElement maxElement=null;
+		for (IElement iElement : elements) {
+			System.out.println(iElement.getXpath());
+		}
+		
+		/*int h = iosdriver.manage().window().getSize().height;
 		int w = iosdriver.manage().window().getSize().width;
 		IElement findeElement = null;
 		swipeToUp(iosdriver, 1000, 5);
+		//获取xml所有元素
 		List<Element> ems = getPageXmlElements();
+		//转化为IElement
 		List<IElement> tms = toIElements(ems);
 		for (IElement iElement : tms) {
 			if ("XCUIElementTypeCell".equals(iElement.getClassName())) {
 				int x =(int)iElement.getX();
 				int y =(int)iElement.getY();
+				//查找的Cell可见
 				if (0<=x &&x<=h) {
 					if (0<=y &&y<=w) {
 						String xpath = iElement.getXpath();
@@ -98,6 +120,47 @@ public class DiscoverPage extends VP4 {
 							i++;  
 						}  
 						//XCUIElementTypeCollectionView 下第一级的Cell
+						//之所以要做次判断，动画界面也属于Cell
+						//xpath中只有一个XCUIElementTypeCollectionView
+						if (i==1) {
+							System.out.println(iElement.getXpath());
+							findeElement =iElement;
+							break;
+						}
+					}
+				}
+			}
+		}*/
+		return findeElement;
+	}
+	//获取界面上显示的一个Cell
+	public static IElement  getCell(){
+		int h = iosdriver.manage().window().getSize().height;
+		int w = iosdriver.manage().window().getSize().width;
+		IElement findeElement = null;
+		swipeToUp(iosdriver, 1000, 5);
+		//获取xml所有元素
+		List<Element> ems = getPageXmlElements();
+		//转化为IElement
+		List<IElement> tms = toIElements(ems);
+		for (IElement iElement : tms) {
+			if ("XCUIElementTypeCell".equals(iElement.getClassName())) {
+				int x =(int)iElement.getX();
+				int y =(int)iElement.getY();
+				//查找的Cell可见
+				if (0<=x &&x<=h) {
+					if (0<=y &&y<=w) {
+						String xpath = iElement.getXpath();
+						String regEx="XCUIElementTypeCollectionView"; 
+						Pattern p = Pattern.compile(regEx);  
+						Matcher m = p.matcher(xpath);  
+						int i = 0;  
+						while(m.find()){  
+							i++;  
+						}  
+						//XCUIElementTypeCollectionView 下第一级的Cell
+						//之所以要做次判断，动画界面也属于Cell
+						//xpath中只有一个XCUIElementTypeCollectionView
 						if (i==1) {
 							System.out.println(iElement.getXpath());
 							findeElement =iElement;
@@ -174,7 +237,7 @@ public class DiscoverPage extends VP4 {
 			return null;
 		}
 	}
-
+	//discover 页面点赞数
 	public static String getZanCount(String cellpath){
 		String zanSubXpath2 = "/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]/XCUIElementTypeStaticText";
 		String zanSubXpath3 = "/XCUIElementTypeOther[3]/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]/XCUIElementTypeStaticText";
@@ -229,6 +292,50 @@ public class DiscoverPage extends VP4 {
 		}
 	}
 	//观看视频之后的返回动作
+	public static void watchBackVideos(){
+		wait(2);
+		String videosXpathWindow="//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther";
+		if (xpath_exist(videosXpathWindow)) {
+			log("click video window-videosXpathWindow");
+			clickByXpath(videosXpathWindow);
+			String backXpath=String.format("%s//XCUIElementTypeOther[1]/XCUIElementTypeButton[1]", videosXpathWindow);
+			log("click video window-videos-back-button");
+			clickByXpath(backXpath);
+		}
+		wait(2);
+	}
+	//观看视频之后的返回动作
+	public static void watchBackFollowering(){
+		wait(2);
+		String videosXpathWindow="//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther";
+		if (xpath_exist(videosXpathWindow)) {
+			log("click video window-videosXpathWindow");
+			clickByXpath(videosXpathWindow);
+			String backXpath=String.format("%s//XCUIElementTypeOther[1]/XCUIElementTypeButton[1]", videosXpathWindow);
+			log("click video window-videos-back-button");
+			clickByXpath(backXpath);
+		}
+		wait(2);
+	}
+	//观看视频之后的返回动作
+	public static void watchBackFollowers(){
+		watchBackFollowering();
+	}
+	//观看视频之后的返回动作
+	public static void watchBackDsicover(){
+		wait(2);
+		String XpathWindow="//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther";
+		if (xpath_exist(XpathWindow)) {
+			log("click video window-videosXpathWindow");
+			clickByXpath(XpathWindow);
+			String backXpath=String.format("%s//XCUIElementTypeOther[1]/XCUIElementTypeButton[1]", XpathWindow);
+			log("click video window-videos-back-button");
+			clickByXpath(backXpath);
+		}
+		wait(2);
+	}
+	
+	//观看视频之后的返回动作
 	public static void watchBack(){
 		/*wait(3);
 		//有进度条-未加载完成时候
@@ -237,40 +344,41 @@ public class DiscoverPage extends VP4 {
 			clickByClassName("ActivityIndicator");
 		}else {
 			//点击视频播放框-弹出返回按钮
-			
+
 			//clickByXpath("//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther[2]");			
 		}
 		//iosdriver.findElement(By.xpath("//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeButton")).click();
 		//getElementBySubXpath(getElementByClassName("NavigationBar"), "/XCUIElementTypeButton[1]").click();
-*/		
-	
+		 */		
+
 		/*int h = (int)getIElementByClassName("XCUIElementTypeStatusBar").getHeight();
 		clickPoint(1, 20, 20+h, 0);
 		wait(2);
 		clickPoint(1, 20, 20+h, 0);
 		wait(2);*/
-		
+
 		wait(2);
 		String discoverPopularPlayWindow ="//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther";
 		String meVideosPlayWindow=discoverPopularPlayWindow;
 		String discoverNewPlayWindow=discoverPopularPlayWindow;
 		String watchPlayWindow=discoverPopularPlayWindow;
-		String meFollowingPlayWindow="//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther";
+		String meFollowingPlayWindow="//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther";
 		String meFollowerPlayWindow=meFollowingPlayWindow;
-		String liveStoppedXpath="xpath	//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[3]";
-		
+		String liveStoppedXpath="//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[3]";
+
 		if (xpath_exist(discoverPopularPlayWindow)) {
-			log("click video window");
+			log("click video window-discoverPopularPlayWindow");
 			clickByXpath(discoverPopularPlayWindow);
 			String backXpath=String.format("%s//XCUIElementTypeOther[1]/XCUIElementTypeButton[1]", discoverPopularPlayWindow);
 			clickByXpath(backXpath);
 		}
 		if (xpath_exist(meFollowingPlayWindow)) {
-			log("click video window");
+			log("click video window-meFollowingPlayWindow");
 			clickByXpath(discoverPopularPlayWindow);
 			String backXpath=String.format("%s//XCUIElementTypeOther[1]/XCUIElementTypeButton[1]", meFollowingPlayWindow);
 			clickByXpath(backXpath);
 		}
+
 		wait(4);
 	}
 	public static void clickZan(){
@@ -293,7 +401,7 @@ public class DiscoverPage extends VP4 {
 			clickByXpath("//XCUIElementTypeApplication/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeButton");
 		}
 	}
-	//下拉刷新
+	//下拉刷新列表
 	public static void fresh(){
 		int width = iosdriver.manage().window().getSize().width;  
 		int height = iosdriver.manage().window().getSize().height;  

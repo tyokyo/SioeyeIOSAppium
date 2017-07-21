@@ -308,6 +308,11 @@ public class VP4 extends VP3
 		}
 		return isExist;
 	}*/
+	/** 
+	 *  
+	 * @param MobileElement   滑动的元素
+ 	 * @param direction 滑动方向
+	 */  
 	public static void swipeTo(MobileElement element,String direction) {  
 		int wd_width = iosdriver.manage().window().getSize().width;  
 		int wd_height = iosdriver.manage().window().getSize().height;  
@@ -346,6 +351,24 @@ public class VP4 extends VP3
 		default:
 			break;
 		}
+	}  
+	/** 
+	 * 滑动到最底部
+	 * @param MobileElement   滑动的元素
+	 */  
+	public static void swipeToEnd(MobileElement element) {  
+		int height_wd = iosdriver.manage().window().getSize().height;  
+		int width_wd = iosdriver.manage().window().getSize().width;  
+		
+		//Point point = element.getCenter();
+		int startX=width_wd/2;
+		int startY=element.getRect().y+10;
+		int endX=0;
+		int endY=0;
+		endX=startX;
+		endY=height_wd-5;
+		iosdriver.swipe(startX,startY,endX,endY,1000);
+		Log.info(String.format("swipToDown startX=%d startY=%d endX=%d endY=%d",startX,startY,endX,endY));
 	}  
 	//swipeToDown(IOSDriver<?>, int, int)
 	//swipeToLeft(IOSDriver<?>, int, int)

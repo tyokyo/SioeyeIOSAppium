@@ -9,6 +9,15 @@ public class MainAction extends VP{
 	public static void navToDiscover(){
 		MainPage.clickDiscover_btn();
 	}
+	public static void navToPopular(){
+		MainPage.clickDiscover_btn();
+		clickByName("Popular");
+	}
+	public static void navToNew(){
+		MainPage.clickDiscover_btn();
+		clickByName("New");
+		waitUntilByNotFind(By.name("Loading"), 10);
+	}
 	public static void navToMe(){
 		MainPage.clickMe_btn();
 	}

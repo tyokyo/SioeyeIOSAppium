@@ -91,7 +91,7 @@ public class FollowerCase extends VP4{
 				DiscoverPage.clickVieNewMessage();
 				Assert.assertEquals(text_exist(cmt), true,"New message at the bottom");
 				//返回
-				DiscoverPage.watchBack();
+				DiscoverPage.watchBackFollowers();
 				
 			}
 		}
@@ -121,7 +121,7 @@ public class FollowerCase extends VP4{
 				DiscoverPage.clickVieNewMessage();
 				Assert.assertEquals(text_exist(cmt), true,"New message at the bottom");
 				//返回
-				DiscoverPage.watchBack();
+				DiscoverPage.watchBackFollowers();
 			}
 		}
 	}
@@ -148,7 +148,7 @@ public class FollowerCase extends VP4{
 				DiscoverPage.clickVieNewMessage();
 				Assert.assertEquals(text_exist(cmt), true,"New message at the bottom");
 				//返回
-				DiscoverPage.watchBack();
+				DiscoverPage.watchBackFollowers();
 			}
 		}
 	}	
@@ -177,7 +177,7 @@ public class FollowerCase extends VP4{
 				DiscoverPage.clickVieNewMessage();
 				Assert.assertEquals(text_exist(cmt), true,"New message at the bottom");
 				//返回
-				DiscoverPage.watchBack();
+				DiscoverPage.watchBackFollowers();
 			}
 		}
 	}	

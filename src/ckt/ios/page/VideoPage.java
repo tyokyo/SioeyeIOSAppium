@@ -52,7 +52,7 @@ public class VideoPage  extends VP4{
 		VideoAction.clickCancel();
 		wait(3);
 	}
-
+	//More
 	public static void clickMore(){
 		clickByName("More");
 	}
@@ -96,12 +96,14 @@ public class VideoPage  extends VP4{
 		String cellpath=cellEem.getXpath();
 		String likepath = cellpath+"/XCUIElementTypeStaticText[4]";
 		String like = getElementByXpath(likepath).getText();
+		log("like - "+like);
 		return Integer.parseInt(like);
 	}
 	public static int  getLiveCommentCount(IElement cellEem){
 		String cellpath=cellEem.getXpath();
 		String commentpath = cellpath+"/XCUIElementTypeStaticText[5]";
 		String comment = getElementByXpath(commentpath).getText(); 
+		log("comment - "+comment);
 		return Integer.parseInt(comment);
 	}
 	public static void slipeToRefresh(){
